@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE mapper
+
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="SqlData">
+	
+	<select id="xml_select" resultType="xmlDto">
+		select * from light.product;
+	</select>
+	<select id="xml_detail_sel" resultType="xmlDto" parameterType="xmlDto">
+		select * from light.product where product_name=#{product_name};
+	</select>
+	<select id="xml_update_sel" resultType="xmlDto" parameterType="xmlDto">
+		select * from light.product where product_name=#{product_name};
+	</select>
+	
+	<insert id="xml_insert" parameterType="xmlDto">
+		insert into light.product values(#{product_name}, #{product_category}, #{product_price}, #{product_color}, #{product_file}, #{product_img}, #{product_contents}); 
+	</insert>
+	
+	<update id="xml_update" parameterType="xmlDto">
+		update light.product set product_name=#{product_name}, product_category=#{product_category}, product_price=#{product_price}, product_color=#{product_color}, product_file=#{product_file}, product_img=#{product_img}, product_contents=#{product_contents} where product_name=#{check};  
+	</update>
+	
+	<delete id="xml_delete" parameterType="xmlDto">
+		delete from product where product_name=#{product_name};
+	</delete>
+		
+</mapper>

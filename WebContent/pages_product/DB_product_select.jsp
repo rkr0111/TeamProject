@@ -4,8 +4,8 @@
 <%@page import="org.apache.ibatis.session.SqlSessionFactory"%>
 <%@page import="org.apache.ibatis.session.SqlSession"%>
 
-<%@page import="Dao.portfolioMybatis_dao"%>
-<%@page import="Dto.portfolioMybatis_dto"%>
+<%@page import="com.TeamPro.dao.TeamPro_dao"%>
+<%@page import="com.TeamPro.dto.Product_dto"%>
 <%@page import="java.util.*"%>
 
 <!DOCTYPE html>

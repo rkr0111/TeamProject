@@ -3,8 +3,8 @@
 <%@page import="org.apache.ibatis.session.SqlSessionFactory"%>
 <%@page import="org.apache.ibatis.session.SqlSession"%>
 
-<%@page import="Dao.portfolioMybatis_dao"%>
-<%@page import="Dto.portfolioMybatis_dto"%>
+<%@page import="com.TeamPro.dao.TeamPro_dao"%>
+<%@page import="com.TeamPro.dto.Product_dto"%>
 <%@page import="java.util.*"%>  
 
 <!DOCTYPE html>
@@ -21,19 +21,19 @@
 	}
 </style>
 <body>
-	<% 	
+	<%
 		request.setCharacterEncoding("utf-8");
 		String product_name = request.getParameter("product_name");
 		
-		portfolioMybatis_dao dao = new portfolioMybatis_dao();
-		portfolioMybatis_dto dto = new portfolioMybatis_dto();
-	
+		TeamPro_dao dao = new TeamPro_dao();
+		Product_dto dto = new Product_dto();
+			
 		SqlSessionFactory sqlfactory = dao.getConn(); //dao 안의 생성자
 		SqlSession sqlsession = sqlfactory.openSession();
 		
 		dto.setCheck(product_name);
 		dto.setProduct_name(product_name);
-		List<portfolioMybatis_dto> connresultsel = sqlsession.selectList("xml_select", dto);		
+		List<Product_dto> connresultsel = sqlsession.selectList("xml_select", dto);
 	%>
 
 	<h1>Product Update<br/>============</h1>

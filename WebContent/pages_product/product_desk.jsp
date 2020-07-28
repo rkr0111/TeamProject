@@ -4,8 +4,8 @@
 <%@page import="org.apache.ibatis.session.SqlSessionFactory"%>
 <%@page import="org.apache.ibatis.session.SqlSession"%>
 
-<%@page import="Dao.portfolioMybatis_dao"%>
-<%@page import="Dto.portfolioMybatis_dto"%>
+<%@page import="com.TeamPro.dao.TeamPro_dao"%>
+<%@page import="com.TeamPro.dto.Product_dto"%>
 <%@page import="java.util.*"%>
 
 <!DOCTYPE html>
@@ -79,17 +79,17 @@
 			<div class="productContainer">
 				<ul class="productList">
 					<%
-					portfolioMybatis_dao dao = new portfolioMybatis_dao();
-					portfolioMybatis_dto dto = new portfolioMybatis_dto();
+						TeamPro_dao dao = new TeamPro_dao();
+											Product_dto dto = new Product_dto();
 
-					SqlSessionFactory sqlfactory = dao.getConn();
-					SqlSession sqlsession = sqlfactory.openSession();
-					
-					List<portfolioMybatis_dto> connresultsel = sqlsession.selectList("xml_select");					
-					
-					for(int i=0; i<connresultsel.size(); i++) {
-						String product_name = connresultsel.get(i).getProduct_name();
-						%>
+											SqlSessionFactory sqlfactory = dao.getConn();
+											SqlSession sqlsession = sqlfactory.openSession();
+											
+											List<Product_dto> connresultsel = sqlsession.selectList("xml_select");					
+											
+											for(int i=0; i<connresultsel.size(); i++) {
+												String product_name = connresultsel.get(i).getProduct_name();
+					%>
 						<li>
 							<a onclick="productNameLink('<%=product_name %>', 2)" >
 								<div class="imgBox imgBox_1"></div>
