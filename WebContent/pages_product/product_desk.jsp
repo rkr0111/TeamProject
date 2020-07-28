@@ -80,37 +80,38 @@
 				<ul class="productList">
 					<%
 						TeamPro_dao dao = new TeamPro_dao();
-											Product_dto dto = new Product_dto();
+						Product_dto dto = new Product_dto();
 
-											SqlSessionFactory sqlfactory = dao.getConn();
-											SqlSession sqlsession = sqlfactory.openSession();
+						SqlSessionFactory sqlfactory = dao.getConn();
+						SqlSession sqlsession = sqlfactory.openSession();
 											
-											List<Product_dto> connresultsel = sqlsession.selectList("xml_select");					
+						List<Product_dto> connresultsel = sqlsession.selectList("xml_select");					
 											
-											for(int i=0; i<connresultsel.size(); i++) {
-												String product_name = connresultsel.get(i).getProduct_name();
+						for(int i=0; i<connresultsel.size(); i++) {
+						String product_name = connresultsel.get(i).getProduct_name();
 					%>
 						<li>
 							<a onclick="productNameLink('<%=product_name %>', 2)" >
 								<div class="imgBox imgBox_1"></div>
-								<div class="textBox">
-									<ul>
-										<%if(id == null) {%>
-										<li style="display: none;"></li>
-										<%}else if(!id.equals("admin")) {%>
-										<li style="display: none;"></li>
-										<%}else if(id.equals("admin")) {%>
-										<li class="mb_10">
-											<input type="button" value="수정하기" onclick="productNameLink('<%=product_name %>', 0)" />
-											<input type="button" value="삭제하기" onclick="productNameLink('<%=product_name %>', 1)" />
-										</li>
-										<%}%>
-										<li class="fs_20 fw_bold textColor gray_656565"><%out.print(product_name);%></li>
-										<li class="priceBox fs_18">\<%out.print(connresultsel.get(i).getProduct_price());%></li>
-										<li class="proContentsBox fs_14"><%out.print(connresultsel.get(i).getProduct_contents());%></li>
-									</ul>
-								</div>
+								
 							</a>
+							<div class="textBox">
+								<ul>
+									<%if(id == null) {%>
+									<li style="display: none;"></li>
+									<%}else if(!id.equals("admin")) {%>
+									<li style="display: none;"></li>
+									<%}else if(id.equals("admin")) {%>
+									<li class="mb_10">
+										<input type="button" value="수정하기" onclick="productNameLink('<%=product_name %>', 0)" />
+										<input type="button" value="삭제하기" onclick="productNameLink('<%=product_name %>', 1)" />
+									</li>
+									<%}%>
+									<li class="fs_20 fw_bold textColor gray_656565"><%out.print(product_name);%></li>
+									<li class="priceBox fs_18">\<%out.print(connresultsel.get(i).getProduct_price());%></li>
+									<li class="proContentsBox fs_14"><%out.print(connresultsel.get(i).getProduct_contents());%></li>
+								</ul>
+							</div>
 						</li>
 					<%}%>
 				</ul>
