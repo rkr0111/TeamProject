@@ -58,6 +58,7 @@ public class TeamPro_dao {
 		sqlsession.close();
 		return connresultupd; 
 	}
+	
 	//delete 
 	public void Conn_delete(Product_dto dto) {
 		SqlSession sqlsession = sqlfactory.openSession();

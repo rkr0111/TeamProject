@@ -8,6 +8,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import com.TeamPro.action.Light_action;
+import com.TeamPro.action.ProductSelectAction;
 import com.TeamPro.dto.ActionForward;
 
 @WebServlet("*.bo")
@@ -25,6 +26,18 @@ public class Light_controller extends javax.servlet.http.HttpServlet {
 		
 		if(command.equals("/DB_product_select.bo")) {
 			action = new ProductSelectAction();
+			try {
+				forward=action.execute(request, response);
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
+		}else if(command.equals("/DB_product_select.bo") {
+			action = new BoardListAction();
+			try {
+				forward=action.execute(request, response);
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
 		}
 			
 	}
