@@ -91,9 +91,8 @@
 						String product_name = connresultsel.get(i).getProduct_name();
 					%>
 						<li>
-							<a onclick="productNameLink('<%=product_name %>', 2)" >
-								<div class="imgBox imgBox_1"></div>
-								
+							<a class="imgContainer" onclick="productNameLink('<%=product_name %>', 2)" >
+								<div class="imgBox"></div>
 							</a>
 							<div class="textBox">
 								<ul>

@@ -90,18 +90,18 @@
 	color: #656565;
 }
 
-.productContainer > ul > li:nth-of-type(2n+1) .imgBox,
+.productContainer > ul > li:nth-of-type(2n+1) .imgContainer,
 .productContainer > ul > li:nth-of-type(2n+1) .textBox {
 	float: left;
 	text-align: left;
 }
-.productContainer .imgBox,
+.productContainer .imgContainer,
 .productContainer .textBox {
 	height: 370px;
 }
 
-/*imgBox*/
-.productContainer .imgBox {
+/*imgContainer*/
+.productContainer .imgContainer {
 	float: right;
 	width: 50%;
 	background-color: #eff;
@@ -109,13 +109,13 @@
 	background-repeat: no-repeat;
 	background-size: cover;
 }
-.productContainer .imgBox_1 {
-	background-image: url(../images/product_img/desk/desk_01/desk01_01.jpg);
+.productContainer .imgContainer .imgBox {
+	background: url(../images/product_img/desk/desk_01/desk01_01.jpg);
 	background-position: 0 -30px;
 }
 
 /* imgBox before / hover */
-.productContainer .imgBox:before {
+.productContainer .imgContainer:before {
 	content: '+';
 	display: inline-flex;
 	align-items: center;
@@ -134,7 +134,7 @@
 	-moz-transform: translateX(100%);
 	-o-transform: translateX(100%);
 }
-.productContainer .imgBox:hover:before {
+.productContainer .imgContainer:hover:before {
 	opacity: .5;
 
 	transform: translateX(0%);
@@ -148,14 +148,14 @@
 	-moz-transition: all .3s ease;
 	-o-transition: all .3s ease;
 }
-.productContainer > ul > li:nth-of-type(2n+1) .imgBox:before {
+.productContainer > ul > li:nth-of-type(2n+1) .imgContainer:before {
 	transform: translateX(-100%);
 	-webkit-transform: translateX(-100%);
 	-ms-transform: translateX(-100%);
 	-moz-transform: translateX(-100%);
 	-o-transform: translateX(-100%);
 }
-.productContainer > ul > li:nth-of-type(2n+1) .imgBox:hover:before {
+.productContainer > ul > li:nth-of-type(2n+1) .imgContainer:hover:before {
 	transform: translateX(0%);
 	-webkit-transform: translateX(0%);
 	-ms-transform: translateX(0%);
@@ -165,17 +165,20 @@
 
 /*textBox*/
 .productContainer .textBox {
+	display: flex;
+    align-items: center;
 	float: right;
 	width: 50%;
-	padding: 30px 30px 30px 0;
+	padding: 0 30px 0 0;
     box-sizing: border-box;
     text-align: right;
 }
 .productContainer > ul > li:nth-of-type(2n+1) .textBox {
-	padding: 30px 0 30px 30px;
+	padding: 0 0 0 30px;
 }
 .productContainer .textBox > ul {
-	padding: 65px 20px;
+	width: 100%;
+	padding: 100px 20px;
 	box-sizing: border-box;
 	border-top: 1px solid #aaa;
 	border-bottom: 1px solid #aaa;
