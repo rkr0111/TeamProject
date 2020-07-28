@@ -1,0 +1,218 @@
+@charset "utf-8";
+/*
+
+상품 페이지 - 탁상용
+
+*/
+
+#contents, .titleText, .viewContain > ul {
+	width: 1200px;
+	margin: 0 auto;
+}
+
+#contents {
+	overflow: hidden;
+}
+
+/*titleText*/
+.titleText {
+	display: flex;
+    align-items: center;
+    justify-content: center;
+	height: 180px;
+	margin: 0 auto;
+    background-color: #fee;
+	font-size: 24px;
+	font-weight: bold;
+    background: #74777e url(../images/product_img/desk/desk_04/desk04_01.jpg) 40px -240px/cover no-repeat;
+}
+
+/*viewContain*/
+.viewContain {
+	margin: 20px 0;
+    padding: 25px 0;
+	border: 1px solid #ddd;
+    box-sizing: border-box;
+}
+.viewContain ul {
+	overflow: hidden;
+}
+.viewContain ul {
+	height: 30px;
+}
+.viewContain ul li,
+.viewContain ul li select {
+	height: 100%;
+}
+.viewContain ul li:first-of-type {
+	float: left;
+	display: flex;
+    align-items: center;
+    width: 10%;
+    border-right: 1px solid #ddd;
+    color: #494949;
+    font-size: 16px;
+	font-weight: bold;
+}
+.viewContain ul li:last-of-type {
+	float: right;
+}
+.viewContain ul li select {
+	border: 1px solid #bbb;
+    border-radius: 3px;
+    width: 130px;
+    height: 100%;
+    color: #565656;
+}
+
+/*productContainer*/
+.productContainer {
+	width: 100%;
+	margin: 0 auto;
+}
+.productContainer > ul {
+	width: 100%;
+}
+.productContainer > ul > li {
+	overflow: hidden;
+	cursor: pointer;
+}
+.productContainer > ul > li:not(:last-of-type) {
+	margin-bottom: 60px;
+}
+.productContainer > ul > li a {
+	display: inline-block;
+	vertical-align: middle;
+	width: 100%;
+	overflow: hidden;
+}
+.productContainer ul li a {
+	color: #656565;
+}
+
+.productContainer > ul > li:nth-of-type(2n+1) .imgBox,
+.productContainer > ul > li:nth-of-type(2n+1) .textBox {
+	float: left;
+	text-align: left;
+}
+.productContainer .imgBox,
+.productContainer .textBox {
+	height: 370px;
+}
+
+/*imgBox*/
+.productContainer .imgBox {
+	float: right;
+	width: 50%;
+	background-color: #eff;
+	overflow: hidden;
+	background-repeat: no-repeat;
+	background-size: cover;
+}
+.productContainer .imgBox_1 {
+	background-image: url(../images/product_img/desk/desk_01/desk01_01.jpg);
+	background-position: 0 -30px;
+}
+
+/* imgBox before / hover */
+.productContainer .imgBox:before {
+	content: '+';
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	width: 100%;
+	height: 100%;
+	background-color: #fff;
+	opacity: 0;
+	color: #565656;
+	font-size: 40px;
+	font-weight: bold;
+
+	transform: translateX(100%);
+	-webkit-transform: translateX(100%);
+	-ms-transform: translateX(100%);
+	-moz-transform: translateX(100%);
+	-o-transform: translateX(100%);
+}
+.productContainer .imgBox:hover:before {
+	opacity: .5;
+
+	transform: translateX(0%);
+	-webkit-transform: translateX(0%);
+	-ms-transform: translateX(0%);
+	-moz-transform: translateX(0%);
+	-o-transform: translateX(0%);
+	transition: all .3s ease;
+	-webkit-transition: all .3s ease;
+	-ms-transition: all .3s ease;
+	-moz-transition: all .3s ease;
+	-o-transition: all .3s ease;
+}
+.productContainer > ul > li:nth-of-type(2n+1) .imgBox:before {
+	transform: translateX(-100%);
+	-webkit-transform: translateX(-100%);
+	-ms-transform: translateX(-100%);
+	-moz-transform: translateX(-100%);
+	-o-transform: translateX(-100%);
+}
+.productContainer > ul > li:nth-of-type(2n+1) .imgBox:hover:before {
+	transform: translateX(0%);
+	-webkit-transform: translateX(0%);
+	-ms-transform: translateX(0%);
+	-moz-transform: translateX(0%);
+	-o-transform: translateX(0%);
+}
+
+/*textBox*/
+.productContainer .textBox {
+	float: right;
+	width: 50%;
+	padding: 30px 30px 30px 0;
+    box-sizing: border-box;
+    text-align: right;
+}
+.productContainer > ul > li:nth-of-type(2n+1) .textBox {
+	padding: 30px 0 30px 30px;
+}
+.productContainer .textBox > ul {
+	padding: 65px 20px;
+	box-sizing: border-box;
+	border-top: 1px solid #aaa;
+	border-bottom: 1px solid #aaa;
+}
+.productContainer .textBox .priceBox {
+	margin: 15px 0 40px;
+	font-weight: bolder;
+	color: #f7bc79; 
+}
+.productContainer .textBox .proContentsBox {
+	color: #9c9c9c;
+}
+
+
+/*pagenation*/
+.pagenation {
+	display: flex;
+    justify-content: center;
+	margin-top: 50px;
+}
+.pagenation ul li {
+	display: inline-flex;
+    vertical-align: middle;
+    align-items: center;
+    justify-content: center;
+    width: 25px;
+    height: 25px;
+}
+.pagenation ul li:not(:last-of-type) {
+	margin-right: 10px;
+}
+.pagenation ul li a {
+	color: #656565;
+	font-size: 16px;
+}
+
+/*pagenation*/
+.pagenation ul li:hover {
+	font-weight: bold;
+}

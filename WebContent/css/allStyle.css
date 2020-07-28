@@ -1,0 +1,289 @@
+@charset "utf-8";
+
+
+/*-------------------------------------*/
+/*공통 css 모음*/
+/*-------------------------------------*/
+
+/*---------------*/
+.displayB { display: block; }
+.displayI { display: inline; }
+.displayIB { display: inline-block; }
+.displayF {
+	display: flex;
+	align-items: center;
+}
+.displayIF {
+	display: inline-flex;
+	align-items: center;
+}
+
+/*---------------*/
+/*margin*/
+/*margin-top*/
+.mt_1 { margin-top: 1px; }
+.mt_5 { margin-top: 5px; }
+.mt_6 { margin-top: 6px; }
+.mt_7 { margin-top: 7px; }
+.mt_8 { margin-top: 8px; }
+.mt_9 { margin-top: 9px; }
+.mt_10 { margin-top: 10px; }
+.mt_11 { margin-top: 11px; }
+.mt_12 { margin-top: 12px; }
+.mt_13 { margin-top: 13px; }
+.mt_14 { margin-top: 14px; }
+.mt_15 { margin-top: 15px; }
+.mt_16 { margin-top: 16px; }
+.mt_17 { margin-top: 17px; }
+.mt_18 { margin-top: 18px; }
+.mt_19 { margin-top: 19px; }
+.mt_20 { margin-top: 20px; }
+.mt_25 { margin-top: 25px; }
+.mt_30 { margin-top: 30px; }
+.mt_35 { margin-top: 35px; }
+.mt_40 { margin-top: 40px; }
+.mt_45 { margin-top: 45px; }
+.mt_50 { margin-top: 50px; }
+/*margin-right*/
+.mr_1 { margin-right: 1px; }
+.mr_5 { margin-right: 5px; }
+.mr_6 { margin-right: 6px; }
+.mr_7 { margin-right: 7px; }
+.mr_8 { margin-right: 8px; }
+.mr_9 { margin-right: 9px; }
+.mr_10 { margin-right: 10px; }
+.mr_11 { margin-right: 11px; }
+.mr_12 { margin-right: 12px; }
+.mr_13 { margin-right: 13px; }
+.mr_14 { margin-right: 14px; }
+.mr_15 { margin-right: 15px; }
+.mr_16 { margin-right: 16px; }
+.mr_17 { margin-right: 17px; }
+.mr_18 { margin-right: 18px; }
+.mr_19 { margin-right: 19px; }
+.mr_20 { margin-right: 20px; }
+.mr_25 { margin-right: 25px; }
+.mr_30 { margin-right: 30px; }
+.mr_35 { margin-right: 35px; }
+.mr_40 { margin-right: 40px; }
+.mr_45 { margin-right: 45px; }
+.mr_50 { margin-right: 50px; }
+/*margin-bottom*/
+.mb_1 { margin-bottom: 1px; }
+.mb_5 { margin-bottom: 5px; }
+.mb_6 { margin-bottom: 6px; }
+.mb_7 { margin-bottom: 7px; }
+.mb_8 { margin-bottom: 8px; }
+.mb_9 { margin-bottom: 9px; }
+.mb_10 { margin-bottom: 10px; }
+.mb_11 { margin-bottom: 11px; }
+.mb_12 { margin-bottom: 12px; }
+.mb_13 { margin-bottom: 13px; }
+.mb_14 { margin-bottom: 14px; }
+.mb_15 { margin-bottom: 15px; }
+.mb_16 { margin-bottom: 16px; }
+.mb_17 { margin-bottom: 17px; }
+.mb_18 { margin-bottom: 18px; }
+.mb_19 { margin-bottom: 19px; }
+.mb_20 { margin-bottom: 20px; }
+.mb_25 { margin-bottom: 25px; }
+.mb_30 { margin-bottom: 30px; }
+.mb_35 { margin-bottom: 35px; }
+.mb_40 { margin-bottom: 40px; }
+.mb_45 { margin-bottom: 45px; }
+.mb_50 { margin-bottom: 50px; }
+/*margin-left*/
+.ml_1 { margin-left: 1px; }
+.ml_5 { margin-left: 5px; }
+.ml_6 { margin-left: 6px; }
+.ml_7 { margin-left: 7px; }
+.ml_8 { margin-left: 8px; }
+.ml_9 { margin-left: 9px; }
+.ml_10 { margin-left: 10px; }
+.ml_11 { margin-left: 11px; }
+.ml_12 { margin-left: 12px; }
+.ml_13 { margin-left: 13px; }
+.ml_14 { margin-left: 14px; }
+.ml_15 { margin-left: 15px; }
+.ml_16 { margin-left: 16px; }
+.ml_17 { margin-left: 17px; }
+.ml_18 { margin-left: 18px; }
+.ml_19 { margin-left: 19px; }
+.ml_20 { margin-left: 20px; }
+.ml_25 { margin-left: 25px; }
+.ml_30 { margin-left: 30px; }
+.ml_35 { margin-left: 35px; }
+.ml_40 { margin-left: 40px; }
+.ml_45 { margin-left: 45px; }
+.ml_50 { margin-left: 50px; }
+
+/*---------------*/
+/*padding*/
+/*padding-top*/
+.pt_1 { padding-top: 1px; }
+.pt_5 { padding-top: 5px; }
+.pt_6 { padding-top: 6px; }
+.pt_7 { padding-top: 7px; }
+.pt_8 { padding-top: 8px; }
+.pt_9 { padding-top: 9px; }
+.pt_10 { padding-top: 10px; }
+.pt_11 { padding-top: 11px; }
+.pt_12 { padding-top: 12px; }
+.pt_13 { padding-top: 13px; }
+.pt_14 { padding-top: 14px; }
+.pt_15 { padding-top: 15px; }
+.pt_16 { padding-top: 16px; }
+.pt_17 { padding-top: 17px; }
+.pt_18 { padding-top: 18px; }
+.pt_19 { padding-top: 19px; }
+.pt_20 { padding-top: 20px; }
+.pt_25 { padding-top: 25px; }
+.pt_30 { padding-top: 30px; }
+.pt_35 { padding-top: 35px; }
+.pt_40 { padding-top: 40px; }
+.pt_45 { padding-top: 45px; }
+.pt_50 { padding-top: 50px; }
+/*padding-right*/
+.pr_1 { padding-right: 1px; }
+.pr_5 { padding-right: 5px; }
+.pr_6 { padding-right: 6px; }
+.pr_7 { padding-right: 7px; }
+.pr_8 { padding-right: 8px; }
+.pr_9 { padding-right: 9px; }
+.pr_10 { padding-right: 10px; }
+.pr_11 { padding-right: 11px; }
+.pr_12 { padding-right: 12px; }
+.pr_13 { padding-right: 13px; }
+.pr_14 { padding-right: 14px; }
+.pr_15 { padding-right: 15px; }
+.pr_16 { padding-right: 16px; }
+.pr_17 { padding-right: 17px; }
+.pr_18 { padding-right: 18px; }
+.pr_19 { padding-right: 19px; }
+.pr_20 { padding-right: 20px; }
+.pr_25 { padding-right: 25px; }
+.pr_30 { padding-right: 30px; }
+.pr_35 { padding-right: 35px; }
+.pr_40 { padding-right: 40px; }
+.pr_45 { padding-right: 45px; }
+.pr_50 { padding-right: 50px; }
+/*padding-bottom*/
+.pb_1 { padding-bottom: 1px; }
+.pb_5 { padding-bottom: 5px; }
+.pb_6 { padding-bottom: 6px; }
+.pb_7 { padding-bottom: 7px; }
+.pb_8 { padding-bottom: 8px; }
+.pb_9 { padding-bottom: 9px; }
+.pb_10 { padding-bottom: 10px; }
+.pb_11 { padding-bottom: 11px; }
+.pb_12 { padding-bottom: 12px; }
+.pb_13 { padding-bottom: 13px; }
+.pb_14 { padding-bottom: 14px; }
+.pb_15 { padding-bottom: 15px; }
+.pb_16 { padding-bottom: 16px; }
+.pb_17 { padding-bottom: 17px; }
+.pb_18 { padding-bottom: 18px; }
+.pb_19 { padding-bottom: 19px; }
+.pb_20 { padding-bottom: 20px; }
+.pb_25 { padding-bottom: 25px; }
+.pb_30 { padding-bottom: 30px; }
+.pb_35 { padding-bottom: 35px; }
+.pb_40 { padding-bottom: 40px; }
+.pb_45 { padding-bottom: 45px; }
+.pb_50 { padding-bottom: 50px; }
+/*padding-left*/
+.pl_1 { padding-left: 1px; }
+.pl_5 { padding-left: 5px; }
+.pl_6 { padding-left: 6px; }
+.pl_7 { padding-left: 7px; }
+.pl_8 { padding-left: 8px; }
+.pl_9 { padding-left: 9px; }
+.pl_10 { padding-left: 10px; }
+.pl_11 { padding-left: 11px; }
+.pl_12 { padding-left: 12px; }
+.pl_13 { padding-left: 13px; }
+.pl_14 { padding-left: 14px; }
+.pl_15 { padding-left: 15px; }
+.pl_16 { padding-left: 16px; }
+.pl_17 { padding-left: 17px; }
+.pl_18 { padding-left: 18px; }
+.pl_19 { padding-left: 19px; }
+.pl_20 { padding-left: 20px; }
+.pl_25 { padding-left: 25px; }
+.pl_30 { padding-left: 30px; }
+.pl_35 { padding-left: 35px; }
+.pl_40 { padding-left: 40px; }
+.pl_45 { padding-left: 45px; }
+.pl_50 { padding-left: 50px; }
+
+/*---------------*/
+/*text style*/
+.fs_75em { font-size: 0.75em; }
+.fs_11 { font-size: 11px; }
+.fs_12 { font-size: 12px; }
+.fs_13 { font-size: 13px; }
+.fs_14 { font-size: 14px; }
+.fs_15 { font-size: 15px; }
+.fs_16 { font-size: 16px; }
+.fs_17 { font-size: 17px; }
+.fs_18 { font-size: 18px; }
+.fs_19 { font-size: 19px; }
+.fs_20 { font-size: 20px; }
+.fs_21 { font-size: 21px; }
+.fs_22 { font-size: 22px; }
+.fs_23 { font-size: 23px; }
+.fs_24 { font-size: 24px; }
+.fs_25 { font-size: 25px; }
+.fs_26 { font-size: 26px; }
+.fs_27 { font-size: 27px; }
+.fs_28 { font-size: 28px; }
+.fs_29 { font-size: 29px; }
+.fs_30 { font-size: 30px; }
+.fs_35 { font-size: 35px; }
+.fs_40 { font-size: 40px; }
+.fs_45 { font-size: 45px; }
+.fs_50 { font-size: 50px; }
+
+/*---------------*/
+/*font-weight*/
+.fw_bold { font-weight: bold; }
+
+/*---------------*/
+/*letter-spacing*/
+.ls_1_2 { letter-spacing: -1.2px; }
+
+/*---------------*/
+/*line-height*/
+.lh_1_8 { line-height: 1.8; }
+.lh_2_1 { line-height: 2.1; }
+
+/*---------------*/
+/*text-align*/
+.t_align_left { text-align: left; }
+.t_align_right { text-align: right; }
+.t_align_center { text-align: center; }
+
+/*---------------*/
+/*color*/
+.textColor.white { color: #fff; }
+.textColor.gray_494949 { color: #494949; }
+.textColor.gray_aaa { color: #aaa; }
+.textColor.gray_656565 { color: #656565; }
+.textColor.gray_4c4c4c { color: #4c4c4c; }
+.textColor.gray_7f7f7f { color: #7f7f7f; }
+.textColor.gray_9c9c9c { color: #9c9c9c; }
+.textColor.red { color: #ff0000; }
+.textColor.blue { color: #0000ff; }
+.textColor.orange { color: #ff8800; }
+
+/*---------------*/
+/*team project text color*/
+.textColor.fff7ee { color: #fff7ee; }
+.textColor.ffc88a { color: #ffc88a; }
+.textColor.f7bc79 { color: #f7bc79; }
+.textColor.ff9d2d { color: #ff9d2d; }
+
+/*team project background color*/
+.bgColor_fff7ee { background-color: #fff7ee; }
+.bgColor_ffc88a { background-color: #ffc88a; }
+.bgColor_f7bc79 { background-color: #f7bc79; }

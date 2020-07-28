@@ -1,0 +1,275 @@
+@charset "utf-8";
+
+/*
+
+join style
+
+*/
+
+/*table*/
+table th {
+	padding: 20px 10px;
+	vertical-align: middle;
+}
+table td {
+	padding: 20px 30px;
+	vertical-align: middle;
+}
+label {
+	display: none;
+}
+
+header + section {
+	width: 1400px;
+	margin: 110px auto 0 !important;
+}
+.agreecheckContainer,
+.joinformContainer {
+	display: inline-block;
+	vertical-align: top;
+	width: 48.9%;
+}
+.joinformContainer {
+	margin-left: 23px;
+}
+
+/*titleText*/
+.titleText {
+    margin-bottom: 10px;
+    padding-bottom: 10px;
+	font-size: 20px;
+    font-weight: bold;
+    color: #494949;
+    border-bottom: 1px solid #494949;
+}
+
+/*
+회원가입 - 개인정보 입력 폼
+*/
+
+/*joinTableContainer*/
+.joinTableContainer {
+	width: 100%;
+	margin-bottom: 20px;
+}
+.joinTableContainer table {
+	width: 100%;
+	overflow: hidden;
+}
+.joinTableContainer table td ul {
+	margin: 0 0 10px 0;
+}
+.joinTableContainer table td ul:last-of-type {
+	margin: 0 0 0 0;
+}
+.joinTableContainer table ul li {
+	display: inline-block;
+}
+
+/*agreeform*/
+.joinTableContainer.agreeform table td {
+	width: 50%;
+}
+.joinTableContainer.agreeform table th {
+	font-weight: bold;
+	padding: 10px 0;
+}
+.joinTableContainer.agreeform table tr:nth-of-type(2) td {
+	width: 100%;
+	height: 60px;
+    padding: 5px 10px;
+	vertical-align: top;
+	overflow: hidden;
+	border: 1px solid #ccc;
+	border-right: 2px solid #ccc;
+}
+.joinTableContainer.agreeform table tr:nth-of-type(3) td {
+	padding: 10px 0;
+}
+
+/*joinform*/
+.joinTableContainer.joinform table th {
+	width: 25%;
+	background-color: #f9f9f9;
+	border-right: 1px solid #e8e8e8;
+	border-bottom: 1px solid #e8e8e8;
+	font-weight: bold;
+	font-size: 14px;
+	color: #656565;
+}
+.joinTableContainer.joinform table td {
+	width: 75%;
+	padding: 25px 20px;
+	border-bottom: 1px solid #e8e8e8;
+}
+.joinTableContainer.joinform table .tdPwd ul li {
+	display: block;
+}
+.joinTableContainer.joinform table tr:last-of-type th,
+.joinTableContainer.joinform table tr:last-of-type td {
+	border-bottom: none;
+}
+
+/*select*/
+select {
+	width: 147px;
+	height: 35px;
+	vertical-align: middle;
+	border: 1px solid #ccc;
+	border-radius: 3px;
+}
+
+/*input / button*/
+.inputText,
+.addressBox {
+	width: 141px;
+	height: 31px;
+	vertical-align: middle;
+	border: 1px solid #ccc;
+	border-radius: 3px;
+}
+input.button {
+    padding: 8px 12px;
+	background-color: #eee;
+    border: 1px solid #bbb;
+    border-radius: 3px;
+    box-sizing: border-box;
+    align-items: center;
+    vertical-align: middle;
+}
+input.checkBtn:hover {
+	background-color: #ddd;
+}
+
+/*btnContainer*/
+.btnContainer {
+	text-align: center;
+}
+input.button[type="submit"] {
+	width: 260px;
+    height: 45px;
+    font-size: 15px;
+    font-weight: bold;
+	background-color: #ffc88a;
+	border: 2px solid #ffc88a;
+}
+input.button[type="submit"]:hover {
+	background-color: #f7bc79;
+	border: 2px solid #f7bc79;
+}
+
+/*checkVisible*/
+.joinform table td {
+	position: relative;
+}
+.checkVisible {
+	position: absolute;
+	top: 65px;
+    left: 20px;
+    width: 100%;
+	height: 20px;
+}
+td.tdPwd .checkVisible {
+	top: 141px;
+}
+.checkVisible p {
+	position: absolute;
+}
+
+
+
+/*
+회원가입 - 이용약관 동의 폼
+*/
+.agreeContainer {
+	border: 2px solid #e8e8e8;
+    border-radius: 8px;
+    padding: 17px 30px;
+    box-sizing: border-box;
+    overflow: hidden;
+}
+.agreeContainer input[type="checkbox"] {
+	width: 20px;
+	height: 20px;
+}
+.agreeContainer h1 {
+	display: inline-block;
+	vertical-align: super;
+    font-weight: bold;
+    font-size: 16px;
+    color: #656565;
+}
+.agreeContainer .agreeArticle {
+	height: 345px;
+    margin-top: 20px;
+    padding-top: 20px;
+	border-top: 1px solid #e8e8e8;
+	overflow: hidden;
+}
+.agreeContainer .agreeArticle article {
+    height: 100%;
+	/*overflow-y: scroll;*/
+	font-size: 12px;
+    line-height: 1.45;
+    letter-spacing: -1.4px;
+}
+
+/* 반응형 미디어쿼리 */
+@media screen and (max-width: 1400px) {
+	header + section {
+		width: 95%;
+	}
+	.agreecheckContainer, .joinformContainer {
+		width: 48%;
+	}
+	.joinTableContainer.joinform table td {
+		padding: 25px 10px;
+	}
+	.inputText, .addressBox {
+		width: 114px;
+	}
+	select {
+		width: 120px;
+	}
+}
+@media screen and (max-width: 1200px) {
+	.inputText, .addressBox {
+		width: 89px;
+	}
+	select {
+		width: 95px;
+	}
+}
+@media screen and (max-width: 1024px) {
+	header + section {
+		width: 80%;
+	}
+	.agreecheckContainer, .joinformContainer {
+		display: block;
+		width: 100%;
+	}
+	.joinformContainer {
+		margin-top: 30px;
+		margin-left: 0;
+	}
+	.joinTableContainer.joinform table td {
+		padding: 25px 20px;
+	}
+	.inputText, .addressBox {
+		width: 114px;
+	}
+	select {
+		width: 120px;
+	}
+	.agreeContainer .agreeArticle {
+		height: 150px;
+	}
+}
+@media screen and (max-width: 768px) {
+	.inputText, .addressBox {
+		width: 89px;
+	}
+	select {
+		width: 95px;
+	}
+}

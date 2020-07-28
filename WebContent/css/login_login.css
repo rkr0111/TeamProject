@@ -1,0 +1,86 @@
+@charset "utf-8";
+
+header + section {
+	margin: 85px auto 0 !important;
+    height: 610px;
+}
+
+section {
+	background: url(../images/mypage_img/recent_img/bedroom01_02.jpg) center/cover no-repeat;
+	display: flex;
+    align-items: center;
+    justify-content: center;
+}
+footer {
+	margin: 0 auto !important;
+}
+.loginformContainer {
+    height: auto;
+    padding: 50px 60px;
+    box-sizing: border-box;
+    overflow: hidden;
+    background: rgba(255, 255, 255, 0.9);
+}
+.titleText {
+	margin-bottom: 50px;
+    text-align: center;
+    font-size: xx-large;
+    font-weight: bold;
+}
+.loginContainer {
+	height: 0 auto;
+}
+.inputInfo {
+	text-align: center;
+}
+.inputInfo li:not(:last-of-type) {
+	margin-bottom: 10px;	
+}
+.inputInfo input { 
+    width: 400px;
+    height: 45px;
+	border: 1px solid #c1bfbf;
+    border-radius: 5px;
+}
+.inputInfo li:last-of-type {
+	margin-bottom: 50px;
+}
+
+.findinfo {
+	text-align: center;
+	margin: 20px 0;
+}
+.findinfo li {
+	display: inline-block;
+    font-size: 13px;
+    padding-right: 10px;
+    margin-right: 10px;
+    border-right: solid 1px gray;
+}
+.findinfo li:last-of-type {
+	margin-right: 0;
+	padding-right: 0;
+	border-right: none;
+}
+.findinfo li a {
+	color: gray;
+}
+
+
+/*btnContainer*/
+.btnContainer {
+	text-align: center;
+}
+input.button[type="submit"] {
+	width: 400px;
+    height: 45px;
+    font-size: 15px;
+    font-weight: bold;
+	background-color: #ffc88a;
+	border: 2px solid #ffc88a;
+    border-radius: 6px;
+}
+input.button[type="submit"]:hover {
+	background-color: #f7bc79;
+	border: 2px solid #f7bc79;
+}

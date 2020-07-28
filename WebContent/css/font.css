@@ -1,0 +1,48 @@
+@charset "utf-8";
+
+
+/*-------------------------------------*/
+/*google web font*/
+/*-------------------------------------*/
+
+/*Nanum Gothic*/
+@font-face {
+	font-family: NanumGothicRegular;
+	src: url(../font/Nanum_Gothic/NanumGothic-Regular.woff);
+	font-style: normal;
+	font-weight: normal;
+	unicode-range: u+0-10FFFF;
+}
+@font-face {
+	font-family: NanumGothicBold;
+	src: url(../font/Nanum_Gothic/NanumGothic-Bold.woff);
+	font-style: normal;
+	font-weight: normal;
+	unicode-range: u+0-10FFFF;
+}
+
+/*Nanum Gothic Coding*/
+@font-face {
+	font-family: NanumGothicCodingRegular;
+	src: url(../font/Nanum_Gothic_Coding/NanumGothicCoding-Regular.woff);
+	font-style: normal;
+	font-weight: normal;
+	unicode-range: u+0-10FFFF;
+}
+@font-face {
+	font-family: NanumGothicCodingBold;
+	src: url(../font/Nanum_Gothic_Coding/NanumGothicCoding-Bold.woff);
+	font-style: normal;
+	font-weight: normal;
+	unicode-range: u+0-10FFFF;
+}
+
+html {
+	font-family: 'NanumGothicRegular', san-serif;
+	letter-spacing: -1.2px;
+}
+
+.NanumGothicRegular { font-family: NanumGothicRegular, san-serif; }
+.NanumGothicBold { font-family: NanumGothicBold, san-serif; }
+.NanumGothicCodingRegular { font-family: NanumGothicCodingRegular, san-serif; }
+.NanumGothicCodingBold { font-family: NanumGothicCodingBold, san-serif; }

@@ -1,0 +1,229 @@
+
+/*
+
+product_desk_detail style
+
+*/
+
+html {
+	font-size: 15px;
+	color: #656565;
+}
+
+/*
+==================================================
+headerProductContainer
+==================================================
+*/
+.headerProductContainer {
+	width: 1200px;
+	margin: 180px auto 100px;
+}
+.headerProductContainer > div {
+	display: inline-block;
+	vertical-align: top;
+	width: 48%;
+	height: 100%;
+}
+
+/*productContainer*/
+.headerProductContainer .productContainer {
+	margin-right: 40px;
+	overflow: hidden;
+}
+.headerProductContainer .productContainer img {
+	width: 100%;
+}
+
+/*productInfoContainer*/
+.headerProductContainer .productInfoContainer .labelText {
+    margin-right: 40px;
+    color: #9f9f9f;
+}
+.headerProductContainer .productInfoContainer .labelText,
+.headerProductContainer .productInfoContainer .labelText + span,
+.headerProductContainer .productInfoContainer .labelText + ul,
+.headerProductContainer .productInfoContainer .labelText + select {
+	display: inline-block;
+	vertical-align: middle;
+}
+
+/*amount*/
+.headerProductContainer .productInfoContainer .amountContents {
+	border-top: 1px solid #ddd;
+}
+.headerProductContainer .productInfoContainer .amount {
+	overflow: hidden;
+}
+.headerProductContainer .productInfoContainer .amount li {
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	float: left;
+	width: 40px;
+	height: 40px;
+	background-color: #fff;
+	border: 1px solid #ddd; 
+}
+.headerProductContainer .productInfoContainer .amount li:nth-of-type(2) {
+	width: 150px;
+}
+.headerProductContainer .productInfoContainer .amount li:not(:last-of-type) {
+	border-right: none;
+}
+.headerProductContainer .productInfoContainer .amount li input {
+	width: 100%;
+	height: 100%;
+	background-color: transparent; 
+	border: transparent;
+	text-align: center;
+}
+.headerProductContainer .productInfoContainer .amount li a,
+.headerProductContainer .productInfoContainer .amount li input {
+	color: #656565;
+}
+
+/*colorSelectContents*/
+.headerProductContainer .productInfoContainer .colorSelectContents select {
+	width: 234px;
+	height: 40px;
+	border: 1px solid #ddd; 
+}
+
+/*totalChoiceContainer*/
+.headerProductContainer .productInfoContainer .totalChoiceContainer {
+	padding: 20px;
+	background-color: #f8f8f8;
+	border-top: 3px solid #ddd;
+	border-bottom: 3px solid #ddd;
+	overflow: hidden;
+}
+.headerProductContainer .productInfoContainer .totalChoiceContainer .totalChoice {
+	display: flex;
+	align-items: center;
+	position: relative;
+}
+.headerProductContainer .productInfoContainer .totalChoiceContainer .totalChoice:after {
+	content: '';
+    position: absolute;
+    right: 0;
+	width: 10px;
+	height: 10px;
+	background: url(../images/icon/close_icon.png) center/contain no-repeat;
+}
+.headerProductContainer .productInfoContainer .totalChoiceContainer .totalChoice:last-of-type {
+	margin-top: 10px;
+}
+.headerProductContainer .productInfoContainer .totalChoiceContainer .totalChoice li:not(:first-of-type) {
+	font-size: 14px;
+	color: #9c9c9c;
+}
+.headerProductContainer .productInfoContainer .totalChoiceContainer .totalChoice li:not(:last-of-type) {
+	margin-right: 20px;
+}
+
+/*customerBtn*/
+.headerProductContainer .productInfoContainer .customerBtn {
+	display: flex;
+}
+.headerProductContainer .productInfoContainer .customerBtn li {
+	width: 283px;
+    height: 50px;
+}
+.headerProductContainer .productInfoContainer .customerBtn li input {
+	width: 100%;
+	height: 100%;
+	cursor: pointer;
+}
+.headerProductContainer .productInfoContainer .customerBtn li input[name="cart_btn"] {
+	background-color: #fff; 
+	border: 2px solid #f7bc79;
+	color: #f7bc79;
+	font-weight: bold;
+}
+.headerProductContainer .productInfoContainer .customerBtn li input[name="buy_btn"] {
+	background-color: #f7bc79; 
+	border: 2px solid transparent;
+	color: #fff;
+}
+
+/*
+==================================================
+detailContainer
+==================================================
+*/
+
+.detailContainer {
+	width: 100%;
+	margin: 0 auto;
+}
+.detailContainer > div:not(:first-of-type),
+.detailContainer .detailNav .detailNav-inner {
+	width: 1200px;
+	margin: 0 auto;
+}
+
+/*detailNav*/
+.detailContainer .detailNav {
+	border-top: 1px solid #ddd;
+	border-bottom: 1px solid #ddd;
+    margin-bottom: 100px;
+}
+.detailContainer .detailNav .detailNav-inner {
+	display: flex;
+	justify-content: center;
+}
+.detailContainer .detailNav li {
+	display: inline-flex;
+	align-items: center;
+    justify-content: center;
+    width: 50%;
+	height: 50px;
+	cursor: pointer;
+}
+.detailContainer .detailNav li:first-of-type {
+	border-left: 1px solid #ddd;
+
+}
+.detailContainer .detailNav li:last-of-type {
+	border-right: 1px solid #ddd;
+}
+.detailContainer .detailNav li:not(:last-of-type) {
+	border-right: 1px solid #ddd;
+}
+
+/*detailImg*/
+.detailContainer .detailImg img {
+	width: 100%;
+}
+
+/*detailDelInfo*/
+.detailContainer .detailDelInfo {
+	margin-top: 50px !important;
+}
+.detailContainer .detailDelInfo h2 {
+	border-bottom: 2px solid #ddd;
+	padding-bottom: 20px;
+	margin-bottom: 20px;
+}
+.detailContainer .detailDelInfo > div:not(:last-of-type) {
+	border-bottom: 1px solid #ddd;
+	padding-bottom: 20px;
+	margin-bottom: 20px;
+}
+
+.detailContainer .detailDelInfo .infoList li {
+	font-size: 12px;
+}
+.detailContainer .detailDelInfo .infoList li:not(:last-of-type) {
+	margin-bottom: 10px;
+}
+.detailContainer .detailDelInfo .infoList li:before {
+	content: '';
+	display: inline-block;
+	vertical-align: middle;
+	width: 4px;
+	height: 4px;
+	background-color: #ccc;
+	margin-right: 10px;
+}
