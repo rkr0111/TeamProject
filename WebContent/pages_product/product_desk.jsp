@@ -32,9 +32,9 @@
 		}
 	}
 	
-	function partSelect(param) {
-		location.href="DB_product_select.jsp?search_product="+encodeURI(param);
-	}
+	//function partSelect(param) {
+	//	location.href="DB_product_select.jsp?search_product="+encodeURI(param);
+	//}
 	
 	
 </script>
