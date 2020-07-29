@@ -8,14 +8,13 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import com.TeamPro.action.Light_action;
+import com.TeamPro.action.Product_ListAction;
 import com.TeamPro.dto.ActionForward;
 
 @WebServlet("*.bo")
 public class Light_controller extends javax.servlet.http.HttpServlet {
 
-	protected void doProcess(HttpServletRequest request, HttpServletResponse response) 
-			throws ServletException, IOException {
-		
+	protected void doProcess(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		request.setCharacterEncoding("UTF-8");
 		String RequestURI=request.getRequestURI();
 		String contextPath=request.getContextPath();
@@ -23,9 +22,34 @@ public class Light_controller extends javax.servlet.http.HttpServlet {
 		ActionForward forward=null;
 		Light_action action=null;
 		
-		if(command.equals("/DB_product_select.bo")) {
-			action = new ProductSelectAction();
+		// check command
+		if(command.equals("/productList.bo")) {
+			action = new Product_ListAction();
+			try{
+				forward=action.execute(request, response);
+			}catch(Exception e){
+				e.printStackTrace();
+			}
 		}
-			
+		
+		// check forward
+		if(forward != null){
+			if(forward.isRedirect()){
+				response.sendRedirect(forward.getPath());
+			}else{
+				RequestDispatcher dispatcher = request.getRequestDispatcher(forward.getPath());
+				dispatcher.forward(request, response);
+			}
+		}	
+	}
+	
+	protected void doGet(HttpServletRequest request, HttpServletResponse response) 
+			throws ServletException, IOException {
+		doProcess(request,response);
+	}  	
+
+	protected void doPost(HttpServletRequest request, HttpServletResponse response) 
+			throws ServletException, IOException {
+		doProcess(request,response);
 	}
 }
