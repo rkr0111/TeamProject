@@ -65,6 +65,13 @@ public class TeamPro_dao {
 		sqlsession.close();
 		return connresultupd; 
 	}
+	//Conn_update_proList
+	public List<Product_dto> Conn_update_proList(String search_product) {
+		SqlSession sqlsession = sqlfactory.openSession();
+		List<Product_dto> connUptList= sqlsession.selectList("xml_update_sel");
+		sqlsession.close();
+		return connUptList;
+	}
 	
 	//delete 
 	public void Conn_delete(Product_dto dto) {

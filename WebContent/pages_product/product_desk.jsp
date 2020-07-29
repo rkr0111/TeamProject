@@ -24,12 +24,13 @@
 <script type="text/javascript">
 	function productNameLink(param, flag) {
 		if(flag == 0) {
-			location.href="DB_product_update.jsp?product_name="+encodeURI(param);
+			location.href="../productUpdate.bo?product_name="+encodeURI(param);
 		}else if(flag == 1) {
 			location.href="DB_product_delete.jsp?product_name="+encodeURI(param);
 		}else if(flag == 2) {
 			location.href="productDetailSelect.bo?product_name="+encodeURIComponent(param);
 		}
+	
 </script>
 
 <body>
@@ -72,7 +73,7 @@
 			<div class="productContainer">
 				<ul class="productList">
 					<%
-						ArrayList<Product_dto> productList = (ArrayList<Product_dto>) request.getAttribute("productList");
+						ArrayList<Product_dto> productList = (ArrayList<Product_dto>)request.getAttribute("productList");
 						for(int i=0; i<productList.size(); i++) {
 						String product_name = productList.get(i).getProduct_name();
 					%>

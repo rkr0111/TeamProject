@@ -9,6 +9,7 @@ import javax.servlet.http.HttpServletResponse;
 
 import com.TeamPro.action.Light_action;
 import com.TeamPro.action.Product_ListAction;
+import com.TeamPro.action.Product_UpdateAction;
 import com.TeamPro.dto.ActionForward;
 
 @WebServlet("*.bo")
@@ -28,6 +29,13 @@ public class Light_controller extends javax.servlet.http.HttpServlet {
 			try{
 				forward=action.execute(request, response);
 			}catch(Exception e){
+				e.printStackTrace();
+			}
+		}else if(command.equals("/productUpdate.bo")) {
+			action = new Product_UpdateAction();
+			try {
+				forward=action.execute(request, response);
+			}catch(Exception e) {
 				e.printStackTrace();
 			}
 		}
