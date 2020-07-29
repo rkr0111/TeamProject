@@ -28,15 +28,8 @@
 		}else if(flag == 1) {
 			location.href="DB_product_delete.jsp?product_name="+encodeURI(param);
 		}else if(flag == 2) {
-			location.href="product_desk_detail.jsp?product_name="+encodeURIComponent(param);
+			location.href="productDetailSelect.bo?product_name="+encodeURIComponent(param);
 		}
-	}
-	
-	//function partSelect(param) {
-	//	location.href="DB_product_select.jsp?search_product="+encodeURI(param);
-	//}
-	
-	
 </script>
 
 <body>
@@ -79,16 +72,9 @@
 			<div class="productContainer">
 				<ul class="productList">
 					<%
-						TeamPro_dao dao = new TeamPro_dao();
-						Product_dto dto = new Product_dto();
-
-						SqlSessionFactory sqlfactory = dao.getConn();
-						SqlSession sqlsession = sqlfactory.openSession();
-											
-						List<Product_dto> connresultsel = sqlsession.selectList("xml_select");					
-											
-						for(int i=0; i<connresultsel.size(); i++) {
-						String product_name = connresultsel.get(i).getProduct_name();
+						ArrayList<Product_dto> productList = (ArrayList<Product_dto>) request.getAttribute("productList");
+						for(int i=0; i<productList.size(); i++) {
+						String product_name = productList.get(i).getProduct_name();
 					%>
 						<li>
 							<a class="imgContainer" onclick="productNameLink('<%=product_name %>', 2)" >
@@ -107,8 +93,8 @@
 									</li>
 									<%}%>
 									<li class="fs_20 fw_bold textColor gray_656565"><%out.print(product_name);%></li>
-									<li class="priceBox fs_18">\<%out.print(connresultsel.get(i).getProduct_price());%></li>
-									<li class="proContentsBox fs_14"><%out.print(connresultsel.get(i).getProduct_contents());%></li>
+									<li class="priceBox fs_18">\<%out.print(productList.get(i).getProduct_price());%></li>
+									<li class="proContentsBox fs_14"><%out.print(productList.get(i).getProduct_contents());%></li>
 								</ul>
 							</div>
 						</li>

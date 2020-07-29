@@ -34,6 +34,13 @@ public class TeamPro_dao {
 		sqlsession.close();
 		return connresultsel; 
 	}
+	// select - product list
+	public List<Product_dto> Conn_select_proList(String search_product) {
+		SqlSession sqlsession = sqlfactory.openSession();
+		List<Product_dto> connresultsel= sqlsession.selectList("xml_select_proList");
+		sqlsession.close();
+		return connresultsel;
+	}
 	
 	//insert 
 	public void Conn_insert(Product_dto dto) {
