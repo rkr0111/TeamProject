@@ -10,14 +10,11 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	<select id="xml_select" resultType="xmlDto">
 		select * from light.product;
 	</select>
-	<select id="xml_select_proList" resultType="xmlDto" parameterType="xmlDto">
+	<select id="xml_select_name" resultType="xmlDto" parameterType="xmlDto">
 		select * from light.product where product_name=#{product_name};
 	</select>
-	<select id="xml_detail_sel" resultType="xmlDto" parameterType="xmlDto">
-		select * from light.product where product_name=#{product_name};
-	</select>
-	<select id="xml_update_sel" resultType="xmlDto" parameterType="xmlDto">
-		select * from light.product where product_name=#{product_name};
+	<select id="xml_select_count" resultType="Integer" >
+		select count(*) from light.product;
 	</select>
 	
 	<insert id="xml_insert" parameterType="xmlDto">
