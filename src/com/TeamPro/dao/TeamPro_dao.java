@@ -60,7 +60,7 @@ public class TeamPro_dao {
 	}
 	
 	//update - 0730 rkr0111 ¼öÁ¤
-	public int Conn_update() {
+	public int Conn_update(Product_dto dto) {
 		int updateCount = 0;
 		SqlSession sqlsession = sqlfactory.openSession();
 		List<Integer> connresultsel = sqlsession.selectList("xml_select_count");
