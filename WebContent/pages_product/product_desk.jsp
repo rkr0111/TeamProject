@@ -6,7 +6,20 @@
 
 <%@page import="com.TeamPro.dao.TeamPro_dao"%>
 <%@page import="com.TeamPro.dto.Product_dto"%>
+<%@page import="com.TeamPro.dto.PageInfo"%>
 <%@page import="java.util.*"%>
+
+<%
+ArrayList<Product_dto> productList = (ArrayList<Product_dto>) request.getAttribute("productList");
+PageInfo pageInfo = (PageInfo)request.getAttribute("pageInfo");
+int listCount=pageInfo.getListCount();
+int nowPage=pageInfo.getPage();
+int maxPage=pageInfo.getMaxPage();
+int startPage=pageInfo.getStartPage();
+int endPage=pageInfo.getEndPage();
+System.out.println("desk.jsp : " + productList);
+
+%>
 
 <!DOCTYPE html>
 <html>
@@ -22,15 +35,18 @@
 	<title>탁상용 상품페이지</title>
 </head>
 <script type="text/javascript">
+	window.onload = function showdesk() {
+		location.href = "../productList.bo";
+	}
 	function productNameLink(param, flag) {
 		if(flag == 0) {
-			location.href="../productUpdate.bo?product_name="+encodeURI(param);
+			location.href="DB_product_update.jsp?product_name="+encodeURI(param);
 		}else if(flag == 1) {
 			location.href="DB_product_delete.jsp?product_name="+encodeURI(param);
 		}else if(flag == 2) {
 			location.href="productDetailSelect.bo?product_name="+encodeURIComponent(param);
 		}
-	
+	}	
 </script>
 
 <body>
@@ -73,7 +89,7 @@
 			<div class="productContainer">
 				<ul class="productList">
 					<%
-						ArrayList<Product_dto> productList = (ArrayList<Product_dto>)request.getAttribute("productList");
+						if(productList != null && listCount > 0) {
 						for(int i=0; i<productList.size(); i++) {
 						String product_name = productList.get(i).getProduct_name();
 					%>
@@ -99,9 +115,9 @@
 								</ul>
 							</div>
 						</li>
-					<%}%>
+					<%}}%>
 				</ul>
-				<div class="pagenation">
+				<div id="pageList" class="pagenation">
 					<ul>
 						<li class="firstBtn"><a href="">&lt;</a></li>
 						<li><a href="">1</a></li>

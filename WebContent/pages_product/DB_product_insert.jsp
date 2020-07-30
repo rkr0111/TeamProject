@@ -1,12 +1,4 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
-
-<%@page import="org.apache.ibatis.session.SqlSessionFactory"%>
-<%@page import="org.apache.ibatis.session.SqlSession"%>
-
-<%@page import="com.TeamPro.dao.TeamPro_dao"%>
-<%@page import="com.TeamPro.dto.Product_dto"%>
-<%@page import="java.util.*"%>  
-
 <%request.setCharacterEncoding("utf-8");%>
 
 <!DOCTYPE html>
@@ -18,25 +10,35 @@
 <body>
 
 	<h1>Product Insert<br>============</h1>
-	<form action="DB_product_insert_commit.jsp" method="post">
+	<form action="../productInsert.bo" method="post" enctype="multipart/form-data">
 		<table class="inserttable">
 			<tr>
 				<th>이름</th>
-				<th>카테고리</th>
-				<th>가격</th>
-				<th>컬러</th>
-				<th>파일</th>
-				<th>사진</th>
-				<th>내용</th>
+				<td><input type="text" name="product_name" required="required"></td>
 			</tr>
 			<tr>
-				<td><input type="text" name="p_name"></td>
-				<td><input type="text" name="p_category"></td>
-				<td><input type="text" name="p_price"></td>
-				<td><input type="text" name="p_color"></td>
-				<td><input type="text" name="p_file"></td>
-				<td><input type="text" name="p_img"></td>
-				<td><input type="text" name="p_contents"></td>
+				<th>카테고리</th>
+				<td><input type="text" name="product_category" required="required"></td>
+			</tr>
+			<tr>
+				<th>가격</th>
+				<td><input type="text" name="product_price" required="required"></td>
+			</tr>
+			<tr>
+				<th>컬러</th>
+				<td><input type="text" name="product_color" required="required"></td>
+			</tr>
+			<tr>
+				<th>파일</th>
+				<td><input type="file" name="product_file" required="required"></td>
+			</tr>
+			<tr>
+				<th>사진</th>
+				<td><input type="file" name="product_img" required="required"></td>
+			</tr>
+			<tr>
+				<th>내용</th>
+				<td><input type="text" name="product_contents" required="required"></td>
 			</tr>
 		</table>
 		<input type="submit" value="상품 올리기">

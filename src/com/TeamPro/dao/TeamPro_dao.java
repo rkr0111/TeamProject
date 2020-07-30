@@ -12,19 +12,16 @@ import org.apache.ibatis.session.SqlSessionFactoryBuilder;
 import com.TeamPro.dto.Product_dto;
 
 public class TeamPro_dao {
-	SqlSessionFactory sqlfactory; // 외부의 xml을 자바에서 사용하기 위해 필요한 클래스
+	SqlSessionFactory sqlfactory;
 	private static TeamPro_dao instance;
-	//싱글톤 패턴 : 프로그램 시작을 하고 실행 중에는 객체를 한 번 생성하고 계속 재사용하는 것. / 모든 객체에서 사용할 수는 없다.
-	//싱글톤 패턴을 사용할 때에는 static이 있어야 한다.
 	
 	public static TeamPro_dao getinstance() {
-		if(instance == null) { // instance 가 만들어지지 않았을 때 
-			synchronized (TeamPro_dao.class) { // 점유권을 가져와서 해당 클래스에 instance를 만든다.
+		if(instance == null) {
+			synchronized (TeamPro_dao.class) {
 				instance = new TeamPro_dao();
 			}
 		}
-		// instance가 만들어져 있을 때
-		return instance; //리턴을 하면 반환값이 void일 수가 없으니까 반환값을 변경해주는데 여기서 반환값을 ExamMybatis_dao.
+		return instance;
 	}
 	
 	//select
@@ -41,13 +38,26 @@ public class TeamPro_dao {
 		sqlsession.close();
 		return connresultsel;
 	}
+	// select_ListCount - 0730 dhdbswl 수정
+	public int select_ListCount() {
+		int listCount = 0;
+		SqlSession sqlsession = sqlfactory.openSession();
+		List<Integer> connresultsel = sqlsession.selectList("xml_select_count");
+		sqlsession.close();
+		listCount = Integer.parseInt(connresultsel.get(0).toString());
+		return listCount;
+	}
 	
-	//insert 
-	public void Conn_insert(Product_dto dto) {
+	//insert - 0730 dhdbswl 수정
+	public int Conn_insert(Product_dto dto) {
+		int insertCount = 0;
 		SqlSession sqlsession = sqlfactory.openSession();
 		sqlsession.insert("xml_insert", dto);
-		sqlsession.commit(); //insert, update, delete는 확인이 필요하다.
+		sqlsession.commit();
+		insertCount = 1;
 		sqlsession.close();
+		System.out.println("dao Conn_insert");
+		return insertCount;
 	}
 	
 	//update 
