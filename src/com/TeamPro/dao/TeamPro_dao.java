@@ -63,9 +63,11 @@ public class TeamPro_dao {
 	public int Conn_update() {
 		int updateCount = 0;
 		SqlSession sqlsession = sqlfactory.openSession();
-		List<Integer> dto = sqlsession.selectList("xml_select_count");
+		List<Integer> connresultsel = sqlsession.selectList("xml_select_count");
 		sqlsession.commit();
 		sqlsession.close();
+		updateCount = Integer.parseInt(connresultsel.get(0).toString());
+		//System.out.println();
 		return updateCount;
 	}
 	//update_selectName - 0730 rkr0111 ¼öÁ¤
