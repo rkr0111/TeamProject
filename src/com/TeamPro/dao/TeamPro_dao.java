@@ -71,12 +71,12 @@ public class TeamPro_dao {
 		return updateCount;
 	}
 	//update_selectName - 0730 rkr0111 수정
-	public List<Product_dto> Conn_updateselect(String check_name) {
+	/*public List<Product_dto> Conn_updateselect(String check_name) {
 		SqlSession sqlsession = sqlfactory.openSession();
 		List<Product_dto> connresultupd= sqlsession.selectList("xml_select_name");
 		sqlsession.close();
 		return connresultupd; 
-	}
+	}*/
 	
 	//delete 
 	public void Conn_delete(Product_dto dto) {
@@ -91,7 +91,6 @@ public class TeamPro_dao {
 			Reader reader = Resources.getResourceAsReader("com/TeamPro/dao/mybatis-config.xml"); // 외부의 xml 파일을 연결
 			sqlfactory = new SqlSessionFactoryBuilder().build(reader); // 자바 내에서 xml을 사용할 변수
 		} catch (IOException e) {
-		
 			e.printStackTrace();
 		}return sqlfactory;
 	}

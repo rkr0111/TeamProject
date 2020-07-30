@@ -10,14 +10,14 @@
 <%@page import="java.util.*"%>
 
 <%
-ArrayList<Product_dto> productList = (ArrayList<Product_dto>) request.getAttribute("productList");
-PageInfo pageInfo = (PageInfo)request.getAttribute("pageInfo");
-int listCount=pageInfo.getListCount();
-int nowPage=pageInfo.getPage();
-int maxPage=pageInfo.getMaxPage();
-int startPage=pageInfo.getStartPage();
-int endPage=pageInfo.getEndPage();
-System.out.println("desk.jsp : " + productList);
+	ArrayList<Product_dto> productList = (ArrayList<Product_dto>) request.getAttribute("productList");
+	PageInfo pageInfo = (PageInfo)request.getAttribute("pageInfo");
+	int listCount=pageInfo.getListCount();
+	int nowPage=pageInfo.getPage();
+	int maxPage=pageInfo.getMaxPage();
+	int startPage=pageInfo.getStartPage();
+	int endPage=pageInfo.getEndPage();
+	System.out.println("desk.jsp : " + productList);
 
 %>
 
@@ -40,9 +40,9 @@ System.out.println("desk.jsp : " + productList);
 	}
 	function productNameLink(param, flag) {
 		if(flag == 0) {
-			location.href="DB_product_update.jsp?product_name="+encodeURI(param);
+			location.href="productUpdate.bo?product_name="+encodeURI(param);
 		}else if(flag == 1) {
-			location.href="DB_product_delete.jsp?product_name="+encodeURI(param);
+			location.href="productDelete.bo?product_name="+encodeURI(param);
 		}else if(flag == 2) {
 			location.href="productDetailSelect.bo?product_name="+encodeURIComponent(param);
 		}

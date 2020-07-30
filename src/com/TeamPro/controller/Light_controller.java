@@ -8,6 +8,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import com.TeamPro.action.Light_action;
+import com.TeamPro.action.Product_DeleteAction;
 import com.TeamPro.action.Product_InsertAction;
 import com.TeamPro.action.Product_ListAction;
 import com.TeamPro.action.Product_UpdateAction;
@@ -41,6 +42,14 @@ public class Light_controller extends javax.servlet.http.HttpServlet {
 			}
 		}else if(command.equals("/productInsert.bo")) { // 0730 dhdbswl 수정
 			action = new Product_InsertAction();
+			try{
+				forward=action.execute(request, response);
+				
+			}catch(Exception e){
+				System.out.println(e);
+			}
+		}else if(command.equals("/productDelete.bo")) { // 0730 rkr0111 수정
+			action = new Product_DeleteAction();
 			try{
 				forward=action.execute(request, response);
 				
