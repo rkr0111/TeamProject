@@ -56,31 +56,24 @@ public class TeamPro_dao {
 		sqlsession.commit();
 		insertCount = 1;
 		sqlsession.close();
-		System.out.println("dao Conn_insert");
 		return insertCount;
 	}
 	
-	//update 
-	public List<Product_dto> Conn_update(Product_dto dto) {
+	//update - 0730 rkr0111 수정
+	public int Conn_update() {
+		int updateCount = 0;
 		SqlSession sqlsession = sqlfactory.openSession();
-		//List<ExamMybatis_dto> connresultUpt= sqlsession.selectList("xml_update");
+		List<Integer> dto = sqlsession.selectList("xml_select_count");
 		sqlsession.commit();
 		sqlsession.close();
-		return null;//
+		return updateCount;
 	}
-	//update_selectId
-	public List<Product_dto> Conn_updateselect() {
+	//update_selectName - 0730 rkr0111 수정
+	public List<Product_dto> Conn_updateselect(String check_name) {
 		SqlSession sqlsession = sqlfactory.openSession();
-		List<Product_dto> connresultupd= sqlsession.selectList("xml_selectId");
+		List<Product_dto> connresultupd= sqlsession.selectList("xml_select_name");
 		sqlsession.close();
 		return connresultupd; 
-	}
-	//Conn_update_proList
-	public List<Product_dto> Conn_update_proList(String search_product) {
-		SqlSession sqlsession = sqlfactory.openSession();
-		List<Product_dto> connUptList= sqlsession.selectList("xml_update_sel");
-		sqlsession.close();
-		return connUptList;
 	}
 	
 	//delete 
