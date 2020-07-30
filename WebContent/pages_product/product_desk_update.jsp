@@ -11,7 +11,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>DB+Product Update Page</title>
+<title>Product Desk Update Page</title>
 </head>
 <style>
 	.updatetable th, 
@@ -22,22 +22,16 @@
 </style>
 <body>
 	<%
-		request.setCharacterEncoding("utf-8");
-		String product_name = request.getParameter("product_name");
-		
+		request.setCharacterEncoding("utf-8");		
 		TeamPro_dao dao = new TeamPro_dao();
 		Product_dto dto = new Product_dto();
-			
-		SqlSessionFactory sqlfactory = dao.getConn(); //dao 안의 생성자
-		SqlSession sqlsession = sqlfactory.openSession();
 		
-		dto.setCheck(product_name);
-		dto.setProduct_name(product_name);
-		List<Product_dto> connresultsel = sqlsession.selectList("xml_select", dto);
+		List<Product_dto> connresultsel = (ArrayList<Product_dto>)request.getAttribute("productUpdatesel");
+		//out.print("productUpdatesel");
 	%>
 
 	<h1>Product Update<br/>============</h1>
-	<form action="DB_product_update_commit.jsp" method="post">
+	<form action="productProUpdate.bo" method="post">
 		<table class="updatetable">
 			<tr>	
 				<th>이름</th>

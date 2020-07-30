@@ -13,13 +13,26 @@ import com.TeamPro.service.Product_UpdateService;
 public class Product_UpdateAction implements Light_action {
 
 	public ActionForward execute(HttpServletRequest request, HttpServletResponse response) throws Exception {
+		
 		ActionForward forward = null;
-		List<Product_dto> productUpdate = null;
+		boolean isUpdateSuccess = false;
+		Product_dto dto = new Product_dto();
+	
+		dto.setCheck(request.getParameter("udt_check"));
+		dto.setProduct_name(request.getParameter("udt_name"));
+		dto.setProduct_category(request.getParameter("udt_category"));
+		dto.setProduct_price(Integer.parseInt(request.getParameter("udt_price")));
+		dto.setProduct_color(request.getParameter("udt_color"));
+		dto.setProduct_file(request.getParameter("udt_file"));
+		dto.setProduct_img(request.getParameter("udt_img"));
+		dto.setProduct_contents(request.getParameter("udt_contents"));
+		
 		Product_UpdateService productUpdateService = new Product_UpdateService();
-		productUpdate = new ArrayList<Product_dto>();
-		String search_product = request.getParameter("search_product");
-		productUpdate = productUpdateService.getProductUpdate(search_product);
-		forward.setPath("/productList.bo");
+		isUpdateSuccess = productUpdateService.getProductUpdate(dto);
+		
+		forward = new ActionForward();
+		forward.setRedirect(true);
+		forward.setPath("/productList.bo"); 
 		return forward;
 	}
 }
