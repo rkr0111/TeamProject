@@ -16,12 +16,12 @@ public class Product_ListService {
 		return listCount;
 	}
 	// 0730 dhdbswl ¼öÁ¤
-	public List<Product_dto> getProductList(String search_product) throws Exception {
+	public List<Product_dto> getProductList(String product_name) throws Exception {
 		List<Product_dto> productList = null;
 		TeamPro_dao prodao = TeamPro_dao.getinstance();
 		prodao.getConn();
-		productList = prodao.Conn_select_proList(search_product);
-		System.out.println("list service getProductList : " + search_product + ", " + productList);
+		productList = prodao.Conn_select_proList(product_name);
+		System.out.println("list service getProductList : " + product_name + ", " + productList);
 		return productList;
 	}	
 }

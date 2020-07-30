@@ -32,9 +32,9 @@ public class TeamPro_dao {
 		return connresultsel; 
 	}
 	// select - product list
-	public List<Product_dto> Conn_select_proList(String search_product) {
+	public List<Product_dto> Conn_select_proList(String product_name) {
 		SqlSession sqlsession = sqlfactory.openSession();
-		List<Product_dto> connresultsel= sqlsession.selectList("xml_select_proList");
+		List<Product_dto> connresultsel= sqlsession.selectList("xml_select_name");
 		sqlsession.close();
 		return connresultsel;
 	}

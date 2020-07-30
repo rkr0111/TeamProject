@@ -26,11 +26,11 @@ public class Product_ListAction implements Light_action {
 			page=Integer.parseInt(request.getParameter("page"));
 		}
 		
-		String search_product = request.getParameter("search_product");
+		String product_name = request.getParameter("product_name");
 		
 		System.out.println("list action prodcut : " + page);
 		int listCount = productListService.getListCount();
-		productList = productListService.getProductList(search_product);
+		productList = productListService.getProductList(product_name);
 		
 		//총 페이지 수.
    		int maxPage=(int)((double)listCount/limit+0.95); //0.95를 더해서 올림 처리.
@@ -49,8 +49,10 @@ public class Product_ListAction implements Light_action {
 		request.setAttribute("pageInfo", pageInfo);
 		request.setAttribute("productList", productList);
    		
+		forward = new ActionForward();
+		forward.setRedirect(true);
 		forward.setPath("/product_desk.jsp");
-		System.out.println("list action : " + search_product + ", " + forward);
+		System.out.println("list action : " + product_name + ", " + forward);
 		return forward;
 	}
 	
