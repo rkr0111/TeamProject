@@ -10,7 +10,7 @@
 <%@page import="java.util.*"%>
 
 <%
-	ArrayList<Product_dto> productList = (ArrayList<Product_dto>) request.getAttribute("productList");
+	List<Product_dto> productList = (List<Product_dto>) request.getAttribute("productList");
 	PageInfo pageInfo = (PageInfo)request.getAttribute("pageInfo");
 	int listCount=pageInfo.getListCount();
 	int nowPage=pageInfo.getPage();
@@ -40,9 +40,9 @@
 	}
 	function productNameLink(param, flag) {
 		if(flag == 0) {
-			location.href="productUpdate.bo?product_name="+encodeURI(param);
+			location.href="productUpdate.bo?product_name="+encodeURIComponent(param);
 		}else if(flag == 1) {
-			location.href="productDelete.bo?product_name="+encodeURI(param);
+			location.href="productDelete.bo?product_name="+encodeURIComponent(param);
 		}else if(flag == 2) {
 			location.href="productDetailSelect.bo?product_name="+encodeURIComponent(param);
 		}

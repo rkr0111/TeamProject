@@ -21,7 +21,8 @@ public class Product_ListService {
 		TeamPro_dao prodao = TeamPro_dao.getinstance();
 		prodao.getConn();
 		productList = prodao.Conn_select_proList(product_name);
-		System.out.println("list service getProductList : " + product_name + ", " + productList);
+		System.out.println("list service getProductList product_name : " + product_name);
+		System.out.println("list service getProductList productList : " + productList);
 		return productList;
 	}	
 }

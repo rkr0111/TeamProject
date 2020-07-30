@@ -50,9 +50,12 @@ public class Product_InsertAction implements Light_action {
 			out.println("</script>");
 		}
 		else{
+			request.setAttribute("product_name", multi.getParameter("product_name"));
+			String product_name = (String) request.getAttribute("product_name");
+			System.out.println("insert action product_name : " + product_name);
 			forward = new ActionForward();
 			forward.setRedirect(true);
-			forward.setPath("productList.bo");
+			forward.setPath("productList.bo?product_name=" + product_name);
 		}
 
 		return forward;

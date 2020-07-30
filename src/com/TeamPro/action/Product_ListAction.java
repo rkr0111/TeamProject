@@ -17,9 +17,9 @@ public class Product_ListAction implements Light_action {
 		int page = 1;
 		int limit = 10;
 		ActionForward forward = null;
+		Product_dto prodto = new Product_dto();
 		List<Product_dto> productList = null;
 		productList = new ArrayList<Product_dto>();
-		PageInfo pageInfo = new PageInfo();
 		Product_ListService productListService = new Product_ListService();
 		
 		if(request.getParameter("page")!=null){
@@ -28,7 +28,8 @@ public class Product_ListAction implements Light_action {
 		
 		String product_name = request.getParameter("product_name");
 		
-		System.out.println("list action prodcut : " + page);
+		System.out.println("list action prodcut page : " + page);
+		System.out.println("list action product_name : " + product_name);
 		int listCount = productListService.getListCount();
 		productList = productListService.getProductList(product_name);
 		
@@ -40,7 +41,8 @@ public class Product_ListAction implements Light_action {
    	    int endPage = startPage+10-1;
 
    		if (endPage> maxPage) endPage = maxPage;
-   		
+
+		PageInfo pageInfo = new PageInfo();
    		pageInfo.setEndPage(endPage);
    		pageInfo.setListCount(listCount);
 		pageInfo.setMaxPage(maxPage);
@@ -48,11 +50,13 @@ public class Product_ListAction implements Light_action {
 		pageInfo.setStartPage(startPage);	
 		request.setAttribute("pageInfo", pageInfo);
 		request.setAttribute("productList", productList);
+		
+		String pl = (String) request.getAttribute("productList");
+		System.out.println("list action listCount : " + listCount + ", product_name : " + product_name + ", productList : " + productList);
    		
 		forward = new ActionForward();
 		forward.setRedirect(true);
-		forward.setPath("/product_desk.jsp");
-		System.out.println("list action : " + product_name + ", " + forward);
+		forward.setPath("/TeamPro/pages_product/product_desk.jsp");
 		return forward;
 	}
 	
