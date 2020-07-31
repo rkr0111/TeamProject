@@ -10,15 +10,17 @@
 <%@page import="java.util.*"%>
 
 <%
+List<Product_dto> productList = new List<Product_dto>();
+productList = request.getAttribute("productList");
+System.out.println("desk.jsp : " + productList);
 
-	List<Product_dto> productList = (List<Product_dto>)request.getAttribute("productList");
-	System.out.println("desk.jsp : " + productList);
-	PageInfo pageInfo = (PageInfo)request.getAttribute("pageInfo");
-	int listCount=pageInfo.getListCount();
-	int nowPage=pageInfo.getPage();
-	int maxPage=pageInfo.getMaxPage();
-	int startPage=pageInfo.getStartPage();
-	int endPage=pageInfo.getEndPage();
+PageInfo pageInfo = new PageInfo();
+pageInfo = request.getAttribute("pageInfo");
+int listCount=pageInfo.getListCount();
+int nowPage=pageInfo.getPage();
+int maxPage=pageInfo.getMaxPage();
+int startPage=pageInfo.getStartPage();
+int endPage=pageInfo.getEndPage();
 
 %>
 
