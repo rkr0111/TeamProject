@@ -9,7 +9,6 @@
 <body>
 	<!-- footer -->
 	<footer>
-	footer update
 		<div id="footerlogo"></div>
 		<ul class="footerTop">
 			<li><a href="">서비스이용약관</a></li>
