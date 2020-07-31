@@ -20,7 +20,7 @@ public class Product_ListService {
 		List<Product_dto> productList = null;
 		TeamPro_dao prodao = TeamPro_dao.getinstance();
 		prodao.getConn();
-		productList = prodao.Conn_select_List(page, limit);
+		productList = prodao.Conn_select_proList(page, limit);
 		Product_dto prodto = new Product_dto();
 		ArrayList<Product_dto> list = new ArrayList<Product_dto>();
 		
@@ -33,7 +33,6 @@ public class Product_ListService {
 			prodto.setProduct_contents(productList.get(i).getProduct_contents());
 			list.add(prodto);
 		}
-		System.out.println("list service productList size : " + productList.size() + ", " + productList);
 		return productList;
 	}	
 }

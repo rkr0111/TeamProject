@@ -29,10 +29,6 @@
 				<td><input type="text" name="product_color" required="required"></td>
 			</tr>
 			<tr>
-				<th>파일</th>
-				<td><input type="file" name="product_file" required="required"></td>
-			</tr>
-			<tr>
 				<th>사진</th>
 				<td><input type="file" name="product_img" required="required"></td>
 			</tr>

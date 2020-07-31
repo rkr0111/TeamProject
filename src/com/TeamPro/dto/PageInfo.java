@@ -7,6 +7,7 @@ public class PageInfo {
 	private int startPage;
 	private int endPage;
 	private int listCount;
+	private int startrow;
 	
 	public int getPage() {
 		return page;
@@ -46,6 +47,14 @@ public class PageInfo {
 	
 	public void setListCount(int listCount) {
 		this.listCount = listCount;
+	}
+
+	public int getStartrow() {
+		return startrow;
+	}
+
+	public void setStartrow(int startrow) {
+		this.startrow = startrow;
 	}
 
 }

@@ -33,7 +33,6 @@ public class Product_InsertAction implements Light_action {
 		prodto.setProduct_category(multi.getParameter("product_category"));
 		prodto.setProduct_price(Integer.parseInt(multi.getParameter("product_price")));
 		prodto.setProduct_color(multi.getParameter("product_color"));
-		prodto.setProduct_file(multi.getOriginalFileName((String)multi.getFileNames().nextElement()));
 		prodto.setProduct_img(multi.getOriginalFileName((String)multi.getFileNames().nextElement()));
 		prodto.setProduct_contents(multi.getParameter("product_contents"));
 		

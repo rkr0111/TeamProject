@@ -32,16 +32,11 @@ public class TeamPro_dao {
 		sqlsession.close();
 		return connresultsel; 
 	}
-	// select - product list
-	public List<Product_dto> Conn_select_proList(String product_name) {
+	// select product list - 0731 dhdbswl 수정
+	public List<Product_dto> Conn_select_proList(int page, int limit) {
+		int startrow = (page-1)*10;
 		SqlSession sqlsession = sqlfactory.openSession();
-		List<Product_dto> connresultsel= sqlsession.selectList("xml_select_name", product_name);
-		sqlsession.close();
-		return connresultsel;
-	}
-	public List<Product_dto> Conn_select_List(int page, int limit) {
-		SqlSession sqlsession = sqlfactory.openSession();
-		List<Product_dto> connresultsel= sqlsession.selectList("xml_select_list");
+		List<Product_dto> connresultsel= sqlsession.selectList("xml_select_list", startrow);
 		sqlsession.close();
 		return connresultsel;
 	}
@@ -55,11 +50,11 @@ public class TeamPro_dao {
 		return listCount;
 	}
 	
-	//insert - 0730 dhdbswl 수정
+	//insert - 0731 dhdbswl 수정
 	public int Conn_insert(Product_dto dto) {
 		int insertCount = 0;
 		SqlSession sqlsession = sqlfactory.openSession();
-		sqlsession.insert("xml_insert", dto);
+		sqlsession.insert("xml_insert_prolist", dto);
 		sqlsession.commit();
 		insertCount = 1;
 		sqlsession.close();

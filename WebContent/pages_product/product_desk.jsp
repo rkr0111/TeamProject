@@ -10,9 +10,8 @@
 <%@page import="java.util.*"%>
 
 <%
-List<Product_dto> productList = (List<Product_dto>) request.getAttribute("productList");
+	List<Product_dto> productList = (List<Product_dto>) request.getAttribute("productList");
 	PageInfo pageInfo = (PageInfo)request.getAttribute("pageInfo");
-	System.out.println("desk.jsp : " + productList + ", " + pageInfo);
 	int listCount=pageInfo.getListCount();
 	int nowPage=pageInfo.getPage();
 	int maxPage=pageInfo.getMaxPage();
@@ -90,7 +89,7 @@ List<Product_dto> productList = (List<Product_dto>) request.getAttribute("produc
 					%>
 						<li>
 							<a class="imgContainer" onclick="productNameLink('<%=product_name %>', 2)" >
-								<div class="imgBox"></div>
+								<div class="imgBox"><img src="images/product_img/<%out.print(productList.get(i).getProduct_category());%>/<%out.print(productList.get(i).getProduct_category());%>_01/<%out.print(productList.get(i).getProduct_img());%>"/></div>
 							</a>
 							<div class="textBox">
 								<ul>
@@ -121,7 +120,7 @@ List<Product_dto> productList = (List<Product_dto>) request.getAttribute("produc
 						<%}%>
 						<%for(int a=startPage;a<=endPage;a++){
 						if(a==nowPage){%>
-						<li><a href=""><%=a%></a></li>
+						<li><a href="" class="fw_bold"><%=a%></a></li>
 						<%}else{ %>
 						<li><a href="productList.bo?page=<%=a%>"><%=a%></a></li>
 						<%}%>
