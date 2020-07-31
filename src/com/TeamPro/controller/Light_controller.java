@@ -9,6 +9,7 @@ import javax.servlet.http.HttpServletResponse;
 
 import com.TeamPro.action.Light_action;
 import com.TeamPro.action.Product_DeleteAction;
+import com.TeamPro.action.Product_DetailAction;
 import com.TeamPro.action.Product_InsertAction;
 import com.TeamPro.action.Product_ListAction;
 import com.TeamPro.action.Product_UpdateAction;
@@ -58,7 +59,15 @@ public class Light_controller extends javax.servlet.http.HttpServlet {
 			}catch(Exception e){
 				System.out.println(e);
 			}
-		} 
+		}else if(command.equals("/productDetailSelect.bo")) { // 0730 rkr0111 ¼öÁ¤
+			action = new Product_DetailAction();
+			try{
+				forward=action.execute(request, response);
+				
+			}catch(Exception e){
+				System.out.println(e);
+			}
+		}  
  		
 		// check forward
 		if(forward != null){
