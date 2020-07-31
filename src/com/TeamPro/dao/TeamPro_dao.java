@@ -39,6 +39,12 @@ public class TeamPro_dao {
 		sqlsession.close();
 		return connresultsel;
 	}
+	public List<Product_dto> Conn_select_List(int page, int limit) {
+		SqlSession sqlsession = sqlfactory.openSession();
+		List<Product_dto> connresultsel= sqlsession.selectList("xml_select_list");
+		sqlsession.close();
+		return connresultsel;
+	}
 	// select_ListCount - 0730 dhdbswl ¼öÁ¤
 	public int select_ListCount() {
 		int listCount = 0;

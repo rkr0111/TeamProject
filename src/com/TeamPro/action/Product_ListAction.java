@@ -18,20 +18,15 @@ public class Product_ListAction implements Light_action {
 		int limit = 10;
 		ActionForward forward = null;
 		Product_dto prodto = new Product_dto();
-		List<Product_dto> productList = null;
-		productList = new ArrayList<Product_dto>();
+		ArrayList<Product_dto> productList = new ArrayList<Product_dto>();
 		Product_ListService productListService = new Product_ListService();
 		
 		if(request.getParameter("page")!=null){
 			page=Integer.parseInt(request.getParameter("page"));
 		}
 		
-		String product_name = request.getParameter("product_name");
-		
-		System.out.println("list action prodcut page : " + page);
-		System.out.println("list action product_name : " + product_name);
 		int listCount = productListService.getListCount();
-		productList = productListService.getProductList(product_name);
+		productList = productListService.getProductList(page, limit);
 		
 		//총 페이지 수.
    		int maxPage=(int)((double)listCount/limit+0.95); //0.95를 더해서 올림 처리.
@@ -50,11 +45,10 @@ public class Product_ListAction implements Light_action {
 		pageInfo.setStartPage(startPage);	
 		request.setAttribute("pageInfo", pageInfo);
 		request.setAttribute("productList", productList);
-		System.out.println("list action listCount : " + listCount + ", product_name : " + product_name + ", productList : " + productList);
    		
 		forward = new ActionForward();
-		forward.setRedirect(true);
-		forward.setPath("/TeamPro/pages_product/product_desk.jsp");
+		forward.setRedirect(false);
+		forward.setPath("pages_product/product_desk.jsp");
 		return forward;
 	}
 	

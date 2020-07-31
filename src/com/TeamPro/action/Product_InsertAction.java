@@ -40,8 +40,6 @@ public class Product_InsertAction implements Light_action {
 		Product_InsertService productInsertService = new Product_InsertService();
 		boolean isInsert = productInsertService.isInsert(prodto);
 		
-		System.out.println("insert action : " + isInsert);
-		
 		if(!isInsert){
 			response.setContentType("text/html;charset=UTF-8");
 			PrintWriter out = response.getWriter();
@@ -52,10 +50,9 @@ public class Product_InsertAction implements Light_action {
 		else{
 			request.setAttribute("product_name", multi.getParameter("product_name"));
 			String product_name = (String) request.getAttribute("product_name");
-			System.out.println("insert action product_name : " + product_name);
 			forward = new ActionForward();
 			forward.setRedirect(true);
-			forward.setPath("productList.bo?product_name=" + product_name);
+			forward.setPath("productList.bo");
 		}
 
 		return forward;

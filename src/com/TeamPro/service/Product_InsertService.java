@@ -13,10 +13,7 @@ public class Product_InsertService {
 		
 		if(insertCount > 0) {
 			isInsertSuccess = true;
-		}
-		
-		System.out.println("insert service : " + insertCount);
-		
+		}		
 		return isInsertSuccess;
 	}
 }

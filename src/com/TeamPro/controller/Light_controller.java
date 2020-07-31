@@ -25,6 +25,8 @@ public class Light_controller extends javax.servlet.http.HttpServlet {
 		ActionForward forward=null;
 		Light_action action=null;
 		
+		System.out.println("controller command : " + command);
+		
 		// check command
 		if(command.equals("/productList.bo")) {
 			action = new Product_ListAction();
@@ -67,6 +69,7 @@ public class Light_controller extends javax.servlet.http.HttpServlet {
 				dispatcher.forward(request, response);
 			}
 		}	
+		
 	}
 	
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) 

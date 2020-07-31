@@ -10,9 +10,9 @@
 <%@page import="java.util.*"%>
 
 <%
-	List<Product_dto> productList = (List<Product_dto>) request.getAttribute("productList");
-	System.out.println("desk.jsp : " + productList);
+	ArrayList<Product_dto> productList = (ArrayList<Product_dto>) request.getAttribute("productList");
 	PageInfo pageInfo = (PageInfo)request.getAttribute("pageInfo");
+	System.out.println("desk.jsp : " + productList + ", " + pageInfo);
 	int listCount=pageInfo.getListCount();
 	int nowPage=pageInfo.getPage();
 	int maxPage=pageInfo.getMaxPage();
@@ -24,19 +24,16 @@
 <html>
 <head>
 	<meta charset="utf-8">
-	<link rel="stylesheet" type="text/css" href="../css/reset.css">
-	<link rel="stylesheet" type="text/css" href="../css/common.css">
-	<link rel="stylesheet" type="text/css" href="../css/allStyle.css">
-	<link rel="stylesheet" type="text/css" href="../css/font.css">
-	<link rel="stylesheet" type="text/css" href="../css/product_desk.css">
+	<link rel="stylesheet" type="text/css" href="css/reset.css">
+	<link rel="stylesheet" type="text/css" href="css/common.css">
+	<link rel="stylesheet" type="text/css" href="css/allStyle.css">
+	<link rel="stylesheet" type="text/css" href="css/font.css">
+	<link rel="stylesheet" type="text/css" href="css/product_desk.css">
 	<!-- jQuery cdn -->
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
 	<title>탁상용 상품페이지</title>
 </head>
 <script type="text/javascript">
-	window.onload = function showdesk() {
-		location.href = "../productList.bo";
-	}
 	function productNameLink(param, flag) {
 		if(flag == 0) {
 			location.href="productUpdate.bo?product_name="+encodeURIComponent(param);
