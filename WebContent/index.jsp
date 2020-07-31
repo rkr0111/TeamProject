@@ -24,7 +24,7 @@
 	if(id == null) {
 	%>
 	<jsp:include page="index_header_beforelogin.jsp" />
-	<%}else {%>
+	<%} else {%>
 	<jsp:include page="index_header_afterlogin.jsp" />
 	<%}%> <!-- header end -->
 
