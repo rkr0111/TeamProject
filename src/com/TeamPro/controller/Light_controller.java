@@ -63,7 +63,6 @@ public class Light_controller extends javax.servlet.http.HttpServlet {
 			action = new Product_DetailAction();
 			try{
 				forward=action.execute(request, response);
-				
 			}catch(Exception e){
 				System.out.println(e);
 			}

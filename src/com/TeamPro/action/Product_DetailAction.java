@@ -16,16 +16,17 @@ public class Product_DetailAction implements Light_action {
 		ActionForward forward = null;
 		List<Product_dto> isDetailSuccess = null;
 		Product_dto dto = new Product_dto();
-		dto.setProduct_name(request.getParameter("product_name"));
+		String product_name = request.getParameter("product_name");
+		dto.setProduct_name(product_name);
 		
 		Product_DetailService productDetailService = new Product_DetailService();
-		isDetailSuccess = productDetailService.getProductDetail("product_name");
+		isDetailSuccess = productDetailService.getProductDetail(product_name);
 		
 		request.setAttribute("isDetailSuccess", isDetailSuccess);
 		
 		forward = new ActionForward();
 		forward.setRedirect(false);
-		forward.setPath("/product_desk.jsp");
+		forward.setPath("pages_product/product_desk_detail.jsp");
 		return forward;
 	}
 }

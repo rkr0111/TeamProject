@@ -12,11 +12,11 @@
 <html>
 <head>
 	<meta charset="utf-8">
-	<link rel="stylesheet" type="text/css" href="../css/reset.css">
-	<link rel="stylesheet" type="text/css" href="../css/common.css">
-	<link rel="stylesheet" type="text/css" href="../css/allStyle.css">
-	<link rel="stylesheet" type="text/css" href="../css/font.css">
-	<link rel="stylesheet" type="text/css" href="../css/product_desk_detail.css">
+	<link rel="stylesheet" type="text/css" href="css/reset.css">
+	<link rel="stylesheet" type="text/css" href="css/common.css">
+	<link rel="stylesheet" type="text/css" href="css/allStyle.css">
+	<link rel="stylesheet" type="text/css" href="css/font.css">
+	<link rel="stylesheet" type="text/css" href="css/product_desk_detail.css">
 	<!-- jQuery cdn -->
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
 	<title>탁상용 상품페이지 | 상세페이지</title>
@@ -24,16 +24,7 @@
 
 <%
 	request.setCharacterEncoding("utf-8");
-	String product_name = request.getParameter("product_name");
-
-	TeamPro_dao dao = new TeamPro_dao();
-	Product_dto dto = new Product_dto();
-
-	SqlSessionFactory sqlfactory = dao.getConn();
-	SqlSession sqlsession = sqlfactory.openSession();
-	
-	dto.setProduct_name(product_name);
-	List<Product_dto> connresultsel = sqlsession.selectList("xml_detail_sel", dto);
+	List<Product_dto> isDetailSuccess = (List<Product_dto>) request.getAttribute("isDetailSuccess");
 %>
 
 <body>
@@ -56,12 +47,12 @@
 			</div>
 			<div class="productInfoContainer">
 				<ul>
-					<li class="fs_20 fw_bold"><%out.print(connresultsel.get(0).getProduct_name());%></li>
-					<li class="fs_14 mt_10 mb_25 textColor gray_9c9c9c"><%out.print(connresultsel.get(0).getProduct_contents());%></li>
+					<li class="fs_20 fw_bold"><%out.print(isDetailSuccess.get(0).getProduct_name());%></li>
+					<li class="fs_14 mt_10 mb_25 textColor gray_9c9c9c"><%out.print(isDetailSuccess.get(0).getProduct_contents());%></li>
 				</ul>
 				<div class="productPrice">
 					<span class="labelText">가격</span>
-					<span class="fs_18">\<%out.print(connresultsel.get(0).getProduct_price());%></span>
+					<span class="fs_18">\<%out.print(isDetailSuccess.get(0).getProduct_price());%></span>
 				</div>
 				<div class="amountContents pt_20 mt_20 mb_10">
 					<span class="labelText">개수</span>
