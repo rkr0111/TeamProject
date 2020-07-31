@@ -50,8 +50,6 @@ public class Product_ListAction implements Light_action {
 		pageInfo.setStartPage(startPage);	
 		request.setAttribute("pageInfo", pageInfo);
 		request.setAttribute("productList", productList);
-		
-		String pl = (String) request.getAttribute("productList");
 		System.out.println("list action listCount : " + listCount + ", product_name : " + product_name + ", productList : " + productList);
    		
 		forward = new ActionForward();

@@ -2,6 +2,7 @@ package com.TeamPro.dao;
 
 import java.io.IOException;
 import java.io.Reader;
+import java.util.ArrayList;
 import java.util.List;
 
 import org.apache.ibatis.io.Resources;
@@ -34,7 +35,7 @@ public class TeamPro_dao {
 	// select - product list
 	public List<Product_dto> Conn_select_proList(String product_name) {
 		SqlSession sqlsession = sqlfactory.openSession();
-		List<Product_dto> connresultsel= sqlsession.selectList("xml_select_name");
+		List<Product_dto> connresultsel= sqlsession.selectList("xml_select_name", product_name);
 		sqlsession.close();
 		return connresultsel;
 	}
