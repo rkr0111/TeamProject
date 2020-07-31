@@ -10,7 +10,7 @@
 <%@page import="java.util.*"%>
 
 <%
-	ArrayList<Product_dto> productList = (ArrayList<Product_dto>) request.getAttribute("productList");
+List<Product_dto> productList = (List<Product_dto>) request.getAttribute("productList");
 	PageInfo pageInfo = (PageInfo)request.getAttribute("pageInfo");
 	System.out.println("desk.jsp : " + productList + ", " + pageInfo);
 	int listCount=pageInfo.getListCount();
@@ -85,7 +85,6 @@
 			<div class="productContainer">
 				<ul class="productList">
 					<%
-						if(productList != null && listCount > 0) {
 						for(int i=0; i<productList.size(); i++) {
 						String product_name = productList.get(i).getProduct_name();
 					%>
@@ -111,14 +110,27 @@
 								</ul>
 							</div>
 						</li>
-					<%}}%>
+					<%}%>
 				</ul>
 				<div id="pageList" class="pagenation">
 					<ul>
+						<%if(nowPage<=1){%>
 						<li class="firstBtn"><a href="">&lt;</a></li>
-						<li><a href="">1</a></li>
-						<li><a href="">2</a></li>
+						<%}else{%>
+						<li class="firstBtn"><a href="productList.bo?page=<%=nowPage-1%>">&lt;</a></li>
+						<%}%>
+						<%for(int a=startPage;a<=endPage;a++){
+						if(a==nowPage){%>
+						<li><a href=""><%=a%></a></li>
+						<%}else{ %>
+						<li><a href="productList.bo?page=<%=a%>"><%=a%></a></li>
+						<%}%>
+						<%}%>
+						<%if(nowPage>=maxPage){ %>
 						<li class="lastBtn"><a href="">&gt;</a></li>
+						<%}else{%>
+						<li class="lastBtn"><a href="productList.bo?page=<%=nowPage+1%>">&gt;</a></li>
+						<%}%>
 					</ul>
 				</div>
 			</div>

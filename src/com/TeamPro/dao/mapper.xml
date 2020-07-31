@@ -17,7 +17,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		select count(*) from light.product;
 	</select>
 	<select id="xml_select_list" resultType="xmlDto" >
-		select * from light.product limit 10;
+		select * from light.product limit ?,10;
 	</select>
 	
 	<insert id="xml_insert" parameterType="xmlDto">

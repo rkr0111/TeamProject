@@ -18,7 +18,7 @@ public class Product_ListAction implements Light_action {
 		int limit = 10;
 		ActionForward forward = null;
 		Product_dto prodto = new Product_dto();
-		ArrayList<Product_dto> productList = new ArrayList<Product_dto>();
+		List<Product_dto> productList = new ArrayList<Product_dto>();
 		Product_ListService productListService = new Product_ListService();
 		
 		if(request.getParameter("page")!=null){
