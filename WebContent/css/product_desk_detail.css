@@ -98,6 +98,9 @@ headerProductContainer
 	border-bottom: 3px solid #ddd;
 	overflow: hidden;
 }
+.headerProductContainer .productInfoContainer .totalChoiceContainer.hidden {
+	display: none;
+}
 .headerProductContainer .productInfoContainer .totalChoiceContainer .totalChoice {
 	display: flex;
 	align-items: center;

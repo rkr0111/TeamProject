@@ -70,16 +70,11 @@
 						<option>노랑</option>
 					</select>
 				</div>
-				<div class="totalChoiceContainer mt_20">
+				<div class="totalChoiceContainer hidden mt_20">
 					<ul class="totalChoice">
-						<li>상품명</li>
-						<li>검정</li>
-						<li>1개</li>
-					</ul>
-					<ul class="totalChoice">
-						<li>상품명</li>
-						<li>파랑</li>
-						<li>2개</li>
+						<li><%out.print(isDetailSuccess.get(0).getProduct_name());%></li>
+						<li class="product_color">검정</li>
+						<li class="product_cnt">1개</li>
 					</ul>
 				</div>
 				<div class="totalPrice t_align_right fs_23 fw_bold textColor ff9d2d pt_20 mb_10">\</div>
@@ -133,8 +128,7 @@
 
 	<!-- script -->
 	<script type="text/javascript" src="../js/scroll.js"></script>
-	
-	
+	<script type="text/javascript" src="../js/product_detail_selectbox.js"></script>	
 	
 </body>
 </html>
