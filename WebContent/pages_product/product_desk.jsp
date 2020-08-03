@@ -35,7 +35,7 @@
 <script type="text/javascript">
 	function productNameLink(param, flag) {
 		if(flag == 0) {
-			location.href="pages_product/product_desk_update.jsp?product_name="+encodeURIComponent(param);
+			location.href="pages_product/DB_product_desk_update.jsp?product_name="+encodeURIComponent(param);
 		}else if(flag == 1) {
 			location.href="productDelete.bo?product_name="+encodeURIComponent(param);
 		}else if(flag == 2) {
