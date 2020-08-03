@@ -89,7 +89,7 @@
 					%>
 						<li>
 							<a class="imgContainer" onclick="productNameLink('<%=product_name %>', 2)" >
-								<div class="imgBox"><img src="images/product_img/<%out.print(productList.get(i).getProduct_category());%>/<%out.print(productList.get(i).getProduct_category());%>_01/<%out.print(productList.get(i).getProduct_img());%>"/></div>
+								<img src="images/product_img/<%out.print(productList.get(i).getProduct_category());%>/<%out.print(productList.get(i).getProduct_img());%>"/>
 							</a>
 							<div class="textBox">
 								<ul>
