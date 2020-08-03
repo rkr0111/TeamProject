@@ -17,7 +17,7 @@
 </head>
 <body>
 	<!-- header -->
-	<jsp:include page="../pages_header_afterlogin.jsp" /> <!-- header end -->
+	<jsp:include page="../login_header_afterlogin.jsp" /> <!-- header end -->
 
 
 <!-- 마이페이지의 인덱스페이지는 구매내역 (마이페이지 = 구매내역 페이지) -->

@@ -33,9 +33,9 @@
 	String id = (String)session.getAttribute("id");
 	if(id == null) {
 	%>
-	<jsp:include page="../pages_header_beforelogin.jsp" />
+	<jsp:include page="../product_header_beforelogin.jsp" />
 	<%}else {%>
-	<jsp:include page="../pages_header_afterlogin.jsp" />
+	<jsp:include page="../product_header_afterlogin.jsp" />
 	<%}%> <!-- header end -->
 
 	<!-- section -->

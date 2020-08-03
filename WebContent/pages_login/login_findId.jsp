@@ -16,7 +16,7 @@
 </head>
 <body>
 	<!-- header -->
-	<jsp:include page="../pages_header_beforelogin.jsp" /> <!-- header end -->
+	<jsp:include page="../login_header_beforelogin.jsp" /> <!-- header end -->
 
 	<section> <!-- section -->
 		<form class="findIdformContainer" action="DB_findid.jsp" method="post">

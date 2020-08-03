@@ -17,7 +17,7 @@
 </head>
 <body>
 	<!-- header -->
-	<jsp:include page="../pages_header_beforelogin.jsp" /> <!-- header end -->
+	<jsp:include page="../login_header_beforelogin.jsp" /> <!-- header end -->
 
 	<section>
 		<form name="join-form" method="post" action="./DB_joininsert.jsp">
