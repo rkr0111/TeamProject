@@ -43,8 +43,8 @@
 				</ul>
 			</nav>
 			<ul class="minimenu">
-				<li><a href="../pages_login/login_login.jsp">LOGIN</a></li>
-				<li><a href="../pages_login/login_join.jsp">JOIN</a></li>
+				<li><a href="login_login.jsp">LOGIN</a></li>
+				<li><a href="login_join.jsp">JOIN</a></li>
 			</ul>
 		</div>
 	</header> <!-- header end -->

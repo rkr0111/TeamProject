@@ -12,7 +12,7 @@ public class Product_DetailService {
 		prodao.getConn();
 		
 		List<Product_dto> detailSelect = null;
-		detailSelect = prodao.Conn_select_proList(product_name);
+		detailSelect = prodao.Conn_detailselect(product_name);
 		
 		Product_dto dto = new Product_dto();
 		dto.setProduct_name(detailSelect.get(0).getProduct_name());

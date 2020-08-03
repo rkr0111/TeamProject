@@ -49,6 +49,13 @@ public class TeamPro_dao {
 		listCount = Integer.parseInt(connresultsel.get(0).toString());
 		return listCount;
 	}
+	//detail_selectName - 0730 rkr0111 수정
+	public List<Product_dto> Conn_detailselect(String product_name) {
+		SqlSession sqlsession = sqlfactory.openSession();
+		List<Product_dto> connresultupd= sqlsession.selectList("xml_select_name", product_name);
+		sqlsession.close();
+		return connresultupd; 
+	}
 	
 	//insert - 0731 dhdbswl 수정
 	public int Conn_insert(Product_dto dto) {
@@ -72,14 +79,7 @@ public class TeamPro_dao {
 		//System.out.println();
 		return updateCount;
 	}
-	//update_selectName - 0730 rkr0111 수정
-	/*public List<Product_dto> Conn_updateselect(String check_name) {
-		SqlSession sqlsession = sqlfactory.openSession();
-		List<Product_dto> connresultupd= sqlsession.selectList("xml_select_name");
-		sqlsession.close();
-		return connresultupd; 
-	}*/
-	
+		
 	//delete 
 	public void Conn_delete(Product_dto dto) {
 		SqlSession sqlsession = sqlfactory.openSession();
