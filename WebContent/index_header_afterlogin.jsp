@@ -24,7 +24,7 @@
 			<div class="nav-inner">
 				<div class="exitBtn"></div>
 				<ul class="mainmenu">
-					<li><a href="pages_product/product_desk.jsp">DESK</a></li>
+					<li><a href="productList.bo">DESK</a></li>
 					<li><a href="pages_product/product_bedroom.jsp">BEDROOM</a></li>
 					<li><a href="pages_product/product_stand.jsp">STAND</a></li>
 					<li class="btmline"><a href="pages_product/product_point.jsp">POINT</a></li>

@@ -44,7 +44,7 @@
 			<div class="product-inner">
 				<ul class="productLeftBox mr_30">
 					<li class="productContents desk mb_30" data-aos="fade-up" data-aos-delay="50">
-						<a href="pages_product/product_desk.jsp">
+						<a href="productList.bo">
 							<div class="bgText NanumGothicCodingRegular">DESK LIGHT</div>
 						</a>
 					</li>
