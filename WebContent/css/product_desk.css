@@ -24,7 +24,7 @@
     background-color: #fee;
 	font-size: 24px;
 	font-weight: bold;
-    background: #74777e url(../images/product_img/desk/desk_04/desk04_01.jpg) 40px -240px/cover no-repeat;
+    background: #74777e url(../images/product_img/desk/desk04_01.jpg) 40px -240px/cover no-repeat;
 }
 
 /*viewContain*/
@@ -111,8 +111,8 @@
 	background-size: cover;
 }
 .productContainer .imgContainer img {
-	width: 100%;
-    height: 100%;
+	width: 110%;
+	height: auto;
 }
 
 /* imgBox before / hover */
