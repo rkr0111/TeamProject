@@ -43,7 +43,7 @@
 		<!-- headerProductContainer -->
 		<div class="headerProductContainer">
 			<div class="productContainer">
-				<img src="../images/product_img/desk/desk_01/desk01_01.jpg">
+				<img src="images/product_img/<%out.print(isDetailSuccess.get(0).getProduct_category());%>/<%out.print(isDetailSuccess.get(0).getProduct_img());%>">
 			</div>
 			<div class="productInfoContainer">
 				<ul>
@@ -100,7 +100,7 @@
 			</div>
 			<!-- 상품 상세 -->
 			<div class="detailImg">
-				<img src="../images/product_img/desk/desk_01/desk01_08.jpg">
+				<img src="images/product_img/<%out.print(isDetailSuccess.get(0).getProduct_category());%>/<%out.print(isDetailSuccess.get(0).getProduct_img());%>">
 			</div>
 			<!-- 배송/교환·환불 안내 -->
 			<div class="detailDelInfo">
