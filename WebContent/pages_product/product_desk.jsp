@@ -35,7 +35,7 @@
 <script type="text/javascript">
 	function productNameLink(param, flag) {
 		if(flag == 0) {
-			location.href="productUpdate.bo?product_name="+encodeURIComponent(param);
+			location.href="pages_product/product_desk_update.jsp?product_name="+encodeURIComponent(param);
 		}else if(flag == 1) {
 			location.href="productDelete.bo?product_name="+encodeURIComponent(param);
 		}else if(flag == 2) {
@@ -78,7 +78,7 @@
 			<div style="display: none;"></div>
 			<%}else if(id.equals("admin")) {%>
 			<div class="mb_20">
-				<input type="button" value="상품 등록하기" onclick="location.href='DB_product_insert.jsp'" />
+				<input type="button" value="상품 등록하기" onclick="location.href='pages_product/DB_product_insert.jsp'" />
 			</div>
 			<%}%>
 			<div class="productContainer">

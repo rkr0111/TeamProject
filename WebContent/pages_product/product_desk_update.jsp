@@ -26,12 +26,19 @@
 		TeamPro_dao dao = new TeamPro_dao();
 		Product_dto dto = new Product_dto();
 		
-		List<Product_dto> connresultsel = (ArrayList<Product_dto>)request.getAttribute("productUpdatesel");
-		//out.print("productUpdatesel");
+		SqlSessionFactory sqlfactory = dao.getConn(); //dao 안의 생성자
+		SqlSession sqlsession = sqlfactory.openSession();
+		
+		dto.setProduct_name(request.getParameter("product_name"));
+		List<Product_dto> connresultsel= sqlsession.selectList("xml_select_name", dto);
+		
+		System.out.println(request.getParameter("product_name"));
+		System.out.println(connresultsel.get(0).getProduct_name());
+	
 	%>
 
 	<h1>Product Update<br/>============</h1>
-	<form action="productProUpdate.bo" method="post">
+	<form action="../productUpdate.bo" method="post">
 		<table class="updatetable">
 			<tr>	
 				<th>이름</th>

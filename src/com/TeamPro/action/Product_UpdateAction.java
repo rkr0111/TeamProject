@@ -14,7 +14,7 @@ public class Product_UpdateAction implements Light_action {
 		ActionForward forward = null;
 		boolean isUpdateSuccess = false;
 		Product_dto dto = new Product_dto();
-	
+		
 		dto.setCheck(request.getParameter("udt_check"));
 		dto.setProduct_name(request.getParameter("udt_name"));
 		dto.setProduct_category(request.getParameter("udt_category"));
@@ -24,11 +24,15 @@ public class Product_UpdateAction implements Light_action {
 		dto.setProduct_img(request.getParameter("udt_img"));
 		dto.setProduct_contents(request.getParameter("udt_contents"));
 		
+		System.out.println("action check : "+dto.getCheck());
+		System.out.println("action name : "+dto.getProduct_name());
+		
 		Product_UpdateService productUpdateService = new Product_UpdateService();
 		isUpdateSuccess = productUpdateService.getProductUpdate(dto);
+		/*request.setAttribute("dto", dto);*/
 		
 		forward = new ActionForward();
-		forward.setRedirect(true);
+		forward.setRedirect(false);
 		forward.setPath("/productList.bo"); 
 		return forward;
 	}
