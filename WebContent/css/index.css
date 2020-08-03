@@ -146,7 +146,7 @@ productContainer
 .productContainer .productContents.stand {
 	width: 540px;
     height: 320px;
-	background: url(../images/product_img/stand_img.jpg) center/cover no-repeat;
+	background: url(../images/product_img/stand_img.jpg) top center/cover no-repeat;
 }
 .productContainer .productContents.point {
 	width: 370px;
