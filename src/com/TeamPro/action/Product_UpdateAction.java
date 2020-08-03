@@ -24,16 +24,12 @@ public class Product_UpdateAction implements Light_action {
 		dto.setProduct_img(request.getParameter("udt_img"));
 		dto.setProduct_contents(request.getParameter("udt_contents"));
 		
-		System.out.println("action check : "+dto.getCheck());
-		System.out.println("action name : "+dto.getProduct_name());
-		
 		Product_UpdateService productUpdateService = new Product_UpdateService();
 		isUpdateSuccess = productUpdateService.getProductUpdate(dto);
-		/*request.setAttribute("dto", dto);*/
 		
 		forward = new ActionForward();
-		forward.setRedirect(false);
-		forward.setPath("/productList.bo"); 
+		forward.setRedirect(true);
+		forward.setPath("productList.bo"); 
 		return forward;
 	}
 }

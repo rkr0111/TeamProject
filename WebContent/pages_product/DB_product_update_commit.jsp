@@ -24,7 +24,7 @@
 	SqlSessionFactory sqlfactory = dao.getConn(); //dao 안의 생성자
 	SqlSession sqlsession = sqlfactory.openSession();
 	
-	//dto.setCheck(request.getParameter("udt_check"));
+	dto.setCheck(request.getParameter("udt_check"));
 	dto.setProduct_name(request.getParameter("udt_name"));
 	dto.setProduct_category(request.getParameter("udt_category"));
 	dto.setProduct_price(Integer.parseInt(request.getParameter("udt_price")));

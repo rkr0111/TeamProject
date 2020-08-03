@@ -21,7 +21,7 @@ public class Product_DeleteAction implements Light_action {
 		
 		forward = new ActionForward();
 		forward.setRedirect(true);
-		forward.setPath("/productList.bo"); 
+		forward.setPath("productList.bo"); 
 		return forward;
 	}
 }

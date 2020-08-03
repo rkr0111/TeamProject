@@ -72,10 +72,10 @@ public class TeamPro_dao {
 	public int Conn_update(Product_dto dto) {
 		int updateCount = 0;
 		SqlSession sqlsession = sqlfactory.openSession();
-		List<Integer> connresultsel = sqlsession.selectList("xml_select_count");
+		sqlsession.update("xml_update", dto);
 		sqlsession.commit();
 		sqlsession.close();
-		updateCount = Integer.parseInt(connresultsel.get(0).toString());
+		updateCount = 1;
 		//System.out.println();
 		return updateCount;
 	}

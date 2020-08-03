@@ -29,11 +29,11 @@
 		SqlSessionFactory sqlfactory = dao.getConn(); //dao 안의 생성자
 		SqlSession sqlsession = sqlfactory.openSession();
 		
+		String check = request.getParameter("product_name");
+		dto.setCheck(check);
+		
 		dto.setProduct_name(request.getParameter("product_name"));
 		List<Product_dto> connresultsel= sqlsession.selectList("xml_select_name", dto);
-		
-		System.out.println(request.getParameter("product_name"));
-		System.out.println(connresultsel.get(0).getProduct_name());
 	
 	%>
 
