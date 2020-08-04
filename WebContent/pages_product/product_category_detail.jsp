@@ -57,9 +57,9 @@
 				<div class="amountContents pt_20 mt_20 mb_10">
 					<span class="labelText">개수</span>
 					<ul class="amount">
-						<li><a href="#" class="btn_minus">-</a></li>
-						<li><input type="text" name="showamount" value="1" /></li>
-						<li><a href="#" class="btn_plus">+</a></li>
+						<li class="btn_minus" onclick="amountCountBtn(0)">-</li>
+						<li><input type="number" name="showamount" value="1" /></li>
+						<li class="btn_plus" onclick="amountCountBtn(1)">+</li>
 					</ul>
 				</div>
 				<div class="colorSelectContents">
@@ -77,7 +77,26 @@
 						<li class="product_cnt">1개</li>
 					</ul>
 				</div>
-				<div class="totalPrice t_align_right fs_23 fw_bold textColor ff9d2d pt_20 mb_10">\</div>
+				<div class="totalPrice t_align_right fs_23 fw_bold textColor ff9d2d pt_20 mb_10">
+					<%int product_price = isDetailSuccess.get(0).getProduct_price();%>
+					<script>
+						var product_price = <%=product_price%>;
+						var showamount = document.querySelector("input[name='showamount']").value;
+						var totalPrice = document.querySelector(".totalPrice");
+						totalPrice.innerText = product_price*showamount + "원";
+
+						function amountCountBtn(obj) {
+							var shownum = 0;
+							if(obj == 0) {
+								if(showamount.value != 0) shownum = showamount.value--;
+								totalPrice.innerText = product_price*(shownum+1) + "원";
+							}else {
+								shownum = showamount.value++;
+								totalPrice.innerText = product_price*(shownum+1) + "원";
+							}
+						}
+					</script>
+				</div>
 				<div class="t_align_right fs_14 textColor gray_9c9c9c">100,000원 이상 구매시 무료배송</div>
 				<ul class="customerBtn mt_20">
 					<li class="mr_10"><input type="button" name="cart_btn" value="장바구니"></li>
@@ -89,8 +108,8 @@
 		<div class="detailContainer">
 			<div class="detailNav">
 				<ul class="detailNav-inner">
-					<li>상품 상세</li>
-					<li>배송/교환·환불 안내</li>
+					<li onclick="detailNavClicked(0)">상품 상세</li>
+					<li onclick="detailNavClicked(1)">배송/교환·환불 안내</li>
 				</ul>
 			</div>
 			<!-- 상품 상세 -->
@@ -127,8 +146,8 @@
 	<jsp:include page="../footer.jsp" /> <!-- footer end -->
 
 	<!-- script -->
-	<script type="text/javascript" src="../js/scroll.js"></script>
-	<script type="text/javascript" src="../js/product_detail_selectbox.js"></script>	
+	<script type="text/javascript" src="js/scroll.js"></script>
+	<script type="text/javascript" src="js/product_category_detail.js"></script>	
 	
 </body>
 </html>
