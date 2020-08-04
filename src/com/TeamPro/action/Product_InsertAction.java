@@ -51,7 +51,7 @@ public class Product_InsertAction implements Light_action {
 			String product_name = (String) request.getAttribute("product_name");
 			forward = new ActionForward();
 			forward.setRedirect(true);
-			forward.setPath("productList.bo");
+			forward.setPath("productList.bo?product_category="+prodto.getProduct_category());
 		}
 
 		return forward;
