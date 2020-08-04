@@ -57,9 +57,11 @@
 
 	<!-- section -->
 	<section>
+		<%if(productList.size() != 0) {%>
 		<h1 class="titleText <%out.print(productList.get(0).getProduct_category());%> textColor white">
 		<%out.print(productList.get(0).getProduct_category());%>
 		</h1>
+		<%}%>
 		<div class="viewContain">
 			<ul>
 				<li class="product-count">총 <span class="ml_6">00</span>개의 상품</li>
