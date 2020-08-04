@@ -1,11 +1,17 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%request.setCharacterEncoding("utf-8");%>
 
+<%@page import="org.apache.ibatis.session.SqlSessionFactory"%>
+<%@page import="org.apache.ibatis.session.SqlSession"%>
+
+<%@page import="com.TeamPro.dto.Buyhistory_dto"%>
+<%@page import="java.util.*"%>
+
 <!DOCTYPE html>
 <html lang="ko">
 <head>
-	<title>마이페이지</title>
 	<meta charset="utf-8">
+	<title>마이페이지</title>	
 	<link rel="stylesheet" type="text/css" href="../css/reset.css">
 	<link rel="stylesheet" type="text/css" href="../css/common.css">
 	<link rel="stylesheet" type="text/css" href="../css/allStyle.css">
@@ -18,7 +24,20 @@
 <body>
 	<!-- header -->
 	<jsp:include page="../login_header_afterlogin.jsp" /> <!-- header end -->
-
+<%
+	//memberInfo 클래스에 들어갈 정보
+	String id = (String)session.getAttribute("id");
+	String name = (String)session.getAttribute("name");
+	String addr = (String)session.getAttribute("addr");
+	String phone = (String)session.getAttribute("phone");
+	
+	//orderList 클래스에 들어갈 정보
+	
+	
+	List<Buyhistory_dto> buyhistory = new ArrayList<Buyhistory_dto>();
+	out.print(buyhistory.get(0).getBuy_id());
+	
+%>
 
 <!-- 마이페이지의 인덱스페이지는 구매내역 (마이페이지 = 구매내역 페이지) -->
 
@@ -28,7 +47,7 @@
 				<div class="memberId">
 					<div><img src="../images/mypage_img/icons/person1.png"></div>
 					<ul>
-						<li>'아이디' 님</li>
+						<li><%=id %> 님</li>	
 					</ul>
 				</div>
 				<div class="memberInfo">
@@ -36,15 +55,15 @@
 					<ul>
 						<li>
 							<p>이름 : </p>
-							<p>홍길동</p>
-						</li>
-						<li>
-							<p>연락처 : </p>
-							<p>000-0000-0000</p>
+							<p><%=name%></p>
 						</li>
 						<li>
 							<p>주소 : </p>
-							<p>서울특별시 강남구 역삼동 635-17 3~6층 장연빌딩</p>
+							<p><%=addr %></p>
+						</li>
+						<li>
+							<p>연락처 : </p>
+							<p><%=phone %></p>
 						</li>
 					</ul>
 				</div>
