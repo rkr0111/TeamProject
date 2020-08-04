@@ -44,24 +44,24 @@
 			<div class="product-inner">
 				<ul class="productLeftBox mr_30">
 					<li class="productContents desk mb_30" data-aos="fade-up" data-aos-delay="50">
-						<a href="productList.bo">
+						<a href="productList.bo?product_category=desk">
 							<div class="bgText NanumGothicCodingRegular">DESK LIGHT</div>
 						</a>
 					</li>
 					<li class="productContents bedroom" data-aos="fade-up" data-aos-delay="50">
-						<a href="pages_product/product_bedroom.jsp">
+						<a href="productList.bo?product_category=bedroom">
 							<div class="bgText NanumGothicCodingRegular">BEDROOM LIGHT</div>
 						</a>
 					</li>
 				</ul>
 				<ul class="productRightBox">
 					<li class="productContents stand mb_30" data-aos="fade-up" data-aos-delay="200">
-						<a href="pages_product/product_stand.jsp">
+						<a href="productList.bo?product_category=stand">
 							<div class="bgText NanumGothicCodingRegular">STAND LIGHT</div>
 						</a>
 					</li>
 					<li class="productContents point" data-aos="fade-up" data-aos-delay="250">
-						<a href="pages_product/product_point.jsp">
+						<a href="productList.bo?product_category=point">
 							<div class="bgText NanumGothicCodingRegular">POINT LIGHT</div>
 						</a>
 					</li>

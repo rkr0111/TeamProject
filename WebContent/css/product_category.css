@@ -86,7 +86,6 @@
 }
 .productContainer > ul > li {
 	overflow: hidden;
-	cursor: pointer;
 }
 .productContainer > ul > li:not(:last-of-type) {
 	margin-bottom: 60px;
@@ -120,6 +119,7 @@
 	overflow: hidden;
 	background-repeat: no-repeat;
 	background-size: cover;
+	cursor: pointer;
 }
 .productContainer .imgContainer img {
 	width: 110%;

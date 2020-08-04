@@ -117,23 +117,24 @@
 				</ul>
 				<div id="pageList" class="pagenation">
 					<ul>
+					<%if(productList.size() != 0) {%>
 						<%if(nowPage<=1){%>
 						<li class="firstBtn"><a href="">&lt;</a></li>
 						<%}else{%>
-						<li class="firstBtn"><a href="productList.bo?page=<%=nowPage-1%>">&lt;</a></li>
+						<li class="firstBtn"><a href="productList.bo?product_category=<%out.print(productList.get(0).getProduct_category());%>&page=<%=nowPage-1%>">&lt;</a></li>
 						<%}%>
 						<%for(int a=startPage;a<=endPage;a++){
 						if(a==nowPage){%>
 						<li><a href="" class="fw_bold"><%=a%></a></li>
 						<%}else{ %>
-						<li><a href="productList.bo?page=<%=a%>"><%=a%></a></li>
+						<li><a href="productList.bo?product_category=<%out.print(productList.get(0).getProduct_category());%>&page=<%=a%>"><%=a%></a></li>
 						<%}%>
 						<%}%>
 						<%if(nowPage>=maxPage){ %>
 						<li class="lastBtn"><a href="">&gt;</a></li>
 						<%}else{%>
-						<li class="lastBtn"><a href="productList.bo?page=<%=nowPage+1%>">&gt;</a></li>
-						<%}%>
+						<li class="lastBtn"><a href="productList.bo?product_category=<%out.print(productList.get(0).getProduct_category());%>&page=<%=nowPage+1%>">&gt;</a></li>
+						<%}}%>
 					</ul>
 				</div>
 			</div>

@@ -8,11 +8,11 @@ import com.TeamPro.dto.Product_dto;
 
 public class Product_ListService {
 	// 0730 dhdbswl 추가
-	public int getListCount() throws Exception {
+	public int getListCount(String product_category) throws Exception {
 		int listCount = 0;
 		TeamPro_dao prodao = TeamPro_dao.getinstance();
 		prodao.getConn();
-		listCount = prodao.select_ListCount();
+		listCount = prodao.select_ListCount(product_category);
 		return listCount;
 	}
 	// 0730 dhdbswl 수정

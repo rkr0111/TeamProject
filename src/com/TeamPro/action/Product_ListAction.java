@@ -15,7 +15,7 @@ public class Product_ListAction implements Light_action {
 
 	public ActionForward execute(HttpServletRequest request,HttpServletResponse response) throws Exception {
 		int page = 1;
-		int limit = 10;
+		int limit = 5;
 		ActionForward forward = null;
 		Product_dto prodto = new Product_dto();
 		List<Product_dto> productList = new ArrayList<Product_dto>();
@@ -27,15 +27,15 @@ public class Product_ListAction implements Light_action {
 			page=Integer.parseInt(request.getParameter("page"));
 		}
 		
-		int listCount = productListService.getListCount();
+		int listCount = productListService.getListCount(product_category);
 		productList = productListService.getProductList(page, limit, product_category);
 		
 		//총 페이지 수.
-   		int maxPage=(int)((double)listCount/limit+0.95); //0.95를 더해서 올림 처리.
-   		//현재 페이지에 보여줄 시작 페이지 수(1, 11, 21 등...)
-   		int startPage = (((int) ((double)page / 10 + 0.9)) - 1) * 10 + 1;
-   		//현재 페이지에 보여줄 마지막 페이지 수.(10, 20, 30 등...)
-   	    int endPage = startPage+10-1;
+   		int maxPage=(int)((double)listCount / limit + 0.95); //0.95를 더해서 올림 처리.
+   		//현재 페이지에 보여줄 시작 페이지 수(1, 6, 11 등...)
+   		int startPage = (((int) ((double)page / 5 + 0.8)) - 1) * 5 + 1;
+   		//현재 페이지에 보여줄 마지막 페이지 수.(5, 10, 15 등...)
+   	    int endPage = startPage + 5 - 1;
 
    		if (endPage> maxPage) endPage = maxPage;
 

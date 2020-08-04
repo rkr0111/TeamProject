@@ -34,7 +34,7 @@ public class TeamPro_dao {
 	}
 	// select product list - 0731 dhdbswl 수정
 	public List<Product_dto> Conn_select_proList(int page, int limit, String product_category) {
-		int startrow = (page-1)*10;
+		int startrow = (page-1)*5;
 		Product_dto prodto = new Product_dto();
 		prodto.setProduct_category(product_category);
 		prodto.setStartrow(startrow);
@@ -44,10 +44,12 @@ public class TeamPro_dao {
 		return connresultsel;
 	}
 	// select_ListCount - 0730 dhdbswl 수정
-	public int select_ListCount() {
+	public int select_ListCount(String product_category) {
 		int listCount = 0;
+		Product_dto prodto = new Product_dto();
+		prodto.setProduct_category(product_category);
 		SqlSession sqlsession = sqlfactory.openSession();
-		List<Integer> connresultsel = sqlsession.selectList("xml_select_count");
+		List<Integer> connresultsel = sqlsession.selectList("xml_select_count", prodto);
 		sqlsession.close();
 		listCount = Integer.parseInt(connresultsel.get(0).toString());
 		return listCount;
