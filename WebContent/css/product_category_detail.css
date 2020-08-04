@@ -63,7 +63,8 @@ headerProductContainer
 	width: 40px;
 	height: 40px;
 	background-color: #fff;
-	border: 1px solid #ddd; 
+	border: 1px solid #ddd;
+	cursor: pointer;
 }
 .headerProductContainer .productInfoContainer .amount li:nth-of-type(2) {
 	width: 150px;
@@ -171,6 +172,9 @@ detailContainer
 	border-top: 1px solid #ddd;
 	border-bottom: 1px solid #ddd;
     margin-bottom: 100px;
+}
+.detailContainer .detailNav.fixed {
+	position: fixed;
 }
 .detailContainer .detailNav .detailNav-inner {
 	display: flex;
