@@ -30,7 +30,7 @@
 	<link rel="stylesheet" type="text/css" href="css/product_desk.css">
 	<!-- jQuery cdn -->
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
-	<title>탁상용 상품페이지</title>
+	<title>상품페이지</title>
 </head>
 <script type="text/javascript">
 	function productNameLink(param, flag) {
@@ -57,7 +57,9 @@
 
 	<!-- section -->
 	<section>
-		<h1 class="titleText textColor white">탁상용</h1>
+		<h1 class="titleText <%out.print(productList.get(0).getProduct_category());%> textColor white">
+		<%out.print(productList.get(0).getProduct_category());%>
+		</h1>
 		<div class="viewContain">
 			<ul>
 				<li class="product-count">총 <span class="ml_6">00</span>개의 상품</li>
@@ -84,8 +86,8 @@
 			<div class="productContainer">
 				<ul class="productList">
 					<%
-						for(int i=0; i<productList.size(); i++) {
-						String product_name = productList.get(i).getProduct_name();
+					for(int i=0; i<productList.size(); i++) {
+					String product_name = productList.get(i).getProduct_name();
 					%>
 						<li>
 							<a class="imgContainer" onclick="productNameLink('<%=product_name %>', 2)" >
@@ -140,7 +142,7 @@
 	<jsp:include page="../footer.jsp" /> <!-- footer end -->
 
 	<!-- script -->
-	<script type="text/javascript" src="../js/scroll.js"></script>	
+	<script type="text/javascript" src="js/scroll.js"></script>	
 	
 </body>
 </html>

@@ -21,12 +21,14 @@ public class Product_ListAction implements Light_action {
 		List<Product_dto> productList = new ArrayList<Product_dto>();
 		Product_ListService productListService = new Product_ListService();
 		
+		String product_category = request.getParameter("product_category");
+		
 		if(request.getParameter("page")!=null){
 			page=Integer.parseInt(request.getParameter("page"));
 		}
 		
 		int listCount = productListService.getListCount();
-		productList = productListService.getProductList(page, limit);
+		productList = productListService.getProductList(page, limit, product_category);
 		
 		//총 페이지 수.
    		int maxPage=(int)((double)listCount/limit+0.95); //0.95를 더해서 올림 처리.

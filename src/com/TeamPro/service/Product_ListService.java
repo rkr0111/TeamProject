@@ -16,11 +16,11 @@ public class Product_ListService {
 		return listCount;
 	}
 	// 0730 dhdbswl ¼öÁ¤
-	public List<Product_dto> getProductList(int page, int limit) throws Exception {
+	public List<Product_dto> getProductList(int page, int limit, String product_category) throws Exception {
 		List<Product_dto> productList = null;
 		TeamPro_dao prodao = TeamPro_dao.getinstance();
 		prodao.getConn();
-		productList = prodao.Conn_select_proList(page, limit);
+		productList = prodao.Conn_select_proList(page, limit, product_category);
 		Product_dto prodto = new Product_dto();
 		ArrayList<Product_dto> list = new ArrayList<Product_dto>();
 		

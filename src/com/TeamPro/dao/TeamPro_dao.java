@@ -33,10 +33,13 @@ public class TeamPro_dao {
 		return connresultsel; 
 	}
 	// select product list - 0731 dhdbswl ¼öÁ¤
-	public List<Product_dto> Conn_select_proList(int page, int limit) {
+	public List<Product_dto> Conn_select_proList(int page, int limit, String product_category) {
 		int startrow = (page-1)*10;
+		Product_dto prodto = new Product_dto();
+		prodto.setProduct_category(product_category);
+		prodto.setStartrow(startrow);
 		SqlSession sqlsession = sqlfactory.openSession();
-		List<Product_dto> connresultsel= sqlsession.selectList("xml_select_list", startrow);
+		List<Product_dto> connresultsel= sqlsession.selectList("xml_select_list", prodto);
 		sqlsession.close();
 		return connresultsel;
 	}

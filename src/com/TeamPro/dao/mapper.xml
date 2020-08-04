@@ -16,8 +16,8 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	<select id="xml_select_count" resultType="Integer" >
 		select count(*) from light.product;
 	</select>
-	<select id="xml_select_list" resultType="xmlDto" parameterType="pageInfo">
-		select * from light.product limit #{startrow},10;
+	<select id="xml_select_list" resultType="xmlDto" parameterType="xmlDto">
+		select * from light.product where product_category=#{product_category} limit #{startrow},10;
 	</select>
 	
 	<insert id="xml_insert_prolist" parameterType="xmlDto">

@@ -11,7 +11,14 @@ public class Product_dto {
 	String product_contents;
 	
 	String check;
+	int startrow;
 	
+	public int getStartrow() {
+		return startrow;
+	}
+	public void setStartrow(int startrow) {
+		this.startrow = startrow;
+	}
 	public String getProduct_name() {
 		return product_name;
 	}

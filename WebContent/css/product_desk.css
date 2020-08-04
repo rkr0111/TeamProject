@@ -24,7 +24,18 @@
     background-color: #fee;
 	font-size: 24px;
 	font-weight: bold;
-    background: #74777e url(../images/product_img/desk/desk04_01.jpg) 40px -240px/cover no-repeat;
+}
+.titleText.desk {
+	background: #74777e url(../images/product_img/desk/desk04_01.jpg) 40px -240px/cover no-repeat;
+}
+.titleText.bedroom {
+	background: url(../images/product_img/bedroom/bedroom06_01.jpg) 40px -240px/cover no-repeat;
+}
+.titleText.stand {
+	background: url(../images/product_img/stand/stand04_02.jpg) 40px -240px/cover no-repeat;
+}
+.titleText.point {
+	background: url(../images/product_img/point/point02_01.jpg) 40px -240px/cover no-repeat;
 }
 
 /*viewContain*/

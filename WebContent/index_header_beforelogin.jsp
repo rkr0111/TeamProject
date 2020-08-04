@@ -22,10 +22,10 @@
 			<div class="nav-inner">
 				<div class="exitBtn"></div>
 				<ul class="mainmenu">
-					<li><a href="productList.bo">DESK</a></li>
-					<li><a href="pages_product/product_bedroom.jsp">BEDROOM</a></li>
-					<li><a href="pages_product/product_stand.jsp">STAND</a></li>
-					<li class="btmline"><a href="pages_product/product_point.jsp">POINT</a></li>
+					<li><a href="productList.bo?product_category=desk">DESK</a></li>
+					<li><a href="productList.bo?product_category=bedroom">BEDROOM</a></li>
+					<li><a href="productList.bo?product_category=stand">STAND</a></li>
+					<li class="btmline"><a href="productList.bo?product_category=point">POINT</a></li>
 					<li><a href="pages_mdpick/mdpick.jsp">MD PICK</a></li>
 					<li class="btmline">
 						<a href="pages_interior/interior.jsp">INTERIOR</a>

@@ -7,18 +7,40 @@
 <meta charset="UTF-8">
 <title>DB+Product Insert Page</title>
 </head>
+<style>
+	.inserttable {
+		border-collapse: collapse;
+		margin-bottom: 30px;
+	}
+	.inserttable th, 
+	.inserttable td {
+		border: 1px solid #000;
+		padding: 10px 30px;
+	}
+	.inserttable td input,
+	.inserttable td select {
+		width: 200px;
+	}
+</style>
 <body>
 
-	<h1>Product Insert<br>============</h1>
+	<h1>상품 등록하기<br>============</h1>
 	<form action="../productInsert.bo" method="post" enctype="multipart/form-data">
 		<table class="inserttable">
 			<tr>
-				<th>이름</th>
+				<th>상품 이름</th>
 				<td><input type="text" name="product_name" required="required"></td>
 			</tr>
 			<tr>
 				<th>카테고리</th>
-				<td><input type="text" name="product_category" required="required"></td>
+				<td>
+					<select name="product_category" required="required">
+						<option name="desk">desk</option>
+						<option name="bedroom">bedroom</option>
+						<option name="stand">stand</option>
+						<option name="point">point</option>
+					</select>
+				</td>
 			</tr>
 			<tr>
 				<th>가격</th>
@@ -37,7 +59,7 @@
 				<td><input type="text" name="product_contents" required="required"></td>
 			</tr>
 		</table>
-		<input type="submit" value="상품 올리기">
+		<input type="submit" value="상품 등록">
 	</form>
 	
 </body>
