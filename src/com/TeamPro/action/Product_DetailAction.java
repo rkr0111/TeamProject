@@ -26,7 +26,7 @@ public class Product_DetailAction implements Light_action {
 		
 		forward = new ActionForward();
 		forward.setRedirect(false);
-		forward.setPath("pages_product/product_desk_detail.jsp");
+		forward.setPath("pages_product/product_category_detail.jsp");
 		return forward;
 	}
 }

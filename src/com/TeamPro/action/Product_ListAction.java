@@ -50,7 +50,7 @@ public class Product_ListAction implements Light_action {
    		
 		forward = new ActionForward();
 		forward.setRedirect(false);
-		forward.setPath("pages_product/product_desk.jsp");
+		forward.setPath("pages_product/product_category.jsp");
 		return forward;
 	}
 	

@@ -16,7 +16,7 @@
 	<link rel="stylesheet" type="text/css" href="css/common.css">
 	<link rel="stylesheet" type="text/css" href="css/allStyle.css">
 	<link rel="stylesheet" type="text/css" href="css/font.css">
-	<link rel="stylesheet" type="text/css" href="css/product_desk_detail.css">
+	<link rel="stylesheet" type="text/css" href="css/product_category_detail.css">
 	<!-- jQuery cdn -->
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
 	<title>탁상용 상품페이지 | 상세페이지</title>
