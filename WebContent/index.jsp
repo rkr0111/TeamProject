@@ -15,7 +15,7 @@
 	<link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
 	<!-- jQuery cdn -->
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
-	<title>안녕 팀 프로젝트 index</title>
+	<title>팀 프로젝트 index</title>
 </head>
 <body>
 	<!-- header -->

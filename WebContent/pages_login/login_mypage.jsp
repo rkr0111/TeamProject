@@ -32,11 +32,8 @@
 	String phone = (String)session.getAttribute("phone");
 	
 	//orderList 클래스에 들어갈 정보
-	
-	
-	List<Buyhistory_dto> buyhistory = new ArrayList<Buyhistory_dto>();
-	out.print(buyhistory.get(0).getBuy_id());
-	
+	Buyhistory_dto dto = new Buyhistory_dto();	
+	List<Buyhistory_dto> buyhistoryList = (ArrayList<Buyhistory_dto>) request.getAttribute("buyhistoryList");
 %>
 
 <!-- 마이페이지의 인덱스페이지는 구매내역 (마이페이지 = 구매내역 페이지) -->
@@ -128,11 +125,12 @@
 			</div>
 
 			<div class="contentsOrder">
-				<div class="orderList orderList_1">
-					<p>2020.06.10 (18시 30분)</p>
+				<% if(buyhistoryList != null) { for(int i=0; i<buyhistoryList.size(); i++) { %>							
+				<div class="orderList">
+					<p><%out.print(buyhistoryList.get(i).getBuy_date());%></p>
 					<ul class="order">
 						<li> 
-							<div>[제품 이름]</div>
+							<div><% out.print(buyhistoryList.get(i).getBuy_name()); %></div>
 							<ul class="addEtc">
 								<li>리뷰하기</li>
 								<li>문의하기</li>
@@ -143,78 +141,21 @@
 							<ul class="orderInfo">
 								<li>
 									<p>주문 번호</p>
-									<p>11111111</p> 
+									<p>111111</p> 
 								</li>
 								<li>
 									<p>결제 금액</p> 
-									<p>111,111</p>
+									<p><% out.print(buyhistoryList.get(i).getBuy_price()); %></p>
 								</li>
 								<li>
 									<p>주문 상태</p> 
-									<p>배송 완료</p>
+									<p><% out.print(buyhistoryList.get(i).getBuy_condition()); %></p>
 								</li>
 							</ul>
 						</li>
 					</ul>
 				</div>
-				<div class="orderList orderList_2">
-					<p>2020.06.10 (18시 30분)</p>
-					<ul class="order">
-						<li> 
-							<div>[제품 이름]</div>
-							<ul class="addEtc">
-								<li>리뷰하기</li>
-								<li>문의하기</li>
-							</ul>
-						</li>
-						<li>
-							<div class="orderImgBox"><img src="../images/mypage_img/order_img/point01_04.jpg"></div>
-							<ul class="orderInfo">
-								<li>
-									<p>주문 번호</p>
-									<p>22222222</p> 
-								</li>
-								<li>
-									<p>결제 금액</p> 
-									<p>222,222</p>
-								</li>
-								<li>
-									<p>주문 상태</p> 
-									<p>배송 완료</p>
-								</li>
-							</ul>
-						</li>
-					</ul>
-				</div>
-				<div class="orderList orderList_3">
-					<p>2020.06.10 (18시 30분)</p>
-					<ul class="order">
-						<li> 
-							<div>[제품 이름]</div>
-							<ul class="addEtc">
-								<li>리뷰하기</li>
-								<li>문의하기</li>
-							</ul>
-						</li>
-						<li>
-							<div class="orderImgBox"><img src="../images/mypage_img/order_img/point02_02.jpg"></div>
-							<ul class="orderInfo">
-								<li>
-									<p>주문 번호</p>
-									<p>33333333</p> 
-								</li>
-								<li>
-									<p>결제 금액</p> 
-									<p>333,333</p>
-								</li>
-								<li>
-									<p>주문 상태</p> 
-									<p>배송 완료</p>
-								</li>
-							</ul>
-						</li>
-					</ul>
-				</div>
+				<% }}%>				
 			</div>
 		</div>
 
