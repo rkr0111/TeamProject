@@ -19,7 +19,7 @@
 	<link rel="stylesheet" type="text/css" href="css/product_category_detail.css">
 	<!-- jQuery cdn -->
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
-	<title>탁상용 상품페이지 | 상세페이지</title>
+	<title>상품 상세페이지</title>
 </head>
 
 <%
@@ -52,47 +52,52 @@
 				</ul>
 				<div class="productPrice">
 					<span class="labelText">가격</span>
-					<span class="fs_18">\<%out.print(isDetailSuccess.get(0).getProduct_price());%></span>
+					<span class="fs_18"><%out.print(isDetailSuccess.get(0).getProduct_price());%>원</span>
 				</div>
 				<div class="amountContents pt_20 mt_20 mb_10">
 					<span class="labelText">개수</span>
 					<ul class="amount">
 						<li class="btn_minus" onclick="amountCountBtn(0)">-</li>
-						<li><input type="number" name="showamount" value="1" /></li>
+						<li><input type="number" name="showamount" value="1" readonly /></li>
 						<li class="btn_plus" onclick="amountCountBtn(1)">+</li>
 					</ul>
 				</div>
 				<div class="colorSelectContents">
 					<span class="labelText">컬러</span>
-					<select size="1">
-						<option>검정</option>
-						<option>파랑</option>
-						<option>노랑</option>
+					<select size="1" onchange="optionSelected()">
+						<option>컬러 선택</option>
+						<%for(int i=0; i<isDetailSuccess.size(); i++) {%>
+							<option name="color-<%out.print(isDetailSuccess.get(0).getProduct_color());%>"><%out.print(isDetailSuccess.get(0).getProduct_color());%></option>
+						<%}%>
 					</select>
 				</div>
 				<div class="totalChoiceContainer hidden mt_20">
 					<ul class="totalChoice">
 						<li><%out.print(isDetailSuccess.get(0).getProduct_name());%></li>
-						<li class="product_color">검정</li>
-						<li class="product_cnt">1개</li>
+						<li class="product_color"></li>
+						<li class="product_cnt"></li>
 					</ul>
 				</div>
 				<div class="totalPrice t_align_right fs_23 fw_bold textColor ff9d2d pt_20 mb_10">
 					<%int product_price = isDetailSuccess.get(0).getProduct_price();%>
+					<%=product_price%>원
 					<script>
 						var product_price = <%=product_price%>;
-						var showamount = document.querySelector("input[name='showamount']").value;
 						var totalPrice = document.querySelector(".totalPrice");
+						var product_cnt = document.querySelector(".product_cnt");
+						
 						totalPrice.innerText = product_price*showamount + "원";
 
 						function amountCountBtn(obj) {
 							var shownum = 0;
 							if(obj == 0) {
-								if(showamount.value != 0) shownum = showamount.value--;
-								totalPrice.innerText = product_price*(shownum+1) + "원";
-							}else {
-								shownum = showamount.value++;
-								totalPrice.innerText = product_price*(shownum+1) + "원";
+								if(showamount.value > 0) shownum = (showamount.value--)-1;
+								totalPrice.innerText = product_price*shownum + "원";
+								product_cnt.innerText = shownum + "개";
+							}else if(obj == 1) {
+								shownum = (showamount.value++)+1;
+								totalPrice.innerText = product_price*shownum + "원";
+								product_cnt.innerText = shownum + "개";
 							}
 						}
 					</script>

@@ -108,7 +108,7 @@
 									</li>
 									<%}%>
 									<li class="fs_20 fw_bold textColor gray_656565"><%out.print(product_name);%></li>
-									<li class="priceBox fs_18">\<%out.print(productList.get(i).getProduct_price());%></li>
+									<li class="priceBox fs_18"><%out.print(productList.get(i).getProduct_price());%>원</li>
 									<li class="proContentsBox fs_14"><%out.print(productList.get(i).getProduct_contents());%></li>
 								</ul>
 							</div>

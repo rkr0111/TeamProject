@@ -46,7 +46,7 @@
 								<ul>
 									<li>
 										<label for="join-id">아이디</label>
-										<input class="inputText" type="text" name="join-id" placeholder="아이디" maxlength="10" onKeyup="this.value=this.value.replace(/[ㄱ-ㅎㅏ-ㅡ가-핳]/g,'')";>
+										<input class="inputText" type="text" name="join-id" placeholder="아이디" maxlength="10" onKeyup="this.value=this.value.replace(/[ㄱ-ㅎㅏ-ㅡ가-핳]/g,'');">
 									</li>
 									<li><input class="button checkBtn textColor gray_656565" type="button" name="idcheck" value="중복확인" onclick="return idChecked()"></li>
 								</ul>
