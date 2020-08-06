@@ -21,30 +21,23 @@
 			out.println("light 데이터베이스로 연결을 할 수 없습니다.");
 		}
 		stmt = conn.createStatement();
-		ResultSet rs = stmt.executeQuery("select buy_id, buy_name, buy_price, buy_date, buy_condition from customerinfo, buyhistory where customerinfo.customer_id=buyhistory.buy_id;");
-		if(rs.next()) {
+		ResultSet rs = stmt.executeQuery("select * from buyhistory where buy_id='"+id+"' order by buy_date desc; ");
+		if(rs != null) {
 			request.setCharacterEncoding("UTF-8");
-			Buyhistory_dto dto = new Buyhistory_dto();
-			List<Buyhistory_dto> buyhistoryList = new ArrayList<Buyhistory_dto>();
+			ArrayList<Object> buyhistoryList = new ArrayList<Object>();
 			
-			String buy_id = rs.getString(1);
-			String buy_name = rs.getString(2);
-			String buy_price = rs.getString(3);
-			String buy_date = rs.getString(4);
-			String buy_condition = rs.getString(5);
-			
-			dto.setBuy_id(buy_id);
-			dto.setBuy_name(buy_name);
-			dto.setBuy_price(Integer.parseInt(buy_price));
-			dto.setBuy_date(Date.valueOf(buy_date));
-			dto.setBuy_condition(buy_condition);
-				
-			buyhistoryList.add(dto);
-			
-			request.setAttribute("buyhistoryList", buyhistoryList);
+			while(rs.next()) {
+				Buyhistory_dto dto = new Buyhistory_dto();
+				dto.setBuy_id(rs.getString(1));
+				dto.setBuy_name(rs.getString(2));
+				dto.setBuy_price(rs.getInt(3));
+				dto.setBuy_date(rs.getDate(4));
+				dto.setBuy_condition(rs.getString(5));
+				buyhistoryList.add(dto);
+			}
+			request.setAttribute("buyhistoryList", buyhistoryList);			
 			RequestDispatcher dispatcher = request.getRequestDispatcher("login_mypage.jsp");
 			dispatcher.forward(request, response);
-
 		}
 		else {
 			out.println("<script>alert('주문 내역이 없습니다.');</script>");

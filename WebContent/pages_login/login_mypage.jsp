@@ -33,7 +33,7 @@
 	
 	//orderList 클래스에 들어갈 정보
 	Buyhistory_dto dto = new Buyhistory_dto();	
-	List<Buyhistory_dto> buyhistoryList = (ArrayList<Buyhistory_dto>) request.getAttribute("buyhistoryList");
+	ArrayList<Buyhistory_dto> buyhistoryList = (ArrayList<Buyhistory_dto>) request.getAttribute("buyhistoryList");
 %>
 
 <!-- 마이페이지의 인덱스페이지는 구매내역 (마이페이지 = 구매내역 페이지) -->
@@ -125,12 +125,16 @@
 			</div>
 
 			<div class="contentsOrder">
-				<% if(buyhistoryList != null) { for(int i=0; i<buyhistoryList.size(); i++) { %>							
+				<% 
+				if(buyhistoryList != null) { 
+					for(int i=0; i<buyhistoryList.size(); i++) { 
+						
+				%>							
 				<div class="orderList">
 					<p><%out.print(buyhistoryList.get(i).getBuy_date());%></p>
 					<ul class="order">
 						<li> 
-							<div><% out.print(buyhistoryList.get(i).getBuy_name()); %></div>
+							<div><%out.print(buyhistoryList.get(i).getBuy_name());%></div>
 							<ul class="addEtc">
 								<li>리뷰하기</li>
 								<li>문의하기</li>
@@ -145,17 +149,17 @@
 								</li>
 								<li>
 									<p>결제 금액</p> 
-									<p><% out.print(buyhistoryList.get(i).getBuy_price()); %></p>
+									<p><%out.print(buyhistoryList.get(i).getBuy_price());%></p>
 								</li>
 								<li>
 									<p>주문 상태</p> 
-									<p><% out.print(buyhistoryList.get(i).getBuy_condition()); %></p>
+									<p><%out.print(buyhistoryList.get(i).getBuy_condition());%></p>
 								</li>
 							</ul>
 						</li>
 					</ul>
 				</div>
-				<% }}%>				
+				<%}}%>				
 			</div>
 		</div>
 
