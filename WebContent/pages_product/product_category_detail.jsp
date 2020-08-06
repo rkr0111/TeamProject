@@ -66,42 +66,43 @@
 					<span class="labelText">컬러</span>
 					<select size="1" onchange="optionSelected()">
 						<option>컬러 선택</option>
-						<%for(int i=0; i<isDetailSuccess.size(); i++) {%>
-							<option name="color-<%out.print(isDetailSuccess.get(0).getProduct_color());%>"><%out.print(isDetailSuccess.get(0).getProduct_color());%></option>
+						<%
+						String[] idx = isDetailSuccess.get(0).getProduct_color().split(",");
+						for(int i=0; i<idx.length; i++) {
+						%>
+							<option name="color-<%out.print(idx[i]);%>"><%out.print(idx[i]);%></option>
 						<%}%>
 					</select>
 				</div>
 				<div class="totalChoiceContainer hidden mt_20">
+					<%for(int i=0; i<idx.length; i++) {%>
 					<ul class="totalChoice">
 						<li><%out.print(isDetailSuccess.get(0).getProduct_name());%></li>
 						<li class="product_color"></li>
 						<li class="product_cnt"></li>
 					</ul>
+					<%}%>
 				</div>
-				<div class="totalPrice t_align_right fs_23 fw_bold textColor ff9d2d pt_20 mb_10">
-					<%int product_price = isDetailSuccess.get(0).getProduct_price();%>
-					<%=product_price%>원
-					<script>
-						var product_price = <%=product_price%>;
-						var totalPrice = document.querySelector(".totalPrice");
-						var product_cnt = document.querySelector(".product_cnt");
-						
-						totalPrice.innerText = product_price*showamount + "원";
+				<%int product_price = isDetailSuccess.get(0).getProduct_price();%>
+				<div class="totalPrice t_align_right fs_23 fw_bold textColor ff9d2d pt_20 mb_10"><%=product_price%>원</div>
+				<script>
+					var product_price = <%=product_price%>;
+					var showamount = document.querySelector("input[name='showamount']");
+					var totalPrice = document.querySelector(".totalPrice");
+					var product_cnt = document.querySelector(".product_cnt");
 
-						function amountCountBtn(obj) {
-							var shownum = 0;
-							if(obj == 0) {
-								if(showamount.value > 0) shownum = (showamount.value--)-1;
-								totalPrice.innerText = product_price*shownum + "원";
-								product_cnt.innerText = shownum + "개";
-							}else if(obj == 1) {
-								shownum = (showamount.value++)+1;
-								totalPrice.innerText = product_price*shownum + "원";
-								product_cnt.innerText = shownum + "개";
-							}
+					function amountCountBtn(obj) {
+						var shownum = 0;
+						if(obj == 0) {
+							if(showamount.value > 0) shownum = (showamount.value--)-1;
+							product_cnt.innerText = shownum + "개";
+						}else if(obj == 1) {
+							shownum = (showamount.value++)+1;
+							product_cnt.innerText = shownum + "개";
 						}
-					</script>
-				</div>
+						totalPrice.innerText = (product_price*shownum) + "원";
+					}
+				</script>
 				<div class="t_align_right fs_14 textColor gray_9c9c9c">100,000원 이상 구매시 무료배송</div>
 				<ul class="customerBtn mt_20">
 					<li class="mr_10"><input type="button" name="cart_btn" value="장바구니"></li>

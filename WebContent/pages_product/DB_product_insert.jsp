@@ -26,6 +26,11 @@
 	    font-size: 13px;
     	color: #aaa;
 	}
+	.colorBoxUL {
+	    margin: 0;
+	    padding: 0;
+	    list-style-type: none;
+	}
 </style>
 <body>
 
@@ -56,10 +61,15 @@
 			</tr>
 			<tr>
 				<th>컬러</th>
-				<td class="colorBoxTD">
-					<p>컬러는 영문으로 입력해주세요. <input type="button" name="add_colorbox" value="추가" onclick="addColorBox()"></p>
-					<input type="text" name="product_color" required="required" onKeyup="this.value=this.value.replace(/[ㄱ-ㅎㅏ-ㅡ가-핳]/g,'');" class="colorInput0">
-					<br/>
+				<td>
+					<p>영문으로 입력해주세요.</p>
+					<ul class="colorBoxUL">
+						<li><input type="text" name="product_color" required="required" onKeyup="this.value=this.value.replace(/[ㄱ-ㅎㅏ-ㅡ가-핳]/g,'');" class="colorInput"></li>
+						<li><input type="text" name="product_color" onKeyup="this.value=this.value.replace(/[ㄱ-ㅎㅏ-ㅡ가-핳]/g,'');" class="colorInput"></li>
+						<li><input type="text" name="product_color" onKeyup="this.value=this.value.replace(/[ㄱ-ㅎㅏ-ㅡ가-핳]/g,'');" class="colorInput"></li>
+						<li><input type="text" name="product_color" onKeyup="this.value=this.value.replace(/[ㄱ-ㅎㅏ-ㅡ가-핳]/g,'');" class="colorInput"></li>
+						<li><input type="text" name="product_color" onKeyup="this.value=this.value.replace(/[ㄱ-ㅎㅏ-ㅡ가-핳]/g,'');" class="colorInput"></li>
+					</ul>
 				</td>
 			</tr>
 			<tr>
@@ -80,40 +90,23 @@
 	var cnt = 1;
 	
 	function addColorBox() {
-		var addInputBox = document.createElement("div");
 		var addInput = document.createElement("input");
-		var addRemoveInput = document.createElement("input");
-
-		addInputBox.setAttribute("id", "inputBox");
-		addInputBox.setAttribute("class", cnt);
+		var addBr = document.createElement("br");
 		
 		addInput.type = "text";
 		addInput.name = "prodcut_color";
 		addInput.setAttribute("onKeyup", "this.value=this.value.replace(/[ㄱ-ㅎㅏ-ㅡ가-핳]/g,'');");
 		addInput.setAttribute("class", "colorInput" + (cnt++));
-		
-		addRemoveInput.type = "button";
-		addRemoveInput.name = "colorboxremove";
-		addRemoveInput.value = "삭제";
-		addRemoveInput.setAttribute("onclick", "removeColorBox()");
-		addRemoveInput.setAttribute("id", "colorboxremove");
-		addRemoveInput.setAttribute("class", (cnt-1));
-		
-		colorBoxTD.append(addInputBox);
-		addInputBox.append(addInput);
-		addInputBox.append(addRemoveInput);
+
+		colorBoxTD.append(addInput);
+		colorBoxTD.append(addBr);
 	}
 	
 	function removeColorBox() {
-		var inputBox = document.querySelectorAll("#inputBox");
-		var removebtncnt = document.querySelectorAll("#colorboxremove");
-		var inputcnt = document.querySelectorAll("input[class^='colorInput']");
-
-		console.log(inputBox.length);
-		var i = 0;
-		for(var i=0; i<inputBox.length; i++) {
-			console.log(inputBox[i].getAttribute("class"));
-		}
+		var inputBox = document.querySelector("input[class^='colorInput']");
+		var br = document.querySelector("input[class^='colorInput'] + br");
+		inputBox.remove();
+		br.remove();
 	}
 </script>
 	

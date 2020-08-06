@@ -22,17 +22,24 @@ public class Product_InsertAction implements Light_action {
 		int fileSize=5*1024*1024;
 		ServletContext context = request.getServletContext();
 		realFolder=context.getRealPath(saveFolder);
+		
 		MultipartRequest multi=new MultipartRequest(request,
 				realFolder,
 				fileSize,
 				"UTF-8",
 				new DefaultFileRenamePolicy());
 		
+		String colors[] = multi.getParameterValues("product_color");
+		String proColors = "";
+		for(int i=0; i<colors.length; i++) {
+			proColors += colors[i] + ",";
+		}
+		
 		prodto = new Product_dto();
 		prodto.setProduct_name(multi.getParameter("product_name"));
 		prodto.setProduct_category(multi.getParameter("product_category"));
 		prodto.setProduct_price(Integer.parseInt(multi.getParameter("product_price")));
-		prodto.setProduct_color(multi.getParameter("product_color"));
+		prodto.setProduct_color(proColors);
 		prodto.setProduct_img(multi.getOriginalFileName((String)multi.getFileNames().nextElement()));
 		prodto.setProduct_contents(multi.getParameter("product_contents"));
 		
