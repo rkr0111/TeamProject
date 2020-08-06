@@ -44,7 +44,7 @@
 				<div class="memberId">
 					<div><img src="../images/mypage_img/icons/person1.png"></div>
 					<ul>
-						<li><%=id %> 님</li>	
+						<li><%=id%> 님</li>	
 					</ul>
 				</div>
 				<div class="memberInfo">
@@ -56,11 +56,11 @@
 						</li>
 						<li>
 							<p>주소 : </p>
-							<p><%=addr %></p>
+							<p><%=addr%></p>
 						</li>
 						<li>
 							<p>연락처 : </p>
-							<p><%=phone %></p>
+							<p><%=phone%></p>
 						</li>
 					</ul>
 				</div>
@@ -82,7 +82,7 @@
 				<aside class="mypageAside">
 					<ul>
 						<li id="orderHistory">
-							<a href="">구매내역
+							<a href="DB_mypage.jsp">구매내역
 								<p>&gt;</p>
 							</a>
 						</li>

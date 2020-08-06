@@ -10,7 +10,7 @@
 	String id = (String)session.getAttribute("id");
 	
 	if (id== null) {
-		throw new Exception("아이디가 올바르지 않습니다.");
+		throw new Exception("로그인을 해주세요.");
 	}
 	Connection conn=null;
 	Statement stmt=null;
@@ -22,7 +22,7 @@
 		}
 		stmt = conn.createStatement();
 		ResultSet rs = stmt.executeQuery("select * from buyhistory where buy_id='"+id+"' order by buy_date desc; ");
-		if(rs != null) {
+		if(rs!=null) {
 			request.setCharacterEncoding("UTF-8");
 			ArrayList<Object> buyhistoryList = new ArrayList<Object>();
 			
@@ -38,11 +38,11 @@
 			request.setAttribute("buyhistoryList", buyhistoryList);			
 			RequestDispatcher dispatcher = request.getRequestDispatcher("login_mypage.jsp");
 			dispatcher.forward(request, response);
-		}
-		else {
-			out.println("<script>alert('주문 내역이 없습니다.');</script>");
+		}else {
+			out.println("<script>alert('구매 내역이 없습니다.');</script>");
 			out.println("<script>location.href='login_mypage.jsp';</script>");
 		}
+		
 	} finally {
 	try {
 		stmt.close();

@@ -45,7 +45,7 @@
 			<ul class="minimenu">
 				<%String id= (String) session.getAttribute("id");%>
 				<li><%out.print(id);%>님 안녕하세요.</li>
-				<li><a href="login_mypage.jsp">MY PAGE</a></li>
+				<li><a href="DB_mypage.jsp">MY PAGE</a></li>
 				<li><a href="DB_logout.jsp">LOGOUT</a></li>
 			</ul>
 		</div>
