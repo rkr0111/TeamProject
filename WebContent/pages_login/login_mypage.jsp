@@ -22,6 +22,14 @@
 	<!-- jQuery cdn -->
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
 </head>
+<script type="text/javascript">
+	function review(param) {
+		location.href="DB_mypage_reviewNas.jsp?param="+encodeURIComponent("0");
+	}
+	function as() {
+		location.href="DB_mypage_reviewNas.jsp?mypageCategory=as";	
+	}
+</script>
 <body>
 	<!-- header -->
 	<jsp:include page="../login_header_afterlogin.jsp" /> <!-- header end -->
@@ -34,10 +42,11 @@
 	
 	//orderList 클래스에 들어갈 정보
 	Buyhistory_dto dto = new Buyhistory_dto();	
-	ArrayList<Buyhistory_dto> buyhistoryList = (ArrayList<Buyhistory_dto>) request.getAttribute("buyhistoryList");
+	ArrayList<Buyhistory_dto> buyhistoryList = (ArrayList<Buyhistory_dto>) request.getAttribute("buyhistoryList"); 
 	
 	//
 	List<Product_dto> productList = (List<Product_dto>) request.getAttribute("productList");
+	
 %>
 
 <!-- 마이페이지의 인덱스페이지는 구매내역 (마이페이지 = 구매내역 페이지) -->
@@ -85,21 +94,18 @@
 				<h3>마이페이지</h3>
 				<aside class="mypageAside">
 					<ul>
-						<li id="orderHistory">
-						
-						<!-- https://develop88.tistory.com/entry/Jsp-a%ED%83%9C%EA%B7%B8%EB%A1%9C-%EA%B0%92%EB%84%98%EA%B8%B0%EA%B8%B0%ED%8E%98%EC%9D%B4%EC%A7%80-%EC%A0%84%ED%99%98 -->
-						
-							<a href="DB_mypage.jsp?mypage_category="+encodeURIComponent(param)>구매내역
+						<li id="orderHistory">						
+							<a href="DB_mypage_buyhistory.jsp">구매내역
 								<p>&gt;</p>
 							</a>
 						</li>
 						<li id="review">
-							<a href="">리뷰
+							<a href="#" onclick="review();" >리뷰
 								<p>&gt;</p>
 							</a>
 						</li>
 						<li id="cart">
-							<a href="">장바구니
+							<a href="DB_mypage_shopping.jsp">장바구니
 								<p>&gt;</p>
 							</a>
 						</li>
@@ -109,7 +115,7 @@
 							</a>
 						</li>
 						<li id="as">
-							<a href="">A/S 문의
+							<a href="DB_mypage_reviewNas.jsp?reviewNasCategory="+reviewNasCategory(AS)">A/S 문의
 								<p>&gt;</p>
 							</a>
 						</li>

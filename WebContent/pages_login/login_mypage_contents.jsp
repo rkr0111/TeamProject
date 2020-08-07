@@ -23,11 +23,14 @@
 	
 	//
 	List<Product_dto> productList = (List<Product_dto>) request.getAttribute("productList");
+	
+	//
+	String mypageCategory = request.getParameter("mypageCategory");
 %>
 
 	<div class="contentsTitle">
 		<ul>
-			<li>구매 내역</li>
+			<li><%out.print(mypageCategory); %></li>
 			<li>
 				<select name="selectMonth" size="1">
 					<option name="selectAll">전체 기간</option>
