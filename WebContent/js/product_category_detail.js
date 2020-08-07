@@ -11,15 +11,16 @@ var detailDelInfo = document.querySelector(".detailDelInfo");
 
 var btn_minus = document.querySelector(".btn_minus");
 var btn_plus = document.querySelector(".btn_plus");
-var showamount = document.querySelector("input[name='showamount']");
+var showamount = document.querySelectorAll("input[name='showamount']");
 
 var colorSelect = document.querySelector(".colorSelectContents > select");
-var colorOpt = document.querySelectorAll(".colorSelectContents > select option");
+var colorOpt = document.querySelectorAll(".colorSelectContents > select option[name^='color-']");
 var colorOptFirst = document.querySelectorAll(".colorSelectContents > select > option:first-of-type");
 var totalChoiceContainer = document.querySelector(".totalChoiceContainer");
-var totalChoice = document.querySelector(".totalChoice");
-var product_color = document.querySelector(".product_color");
-var product_cnt = document.querySelector(".product_cnt");
+var totalChoice = document.querySelectorAll(".totalChoice");
+var product_color = document.querySelectorAll(".product_color");
+var product_cnt = document.querySelectorAll(".product_cnt");
+var removeBtn = document.querySelectorAll(".removeBtn");
 
 
 // detailNav 클릭시 해당 위치 이동
@@ -39,13 +40,26 @@ function detailNavClicked(obj) {
 
 
 // select option click event
-function optionSelected() {
+function optionSelected() {	
 	totalChoiceContainer.classList.remove("hidden");
-	var i=0;
-	while( i<colorOpt.length ){
+	product_cnt.innerText = showamount.value + "개";
+	
+	var cnt = 0;
+	for(var i=0; i<colorOpt.length; i++) {
 		if(colorOpt[i].selected && !colorOptFirst.selected) {
-			product_color.innerText = colorOpt[i].value;
+			if(i == cnt) {
+				totalChoice[i].style.display = "flex";
+				product_color[i].innerText = colorOpt[i].value;
+			}
 		}
-		break;
+		cnt++;
+	}
+}
+
+// removeBtn click event
+for(var i=0; i<removeBtn.length; i++) {
+	function removeBtn(obj) {
+		var cnt = obj;
+		totalChoice[cnt].style.display = "none";
 	}
 }

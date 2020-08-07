@@ -48,39 +48,43 @@ headerProductContainer
 	vertical-align: middle;
 }
 
-/*amount*/
-.headerProductContainer .productInfoContainer .amountContents {
+/*colorSelectContents*/
+.headerProductContainer .productInfoContainer .colorSelectContents {
 	border-top: 1px solid #ddd;
 }
-.headerProductContainer .productInfoContainer .amount {
+
+/*amount*/
+.headerProductContainer .productInfoContainer .totalChoiceContainer .amountContents {
+}
+.headerProductContainer .productInfoContainer .totalChoiceContainer .amount {
 	overflow: hidden;
 }
-.headerProductContainer .productInfoContainer .amount li {
+.headerProductContainer .productInfoContainer .totalChoiceContainer .amount li {
 	display: inline-flex;
 	align-items: center;
 	justify-content: center;
 	float: left;
-	width: 40px;
-	height: 40px;
+	width: 25px;
+	height: 25px;
 	background-color: #fff;
 	border: 1px solid #ddd;
 	cursor: pointer;
 }
-.headerProductContainer .productInfoContainer .amount li:nth-of-type(2) {
-	width: 150px;
+.headerProductContainer .productInfoContainer .totalChoiceContainer .amount li:nth-of-type(2) {
+	width: 70px;
 }
-.headerProductContainer .productInfoContainer .amount li:not(:last-of-type) {
+.headerProductContainer .productInfoContainer .totalChoiceContainer .amount li:not(:last-of-type) {
 	border-right: none;
 }
-.headerProductContainer .productInfoContainer .amount li input {
+.headerProductContainer .productInfoContainer .totalChoiceContainer .amount li input {
 	width: 100%;
 	height: 100%;
 	background-color: transparent; 
 	border: transparent;
 	text-align: center;
 }
-.headerProductContainer .productInfoContainer .amount li a,
-.headerProductContainer .productInfoContainer .amount li input {
+.headerProductContainer .productInfoContainer .totalChoiceContainer .amount li a,
+.headerProductContainer .productInfoContainer .totalChoiceContainer .amount li input {
 	color: #656565;
 }
 
@@ -104,25 +108,25 @@ headerProductContainer
 }
 .headerProductContainer .productInfoContainer .totalChoiceContainer .totalChoice {
 	display: flex;
+    height: 35px;
 	align-items: center;
 	position: relative;
 }
-.headerProductContainer .productInfoContainer .totalChoiceContainer .totalChoice:after {
-	content: '';
+.headerProductContainer .productInfoContainer .totalChoiceContainer .totalChoice > li:last-of-type {
     position: absolute;
     right: 0;
 	width: 10px;
 	height: 10px;
 	background: url(../images/icon/close_icon.png) center/contain no-repeat;
 }
-.headerProductContainer .productInfoContainer .totalChoiceContainer .totalChoice:last-of-type {
-	margin-top: 10px;
+.headerProductContainer .productInfoContainer .totalChoiceContainer .totalChoice .product_color {
+	width: 50px;
 }
-.headerProductContainer .productInfoContainer .totalChoiceContainer .totalChoice li:not(:first-of-type) {
+.headerProductContainer .productInfoContainer .totalChoiceContainer .totalChoice > li:not(:first-of-type) {
 	font-size: 14px;
 	color: #9c9c9c;
 }
-.headerProductContainer .productInfoContainer .totalChoiceContainer .totalChoice li:not(:last-of-type) {
+.headerProductContainer .productInfoContainer .totalChoiceContainer .totalChoice > li:not(:last-of-type) {
 	margin-right: 20px;
 }
 
