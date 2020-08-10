@@ -1,11 +1,14 @@
 package com.TeamPro.action;
 
+import javax.servlet.ServletContext;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import com.TeamPro.dto.ActionForward;
 import com.TeamPro.dto.Product_dto;
 import com.TeamPro.service.Product_UpdateService;
+import com.oreilly.servlet.MultipartRequest;
+import com.oreilly.servlet.multipart.DefaultFileRenamePolicy;
 
 public class Product_UpdateAction implements Light_action {
 
@@ -14,15 +17,32 @@ public class Product_UpdateAction implements Light_action {
 		ActionForward forward = null;
 		boolean isUpdateSuccess = false;
 		Product_dto dto = new Product_dto();
+		String realFolder="";
+		String saveFolder="/product_file";
+		int fileSize=5*1024*1024;
+		ServletContext context = request.getServletContext();
+		realFolder=context.getRealPath(saveFolder);
 		
-		dto.setCheck(request.getParameter("udt_check"));
-		dto.setProduct_name(request.getParameter("udt_name"));
-		dto.setProduct_category(request.getParameter("udt_category"));
-		dto.setProduct_price(Integer.parseInt(request.getParameter("udt_price")));
-		dto.setProduct_color(request.getParameter("udt_color"));
-		dto.setProduct_file(request.getParameter("udt_file"));
-		dto.setProduct_img(request.getParameter("udt_img"));
-		dto.setProduct_contents(request.getParameter("udt_contents"));
+		MultipartRequest multi=new MultipartRequest(request,
+				realFolder,
+				fileSize,
+				"UTF-8",
+				new DefaultFileRenamePolicy());
+		
+		String colors[] = multi.getParameterValues("udt_color");
+		String proColors = "";
+		for(int i=0; i<colors.length; i++) {
+			proColors += colors[i] + ",";
+		}
+		System.out.println(proColors);
+		
+		dto.setCheck(multi.getParameter("udt_check"));
+		dto.setProduct_name(multi.getParameter("udt_name"));
+		dto.setProduct_category(multi.getParameter("udt_category"));
+		dto.setProduct_price(Integer.parseInt(multi.getParameter("udt_price")));
+		dto.setProduct_color(proColors);
+		dto.setProduct_img(multi.getOriginalFileName((String)multi.getFileNames().nextElement()));
+		dto.setProduct_contents(multi.getParameter("udt_contents"));
 		
 		Product_UpdateService productUpdateService = new Product_UpdateService();
 		isUpdateSuccess = productUpdateService.getProductUpdate(dto);

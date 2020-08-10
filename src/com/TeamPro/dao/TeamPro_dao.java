@@ -81,7 +81,6 @@ public class TeamPro_dao {
 		sqlsession.commit();
 		sqlsession.close();
 		updateCount = 1;
-		//System.out.println();
 		return updateCount;
 	}
 		
