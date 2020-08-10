@@ -66,16 +66,16 @@
 						<%}%>
 					</select>
 				</div>
-				<div class="totalChoiceContainer hidden mt_20">
+				<div class="totalChoiceContainer">
 					<%for(int i=0; i<idx.length; i++) {%>
 					<ul class="totalChoice" style="display: none;">
 						<li><%out.print(isDetailSuccess.get(0).getProduct_name());%></li>
 						<li class="product_color"></li>
 						<li class="product_cnt">
 							<ul class="amount">
-								<li class="btn_minus" onclick="amountCountBtn(0)">-</li>
-								<li><input type="number" name="showamount" value="1" readonly /></li>
-								<li class="btn_plus" onclick="amountCountBtn(1)">+</li>
+								<li class="btn_minus" onclick="amountCountBtn(<%=i%>, 0)">-</li>
+								<li><input type="number" name="showamount" value="0" readonly /></li>
+								<li class="btn_plus" onclick="amountCountBtn(<%=i%>, 1)">+</li>
 							</ul>
 						</li>
 						<li class="removeBtn" onclick="removeBtn(<%=i%>)"></li>
@@ -83,7 +83,7 @@
 					<%}%>
 				</div>
 				<%int product_price = isDetailSuccess.get(0).getProduct_price();%>
-				<div class="totalPrice t_align_right fs_23 fw_bold textColor ff9d2d pt_20 mb_10"><%=product_price%>원</div>
+				<div class="totalPrice t_align_right fs_23 fw_bold textColor ff9d2d pt_20 mb_10">0원</div>
 				
 				<div class="t_align_right fs_14 textColor gray_9c9c9c">100,000원 이상 구매시 무료배송</div>
 				<ul class="customerBtn mt_20">
@@ -138,32 +138,26 @@
 	<script type="text/javascript" src="js/product_category_detail.js"></script>	
 	
 	<script>
-					var product_price = <%=product_price%>;
-					var idx = <%=idx.length%>;
-					var totalPrice = document.querySelector(".totalPrice");
-					var showamount = document.querySelectorAll("input[name='showamount']");
-					var product_cnt = document.querySelectorAll(".product_cnt");
+		var product_price = <%=product_price%>;
+		var idx = <%=idx.length%>;
+		var totalChoice = document.querySelectorAll(".totalChoice");
+		var totalPrice = document.querySelector(".totalPrice");
+		var showamount = document.querySelectorAll("input[name='showamount']");
 
-					function amountCountBtn(obj) {
-						if(obj == 0) {
-							var cnt = 0;
-							for(var i=0; i<idx; i++) {
-								console.log(showamount[i]);
-								if(i == cnt) {
-									if(showamount[i].value > 0) (showamount[i].value--)-1;
-								}
-								cnt++;
-							}
-						}else if(obj == 1) {
-							var cnt = 0;
-							for(var i=0; i<idx; i++) {
-								if(i == cnt) {
-									(showamount[i].value++)+1;
-								}
-							}
-						}
-					}
-				</script>
+		function amountCountBtn(obj, cnt) {
+			if(cnt == 0) {
+				if(showamount[obj].value > 0) (showamount[obj].value--)-1;
+			}else if(cnt == 1) {
+				(showamount[obj].value++)+1;
+			}
+			
+			var results = 0;
+			for(var i=0; i<totalChoice.length; i++) {
+				results += product_price * showamount[i].value;
+			}
+			totalPrice.innerText = results + "원";
+		}
+	</script>
 	
 </body>
 </html>

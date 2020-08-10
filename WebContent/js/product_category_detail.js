@@ -40,10 +40,7 @@ function detailNavClicked(obj) {
 
 
 // select option click event
-function optionSelected() {	
-	totalChoiceContainer.classList.remove("hidden");
-	product_cnt.innerText = showamount.value + "개";
-	
+function optionSelected() {
 	var cnt = 0;
 	for(var i=0; i<colorOpt.length; i++) {
 		if(colorOpt[i].selected && !colorOptFirst.selected) {
@@ -59,7 +56,13 @@ function optionSelected() {
 // removeBtn click event
 for(var i=0; i<removeBtn.length; i++) {
 	function removeBtn(obj) {
-		var cnt = obj;
-		totalChoice[cnt].style.display = "none";
+		showamount[obj].value = 0;
+		totalChoice[obj].style.display = "none";
+		
+		var results = 0;
+		for(var i=0; i<totalChoice.length; i++) {
+			results += product_price * showamount[i].value;
+		}
+		totalPrice.innerText = results + "원";
 	}
 }

@@ -14,10 +14,10 @@
 			<div id="logo"><a href="../TeamPro/index.jsp"></a></div>
 			<nav>
 				<ul class="mainmenu">
-					<li><a href="../productList.bo">DESK</a></li>
-					<li><a href="../TeamPro/pages_product/product_bedroom.jsp">BEDROOM</a></li>
-					<li><a href="../TeamPro/pages_product/product_stand.jsp">STAND</a></li>
-					<li><a href="../TeamPro/pages_product/product_point.jsp">POINT</a></li>
+					<li><a href="../productList.bo?product_category=desk">DESK</a></li>
+					<li><a href="../productList.bo?product_category=bedroom">BEDROOM</a></li>
+					<li><a href="../productList.bo?product_category=stand">STAND</a></li>
+					<li><a href="../productList.bo?product_category=point">POINT</a></li>
 					<li><a href="mdpick.jsp">MD PICK</a></li>
 					<li>
 						<a href="../TeamPro/pages_interior/interior.jsp">INTERIOR</a>
