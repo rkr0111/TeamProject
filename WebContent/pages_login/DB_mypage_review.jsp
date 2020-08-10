@@ -7,8 +7,8 @@
 
 <%
 	String id = (String)session.getAttribute("id");
-	String mypageCategory = "구매내역";
-	
+	String mypageCategory = "리뷰";
+
 	if (id== null) {
 		throw new Exception("로그인을 해주세요.");
 	}
@@ -20,11 +20,11 @@
 		if (conn == null) {
 			out.println("light 데이터베이스로 연결을 할 수 없습니다.");
 		}
-		stmt = conn.createStatement(); 
-		ResultSet rs = stmt.executeQuery("select * from buyhistory where buy_id='"+id+"' order by buy_date desc; ");
-		if(rs.next()) {
+		stmt = conn.createStatement();
+		ResultSet rs = stmt.executeQuery("select *, adddate(buy_date, +1095) as'보증기간 3년' from buyhistory where buy_condition='배송 완료';");
+		if(rs!=null) {
 			request.setCharacterEncoding("UTF-8");
-			ArrayList<Object> buyhistoryList = new ArrayList<Object>();
+			ArrayList<Object> reviewList = new ArrayList<Object>();
 			
 			while(rs.next()) {
 				Buyhistory_dto dto = new Buyhistory_dto();
@@ -33,15 +33,18 @@
 				dto.setBuy_price(rs.getInt(3));
 				dto.setBuy_date(rs.getDate(4));
 				dto.setBuy_condition(rs.getString(5));
-				buyhistoryList.add(dto);
+				dto.setBefore_buyDate(rs.getDate(6));				
+								
+				reviewList.add(dto);
 			}
-			request.setAttribute("buyhistoryList", buyhistoryList);
+			request.setAttribute("reviewList", reviewList);			
 			RequestDispatcher dispatcher = request.getRequestDispatcher("login_mypage.jsp?mypageCategory="+mypageCategory);
 			dispatcher.forward(request, response);
 		}else {
-			out.println("<script>alert('구매 내역이 없습니다.');</script>");
-			out.println("<script>location.href='login_mypage.jsp';</script>");    
+			out.println("<script>alert('리뷰를 작성하실 상품이 없습니다.');</script>");
+			out.println("<script>location.href='DB_mypage_buyhistory.jsp';</script>");
 		}
+		
 	} finally {
 	try {
 		stmt.close();

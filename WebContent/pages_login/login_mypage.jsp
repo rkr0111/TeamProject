@@ -22,14 +22,6 @@
 	<!-- jQuery cdn -->
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
 </head>
-<script type="text/javascript">
-	function review(param) {
-		location.href="DB_mypage_reviewNas.jsp?param="+encodeURIComponent("0");
-	}
-	function as() {
-		location.href="DB_mypage_reviewNas.jsp?mypageCategory=as";	
-	}
-</script>
 <body>
 	<!-- header -->
 	<jsp:include page="../login_header_afterlogin.jsp" /> <!-- header end -->
@@ -100,7 +92,7 @@
 							</a>
 						</li>
 						<li id="review">
-							<a href="#" onclick="review();" >리뷰
+							<a href="DB_mypage_review.jsp">리뷰
 								<p>&gt;</p>
 							</a>
 						</li>
@@ -115,7 +107,7 @@
 							</a>
 						</li>
 						<li id="as">
-							<a href="DB_mypage_reviewNas.jsp?reviewNasCategory="+reviewNasCategory(AS)">A/S 문의
+							<a href="DB_mypage_as.jsp">A/S 문의
 								<p>&gt;</p>
 							</a>
 						</li>
