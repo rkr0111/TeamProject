@@ -39,8 +39,10 @@
 			RequestDispatcher dispatcher = request.getRequestDispatcher("login_mypage.jsp?mypageCategory="+mypageCategory);
 			dispatcher.forward(request, response);
 		}else {
-			out.println("<script>alert('장바구니에 담으신 상품이 없습니다.');</script>");
-			out.println("<script>location.href='DB_mypage_buyhistory.jsp';</script>");
+			ArrayList<Object> shoppingList = new ArrayList<Object>();
+			request.setAttribute("shoppingList", null);			
+			RequestDispatcher dispatcher = request.getRequestDispatcher("login_mypage.jsp?mypageCategory="+mypageCategory);
+			dispatcher.forward(request, response);  
 		}
 		
 	} finally {

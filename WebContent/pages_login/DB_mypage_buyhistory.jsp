@@ -35,12 +35,14 @@
 				dto.setBuy_condition(rs.getString(5));
 				buyhistoryList.add(dto);
 			}
-			request.setAttribute("buyhistoryList", buyhistoryList);
+			request.setAttribute("buyhistoryList", buyhistoryList);			
 			RequestDispatcher dispatcher = request.getRequestDispatcher("login_mypage.jsp?mypageCategory="+mypageCategory);
 			dispatcher.forward(request, response);
 		}else {
-			out.println("<script>alert('구매 내역이 없습니다.');</script>");
-			out.println("<script>location.href='login_mypage.jsp';</script>");    
+			ArrayList<Object> buyhistoryList = new ArrayList<Object>();
+			request.setAttribute("buyhistoryList", null);			
+			RequestDispatcher dispatcher = request.getRequestDispatcher("login_mypage.jsp?mypageCategory="+mypageCategory);
+			dispatcher.forward(request, response);  
 		}
 	} finally {
 	try {
