@@ -8,6 +8,8 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import com.TeamPro.action.Light_action;
+import com.TeamPro.action.MD_randomListAction;
+import com.TeamPro.action.MD_randomListAction;
 import com.TeamPro.action.Product_DeleteAction;
 import com.TeamPro.action.Product_DetailAction;
 import com.TeamPro.action.Product_InsertAction;
@@ -64,7 +66,14 @@ public class Light_controller extends javax.servlet.http.HttpServlet {
 			}catch(Exception e){
 				System.out.println(e);
 			}
-		}  
+		}else if(command.equals("/mdRandomList.bo")) { // 0811 dhdbswl ¼öÁ¤
+			action = new MD_randomListAction();
+			try{
+				forward=action.execute(request, response);
+			}catch(Exception e){
+				System.out.println(e);
+			}
+		} 
  		
 		// check forward
 		if(forward != null){

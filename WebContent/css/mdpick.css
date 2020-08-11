@@ -1,0 +1,192 @@
+
+/*
+
+MD PICK style
+
+*/
+
+html { color: #656565; }
+header + section {
+	margin-top: 0 !important;
+}
+
+.titleText {
+	display: flex;
+    justify-content: center;
+	height: 400px;
+	margin: 0 auto;
+	padding-top: 235px;
+    box-sizing: border-box;
+	font-size: 24px;
+    letter-spacing: 0.8px;
+    font-family: NanumMyeongjoBold, serif;
+    background: url(../images/product_img/bedroom/bedroom03_03.jpg) center -1080px/cover no-repeat;
+}
+
+/*
+===================================================================
+menuContainer
+===================================================================
+*/
+.menuContainer {
+    background-color: #efdbc4;
+}
+.menuContainer,
+.menuContainer ul {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+.menuContainer ul {
+	width: 1200px;
+    border-left: 1px solid #fff;
+    border-right: 1px solid #fff;
+}
+.menuContainer ul li.bgWhite {
+    background: #fff;
+    border-right: 1px solid #fff;
+}
+.menuContainer ul li {
+	width: 50%;
+    padding: 15px 0;
+    box-sizing: border-box;
+	text-align: center;
+	letter-spacing: 0.3px;
+    font-family: NanumMyeongjoBold, serif;
+    cursor: pointer;
+}
+
+/*
+===================================================================
+pickContainer
+===================================================================
+*/
+.pickContainer {
+	width: 1200px;
+	margin: 100px auto 0;
+}
+.pickContainer .pickContents.none {
+	display: none;
+}
+
+.pickContainer .pickContents .contentsTitle {
+	position: relative;
+	text-align: center;
+	margin-bottom: 90px;
+}
+.pickContainer .pickContents .contentsTitle:after {
+	content: '';
+	position: absolute;
+	left: 50%;
+	top: 70px;
+    width: 1px;
+    height: 50px;
+    background: #9c9c9c;
+}
+.pickContainer .pickContents .contentsTitle h2 {
+	margin-bottom: 10px;
+    font-size: 25px;
+	font-weight: bold;
+}
+.pickContainer .pickContents .contentsTitle p {
+	font-size: 14px;
+	color: #9c9c9c;
+}
+
+.pickContainer .pickContents.today .imgBox {
+	width: 100%;
+	overflow: hidden;
+}
+.pickContainer .pickContents .imgBox img {
+	width: 100%;
+}
+
+.pickContainer .pickContents .contentsItems .items-inner {
+	width: 1000px;
+}
+.pickContainer .pickContents .contentsItems h3 {
+	font-size: 23px;
+	font-weight: bold;
+}
+.pickContainer .pickContents .contentsItems p {
+	font-size: 14px;
+	color: #9c9c9c;
+}
+.pickContainer .pickContents .contentsItems input[type="button"] {
+    width: 170px;
+    height: 35px;
+	background-color: #fff;
+    border: 2px solid #f7bc79;
+	color: #f7bc79;
+    font-weight: bold;
+    font-size: 14px;
+    cursor: pointer;
+
+    transition: all .3s ease;
+    -webkit-transition: all .3s ease;
+    -ms-transition: all .3s ease;
+    -moz-transition: all .3s ease;
+    -o-transition: all .3s ease;
+}
+.pickContainer .pickContents .contentsItems input[type="button"]:hover {
+    background-color: #f7bc79;
+    border: 2px solid #f7bc79;
+	color: #fff;
+	font-weight: unset;
+}
+
+
+/*
+===================================================================
+.pickContents.today
+===================================================================
+*/
+.pickContainer .pickContents .contentsItems.today {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+.pickContainer .pickContents .contentsItems.today .textBox {
+	border-top: 1px solid #ddd;
+	border-bottom: 1px solid #ddd;
+    padding: 30px 10px;
+}
+.pickContainer .pickContents .contentsItems.today .textBox h3,
+.pickContainer .pickContents .contentsItems.today .textBox p,
+.pickContainer .pickContents .contentsItems.today .detailBtn {
+	text-align: center;
+}
+
+/*
+===================================================================
+.pickContents.weather
+===================================================================
+*/
+.pickContainer .pickContents.weather .weatherApiCon {
+	width: 100%;
+	height: 350px;
+    background: #aaa;
+    margin-bottom: 70px;
+}
+
+/*weatherApiCon*/
+.pickContainer .pickContents.weather .weatherPickCon > li {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+.pickContainer .pickContents.weather .weatherPickCon > li:not(:last-of-type) {
+	border-bottom: 1px solid #eee;
+	padding-bottom: 40px;
+	margin-bottom: 40px;
+}
+.pickContainer .pickContents.weather .weatherPickCon > li .imgBox {
+	width: 30%;
+	height: 200px;
+    overflow: hidden;
+}
+.pickContainer .pickContents.weather .weatherPickCon > li .contentsItems {
+	width: 70%;
+	padding: 0 50px;
+    box-sizing: border-box;
+}

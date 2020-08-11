@@ -28,7 +28,7 @@
 					<li><a href="productList.bo?product_category=bedroom">BEDROOM</a></li>
 					<li><a href="productList.bo?product_category=stand">STAND</a></li>
 					<li class="btmline"><a href="productList.bo?product_category=point">POINT</a></li>
-					<li><a href="pages_mdpick/mdpick.jsp">MD PICK</a></li>
+					<li><a href="mdRandomList.bo">MD PICK</a></li>
 					<li class="btmline">
 						<a href="pages_interior/interior.jsp">INTERIOR</a>
 						<ul class="submenu">

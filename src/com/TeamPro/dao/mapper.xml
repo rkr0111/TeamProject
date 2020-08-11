@@ -13,6 +13,9 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	<select id="xml_select_name" resultType="xmlDto" parameterType="xmlDto">
 		select * from light.product where product_name=#{product_name};
 	</select>
+	<select id="xml_select_countAll" resultType="Integer" >
+		select count(*) from light.product;
+	</select>
 	<select id="xml_select_count" resultType="Integer" parameterType="xmlDto" >
 		select count(*) from light.product where product_category=#{product_category};
 	</select>

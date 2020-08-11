@@ -54,6 +54,15 @@ public class TeamPro_dao {
 		listCount = Integer.parseInt(connresultsel.get(0).toString());
 		return listCount;
 	}
+	// select_ListcountAll - 0811 dhdbswl 수정
+	public int select_ListcountAll() {
+		int listCount = 0;
+		SqlSession sqlsession = sqlfactory.openSession();
+		List<Integer> connresultsel = sqlsession.selectList("xml_select_countAll");
+		sqlsession.close();
+		listCount = Integer.parseInt(connresultsel.get(0).toString());
+		return listCount;
+	}
 	//detail_selectName - 0730 rkr0111 수정
 	public List<Product_dto> Conn_detailselect(String product_name) {
 		SqlSession sqlsession = sqlfactory.openSession();
