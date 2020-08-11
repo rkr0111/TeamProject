@@ -58,7 +58,7 @@
 				<li> 
 					<div><%out.print(buyhistoryList.get(i).getBuy_name());%></div>
 					<ul class="addEtc">
-						<li>리뷰하기</li>
+						<li>리뷰 작성하기</li>
 						<li>문의하기</li>
 					</ul>
 				</li>
@@ -85,6 +85,74 @@
 			<p>구매하신 내역이 없습니다.</p>
 		<%}%>			
 	</div>
+	
+<!-- review -->
+<!-- 완벽하지 않은 리뷰 입니다. 수정할 부분이 많아요 -->
+	<%}else if(mypageCategory.equals("리뷰")) { %>
+	<div class="contentsOrder">
+		<% if(reviewList != null) { 
+			for(int i=0; i<reviewList.size(); i++) { %>		
+		<div class="orderList">
+			<p><%out.print(reviewList.get(i).getBuy_date());%></p>
+			<ul class="order">
+				<li> 
+					<div><%out.print(reviewList.get(i).getBuy_name());%></div>
+				</li>
+				<li>
+					<div class="orderImgBox"><img src="../images/mypage_img/order_img/point01_03.jpg"></div>
+					<ul class="orderInfo">
+						<li>
+							<input type="text" name="reivewTxt">
+						</li>
+					</ul>
+				</li>
+			</ul>
+		</div>
+		<%}}else {%>
+			<p>작성하신 리뷰가 없습니다.</p>
+		<%}%>			
+	</div>
+	
+<!-- shopping -->		
+	<%}else if(mypageCategory.equals("장바구니")) { %>
+		<div class="contentsOrder">
+		<% if(shoppingList != null) { 
+			for(int i=0; i<shoppingList.size(); i++) { %>			
+		<div class="orderList">
+			<p><%out.print(shoppingList.get(i).getProduct_name());%></p>
+			<ul class="order">
+				<li> 
+					<div><%out.print(shoppingList.get(i).getProduct_name());%></div>
+					<ul class="addEtc">
+						<li>리뷰하기</li>
+						<li>문의하기</li>
+					</ul>
+				</li>
+				<li>
+					<div class="orderImgBox"><img src="../images/mypage_img/order_img/point01_03.jpg"></div>
+					<ul class="orderInfo">
+						<li>
+							<p>주문 번호</p>
+							<p>111111</p> 
+						</li>
+						<li>
+							<p>결제 금액</p> 
+							<p><%out.print(shoppingList.get(i).getProduct_name());%></p>
+						</li>
+						<li>
+							<p>주문 상태</p> 
+							<p><%out.print(shoppingList.get(i).getProduct_name());%></p>
+						</li>
+					</ul>
+				</li>
+			</ul>
+		</div>
+		<%}}else {%>
+			<p>장바구니에 담은 상품이 없습니다.</p>
+		<%}%>			
+	</div>
+	
+<!-- as -->
 	<%}else if(mypageCategory.equals("장바구니")) { %>
 		<div class="contentsOrder">
 		<% if(shoppingList != null) { 

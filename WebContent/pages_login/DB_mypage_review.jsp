@@ -21,7 +21,7 @@
 			out.println("light 데이터베이스로 연결을 할 수 없습니다.");
 		}
 		stmt = conn.createStatement();
-		ResultSet rs = stmt.executeQuery("select *, adddate(buy_date, +1095) as'보증기간 3년' from buyhistory where buy_condition='배송 완료';");
+		ResultSet rs = stmt.executeQuery("select *, adddate(buy_date, +1095) from buyhistory where buy_id='"+id+"' and buy_condition='배송 완료';");
 		if(rs.next()) {
 			request.setCharacterEncoding("UTF-8");
 			ArrayList<Object> reviewList = new ArrayList<Object>();

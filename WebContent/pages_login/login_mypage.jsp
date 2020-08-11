@@ -92,7 +92,7 @@
 							</a>
 						</li>
 						<li id="review">
-							<a href="DB_mypage_review.jsp">리뷰
+							<a href="DB_mypage_review.jsp">작성한 리뷰
 								<p>&gt;</p>
 							</a>
 						</li>
