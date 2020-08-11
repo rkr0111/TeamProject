@@ -34,22 +34,25 @@ public class Product_UpdateAction implements Light_action {
 		for(int i=0; i<colors.length; i++) {
 			proColors += colors[i] + ",";
 		}
-		System.out.println(proColors);
 		
 		dto.setCheck(multi.getParameter("udt_check"));
 		dto.setProduct_name(multi.getParameter("udt_name"));
 		dto.setProduct_category(multi.getParameter("udt_category"));
 		dto.setProduct_price(Integer.parseInt(multi.getParameter("udt_price")));
 		dto.setProduct_color(proColors);
-		dto.setProduct_img(multi.getOriginalFileName((String)multi.getFileNames().nextElement()));
 		dto.setProduct_contents(multi.getParameter("udt_contents"));
+		if(multi.getOriginalFileName((String)multi.getFileNames().nextElement()) != null) {
+			dto.setProduct_img(multi.getOriginalFileName((String)multi.getFileNames().nextElement()));
+		}else {
+			dto.setProduct_img(multi.getParameter("udt_img"));
+		}
 		
 		Product_UpdateService productUpdateService = new Product_UpdateService();
 		isUpdateSuccess = productUpdateService.getProductUpdate(dto);
 		
 		forward = new ActionForward();
 		forward.setRedirect(true);
-		forward.setPath("productList.bo"); 
+		forward.setPath("productList.bo?product_category="+dto.getProduct_category()); 
 		return forward;
 	}
 }

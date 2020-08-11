@@ -37,6 +37,22 @@
 	unicode-range: u+0-10FFFF;
 }
 
+/*Nanum Myeongjo*/
+@font-face {
+	font-family: NanumMyeongjoRegular;
+	src: url(../font/Nanum_Myeongjo/NanumMyeongjo-Regular.woff);
+	font-style: normal;
+	font-weight: normal;
+	unicode-range: u+0-10FFFF;
+}
+@font-face {
+	font-family: NanumMyeongjoBold;
+	src: url(../font/Nanum_Myeongjo/NanumMyeongjo-Bold.woff);
+	font-style: normal;
+	font-weight: normal;
+	unicode-range: u+0-10FFFF;
+}
+
 html {
 	font-family: 'NanumGothicRegular', san-serif;
 	letter-spacing: -1.2px;
@@ -46,3 +62,5 @@ html {
 .NanumGothicBold { font-family: NanumGothicBold, san-serif; }
 .NanumGothicCodingRegular { font-family: NanumGothicCodingRegular, san-serif; }
 .NanumGothicCodingBold { font-family: NanumGothicCodingBold, san-serif; }
+.NanumMyeongjoRegular { font-family: NanumMyeongjoRegular, serif; }
+.NanumMyeongjoBold { font-family: NanumMyeongjoBold, serif; }

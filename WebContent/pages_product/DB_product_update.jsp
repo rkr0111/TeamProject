@@ -57,7 +57,7 @@
 	%>
 
 	<h1>상품 수정하기<br/>============</h1>
-	<form action="../productUpdate.bo" method="post">
+	<form action="../productUpdate.bo" method="post" enctype="multipart/form-data">
 		<table class="updatetable">
 			<tr>	
 				<th>이름</th>
@@ -67,7 +67,7 @@
 				<th>카테고리</th>
 				<td>
 					<p>현재 카테고리명입니다.</p>
-					<input type="text" name="udt_category" value="<%=connresultsel.get(0).getProduct_category()%>">
+					<input type="text" name="udt_category" value="<%=connresultsel.get(0).getProduct_category()%>" readonly>
 					<p style="margin-top: 10px;">변경할 카테고리를 선택하세요.</p>
 					<select name="product_category" required="required">
 						<option name="desk">desk</option>
