@@ -64,7 +64,7 @@
 		<%}%>
 		<div class="viewContain">
 			<ul>
-				<li class="product-count">총 <span class="ml_6">00</span>개의 상품</li>
+				<li class="product-count">총 <span class="ml_6"><%=pageInfo.getListCount()%></span>개의 상품</li>
 				<li>
 					<select name="viewsort" size="1">
 						<option name="date-new" value="신상품순">신상품순</option>
