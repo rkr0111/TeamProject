@@ -22,11 +22,11 @@
 		}
 		stmt = conn.createStatement();
 		ResultSet rs = stmt.executeQuery("select * from shopping where shopping_id='"+id+"'; ");
-		if(rs!=null) {
+		if(rs.next()) {
 			request.setCharacterEncoding("UTF-8");
 			ArrayList<Object> shoppingList = new ArrayList<Object>();
 			
-			while(rs.next()) {
+			do {
 				Product_dto dto = new Product_dto();
 				dto.setProduct_name(rs.getString(1));
 				dto.setProduct_category(rs.getString(2));
@@ -34,17 +34,16 @@
 				dto.setProduct_img(rs.getString(4));
 								
 				shoppingList.add(dto);
+				request.setAttribute("shoppingList", shoppingList);	
 			}
-			request.setAttribute("shoppingList", shoppingList);			
+			while(rs.next());
+			
 			RequestDispatcher dispatcher = request.getRequestDispatcher("login_mypage.jsp?mypageCategory="+mypageCategory);
 			dispatcher.forward(request, response);
-		}else {
-			ArrayList<Object> shoppingList = new ArrayList<Object>();
-			request.setAttribute("shoppingList", null);			
+		}else {		
 			RequestDispatcher dispatcher = request.getRequestDispatcher("login_mypage.jsp?mypageCategory="+mypageCategory);
 			dispatcher.forward(request, response);  
 		}
-		
 	} finally {
 	try {
 		stmt.close();

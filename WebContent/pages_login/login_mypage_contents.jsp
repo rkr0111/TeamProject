@@ -90,10 +90,10 @@
 		<% if(shoppingList != null) { 
 			for(int i=0; i<shoppingList.size(); i++) { %>			
 		<div class="orderList">
-			<p><%out.print(shoppingList.get(i).getBuy_date());%></p>
+			<p><%out.print(shoppingList.get(i).getProduct_name());%></p>
 			<ul class="order">
 				<li> 
-					<div><%out.print(shoppingList.get(i).getBuy_name());%></div>
+					<div><%out.print(shoppingList.get(i).getProduct_name());%></div>
 					<ul class="addEtc">
 						<li>리뷰하기</li>
 						<li>문의하기</li>
@@ -108,11 +108,11 @@
 						</li>
 						<li>
 							<p>결제 금액</p> 
-							<p><%out.print(shoppingList.get(i).getBuy_price());%></p>
+							<p><%out.print(shoppingList.get(i).getProduct_name());%></p>
 						</li>
 						<li>
 							<p>주문 상태</p> 
-							<p><%out.print(shoppingList.get(i).getBuy_condition());%></p>
+							<p><%out.print(shoppingList.get(i).getProduct_name());%></p>
 						</li>
 					</ul>
 				</li>

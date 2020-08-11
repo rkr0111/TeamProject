@@ -22,11 +22,11 @@
 		}
 		stmt = conn.createStatement();
 		ResultSet rs = stmt.executeQuery("select *, adddate(buy_date, +1095) as'보증기간 3년' from buyhistory where buy_condition='배송 완료';");
-		if(rs!=null) {
+		if(rs.next()) {
 			request.setCharacterEncoding("UTF-8");
 			ArrayList<Object> reviewList = new ArrayList<Object>();
 			
-			while(rs.next()) {
+			do {
 				Buyhistory_dto dto = new Buyhistory_dto();
 				dto.setBuy_id(rs.getString(1));
 				dto.setBuy_name(rs.getString(2));
@@ -34,19 +34,18 @@
 				dto.setBuy_date(rs.getDate(4));
 				dto.setBuy_condition(rs.getString(5));
 				dto.setBefore_buyDate(rs.getDate(6));				
-								
+			
 				reviewList.add(dto);
+				request.setAttribute("reviewList", reviewList);	
 			}
-			request.setAttribute("reviewList", reviewList);			
+			while(rs.next());
+			
 			RequestDispatcher dispatcher = request.getRequestDispatcher("login_mypage.jsp?mypageCategory="+mypageCategory);
 			dispatcher.forward(request, response);
-		}else {
-			ArrayList<Object> reviewList = new ArrayList<Object>();
-			request.setAttribute("reviewList", null);			
+		}else {		
 			RequestDispatcher dispatcher = request.getRequestDispatcher("login_mypage.jsp?mypageCategory="+mypageCategory);
 			dispatcher.forward(request, response);  
 		}
-		
 	} finally {
 	try {
 		stmt.close();

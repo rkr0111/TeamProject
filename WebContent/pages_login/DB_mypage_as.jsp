@@ -22,28 +22,27 @@
 		}
 		stmt = conn.createStatement();
 		ResultSet rs = stmt.executeQuery("select buy_id, buy_name, buy_condition from buyhistory where buy_condition='배송 완료';");
-		if(rs!=null) {
+		if(rs.next()) {
 			request.setCharacterEncoding("UTF-8");
 			ArrayList<Object> asList = new ArrayList<Object>();
 			
-			while(rs.next()) {
+			do {
 				Buyhistory_dto dto = new Buyhistory_dto();
 				dto.setBuy_id(rs.getString(1));
 				dto.setBuy_name(rs.getString(2));
 				dto.setBuy_condition(rs.getString(3));				
 								
 				asList.add(dto);
+				request.setAttribute("asList", asList);
 			}
-			request.setAttribute("asList", asList);			
+			while(rs.next());
+						
 			RequestDispatcher dispatcher = request.getRequestDispatcher("login_mypage.jsp?mypageCategory="+mypageCategory);
 			dispatcher.forward(request, response);
-		}else {
-			ArrayList<Object> asList = new ArrayList<Object>();
-			request.setAttribute("asList", null);			
+		}else {		
 			RequestDispatcher dispatcher = request.getRequestDispatcher("login_mypage.jsp?mypageCategory="+mypageCategory);
 			dispatcher.forward(request, response);  
 		}
-		
 	} finally {
 	try {
 		stmt.close();

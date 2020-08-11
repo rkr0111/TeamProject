@@ -26,21 +26,22 @@
 			request.setCharacterEncoding("UTF-8");
 			ArrayList<Object> buyhistoryList = new ArrayList<Object>();
 			
-			while(rs.next()) {
+			do {
 				Buyhistory_dto dto = new Buyhistory_dto();
 				dto.setBuy_id(rs.getString(1));
 				dto.setBuy_name(rs.getString(2));
 				dto.setBuy_price(rs.getInt(3));
 				dto.setBuy_date(rs.getDate(4));
 				dto.setBuy_condition(rs.getString(5));
+				
 				buyhistoryList.add(dto);
-			}
-			request.setAttribute("buyhistoryList", buyhistoryList);			
+				request.setAttribute("buyhistoryList", buyhistoryList);
+			}			
+			while(rs.next());
+			
 			RequestDispatcher dispatcher = request.getRequestDispatcher("login_mypage.jsp?mypageCategory="+mypageCategory);
 			dispatcher.forward(request, response);
 		}else {
-			ArrayList<Object> buyhistoryList = new ArrayList<Object>();
-			request.setAttribute("buyhistoryList", null);			
 			RequestDispatcher dispatcher = request.getRequestDispatcher("login_mypage.jsp?mypageCategory="+mypageCategory);
 			dispatcher.forward(request, response);  
 		}
