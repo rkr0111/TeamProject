@@ -6,6 +6,7 @@
 <%@page import="java.sql.Date"%>
 
 <%
+	request.setCharacterEncoding("UTF-8");
 	String id = (String)session.getAttribute("id");
 	String mypageCategory = "구매내역";
 	
@@ -23,7 +24,6 @@
 		stmt = conn.createStatement(); 
 		ResultSet rs = stmt.executeQuery("select * from buyhistory where buy_id='"+id+"' order by buy_date desc; ");
 		if(rs.next()) {
-			request.setCharacterEncoding("UTF-8");
 			ArrayList<Object> buyhistoryList = new ArrayList<Object>();
 			
 			do {

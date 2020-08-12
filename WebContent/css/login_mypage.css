@@ -151,6 +151,8 @@
 .mypageAside li:nth-of-type(1) {
     background-color: #e8e8e8;
 }
+
+/*mypage_contents -> buyhistory*/
 /*contentsTitle*/
 .contentsTitle {
     float: right;
@@ -217,6 +219,9 @@
 .order div:nth-of-type(1) {
     float: left;
 }
+.order input:nth-of-type(1) {
+	vertical-align: middle;
+}
 /*addEtc*/
 .addEtc {
     float: right;
@@ -251,4 +256,78 @@
 }
 .orderInfo > li:not(:nth-of-type(3)) {
     margin-bottom: 10px;
+}
+
+/*mypage_contents->review*/
+/* reviewContain */
+.reviewContain {
+	margin-left: 15px;
+    margin-right: 15px;
+	height: 80px;
+	display: inline-block;
+	overflow: auto;
+	font-size: 0.9em;
+}
+
+/*mypage_contents->shopping*/
+/*shoppingInfo*/
+.shoppingInfo > li { 
+    display: inline-block;
+    vertical-align: middle;
+    font-size: 0.9em;
+} 
+.shoppingInfo > li:first-of-type {
+	margin-left: 50px;
+}
+.shoppingInfo > li:first-of-type > ul:first-of-type {
+    margin-bottom: 20px;
+}
+.shoppingBtn > ul {
+	margin-left: 280px;
+}
+.shoppingInfo > li:not(:first-of-type) > ul > li {
+	width: 150px;
+	height: 45px;
+}
+.shoppingInfo > li:not(:first-of-type) > ul > li input {
+	background-color: #fff;
+	border: 2px solid #ceb598;
+	color: #ceb598;
+	font-weight: bold;
+	width: 100%;
+	height: 100%;
+	cursor: pointer;
+}
+
+/*amount*/
+.amount {
+	overflow: hidden;
+}
+.amount li {
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	float: left;
+	width: 25px;
+	height: 25px;
+	background-color: #fff;
+	border: 1px solid #ddd;
+	cursor: pointer;
+}
+.amount li:nth-of-type(2) {
+	width: 70px;
+}
+.amount li:not(:last-of-type) {
+	border-right: none;
+}
+.amount li input {
+	width: 100%;
+	height: 100%;
+	background-color: transparent; 
+	border: transparent;
+	text-align: center;
+}
+.amount li a,
+.amount li input {
+	color: #656565;
 }

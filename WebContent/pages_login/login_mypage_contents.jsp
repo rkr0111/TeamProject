@@ -6,6 +6,7 @@
 
 <%@page import="com.TeamPro.dto.Buyhistory_dto"%>
 <%@page import="com.TeamPro.dto.Product_dto"%>
+<%@page import="com.TeamPro.dto.Shopping_dto"%>
 <%@page import="java.util.*"%>
 
 <!DOCTYPE html>
@@ -22,12 +23,11 @@
 	Product_dto pro_dto = new Product_dto(); */
 	
 	ArrayList<Buyhistory_dto> buyhistoryList = (ArrayList<Buyhistory_dto>) request.getAttribute("buyhistoryList");
-	ArrayList<Product_dto> shoppingList = (ArrayList<Product_dto>) request.getAttribute("shoppingList");
 	ArrayList<Buyhistory_dto> reviewList = (ArrayList<Buyhistory_dto>) request.getAttribute("reviewList");
+	ArrayList<Shopping_dto> shoppingList = (ArrayList<Shopping_dto>) request.getAttribute("shoppingList");
 	ArrayList<Buyhistory_dto> asList = (ArrayList<Buyhistory_dto>) request.getAttribute("asList");
 	
-	//
-	List<Product_dto> productList = (List<Product_dto>) request.getAttribute("productList");
+	//List<Product_dto> productList = (List<Product_dto>) request.getAttribute("productList");
 	
 	//
 	String mypageCategory = request.getParameter("mypageCategory");
@@ -48,10 +48,10 @@
 	</div>
 
 <!-- buyhistory -->	
-	<% if(mypageCategory.equals("구매내역")) { %>
+	<%if(mypageCategory.equals("구매내역")) { %>
 	<div class="contentsOrder">
-		<% if(buyhistoryList != null) { 
-			for(int i=0; i<buyhistoryList.size(); i++) { %>			
+		<%if(buyhistoryList != null) { 
+			for(int i=0; i<buyhistoryList.size(); i++) {%>			
 		<div class="orderList">
 			<p><%out.print(buyhistoryList.get(i).getBuy_date());%></p>
 			<ul class="order">
@@ -82,16 +82,15 @@
 			</ul>
 		</div>
 		<%}}else {%>
-			<p>구매하신 내역이 없습니다.</p>
-		<%}%>			
+			<p>구매하신 내역이 없습니다.</p><%
+		}%>			
 	</div>
 	
 <!-- review -->
-<!-- 완벽하지 않은 리뷰 입니다. 수정할 부분이 많아요 -->
-	<%}else if(mypageCategory.equals("리뷰")) { %>
+	<%}else if(mypageCategory.equals("작성한 리뷰")) { %>
 	<div class="contentsOrder">
-		<% if(reviewList != null) { 
-			for(int i=0; i<reviewList.size(); i++) { %>		
+		<%if(reviewList != null) { 
+			for(int i=0; i<reviewList.size(); i++) {%>		
 		<div class="orderList">
 			<p><%out.print(reviewList.get(i).getBuy_date());%></p>
 			<ul class="order">
@@ -100,48 +99,52 @@
 				</li>
 				<li>
 					<div class="orderImgBox"><img src="../images/mypage_img/order_img/point01_03.jpg"></div>
-					<ul class="orderInfo">
+					<ul class="reviewContain">
 						<li>
-							<input type="text" name="reivewTxt">
+							조만간 리뷰를 작성해서 내용을 갖고 오도록 하겠습니다. 내용은 jsp로 get해서 갖고 올겁니다. comming soon
 						</li>
 					</ul>
 				</li>
 			</ul>
 		</div>
 		<%}}else {%>
-			<p>작성하신 리뷰가 없습니다.</p>
-		<%}%>			
+			<p>작성하신 리뷰가 없습니다.</p><%
+		}%>			
 	</div>
 	
 <!-- shopping -->		
 	<%}else if(mypageCategory.equals("장바구니")) { %>
-		<div class="contentsOrder">
+	<div class="contentsOrder">
 		<% if(shoppingList != null) { 
 			for(int i=0; i<shoppingList.size(); i++) { %>			
 		<div class="orderList">
-			<p><%out.print(shoppingList.get(i).getProduct_name());%></p>
+			<%-- 전체 선택, 선택 삭제 등 checkbox 만들기--%>
 			<ul class="order">
 				<li> 
-					<div><%out.print(shoppingList.get(i).getProduct_name());%></div>
-					<ul class="addEtc">
-						<li>리뷰하기</li>
-						<li>문의하기</li>
-					</ul>
+					<div>
+						<input type="checkbox" name="shoppingcheck" value="shoppingcheck">&nbsp;<%out.print(shoppingList.get(i).getShopping_name());%>
+					</div>
 				</li>
 				<li>
 					<div class="orderImgBox"><img src="../images/mypage_img/order_img/point01_03.jpg"></div>
-					<ul class="orderInfo">
+					<ul class="shoppingInfo">
 						<li>
-							<p>주문 번호</p>
-							<p>111111</p> 
+							<ul><%out.print(shoppingList.get(i).getShopping_price());%> 원</ul>
+							<ul class="amount">
+								<li class="btn_minus" onclick="amountCountBtn(<%=i%>, 0)">-</li>
+								<li><input type="number" name="showamount" value="0" readonly /></li>
+								<li class="btn_plus" onclick="amountCountBtn(<%=i%>, 1)">+</li>
+							</ul>
+						</li>
+						<li class="shoppingBtn">	
+							<ul>
+								<li class="mr_10"><input type="button" name="shoppingDetail" value="상세보기" onclick="shoppingDetail();"></li>
+							</ul>
 						</li>
 						<li>
-							<p>결제 금액</p> 
-							<p><%out.print(shoppingList.get(i).getProduct_name());%></p>
-						</li>
-						<li>
-							<p>주문 상태</p> 
-							<p><%out.print(shoppingList.get(i).getProduct_name());%></p>
+							<ul>
+								<li class="mr_10"><input type="button" name="shoppingOrder" value="구매하기" onclick="shoppingOrder();"></li>
+							</ul>
 						</li>
 					</ul>
 				</li>
@@ -153,58 +156,45 @@
 	</div>
 	
 <!-- as -->
-	<%}else if(mypageCategory.equals("장바구니")) { %>
-		<div class="contentsOrder">
-		<% if(shoppingList != null) { 
-			for(int i=0; i<shoppingList.size(); i++) { %>			
+	<%}else if(mypageCategory.equals("A/S 문의")) { %>
+	<div class="contentsOrder">
+		<% if(asList != null) { 
+			for(int i=0; i<asList.size(); i++) { %>			
 		<div class="orderList">
-			<p><%out.print(shoppingList.get(i).getProduct_name());%></p>
 			<ul class="order">
 				<li> 
-					<div><%out.print(shoppingList.get(i).getProduct_name());%></div>
-					<ul class="addEtc">
-						<li>리뷰하기</li>
-						<li>문의하기</li>
-					</ul>
+					<div>
+						<p><%out.print(asList.get(i).getBuy_name());%></p>
+					</div>
 				</li>
 				<li>
 					<div class="orderImgBox"><img src="../images/mypage_img/order_img/point01_03.jpg"></div>
-					<ul class="orderInfo">
+					<ul class="shoppingInfo">
 						<li>
-							<p>주문 번호</p>
-							<p>111111</p> 
+							<ul></ul>
+							<ul><%out.print(asList.get(i).getBefore_buyDate());%></ul>
 						</li>
-						<li>
-							<p>결제 금액</p> 
-							<p><%out.print(shoppingList.get(i).getProduct_name());%></p>
-						</li>
-						<li>
-							<p>주문 상태</p> 
-							<p><%out.print(shoppingList.get(i).getProduct_name());%></p>
+						<li class="shoppingBtn">	
+							<ul>
+								<li class="mr_10"><input type="button" name="asApply" value="asApply" onclick="asApply();"></li>
+							</ul>
 						</li>
 					</ul>
 				</li>
 			</ul>
 		</div>
 		<%}}else {%>
-			<p>장바구니에 담은 상품이 없습니다.</p>
+			<p>A/S 문의 내역이 없습니다.</p>
 		<%}%>			
 	</div>
 	<%}%>
-	
-	
-	
-<!-- review -->
-	<%-- <div class="contentsOrder">
-		<% 
-		if(shoppingList != null) { 
-			for(int i=0; i<shoppingList.size(); i++) { 
-		%>			
-		<div class="orderList">
-			<p><%out.print(shoppingList.get(i).getBuy_date());%></p>
+</body>
+</html>
+		
+			<%-- <p><%out.print(asList.get(i).getBuy_date());%></p>
 			<ul class="order">
 				<li> 
-					<div><%out.print(shoppingList.get(i).getBuy_name());%></div>
+					<div><%out.print(asList.get(i).getBuy_name());%></div>
 					<ul class="addEtc">
 						<li>리뷰하기</li>
 						<li>문의하기</li>
@@ -214,26 +204,15 @@
 					<div class="orderImgBox"><img src="../images/mypage_img/order_img/point01_03.jpg"></div>
 					<ul class="orderInfo">
 						<li>
-							<p>주문 번호</p>
-							<p>111111</p> 
-						</li>
-						<li>
 							<p>결제 금액</p> 
-							<p><%out.print(shoppingList.get(i).getBuy_price());%></p>
+							<p><%out.print(asList.get(i).getBuy_date());%></p>
 						</li>
 						<li>
 							<p>주문 상태</p> 
-							<p><%out.print(shoppingList.get(i).getBuy_condition());%></p>
+							<p><%out.print(asList.get(i).getBefore_buyDate());%></p>
 						</li>
 					</ul>
 				</li>
 			</ul>
-		</div>
-		<%}}else if(shoppingList==null) {%>
-			<p>장바구니에 담긴 상품이 없습니다.</p>
-		<%}%>			
-	</div> --%>
-	
-	
-</body>
-</html>
+		</div> --%>
+		
