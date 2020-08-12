@@ -111,25 +111,7 @@ List<Product_dto> productList = (List<Product_dto>) request.getAttribute("produc
 
 	<!-- script -->
 	<script type="text/javascript" src="js/scroll.js"></script>
-	<script type="text/javascript">
-		var todayContents = document.querySelector(".pickContents.today");
-		var weatherContents = document.querySelector(".pickContents.weather");
-		var menuContainerLI = document.querySelectorAll(".menuContainer > ul > li");
-	
-		function clickPickContents(obj) {
-			if(obj == 0) {
-				menuContainerLI[0].classList.add("bgWhite");
-				menuContainerLI[1].classList.remove("bgWhite");
-				todayContents.classList.remove("none");
-				weatherContents.classList.add("none");
-			}else if(obj == 1) {
-				menuContainerLI[0].classList.remove("bgWhite");
-				menuContainerLI[1].classList.add("bgWhite");
-				todayContents.classList.add("none");
-				weatherContents.classList.remove("none");
-			}
-		}
-	</script>
+	<script type="text/javascript" src="js/mdpick.js"></script>
 
 </body>
 </html>
