@@ -24,31 +24,3 @@ function clickPickContents(obj) {
 		weatherContents.classList.remove("none");
 	}
 }
-
-// 날씨 api ajax
-var date = new Date();
-var year = date.getFullYear();
-var month = date.getMonth()+1
-var day = date.getDate();
-if(month < 10){
-    month = "0"+month;
-}
-if(day < 10){
-    day = "0"+day;
-}
-var today = year+month+day;
-
-window.onload = function() {
-	$.ajax({
-		url: 'weatherParsing.do',
-		type: 'get',
-		data: {"today" : today},
-		dataType: 'json',
-		success: function(obj) {
-			console.log("success: " + obj);
-		},
-		error: function(XMLHttpRequest, textStatus, errorThrown) {
-			alert("Status: " + textStatus + ", Error: " + errorThrown);
-		}
-	});
-}

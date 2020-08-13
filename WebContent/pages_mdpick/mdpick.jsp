@@ -5,9 +5,11 @@
 <%@page import="com.TeamPro.dto.Product_dto"%>
 <%@page import="com.TeamPro.dto.PageInfo"%>
 <%@page import="java.util.*"%>
+<%@page import="org.json.simple.JSONObject"%>
 
 <%
 List<Product_dto> productList = (List<Product_dto>) request.getAttribute("productList");
+JSONObject jObj = (JSONObject) request.getAttribute("jObj");
 %>
 
 <!DOCTYPE html>

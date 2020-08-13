@@ -15,6 +15,7 @@ import com.TeamPro.action.Product_DetailAction;
 import com.TeamPro.action.Product_InsertAction;
 import com.TeamPro.action.Product_ListAction;
 import com.TeamPro.action.Product_UpdateAction;
+import com.TeamPro.action.WeatherApiAction;
 import com.TeamPro.dto.ActionForward;
 
 @WebServlet("*.bo")
@@ -73,7 +74,14 @@ public class Light_controller extends javax.servlet.http.HttpServlet {
 			}catch(Exception e){
 				System.out.println(e);
 			}
-		} 
+		}else if(command.equals("/weatherApi.bo")) { // 0811 dhdbswl ¼öÁ¤
+			action = new WeatherApiAction();
+			try{
+				forward=action.execute(request, response);
+			}catch(Exception e){
+				System.out.println(e);
+			}
+		}
  		
 		// check forward
 		if(forward != null){
