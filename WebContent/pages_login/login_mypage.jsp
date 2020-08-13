@@ -96,8 +96,8 @@
 								<p>&gt;</p>
 							</a>
 						</li>
-						<li id="cart">
-							<a href="DB_mypage_shopping.jsp">장바구니
+						<li id=cart>
+							<a href="DB_mypage_cart.jsp">장바구니
 								<p>&gt;</p>
 							</a>
 						</li>

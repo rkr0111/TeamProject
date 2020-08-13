@@ -24,7 +24,7 @@
 		stmt = conn.createStatement();
 		ResultSet rs = stmt.executeQuery("select * from shopping where shopping_id='"+id+"'; ");
 		if(rs.next()) {
-			ArrayList<Object> shoppingList = new ArrayList<Object>();
+			ArrayList<Object> cartList = new ArrayList<Object>();
 			
 			do {
 				Shopping_dto dto = new Shopping_dto();
@@ -33,8 +33,8 @@
 				dto.setShopping_price(rs.getInt(3));
 				dto.setShopping_count(rs.getInt(4));
 								
-				shoppingList.add(dto);
-				request.setAttribute("shoppingList", shoppingList);	
+				cartList.add(dto);
+				request.setAttribute("cartList", cartList);	
 			}
 			while(rs.next());
 			

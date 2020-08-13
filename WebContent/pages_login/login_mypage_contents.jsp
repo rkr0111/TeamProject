@@ -17,19 +17,12 @@
 </head>
 <body>
 
-<%
-	//orderList 클래스에 들어갈 정보
-	/* Buyhistory_dto buy_dto = new Buyhistory_dto();	
-	Product_dto pro_dto = new Product_dto(); */
-	
+<%	
 	ArrayList<Buyhistory_dto> buyhistoryList = (ArrayList<Buyhistory_dto>) request.getAttribute("buyhistoryList");
 	ArrayList<Buyhistory_dto> reviewList = (ArrayList<Buyhistory_dto>) request.getAttribute("reviewList");
-	ArrayList<Shopping_dto> shoppingList = (ArrayList<Shopping_dto>) request.getAttribute("shoppingList");
+	ArrayList<Shopping_dto> cartList = (ArrayList<Shopping_dto>) request.getAttribute("cartList");
 	ArrayList<Buyhistory_dto> asList = (ArrayList<Buyhistory_dto>) request.getAttribute("asList");
-	
-	//List<Product_dto> productList = (List<Product_dto>) request.getAttribute("productList");
-	
-	//
+
 	String mypageCategory = request.getParameter("mypageCategory");
 %>
 
@@ -112,38 +105,44 @@
 		}%>			
 	</div>
 	
-<!-- shopping -->		
+<!-- cart -->		
 	<%}else if(mypageCategory.equals("장바구니")) { %>
 	<div class="contentsOrder">
-		<% if(shoppingList != null) { 
-			for(int i=0; i<shoppingList.size(); i++) { %>			
+		<% if(cartList != null) { 
+			for(int i=0; i<cartList.size(); i++) { %>			
 		<div class="orderList">
-			<%-- 전체 선택, 선택 삭제 등 checkbox 만들기--%>
+			<div class="allCheckbox">
+				<ul>
+					<li><input type="checkbox" name="cartAllCheck">&nbsp;전체선택</li>
+					<li><input type="checkbox" name="cartAllOrder">&nbsp;전체구매</li>
+				</ul>
+			</div>
+			
 			<ul class="order">
 				<li> 
 					<div>
-						<input type="checkbox" name="shoppingcheck" value="shoppingcheck">&nbsp;<%out.print(shoppingList.get(i).getShopping_name());%>
+						<input type="checkbox" name="cartcheck">&nbsp;<%out.print(cartList.get(i).getShopping_name());%>
 					</div>
 				</li>
 				<li>
 					<div class="orderImgBox"><img src="../images/mypage_img/order_img/point01_03.jpg"></div>
-					<ul class="shoppingInfo">
+					<ul class="cartInfo">
 						<li>
-							<ul><%out.print(shoppingList.get(i).getShopping_price());%> 원</ul>
+							<ul><%out.print(cartList.get(i).getShopping_price());%> 원</ul>
 							<ul class="amount">
 								<li class="btn_minus" onclick="amountCountBtn(<%=i%>, 0)">-</li>
 								<li><input type="number" name="showamount" value="0" readonly /></li>
 								<li class="btn_plus" onclick="amountCountBtn(<%=i%>, 1)">+</li>
 							</ul>
 						</li>
-						<li class="shoppingBtn">	
+						<li class="cartBtnDetail">	
 							<ul>
-								<li class="mr_10"><input type="button" name="shoppingDetail" value="상세보기" onclick="shoppingDetail();"></li>
+								<li><input type="button" name="cartDetail" value="상세보기" onclick="cartDetail();"></li>
 							</ul>
 						</li>
-						<li>
+						<li class="cartBtnOrder">
 							<ul>
-								<li class="mr_10"><input type="button" name="shoppingOrder" value="구매하기" onclick="shoppingOrder();"></li>
+								<li><input type="button" name="cartOrder" value="구매하기" onclick="cartOrder();"></li>
 							</ul>
 						</li>
 					</ul>
@@ -169,14 +168,18 @@
 				</li>
 				<li>
 					<div class="orderImgBox"><img src="../images/mypage_img/order_img/point01_03.jpg"></div>
-					<ul class="shoppingInfo">
+					<ul class="asInfo">
 						<li>
-							<ul></ul>
-							<ul><%out.print(asList.get(i).getBefore_buyDate());%></ul>
+							<p>구매 날짜</p>
+							<p><%out.print(asList.get(i).getBuy_date());%></p>
+						</li>					
+						<li>
+							<p>A/S 가능 기간</p>
+							<p><%out.print(asList.get(i).getBefore_buyDate());%></p>
 						</li>
-						<li class="shoppingBtn">	
+						<li class="asBtn">	
 							<ul>
-								<li class="mr_10"><input type="button" name="asApply" value="asApply" onclick="asApply();"></li>
+								<li><input type="button" name="asApply" value="A/S 신청하기" onclick="asApply();"></li>
 							</ul>
 						</li>
 					</ul>
@@ -190,29 +193,3 @@
 	<%}%>
 </body>
 </html>
-		
-			<%-- <p><%out.print(asList.get(i).getBuy_date());%></p>
-			<ul class="order">
-				<li> 
-					<div><%out.print(asList.get(i).getBuy_name());%></div>
-					<ul class="addEtc">
-						<li>리뷰하기</li>
-						<li>문의하기</li>
-					</ul>
-				</li>
-				<li>
-					<div class="orderImgBox"><img src="../images/mypage_img/order_img/point01_03.jpg"></div>
-					<ul class="orderInfo">
-						<li>
-							<p>결제 금액</p> 
-							<p><%out.print(asList.get(i).getBuy_date());%></p>
-						</li>
-						<li>
-							<p>주문 상태</p> 
-							<p><%out.print(asList.get(i).getBefore_buyDate());%></p>
-						</li>
-					</ul>
-				</li>
-			</ul>
-		</div> --%>
-		
