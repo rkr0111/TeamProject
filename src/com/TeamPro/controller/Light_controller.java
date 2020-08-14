@@ -15,7 +15,6 @@ import com.TeamPro.action.Product_DetailAction;
 import com.TeamPro.action.Product_InsertAction;
 import com.TeamPro.action.Product_ListAction;
 import com.TeamPro.action.Product_UpdateAction;
-import com.TeamPro.action.WeatherApiAction;
 import com.TeamPro.dto.ActionForward;
 
 @WebServlet("*.bo")
@@ -69,13 +68,6 @@ public class Light_controller extends javax.servlet.http.HttpServlet {
 			}
 		}else if(command.equals("/mdRandomList.bo")) { // 0811 dhdbswl 수정
 			action = new MD_randomListAction();
-			try{
-				forward=action.execute(request, response);
-			}catch(Exception e){
-				System.out.println(e);
-			}
-		}else if(command.equals("/weatherApi.bo")) { // 0811 dhdbswl 수정
-			action = new WeatherApiAction();
 			try{
 				forward=action.execute(request, response);
 			}catch(Exception e){

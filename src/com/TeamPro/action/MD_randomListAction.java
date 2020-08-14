@@ -25,7 +25,7 @@ public class MD_randomListAction implements Light_action {
 		
 		forward = new ActionForward();
 		forward.setRedirect(false);
-		forward.setPath("weatherApi.bo");
+		forward.setPath("pages_mdpick/mdpick.jsp");
 		return forward;
 	}
 	

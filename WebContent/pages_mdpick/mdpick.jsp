@@ -9,7 +9,7 @@
 
 <%
 List<Product_dto> productList = (List<Product_dto>) request.getAttribute("productList");
-JSONObject jObj = (JSONObject) request.getAttribute("jObj");
+
 %>
 
 <!DOCTYPE html>
@@ -48,7 +48,7 @@ JSONObject jObj = (JSONObject) request.getAttribute("jObj");
 		<div class="menuContainer">
 			<ul>
 				<li class="bgWhite" onclick="clickPickContents(0)">Today Pick</li>
-				<li onclick="clickPickContents(1)">Weather Pick</li>
+				<li class="weatherBtn" onclick="clickPickContents(1)">Weather Pick</li>
 			</ul>
 		</div>
 
@@ -59,6 +59,7 @@ JSONObject jObj = (JSONObject) request.getAttribute("jObj");
 					<h2>오늘의 추천</h2>
 					<p>오늘의 추천은 랜덤으로 상품을 소개합니다.</p>
 				</div>
+				<%if(productList.size() != 0) {%>
 				<div class="imgBox"><img src="images/product_img/<%out.print(productList.get(0).getProduct_category());%>/<%out.print(productList.get(0).getProduct_img());%>"></div>
 				<div class="contentsItems mt_30">
 					<div class="items-inner">
@@ -71,14 +72,24 @@ JSONObject jObj = (JSONObject) request.getAttribute("jObj");
 						</div>
 					</div>
 				</div>
+				<%}%>
 			</div>
 			<!-- pickContents weather -->
 			<div class="pickContents weather none">
 				<div class="contentsTitle">
 					<h2>날씨에 맞는 추천</h2>
-					<p>주간 날씨에 맞는 분위기의 상품을 소개합니다.</p>
+					<p>오늘의 날씨에 맞는 분위기의 상품을 소개합니다.</p>
 				</div>
-				<div class="weatherApiCon"></div>
+				<div class="weatherApiCon">
+					<ul>
+						<li class="weatherImg">
+							<img src="" />
+						</li>
+						<li class="cityText"></li>
+						<li class="weatherText"></li>
+						<li class="tempText"></li>
+					</ul>
+				</div>
 				<ul class="weatherPickCon">
 					<li>
 						<div class="imgBox"><img src="images/product_img/desk/desk01_01.jpg"></div>
@@ -91,7 +102,8 @@ JSONObject jObj = (JSONObject) request.getAttribute("jObj");
 								<input type="button" name="detailBtn" value="상품 자세히 보기">
 							</div>
 						</div>	
-					</li><li>
+					</li>
+					<li>
 						<div class="imgBox"><img src="images/product_img/desk/desk01_01.jpg"></div>
 						<div class="contentsItems">
 							<div class="textBox">
