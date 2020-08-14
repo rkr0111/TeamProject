@@ -33,15 +33,15 @@
 	<title>상품페이지</title>
 </head>
 <script type="text/javascript">
-	function productNameLink(param, flag) {
+	function productNameLink(param, flag, category) {
 		if(flag == 0) {
 			location.href="pages_product/DB_product_update.jsp?product_name="+encodeURIComponent(param);
 		}else if(flag == 1) {
-			location.href="productDelete.bo?product_name="+encodeURIComponent(param);
+			location.href="productDelete.bo?product_name="+encodeURIComponent(param)+"&product_category="+category;
 		}else if(flag == 2) {
 			location.href="productDetailSelect.bo?product_name="+encodeURIComponent(param);
 		}
-	}	
+	}
 </script>
 
 <body>
@@ -92,7 +92,7 @@
 					String product_name = productList.get(i).getProduct_name();
 					%>
 						<li>
-							<a class="imgContainer" onclick="productNameLink('<%=product_name %>', 2)" >
+							<a class="imgContainer" onclick="productNameLink('<%=product_name %>', 2, '')" >
 								<img src="images/product_img/<%out.print(productList.get(i).getProduct_category());%>/<%out.print(productList.get(i).getProduct_img());%>"/>
 							</a>
 							<div class="textBox">
@@ -103,8 +103,8 @@
 									<li style="display: none;"></li>
 									<%}else if(id.equals("admin")) {%>
 									<li class="mb_10">
-										<input type="button" value="수정하기" onclick="productNameLink('<%=product_name %>', 0)" />
-										<input type="button" value="삭제하기" onclick="productNameLink('<%=product_name %>', 1)" />
+										<input type="button" value="수정하기" onclick="productNameLink('<%=product_name %>', 0, '')" />
+										<input type="button" value="삭제하기" onclick="productNameLink('<%=product_name %>', 1, '<%out.print(productList.get(i).getProduct_category());%>')" />
 									</li>
 									<%}%>
 									<li class="fs_20 fw_bold textColor gray_656565"><%out.print(product_name);%></li>
