@@ -1,12 +1,14 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
-<%request.setCharacterEncoding("utf-8");%>
+<%
+	request.setCharacterEncoding("utf-8");
+%>
 
 <%@page import="org.apache.ibatis.session.SqlSessionFactory"%>
 <%@page import="org.apache.ibatis.session.SqlSession"%>
 
 <%@page import="com.TeamPro.dto.Buyhistory_dto"%>
 <%@page import="com.TeamPro.dto.Product_dto"%>
-<%@page import="com.TeamPro.dto.Shopping_dto"%>
+<%@page import="com.TeamPro.dto.Cart_dto"%>
 <%@page import="java.util.*"%>
 
 <!DOCTYPE html>
@@ -17,10 +19,10 @@
 </head>
 <body>
 
-<%	
+<%
 	ArrayList<Buyhistory_dto> buyhistoryList = (ArrayList<Buyhistory_dto>) request.getAttribute("buyhistoryList");
 	ArrayList<Buyhistory_dto> reviewList = (ArrayList<Buyhistory_dto>) request.getAttribute("reviewList");
-	ArrayList<Shopping_dto> cartList = (ArrayList<Shopping_dto>) request.getAttribute("cartList");
+	ArrayList<Cart_dto> cartList = (ArrayList<Cart_dto>) request.getAttribute("cartList");
 	ArrayList<Buyhistory_dto> asList = (ArrayList<Buyhistory_dto>) request.getAttribute("asList");
 
 	String mypageCategory = request.getParameter("mypageCategory");
@@ -108,27 +110,26 @@
 <!-- cart -->		
 	<%}else if(mypageCategory.equals("장바구니")) { %>
 	<div class="contentsOrder">
+		<div class="allCheckbox">
+			<ul>
+				<li><input type="checkbox" name="cartAllCheck">&nbsp;전체선택</li>
+				<li><input type="checkbox" name="cartAllOrder">&nbsp;전체구매</li>
+			</ul>
+		</div>
 		<% if(cartList != null) { 
 			for(int i=0; i<cartList.size(); i++) { %>			
-		<div class="orderList">
-			<div class="allCheckbox">
-				<ul>
-					<li><input type="checkbox" name="cartAllCheck">&nbsp;전체선택</li>
-					<li><input type="checkbox" name="cartAllOrder">&nbsp;전체구매</li>
-				</ul>
-			</div>
-			
-			<ul class="order">
+		<div class="cartList">
+			<ul class="cart">
 				<li> 
 					<div>
-						<input type="checkbox" name="cartcheck">&nbsp;<%out.print(cartList.get(i).getShopping_name());%>
+						<input type="checkbox" name="cartcheck">&nbsp;<%out.print(cartList.get(i).getCart_name());%>
 					</div>
 				</li>
 				<li>
 					<div class="orderImgBox"><img src="../images/mypage_img/order_img/point01_03.jpg"></div>
 					<ul class="cartInfo">
 						<li>
-							<ul><%out.print(cartList.get(i).getShopping_price());%> 원</ul>
+							<ul><%out.print(cartList.get(i).getCart_price());%> 원</ul>
 							<ul class="amount">
 								<li class="btn_minus" onclick="amountCountBtn(<%=i%>, 0)">-</li>
 								<li><input type="number" name="showamount" value="0" readonly /></li>
