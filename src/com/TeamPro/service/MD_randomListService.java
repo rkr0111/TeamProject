@@ -16,7 +16,7 @@ public class MD_randomListService {
 		return listCount;
 	}
 	
-	public List<Product_dto> getProductList(int randomNum) {
+	public List<Product_dto> getProductList(int randomNum) throws Exception {
 		List<Product_dto> productList = null;
 		ArrayList<Product_dto> list = new ArrayList<Product_dto>();
 		Product_dto prodto = new Product_dto();
@@ -32,6 +32,26 @@ public class MD_randomListService {
 			list.add(prodto);
 		}
 		return list;
+	}
+	
+	public List<Product_dto> getproductAllList() throws Exception {
+		List<Product_dto> proAllList = null;
+		TeamPro_dao prodao = TeamPro_dao.getinstance();
+		prodao.getConn();
+		proAllList = prodao.Conn_select();
+		Product_dto prodto = new Product_dto();
+		ArrayList<Product_dto> list = new ArrayList<Product_dto>();
+		
+		for(int i = 0; i < proAllList.size(); i++) {
+			prodto.setProduct_name(proAllList.get(i).getProduct_name());
+			prodto.setProduct_category(proAllList.get(i).getProduct_category());
+			prodto.setProduct_color(proAllList.get(i).getProduct_color());
+			prodto.setProduct_img(proAllList.get(i).getProduct_img());
+			prodto.setProduct_contents(proAllList.get(i).getProduct_contents());
+			prodto.setProduct_weather(proAllList.get(i).getProduct_weather());
+			list.add(prodto);
+		}
+		return proAllList;
 	}
 	
 }

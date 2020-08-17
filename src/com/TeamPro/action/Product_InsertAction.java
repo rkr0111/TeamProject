@@ -42,6 +42,7 @@ public class Product_InsertAction implements Light_action {
 		prodto.setProduct_color(proColors);
 		prodto.setProduct_img(multi.getOriginalFileName((String)multi.getFileNames().nextElement()));
 		prodto.setProduct_contents(multi.getParameter("product_contents"));
+		prodto.setProduct_weather(multi.getParameter("product_weather"));
 		
 		Product_InsertService productInsertService = new Product_InsertService();
 		boolean isInsert = productInsertService.isInsert(prodto);

@@ -15,13 +15,16 @@ public class MD_randomListAction implements Light_action {
 	public ActionForward execute(HttpServletRequest request,HttpServletResponse response) throws Exception {
 		ActionForward forward = null;
 		List<Product_dto> productList = new ArrayList<Product_dto>();
+		List<Product_dto> productAllList = new ArrayList<Product_dto>();
 		MD_randomListService mdRandomListService = new MD_randomListService();
 		
 		int listCount = mdRandomListService.getListCount();
 		int randomNum = (int)(Math.random()*listCount);
 		productList = mdRandomListService.getProductList(randomNum);
+		productAllList = mdRandomListService.getproductAllList();
 		
 		request.setAttribute("productList", productList);
+		request.setAttribute("productAllList", productAllList);
 		
 		forward = new ActionForward();
 		forward.setRedirect(false);

@@ -9,6 +9,7 @@ public class Product_dto {
 	String product_file;
 	String product_img;
 	String product_contents;
+	String product_weather;
 	
 	String check;
 	int startrow;
@@ -60,6 +61,12 @@ public class Product_dto {
 	}
 	public void setProduct_contents(String product_contents) {
 		this.product_contents = product_contents;
+	}	
+	public String getProduct_weather() {
+		return product_weather;
+	}
+	public void setProduct_weather(String product_weather) {
+		this.product_weather = product_weather;
 	}
 	
 	public String getCheck() {

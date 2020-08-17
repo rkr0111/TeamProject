@@ -22,7 +22,7 @@
 	.inserttable td input:not(input[name="add_colorbox"]) { width: 200px; }
 	.inserttable td select { width: 178px; }
 	.inserttable td p {
-		margin: 0;
+		margin: 0 0 5px 0;
 	    font-size: 13px;
     	color: #aaa;
 	}
@@ -79,6 +79,21 @@
 			<tr>
 				<th>내용</th>
 				<td><input type="text" name="product_contents" required="required"></td>
+			</tr>
+			<tr>
+				<th>날씨</th>
+				<td>
+					<p>해당 상품이 어떤 날씨에 어울리는지 선택해주세요.</p>
+					<select name="product_weather" required="required">
+						<option name="clouds">흐림</option>
+						<option name="thunderstorm">낙뢰</option>
+						<option name="rain">비</option>
+						<option name="drizzle">이슬비</option>
+						<option name="clear">맑음</option>
+						<option name="fog">안개</option>
+						<option name="snow">눈</option>
+					</select>
+				</td>
 			</tr>
 		</table>
 		<input type="submit" value="상품 등록">

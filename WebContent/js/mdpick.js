@@ -15,24 +15,7 @@ var weatherText = document.querySelector(".weatherText");
 var tempText = document.querySelector(".tempText");
 var weatherApiCon = document.querySelector(".weatherApiCon");
 
-
-// 버튼 클릭시 화면 전환
-function clickPickContents(obj) {
-	if(obj == 0) {
-		menuContainerLI[0].classList.add("bgWhite");
-		menuContainerLI[1].classList.remove("bgWhite");
-		todayContents.classList.remove("none");
-		weatherContents.classList.add("none");
-	}else if(obj == 1) {
-		menuContainerLI[0].classList.remove("bgWhite");
-		menuContainerLI[1].classList.add("bgWhite");
-		todayContents.classList.add("none");
-		weatherContents.classList.remove("none");
-		weatherApi();
-	}
-}
-
-function weatherApi() {
+window.onload = function weatherApi() {
 	var api = "http://api.openweathermap.org/data/2.5/weather?q=Seoul&appid=b1c0c7525d62991fddcf261a16a8216f";
 	var api1 = "http://api.openweathermap.org/data/2.5/weather?q=";
 	var apiKey = "&appid=b1c0c7525d62991fddcf261a16a8216f";
@@ -76,3 +59,24 @@ function weatherApi() {
 		}
 	});
 }
+
+
+
+//버튼 클릭시 화면 전환
+function clickPickContents(obj, weatherText) {
+	if(obj == 0) {
+		menuContainerLI[0].classList.add("bgWhite");
+		menuContainerLI[1].classList.remove("bgWhite");
+		todayContents.classList.remove("none");
+		weatherContents.classList.add("none");
+	}else if(obj == 1) {
+		menuContainerLI[0].classList.remove("bgWhite");
+		menuContainerLI[1].classList.add("bgWhite");
+		todayContents.classList.add("none");
+		weatherContents.classList.remove("none");
+		appendWeatherTex(weatherText.innerText);
+		
+	}
+}
+
+

@@ -9,7 +9,7 @@
 
 <%
 List<Product_dto> productList = (List<Product_dto>) request.getAttribute("productList");
-
+List<Product_dto> productAllList = (List<Product_dto>) request.getAttribute("productAllList");
 %>
 
 <!DOCTYPE html>
@@ -48,7 +48,7 @@ List<Product_dto> productList = (List<Product_dto>) request.getAttribute("produc
 		<div class="menuContainer">
 			<ul>
 				<li class="bgWhite" onclick="clickPickContents(0)">Today Pick</li>
-				<li class="weatherBtn" onclick="clickPickContents(1)">Weather Pick</li>
+				<li class="weatherBtn" onclick="clickPickContents(1, weatherText)">Weather Pick</li>
 			</ul>
 		</div>
 
@@ -91,30 +91,66 @@ List<Product_dto> productList = (List<Product_dto>) request.getAttribute("produc
 					</ul>
 				</div>
 				<ul class="weatherPickCon">
+					<%-- <%
+					for(int i=0; i<productAllList.size(); i++) {
+						String listWeather = productAllList.get(i).getProduct_weather();
+					%>
 					<li>
-						<div class="imgBox"><img src="images/product_img/desk/desk01_01.jpg"></div>
+						<div class="imgBox"><img src="images/product_img/<%out.print(productAllList.get(i).getProduct_category());%>/<%out.print(productAllList.get(i).getProduct_img());%>"></div>
 						<div class="contentsItems">
 							<div class="textBox">
-								<h3 class="mb_15">상품 이름</h3>
-								<p>상품 소개글 상품 소개글상품 소개글상품 소개글상품 소개글상품 소개글상품 소개글상품 소개글상품 소개글</p>
+								<h3 class="mb_15"><%out.print(productAllList.get(i).getProduct_name());%></h3>
+								<p><%out.print(productAllList.get(i).getProduct_contents());%></p>
 							</div>
 							<div class="detailBtn mt_30">
-								<input type="button" name="detailBtn" value="상품 자세히 보기">
+								<input type="button" name="detailBtn" value="상품 자세히 보기" onclick="productLink('<%out.print(productList.get(i).getProduct_name());%>')">
 							</div>
 						</div>	
 					</li>
-					<li>
-						<div class="imgBox"><img src="images/product_img/desk/desk01_01.jpg"></div>
-						<div class="contentsItems">
-							<div class="textBox">
-								<h3 class="mb_15">상품 이름</h3>
-								<p>상품 소개글 상품 소개글상품 소개글상품 소개글상품 소개글상품 소개글상품 소개글상품 소개글상품 소개글</p>
-							</div>
-							<div class="detailBtn mt_30">
-								<input type="button" name="detailBtn" value="상품 자세히 보기">
-							</div>
-						</div>	
-					</li>
+	
+					<script>
+						var weatherText = document.querySelector(".weatherText");
+						var listWeather = <%=listWeather%>;
+						var weatherPickCon = document.querySelector(".weatherPickCon");
+						var appendText = "<li>"
+										+ "<div class='imgBox'><img src='images/product_img/<%out.print(productAllList.get(i).getProduct_category());%>/<%out.print(productAllList.get(i).getProduct_img());%>'></div>"
+										+ "<div class='contentsItems'>"
+										+ "<div class='textBox'>"
+										+ "<h3 class='mb_15'><%out.print(productAllList.get(i).getProduct_name());%></h3>"
+										+ "</div><div class='detailBtn mt_30'>"
+										+ "<input type='button' name='detailBtn' value='상품 자세히 보기' onclick='productLink('<%out.print(productList.get(i).getProduct_name());%>')'>"
+										+ "</div></div></li>";
+						
+						if(weatherText == listWeather) {
+							for(var i=0; i<lstWeather.length; i++) {
+								weatherPickCon.append(appendText);
+							}
+						}
+					</script>
+					<%}%> --%>
+					<%
+					String listWeather = "";
+					for(int i=0; i<productAllList.size(); i++) {
+						listWeather += productAllList.get(i).getProduct_weather() + ",";
+					%>
+					<%}
+					String[] idx = listWeather.split(",");
+					for(int i=0; i<idx.length; i++) {%>
+						<script>
+							var listWeather[].push(<%=idx[i]%>);
+							console.log(listWeather);
+						</script>
+					<%}%>
+					<!-- <script>
+					function appendWeatherTex(obj) {
+						console.log(obj);
+						if(obj == listWeather) {
+							console.log(listWeather);
+						}else {
+							console.log("nono")
+						}
+					}
+					</script> -->
 				</ul>
 			</div>
 		</div>
@@ -126,6 +162,5 @@ List<Product_dto> productList = (List<Product_dto>) request.getAttribute("produc
 	<!-- script -->
 	<script type="text/javascript" src="js/scroll.js"></script>
 	<script type="text/javascript" src="js/mdpick.js"></script>
-
 </body>
 </html>

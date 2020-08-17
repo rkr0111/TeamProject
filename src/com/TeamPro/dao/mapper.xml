@@ -24,7 +24,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	</select>
 	
 	<insert id="xml_insert_prolist" parameterType="xmlDto">
-		insert into light.product values(#{product_name}, #{product_category}, #{product_price}, #{product_color}, '', #{product_img}, #{product_contents}); 
+		insert into light.product values(#{product_name}, #{product_category}, #{product_price}, #{product_color}, '', #{product_img}, #{product_contents}, #{product_weather}); 
 	</insert>
 	
 	<update id="xml_update" parameterType="xmlDto">
