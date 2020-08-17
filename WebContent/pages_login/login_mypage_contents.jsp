@@ -1,7 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
-<%
-	request.setCharacterEncoding("utf-8");
-%>
+<%request.setCharacterEncoding("utf-8");%>
 
 <%@page import="org.apache.ibatis.session.SqlSessionFactory"%>
 <%@page import="org.apache.ibatis.session.SqlSession"%>
@@ -9,19 +7,22 @@
 <%@page import="com.TeamPro.dto.Buyhistory_dto"%>
 <%@page import="com.TeamPro.dto.Product_dto"%>
 <%@page import="com.TeamPro.dto.Cart_dto"%>
+<%@page import="com.TeamPro.dto.Interior_dto"%>
 <%@page import="java.util.*"%>
 
 <!DOCTYPE html>
 <html lang="ko">
 <head>
 <meta charset="utf-8">
+<link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
+<link rel="icon" href="/favicon.ico" type="image/x-icon">
 <title></title>
 </head>
 <body>
 
 <%
 	ArrayList<Buyhistory_dto> buyhistoryList = (ArrayList<Buyhistory_dto>) request.getAttribute("buyhistoryList");
-	ArrayList<Buyhistory_dto> reviewList = (ArrayList<Buyhistory_dto>) request.getAttribute("reviewList");
+	ArrayList<Interior_dto> reviewList = (ArrayList<Interior_dto>) request.getAttribute("reviewList");
 	ArrayList<Cart_dto> cartList = (ArrayList<Cart_dto>) request.getAttribute("cartList");
 	ArrayList<Buyhistory_dto> asList = (ArrayList<Buyhistory_dto>) request.getAttribute("asList");
 
@@ -44,6 +45,38 @@
 
 <!-- buyhistory -->	
 	<%if(mypageCategory.equals("구매내역")) { %>
+	<div class="mypageAsideTitle">
+		<h3>마이페이지</h3>
+		<aside class="mypageAside">
+			<ul>
+				<li id="orderHistory" class="bg">						
+					<a href="DB_mypage_buyhistory.jsp">구매내역
+						<p>&gt;</p>
+					</a>
+				</li>
+				<li id="review">
+					<a href="DB_mypage_review.jsp">작성한 리뷰
+						<p>&gt;</p>
+					</a>
+				</li>
+				<li id="cart">
+					<a href="DB_mypage_cart.jsp">장바구니
+						<p>&gt;</p>
+					</a>
+				</li>
+				<li id="question">
+					<a href="">1:1 문의
+						<p>&gt;</p>
+					</a>
+				</li>
+				<li id="as">
+					<a href="DB_mypage_as.jsp">A/S 문의
+						<p>&gt;</p>
+					</a>
+				</li>
+			</ul>
+		</aside>
+	</div>
 	<div class="contentsOrder">
 		<%if(buyhistoryList != null) { 
 			for(int i=0; i<buyhistoryList.size(); i++) {%>			
@@ -83,20 +116,54 @@
 	
 <!-- review -->
 	<%}else if(mypageCategory.equals("작성한 리뷰")) { %>
+	<div class="mypageAsideTitle">
+		<h3>마이페이지</h3>
+		<aside class="mypageAside">
+			<ul>
+				<li id="orderHistory">						
+					<a href="DB_mypage_buyhistory.jsp">구매내역
+						<p>&gt;</p>
+					</a>
+				</li>
+				<li id="review" class="bg">
+					<a href="DB_mypage_review.jsp">작성한 리뷰
+						<p>&gt;</p>
+					</a>
+				</li>
+				<li id="cart">
+					<a href="DB_mypage_cart.jsp">장바구니
+						<p>&gt;</p>
+					</a>
+				</li>
+				<li id="question">
+					<a href="">1:1 문의
+						<p>&gt;</p>
+					</a>
+				</li>
+				<li id="as">
+					<a href="DB_mypage_as.jsp">A/S 문의
+						<p>&gt;</p>
+					</a>
+				</li>
+			</ul>
+		</aside>
+	</div>
 	<div class="contentsOrder">
 		<%if(reviewList != null) { 
 			for(int i=0; i<reviewList.size(); i++) {%>		
 		<div class="orderList">
-			<p><%out.print(reviewList.get(i).getBuy_date());%></p>
+			<p><%out.print(reviewList.get(i).getInterior_date());%></p>
 			<ul class="order">
 				<li> 
-					<div><%out.print(reviewList.get(i).getBuy_name());%></div>
+					<div><%out.print(reviewList.get(i).getInterior_name());%></div>
 				</li>
 				<li>
-					<div class="orderImgBox"><img src="../images/mypage_img/order_img/point01_03.jpg"></div>
+					<div class="orderImgBox">
+						<img src="../images/product_img/<%out.print(reviewList.get(i).getInterior_category()); %>/<%out.print(reviewList.get(i).getInterior_img());%>">
+					</div>
 					<ul class="reviewContain">
 						<li>
-							조만간 리뷰를 작성해서 내용을 갖고 오도록 하겠습니다. 내용은 jsp로 get해서 갖고 올겁니다. comming soon
+							<%out.print(reviewList.get(i).getInterior_contents());%>
 						</li>
 					</ul>
 				</li>
@@ -109,6 +176,38 @@
 	
 <!-- cart -->		
 	<%}else if(mypageCategory.equals("장바구니")) { %>
+	<div class="mypageAsideTitle">
+		<h3>마이페이지</h3>
+		<aside class="mypageAside">
+			<ul>
+				<li id="orderHistory">						
+					<a href="DB_mypage_buyhistory.jsp">구매내역
+						<p>&gt;</p>
+					</a>
+				</li>
+				<li id="review">
+					<a href="DB_mypage_review.jsp">작성한 리뷰
+						<p>&gt;</p>
+					</a>
+				</li>
+				<li id="cart" class="bg">
+					<a href="DB_mypage_cart.jsp">장바구니
+						<p>&gt;</p>
+					</a>
+				</li>
+				<li id="question">
+					<a href="">1:1 문의
+						<p>&gt;</p>
+					</a>
+				</li>
+				<li id="as">
+					<a href="DB_mypage_as.jsp">A/S 문의
+						<p>&gt;</p>
+					</a>
+				</li>
+			</ul>
+		</aside>
+	</div>
 	<div class="contentsOrder">
 		<div class="allCheckbox">
 			<ul>
@@ -157,6 +256,38 @@
 	
 <!-- as -->
 	<%}else if(mypageCategory.equals("A/S 문의")) { %>
+	<div class="mypageAsideTitle">
+		<h3>마이페이지</h3>
+		<aside class="mypageAside">
+			<ul>
+				<li id="orderHistory">						
+					<a href="DB_mypage_buyhistory.jsp">구매내역
+						<p>&gt;</p>
+					</a>
+				</li>
+				<li id="review">
+					<a href="DB_mypage_review.jsp">작성한 리뷰
+						<p>&gt;</p>
+					</a>
+				</li>
+				<li id="cart">
+					<a href="DB_mypage_cart.jsp">장바구니
+						<p>&gt;</p>
+					</a>
+				</li>
+				<li id="question">
+					<a href="">1:1 문의
+						<p>&gt;</p>
+					</a>
+				</li>
+				<li id="as" class="bg">
+					<a href="DB_mypage_as.jsp">A/S 문의
+						<p>&gt;</p>
+					</a>
+				</li>
+			</ul>
+		</aside>
+	</div>
 	<div class="contentsOrder">
 		<% if(asList != null) { 
 			for(int i=0; i<asList.size(); i++) { %>			
@@ -191,6 +322,8 @@
 			<p>A/S 문의 내역이 없습니다.</p>
 		<%}%>			
 	</div>
-	<%}%>
+	<%}%>	
+	
+	
 </body>
 </html>

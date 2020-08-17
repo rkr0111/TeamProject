@@ -82,39 +82,6 @@
 		</nav>
 
 		<div class="contents">
-			<div class="mypageAsideTitle">
-				<h3>마이페이지</h3>
-				<aside class="mypageAside">
-					<ul>
-						<li id="orderHistory">						
-							<a href="DB_mypage_buyhistory.jsp">구매내역
-								<p>&gt;</p>
-							</a>
-						</li>
-						<li id="review">
-							<a href="DB_mypage_review.jsp">작성한 리뷰
-								<p>&gt;</p>
-							</a>
-						</li>
-						<li id=cart>
-							<a href="DB_mypage_cart.jsp">장바구니
-								<p>&gt;</p>
-							</a>
-						</li>
-						<li id="question">
-							<a href="">1:1 문의
-								<p>&gt;</p>
-							</a>
-						</li>
-						<li id="as">
-							<a href="DB_mypage_as.jsp">A/S 문의
-								<p>&gt;</p>
-							</a>
-						</li>
-					</ul>
-				</aside>
-			</div>
-			
 			<!-- mypage_contents include -->
 			<jsp:include page="login_mypage_contents.jsp" />
 			
@@ -126,6 +93,5 @@
 
 	<!-- script -->
 	<script type="text/javascript" src="../js/scroll.js"></script>
-	<script type="text/javascript" src="../js/login_mypage.js"></script>
 </body>
 </html>

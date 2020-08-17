@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 
 <%@page import="com.TeamPro.dto.Buyhistory_dto"%>
+<%@page import="com.TeamPro.dto.Interior_dto"%>
 <%@page import="java.util.*"%>
 <%@page import="java.sql.*"%>
 <%@page import="java.sql.Date"%>
@@ -29,18 +30,21 @@
 			out.println("light 데이터베이스로 연결을 할 수 없습니다.");
 		}
 		stmt = conn.createStatement();
-		ResultSet rs = stmt.executeQuery("select * from buyhistory where buy_id='"+id+"' and buy_condition='배송 완료' order by buy_date desc;");
+		ResultSet rs = stmt.executeQuery("select distinct interior_id, interior_name, interior_contents, interior_img, interior_date, buy_condition, product_category from light.buyhistory, light.interior, light.product where buy_id=interior_id and interior_name=product_name and interior_id='a' and buy_condition='배송 완료' order by interior_date desc");
 		
 		if(rs.next()) {
 			ArrayList<Object> reviewList = new ArrayList<Object>();
 			
 			do {
-				Buyhistory_dto dto = new Buyhistory_dto();
-				dto.setBuy_id(rs.getString(1));
-				dto.setBuy_name(rs.getString(2));
-				dto.setBuy_price(rs.getInt(3));
-				dto.setBuy_date(rs.getDate(4));
-				dto.setBuy_condition(rs.getString(5));
+				Interior_dto dto = new Interior_dto();
+				
+				dto.setInterior_id(rs.getString(1));
+				dto.setInterior_name(rs.getString(2));
+				dto.setInterior_contents(rs.getString(3));
+				dto.setInterior_img(rs.getString(4));
+				dto.setInterior_date(rs.getDate(5));
+				dto.setInterior_condition(rs.getString(6));
+				dto.setInterior_category(rs.getString(7));
 				
 				reviewList.add(dto);
 				request.setAttribute("reviewList", reviewList);
