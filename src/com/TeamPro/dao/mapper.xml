@@ -22,6 +22,9 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	<select id="xml_select_list" resultType="xmlDto" parameterType="xmlDto">
 		select * from light.product where product_category=#{product_category} limit #{startrow},5;
 	</select>
+	<select id="xml_select_weatherProList" resultType="xmlDto" parameterType="xmlDto">
+		select * from light.product where product_weather=#{product_weather};
+	</select>
 	
 	<insert id="xml_insert_prolist" parameterType="xmlDto">
 		insert into light.product values(#{product_name}, #{product_category}, #{product_price}, #{product_color}, '', #{product_img}, #{product_contents}, #{product_weather}); 

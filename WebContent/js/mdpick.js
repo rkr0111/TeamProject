@@ -15,6 +15,9 @@ var weatherText = document.querySelector(".weatherText");
 var tempText = document.querySelector(".tempText");
 var weatherApiCon = document.querySelector(".weatherApiCon");
 
+
+
+// 날씨 api
 window.onload = function weatherApi() {
 	var api = "http://api.openweathermap.org/data/2.5/weather?q=Seoul&appid=b1c0c7525d62991fddcf261a16a8216f";
 	var api1 = "http://api.openweathermap.org/data/2.5/weather?q=";
@@ -63,7 +66,7 @@ window.onload = function weatherApi() {
 
 
 //버튼 클릭시 화면 전환
-function clickPickContents(obj, weatherText) {
+function clickPickContents(obj) {
 	if(obj == 0) {
 		menuContainerLI[0].classList.add("bgWhite");
 		menuContainerLI[1].classList.remove("bgWhite");
@@ -73,9 +76,7 @@ function clickPickContents(obj, weatherText) {
 		menuContainerLI[0].classList.remove("bgWhite");
 		menuContainerLI[1].classList.add("bgWhite");
 		todayContents.classList.add("none");
-		weatherContents.classList.remove("none");
-		appendWeatherTex(weatherText.innerText);
-		
+		weatherContents.classList.remove("none");		
 	}
 }
 

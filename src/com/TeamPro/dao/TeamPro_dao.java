@@ -70,6 +70,13 @@ public class TeamPro_dao {
 		sqlsession.close();
 		return connresultupd; 
 	}
+	// 날씨에 대한 상품 select - 0818 dhdbswl 수정
+	public List<Product_dto> Conn_select_weatherPro(String product_weather) {
+		SqlSession sqlsession = sqlfactory.openSession();
+		List<Product_dto> connresultupd= sqlsession.selectList("xml_select_weatherProList", product_weather);
+		sqlsession.close();
+		return connresultupd; 
+	}
 	
 	//insert - 0731 dhdbswl 수정
 	public int Conn_insert(Product_dto dto) {
