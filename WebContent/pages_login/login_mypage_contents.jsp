@@ -289,41 +289,74 @@
 		</aside>
 	</div>
 	<div class="contentsOrder">
-		<% if(asList != null) { 
-			for(int i=0; i<asList.size(); i++) { %>			
-		<div class="orderList">
-			<ul class="order">
-				<li> 
-					<div>
-						<p><%out.print(asList.get(i).getBuy_name());%></p>
-					</div>
-				</li>
-				<li>
-					<div class="orderImgBox"><img src="../images/mypage_img/order_img/point01_03.jpg"></div>
-					<ul class="asInfo">
+		<% if(asList != null) { %>			
+			<form class="contentsAS">
+				<div class="checkAS">
+					<h1>온라인 A/S 신청 전 확인사항</h1>
+					<ul>
 						<li>
-							<p>구매 날짜</p>
-							<p><%out.print(asList.get(i).getBuy_date());%></p>
-						</li>					
-						<li>
-							<p>A/S 가능 기간</p>
-							<p><%out.print(asList.get(i).getBefore_buyDate());%></p>
+							<span>1.</span>
+							<span>자주하는 질문에서 문제점을 먼저 확인해 주시기 바랍니다.</span>
 						</li>
-						<li class="asBtn">	
-							<ul>
-								<li><input type="button" name="asApply" value="A/S 신청하기" onclick="asApply();"></li>
-							</ul>
+						<li>
+							<span>2.</span>
+							<span>보증기간 중에 발생한 제품 결함에 대해서는 무상으로 수리해 드립니다.</span>
+						</li>
+						<li>
+							<span>-</span>
+							<span>보증기간: 1년(구입년도 구입일 포함)</span>
+						</li>
+						<li>
+							<span>3.</span>
+							<span>다음과 같은 경우에는 보증기간 중이라도 유상입니다.</span>
+						</li>
+						<li>
+							<span>-</span>
+							<span>사용자 과실(조명 깨짐 등)</span>
+						</li>
+						<li>
+							<span>-</span>
+							<span>부주의나 무리한 사용으로 인한 고장</span>
 						</li>
 					</ul>
-				</li>
-			</ul>
-		</div>
+				</div>
+
+				<div class="applyAS">
+					<h1>A/S 신청 상품정보 입력</h1>
+					<table>
+						<tr>
+							<th>제품 카테고리</th>
+							<td>ddd</td>
+						</tr>
+						<tr>
+							<th>제품 이름</th>
+							<td>
+								<input type="text" name="applyAS_productName">
+								<input type="button" name="productFindBtn">
+							</td>
+						</tr>
+						<tr>
+							<th>증상</th>
+							<td><input type="text" name="applyAS_condition"></td>
+						</tr>
+						<tr>
+							<th>상세 내용</th>
+							<td><textarea name="applyAS_contents" rows="5" cols="50"></textarea></td>
+						</tr>
+						<tr>
+							<th>상품 구매일</th>
+							<td><input type="date" name="applyAS_calendal"></td>
+						</tr>
+						<tr>
+							<th>연락받을 연락처</th>
+							<td><input type="text" name="applyAS_phone"></td>
+						</tr>
+					</table>
+				</div>
+			</form>
 		<%}}else {%>
 			<p>A/S 문의 내역이 없습니다.</p>
 		<%}%>			
 	</div>
-	<%}%>	
-	
-	
 </body>
 </html>
