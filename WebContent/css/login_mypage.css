@@ -182,14 +182,6 @@
     font-size: 22px;
     color: #444;
 }
-.contentsTitle ul li:nth-of-type(2) {
-    float: right;
-}
-.contentsTitle select {
-    width: 150px;
-    height: 30px;
-    font-size: 0.75em;
-}
 /*contentsOrder */
 .contentsOrder {
     width: 910px;
@@ -405,16 +397,69 @@
     padding-bottom: 20px;
 }
 .checkAS h1 {
-    margin: 10px 0;
+    margin: 30px 0 10px 0;
     font-weight: bold;
 }
-
-
+.checkAS h1 .round {
+    width: 15px;
+    height: 15px;
+    background: #aaa;
+    display: inline-block;
+    vertical-align: middle;
+    border-radius: 50%;
+    position: relative;
+    margin-right: 7px;
+}
+.checkAS h1 .round:before {
+    content: '';
+    width: 7px;
+    height: 7px;
+    border-radius: 50%;
+    background: #fff;
+    position: absolute;
+    top: 4px;
+    left: 4px;
+}
+.checkAS ul {
+    color: #656565;
+    margin: 20px 0 40px 20px;
+}
+.checkAS ul .number {
+    margin-bottom: 10px;
+    font-weight: bold;
+}
+.checkAS ul .innerNumber {
+    margin: 0 0 10px 20px;
+    font-size: 0.9em;
+}
 
 
 .applyAS h1 {
     margin: 10px 0;
     font-weight: bold;
+}
+.applyAS h1 .round {
+    width: 15px;
+    height: 15px;
+    background: #aaa;
+    display: inline-block;
+    vertical-align: middle;
+    border-radius: 50%;
+    position: relative;
+    margin-right: 7px;
+}
+.applyAS h1 .round:before {
+    content: '';
+    width: 7px;
+    height: 7px;
+    border-radius: 50%;
+    background: #fff;
+    position: absolute;
+    top: 4px;
+    left: 4px;
+}
+.applyAS table {
+    width: 100%;
 }
 .applyAS table tr:first-of-type {
     border-top: 1px solid black;
@@ -423,27 +468,41 @@
     border-bottom: 1px solid gray;
 }
 .applyAS table th {
-    padding: 20px 10px;
+    font-size: 0.9em;
+    padding: 20px 20px;
     text-align: left;
     vertical-align: middle;
     border-right: 1px solid gray;
+    background-color: #e8e8e8;
 }
 .applyAS table td {
     width: 650px;
     padding: 20px 30px;
     vertical-align: left;
 }
+.applyAS table tr td select {
+    height: 31px;
+    width: 200px;
+}
 .applyAS textarea {
     width: 100%;
     height: 150px;
 }
-
-
-
-
-
-
-.infoOrder h1 {
-    margin: 10px 0;
+.applyAS table tr td input[type=date] {
+    height: 26px;
+    width: 194px;
+}
+.applyAS table tr td input[type=text] {
+    height: 25px;
+    width: 192px;
+}
+.applyAS_btn {
+    margin: 50px 0 0 373px;
+    background-color: #fff;
+    border: 2px solid #ceb598;
+    color: #ceb598;
     font-weight: bold;
+    width: 165PX;
+    height: 60PX;
+    cursor: pointer;
 }
