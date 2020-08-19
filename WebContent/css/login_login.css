@@ -1,6 +1,6 @@
 @charset "utf-8";
 
-header + section {
+section {
 	margin: 85px auto 0 !important;
     height: 610px;
 }

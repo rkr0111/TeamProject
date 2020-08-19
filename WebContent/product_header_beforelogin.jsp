@@ -8,6 +8,7 @@
 	<title></title>
 </head>
 <body>
+	
 	<!-- header -->
 	<header id="page">
 		<div class="header-inner">
@@ -18,7 +19,7 @@
 					<li><a href="productList.bo?product_category=bedroom">BEDROOM</a></li>
 					<li><a href="productList.bo?product_category=stand">STAND</a></li>
 					<li><a href="productList.bo?product_category=point">POINT</a></li>
-					<li><a href="../TeamPro/mdRandomList.bo">MD PICK</a></li>
+					<li><a href="#" class="mdpick">MD PICK</a></li>
 					<li>
 						<a href="../TeamPro/pages_interior/interior.jsp">INTERIOR</a>
 						<ul class="submenu">
@@ -48,5 +49,8 @@
 			</ul>
 		</div>
 	</header> <!-- header end -->
+	
+  	<!-- script -->
+	<script type="text/javascript" src="./js/weatherApi.js"></script>
 </body>
 </html>

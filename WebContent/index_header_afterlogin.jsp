@@ -28,7 +28,7 @@
 					<li><a href="productList.bo?product_category=bedroom">BEDROOM</a></li>
 					<li><a href="productList.bo?product_category=stand">STAND</a></li>
 					<li class="btmline"><a href="productList.bo?product_category=point">POINT</a></li>
-					<li><a href="mdRandomList.bo">MD PICK</a></li>
+					<li><a href="#" class="mdpick">MD PICK</a></li>
 					<li class="btmline">
 						<a href="pages_interior/interior.jsp">INTERIOR</a>
 						<ul class="submenu">
@@ -57,5 +57,8 @@
 			</div>
 		</nav>
 	</header> <!-- header end -->
+	
+  	<!-- script -->
+	<script type="text/javascript" src="./js/weatherApi.js"></script>
 </body>
 </html>

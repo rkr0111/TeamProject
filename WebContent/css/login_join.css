@@ -19,7 +19,7 @@ label {
 	display: none;
 }
 
-header + section {
+section {
 	width: 1400px;
 	margin: 110px auto 0 !important;
 }

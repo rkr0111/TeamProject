@@ -6,8 +6,8 @@ main index style
 
 */
 
-#header + section {
-	margin-top: 0;
+section {
+	margin-top: 0 !important;
 }
 footer {
 	margin: 0 auto;

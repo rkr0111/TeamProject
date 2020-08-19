@@ -8,7 +8,7 @@ common.css
 
 */
 
-header + section { margin-top: 100px !important; }
+section { margin-top: 100px !important; }
 a { text-decoration: none; }
 
 header#index #logo a,
@@ -20,7 +20,6 @@ footer #footerlogo {
 /*-------------------------------------*/
 /* index header*/
 /*-------------------------------------*/
-header#index + section { margin-top: 0 !important; }
 header#index {
 	position: fixed;
 	top: 0;

@@ -5,11 +5,11 @@
 <%@page import="com.TeamPro.dto.Product_dto"%>
 <%@page import="com.TeamPro.dto.PageInfo"%>
 <%@page import="java.util.*"%>
-<%@page import="org.json.simple.JSONObject"%>
 
 <%
 List<Product_dto> productList = (List<Product_dto>) request.getAttribute("productList");
 List<Product_dto> productAllList = (List<Product_dto>) request.getAttribute("productAllList");
+List<Product_dto> weaterProList = (List<Product_dto>) request.getAttribute("weaterProList");
 %>
 
 <!DOCTYPE html>
@@ -92,27 +92,7 @@ List<Product_dto> productAllList = (List<Product_dto>) request.getAttribute("pro
 					</ul>
 				</div>
 				<ul class="weatherPickCon">
-					<script>
-						var weatherText = document.querySelector(".weatherText");
-					</script>
-					<%
-					String listWeather = "";
-					for(int i=0; i<productAllList.size(); i++) {
-						listWeather += productAllList.get(i).getProduct_weather() + ",";
-					}%>
-					<script>
-						var listWeather = "<%=listWeather%>";
-						if(listWeather.indexOf(weatherText)) {
-							var wtext = weatherText.innerText;
-							console.log("jsp 1  : " + wtext);
-							location.href="mdWeatherList.bo?product_weather="+encodeURIComponent(wtext);
-						}
-					</script>
-					<%
-					List<Product_dto> weaterProList = (List<Product_dto>) request.getAttribute("weaterProList");
-					System.out.print("jsp 2 : " + weaterProList);
-					for(int i=0; i<weaterProList.size(); i++) {
-					%>
+					<%for(int i=0; i<weaterProList.size(); i++) {%>
 					<li>
 						<div class="imgBox"><img src="images/product_img/<%out.print(weaterProList.get(i).getProduct_category());%>/<%out.print(weaterProList.get(i).getProduct_img());%>"></div>
 						<div class="contentsItems">

@@ -14,16 +14,19 @@ public class MD_randomListAction implements Light_action {
 
 	public ActionForward execute(HttpServletRequest request,HttpServletResponse response) throws Exception {
 		ActionForward forward = null;
+		MD_randomListService mdRandomListService = new MD_randomListService();
 		List<Product_dto> productList = new ArrayList<Product_dto>();
 		List<Product_dto> productAllList = new ArrayList<Product_dto>();
-		MD_randomListService mdRandomListService = new MD_randomListService();
+		List<Product_dto> weaterProList = new ArrayList<Product_dto>();
 
-		List<Product_dto> weaterProList = (List<Product_dto>) request.getAttribute("weaterProList");
+		String product_weather = request.getParameter("product_weather");
 		
 		int listCount = mdRandomListService.getListCount();
 		int randomNum = (int)(Math.random()*listCount);
+		
 		productList = mdRandomListService.getProductList(randomNum);
 		productAllList = mdRandomListService.getproductAllList();
+		weaterProList = mdRandomListService.getWeatherProList(product_weather);
 		
 		request.setAttribute("productList", productList);
 		request.setAttribute("productAllList", productAllList);
