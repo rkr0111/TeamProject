@@ -7,6 +7,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import com.TeamPro.action.Buy_nowListAction;
 import com.TeamPro.action.Light_action;
 import com.TeamPro.action.MD_randomListAction;
 import com.TeamPro.action.MD_randomListAction;
@@ -68,6 +69,13 @@ public class Light_controller extends javax.servlet.http.HttpServlet {
 			}
 		}else if(command.equals("/mdRandomList.bo")) { // 0811 dhdbswl 수정
 			action = new MD_randomListAction();
+			try{
+				forward=action.execute(request, response);
+			}catch(Exception e){
+				System.out.println(e);
+			}
+		}else if(command.equals("/buyNowList.bo")) { // 0819 dhdbswl 수정
+			action = new Buy_nowListAction();
 			try{
 				forward=action.execute(request, response);
 			}catch(Exception e){

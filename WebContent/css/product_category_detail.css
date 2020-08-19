@@ -19,7 +19,7 @@ headerProductContainer
 	width: 1200px;
 	margin: 180px auto 100px;
 }
-.headerProductContainer > div {
+.headerProductContainer form > div {
 	display: inline-block;
 	vertical-align: top;
 	width: 48%;
