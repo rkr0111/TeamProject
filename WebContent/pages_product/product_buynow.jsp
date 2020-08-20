@@ -4,24 +4,34 @@
 <%@page import="org.apache.ibatis.session.SqlSessionFactory"%>
 <%@page import="org.apache.ibatis.session.SqlSession"%>
 
-<%@page import="com.TeamPro.dao.TeamPro_dao"%>
-<%@page import="com.TeamPro.dto.Product_dto"%>
+<%@page import="com.TeamPro.dto.Buyhistory_dto"%>
 <%@page import="java.util.*"%>
 
 <%
-String product_color = request.getParameter("product_color");
-System.out.println("product_color : " + product_color);
+Buyhistory_dto buyDto = (Buyhistory_dto)request.getAttribute("buyDto");
+
+/* buy_date, before_buydate, buy_condition 안 가져옴 */
+String id = buyDto.getBuy_id();
+String name = buyDto.getBuy_name();
+int price = buyDto.getBuy_price();
+String category = buyDto.getBuy_category();
+String imgsrc = buyDto.getBuy_img();
+String colors = buyDto.getBuy_colors();
+int amount = buyDto.getBuy_amount();
+int totalPrice = buyDto.getBuy_totalPrice();
+
+System.out.println("buy now jsp: " +colors);
 %>
 
 <!DOCTYPE html>
 <html>
 <head>
 	<meta charset="utf-8">
-	<link rel="stylesheet" type="text/css" href="../css/reset.css">
-	<link rel="stylesheet" type="text/css" href="../css/common.css">
-	<link rel="stylesheet" type="text/css" href="../css/allStyle.css">
-	<link rel="stylesheet" type="text/css" href="../css/font.css">
-	<link rel="stylesheet" type="text/css" href="../css/product_buynow.css">
+	<link rel="stylesheet" type="text/css" href="css/reset.css">
+	<link rel="stylesheet" type="text/css" href="css/common.css">
+	<link rel="stylesheet" type="text/css" href="css/allStyle.css">
+	<link rel="stylesheet" type="text/css" href="css/font.css">
+	<link rel="stylesheet" type="text/css" href="css/product_buynow.css">
 	<!-- jQuery cdn -->
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
 	<title>주문 및 결제 페이지</title>
@@ -39,9 +49,9 @@ System.out.println("product_color : " + product_color);
 				<h2>주문 내역</h2>
 				<div class="orderProContents">
 					<div class="orderProList">
-						<div class="product_img"><img src="" /></div>
+						<div class="product_img"><img src="images/product_img/<%=category%>/<%=imgsrc%>" /></div>
 						<ul>
-							<li class="product_name">product_name</li>
+							<li class="product_name"><%=name%></li>
 							<li>
 								<span class="product_color mr_10">product_color</span>
 								<span class="product_count mr_10">product_count</span>
@@ -108,7 +118,7 @@ System.out.println("product_color : " + product_color);
 						<tr>
 							<td>1212원</td>
 							<td>2500원</td>
-							<td>1212원</td>
+							<td>12121원</td>
 						</tr>
 					</table>
 				</div>
@@ -121,6 +131,6 @@ System.out.println("product_color : " + product_color);
 	<jsp:include page="../footer.jsp" /> <!-- footer end -->
 
 	<!-- script -->
-	<script type="text/javascript" src="../js/scroll.js"></script>	
+	<script type="text/javascript" src="js/scroll.js"></script>	
 </body>
 </html>

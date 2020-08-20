@@ -84,7 +84,8 @@ headerProductContainer
 	text-align: center;
 }
 .headerProductContainer .productInfoContainer .totalChoiceContainer .amount li a,
-.headerProductContainer .productInfoContainer .totalChoiceContainer .amount li input {
+.headerProductContainer .productInfoContainer .totalChoiceContainer .amount li input,
+.headerProductContainer .productInfoContainer .totalChoiceContainer .totalChoice .product_color > input {
 	color: #656565;
 }
 
@@ -123,6 +124,14 @@ headerProductContainer
 }
 .headerProductContainer .productInfoContainer .totalChoiceContainer .totalChoice .product_color {
 	width: 50px;
+}
+.headerProductContainer .productInfoContainer .totalChoiceContainer .totalChoice .product_color > input {
+	width: 100%;
+}
+.headerProductContainer .productInfoContainer .totalChoiceContainer .totalChoice .product_color > input,
+.headerProductContainer .productInfoContainer .totalPrice > input {
+    background: transparent;
+    border: transparent;
 }
 .headerProductContainer .productInfoContainer .totalChoiceContainer .totalChoice > li:not(:first-of-type) {
 	font-size: 14px;

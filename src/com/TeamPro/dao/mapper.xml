@@ -29,6 +29,9 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	<insert id="xml_insert_prolist" parameterType="xmlDto">
 		insert into light.product values(#{product_name}, #{product_category}, #{product_price}, #{product_color}, '', #{product_img}, #{product_contents}, #{product_weather}); 
 	</insert>
+	<insert id="xml_insert_buyhistory" parameterType="buyhistory">
+		insert into light.buyhistory values(#{buy_id}, #{buy_name}, #{buy_price}, #{buy_date}, #{buy_condition}, #{before_buyDate}, #{buy_category}, #{buy_img}, #{buy_colors}, #{buy_amount}, #{buy_totalprice}); 
+	</insert>
 	
 	<update id="xml_update" parameterType="xmlDto">
 		update light.product set product_name=#{product_name}, product_category=#{product_category}, product_price=#{product_price}, product_color=#{product_color}, product_img=#{product_img}, product_contents=#{product_contents} where product_name=#{check};  

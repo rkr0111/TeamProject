@@ -10,6 +10,7 @@ import org.apache.ibatis.session.SqlSession;
 import org.apache.ibatis.session.SqlSessionFactory;
 import org.apache.ibatis.session.SqlSessionFactoryBuilder;
 
+import com.TeamPro.dto.Buyhistory_dto;
 import com.TeamPro.dto.Product_dto;
 
 public class TeamPro_dao {
@@ -83,6 +84,16 @@ public class TeamPro_dao {
 		int insertCount = 0;
 		SqlSession sqlsession = sqlfactory.openSession();
 		sqlsession.insert("xml_insert_prolist", dto);
+		sqlsession.commit();
+		insertCount = 1;
+		sqlsession.close();
+		return insertCount;
+	}
+	//insert - 0820 dhdbswl ¼öÁ¤
+	public int Conn_insert_buyhistory(Buyhistory_dto buyDto) {
+		int insertCount = 0;
+		SqlSession sqlsession = sqlfactory.openSession();
+		sqlsession.insert("xml_insert_buyhistory", buyDto);
 		sqlsession.commit();
 		insertCount = 1;
 		sqlsession.close();

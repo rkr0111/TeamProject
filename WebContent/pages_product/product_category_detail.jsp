@@ -23,8 +23,8 @@
 </head>
 
 <%
-	request.setCharacterEncoding("utf-8");
-	List<Product_dto> isDetailSuccess = (List<Product_dto>) request.getAttribute("isDetailSuccess");
+List<Product_dto> isDetailSuccess = (List<Product_dto>) request.getAttribute("isDetailSuccess");
+int product_price = isDetailSuccess.get(0).getProduct_price();
 %>
 
 <body>
@@ -42,7 +42,7 @@
 	<section>
 		<!-- headerProductContainer -->
 		<div class="headerProductContainer">
-			<form method="get" action="pages_product/product_buynow.jsp">
+			<form method="post" action="buyNowList.bo" name="form">
 				<div class="productContainer">
 					<img src="images/product_img/<%out.print(isDetailSuccess.get(0).getProduct_category());%>/<%out.print(isDetailSuccess.get(0).getProduct_img());%>">
 				</div>
@@ -67,14 +67,12 @@
 							<%}%>
 						</select>
 					</div>
+		
 					<div class="totalChoiceContainer">
-						<%int product_price = isDetailSuccess.get(0).getProduct_price();
-						for(int i=0; i<idx.length; i++) {%>
+						<%for(int i=0; i<idx.length; i++) {%>
 						<ul class="totalChoice" style="display: none;">
 							<li><%out.print(isDetailSuccess.get(0).getProduct_name());%></li>
-							<li class="product_color">
-								<input type="hidden" name="product_colors" />
-							</li>
+							<li class="product_color"><input type="text" name="product_colors" value="" readonly /></li>
 							<li class="product_cnt">
 								<ul class="amount">
 									<li class="btn_minus" onclick="amountCountBtn(<%=i%>, 0)">-</li>
@@ -87,16 +85,26 @@
 						<%}%>
 					</div>
 					<div class="totalPrice t_align_right fs_23 fw_bold textColor ff9d2d pt_20 mb_10">
-						0원 <input type="hidden" name="product_total" />
+						<input type="text" name="product_total" value="0" readonly class="textColor ff9d2d t_align_right fw_bold fs_23 NanumGothicRegular" />원
 					</div>
-					<div class="t_align_right fs_14 textColor gray_9c9c9c">100,000원 이상 구매시 무료배송</div>					
+					<div class="t_align_right fs_14 textColor gray_9c9c9c">100,000원 이상 구매시 무료배송</div>	
+					
+					
 					<ul class="customerBtn mt_20">
 						<%if(id == null) {%>
 						<li class="mr_10"><input type="button" name="cart_btn" value="장바구니" onclick="location.href='pages_login/login_login.jsp';"></li>
 						<li><input type="button" name="buy_btn" value="바로구매" onclick="location.href='pages_login/login_login.jsp';"></li>
 						<%} else {%>
 						<li class="mr_10"><input type="button" name="cart_btn" value="장바구니"></li>
-						<li><input type="submit" name="buy_btn" value="바로구매"></li>
+						<li>
+							<!-- type="hidden" start -->
+							<input type="hidden" name="product_name" value="<%out.print(isDetailSuccess.get(0).getProduct_name());%>" />
+							<input type="hidden" name="product_price" value="<%out.print(isDetailSuccess.get(0).getProduct_price());%>" />
+							<input type="hidden" name="product_category" value="<%out.print(isDetailSuccess.get(0).getProduct_category());%>" />
+							<input type="hidden" name="product_img" value="<%out.print(isDetailSuccess.get(0).getProduct_img());%>" />
+							<!-- type="hidden" end -->
+							<input type="submit" name="buy_btn" value="바로구매" class="submit">
+						</li>
 						<%}%>
 					</ul>
 				</div>
@@ -146,7 +154,7 @@
 	<!-- script -->
 	<script type="text/javascript" src="js/scroll.js"></script>
 	<script type="text/javascript" src="js/product_category_detail.js"></script>
-				
+	
 	<script>
 		var product_price = <%=product_price%>;
 		var idx = <%=idx.length%>;
@@ -157,9 +165,10 @@
 		var colorSelect = document.querySelector(".colorSelectContents > select");
 		var colorOpt = document.querySelectorAll(".colorSelectContents > select option[name^='color-']");
 		var colorOptFirst = document.querySelectorAll(".colorSelectContents > select > option:first-of-type");
-		
+		var product_color = document.querySelectorAll(".product_color");
+
+		var product_colors = document.querySelectorAll("input[name='product_colors']");
 		var product_total = document.querySelector("input[name='product_total']");
-		var submit = document.querySelector("input[type='submit']");
 		
 		// addComma
 		function addComma(num) {
@@ -179,9 +188,7 @@
 			for(var i=0; i<totalChoice.length; i++) {
 				results += product_price * showamount[i].value;
 			}
-			totalPrice.innerText = addComma(results) + "원";
-			product_total = results;
-			console.log("jsp product_total.value : " + product_total);
+			product_total.value = results;
 		}
 		
 		// select option click event
@@ -191,19 +198,12 @@
 				if(colorOpt[i].selected && !colorOptFirst.selected) {
 					if(i == cnt) {
 						totalChoice[i].style.display = "flex";
-						product_color[i].innerText = colorOpt[i].value;
-						product_color = colorOpt[i].value;
-						console.log("js product_color : " + product_color);
+						product_colors[i].value = colorOpt[i].value;
 					}
 				}
 				cnt++;
 			}
 		}
-		
-		// submit click event
-		/* submit.addEventListener("click", function() {
-			location.href="pages_product/product_buynow.jsp?product_color="+product_color+"&product_total="+product_total;
-		}); */
 	</script>
 	
 </body>

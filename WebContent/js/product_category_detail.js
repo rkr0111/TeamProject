@@ -40,22 +40,6 @@ function detailNavClicked(obj) {
     });
 }
 
-// select option click event
-function optionSelected() {
-	var cnt = 0;
-	for(var i=0; i<colorOpt.length; i++) {
-		if(colorOpt[i].selected && !colorOptFirst.selected) {
-			if(i == cnt) {
-				totalChoice[i].style.display = "flex";
-				product_color[i].innerText = colorOpt[i].value;
-				product_color = colorOpt[i].value;
-				console.log("js product_color : " + product_color);
-			}
-		}
-		cnt++;
-	}
-}
-
 // removeBtn click event
 for(var i=0; i<removeBtn.length; i++) {
 	function removeBtn(obj) {
