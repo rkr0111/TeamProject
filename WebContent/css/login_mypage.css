@@ -85,6 +85,9 @@
     border-bottom: 1px solid #7f7f7f;
     color: #7f7f7f;
 }
+.info_update a {
+	color: black;
+}
 
 /* class = recentNav ------------------------------*/
 .recentNav {
@@ -399,6 +402,7 @@
 .checkAS h1 {
     margin: 30px 0 10px 0;
     font-weight: bold;
+    font-size: 1.2em;
 }
 .checkAS h1 .round {
     width: 15px;
@@ -437,6 +441,7 @@
 .applyAS h1 {
     margin: 10px 0;
     font-weight: bold;
+    font-size: 1.2em;
 }
 .applyAS h1 .round {
     width: 15px;

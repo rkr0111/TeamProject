@@ -53,7 +53,7 @@
 					</ul>
 				</div>
 				<div class="memberInfo">
-					<div class="info_update">개인정보 수정</div>
+					<div class="info_update"><a href="login_infoUpdate.jsp">개인정보 수정</a></div>
 					<ul>
 						<li>
 							<p>이름 : </p>

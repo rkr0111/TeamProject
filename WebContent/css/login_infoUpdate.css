@@ -1,0 +1,217 @@
+@charset "utf-8";
+
+/*
+
+login_infoUpdate style
+
+*/
+
+/*table*/
+table th {
+	padding: 20px 10px;
+	vertical-align: middle;
+}
+table td {
+	padding: 20px 30px;
+	vertical-align: middle;
+}
+label {
+	display: none;
+}
+
+section {
+	width: 1400px;
+	margin: 110px 590px 0 !important;
+}
+.agreecheckContainer,
+.joinformContainer {
+	display: inline-block;
+	vertical-align: top;
+	width: 48.9%;
+}
+.joinformContainer {
+	margin-left: 23px;
+}
+
+/*titleText*/
+.titleText {
+    margin-bottom: 10px;
+    padding-bottom: 10px;
+	font-size: 20px;
+    font-weight: bold;
+    color: #494949;
+    border-bottom: 1px solid #494949;
+}
+
+/*
+개인정보 수정 폼
+*/
+
+/*joinTableContainer*/
+.joinTableContainer {
+	width: 100%;
+	margin-bottom: 20px;
+}
+.joinTableContainer table {
+	width: 100%;
+	overflow: hidden;
+}
+.joinTableContainer table td ul {
+	margin: 0 0 10px 0;
+}
+.joinTableContainer table td ul:last-of-type {
+	margin: 0 0 0 0;
+}
+.joinTableContainer table ul li {
+	display: inline-block;
+}
+
+/*joinform*/
+.joinTableContainer.joinform table th {
+	width: 25%;
+	background-color: #f9f9f9;
+	border-right: 1px solid #e8e8e8;
+	border-bottom: 1px solid #e8e8e8;
+	font-weight: bold;
+	font-size: 14px;
+	color: #656565;
+}
+.joinTableContainer.joinform table td {
+	width: 75%;
+	padding: 25px 20px;
+	border-bottom: 1px solid #e8e8e8;
+}
+.joinTableContainer.joinform table .tdPwd ul li {
+	display: block;
+}
+.joinTableContainer.joinform table tr:last-of-type th,
+.joinTableContainer.joinform table tr:last-of-type td {
+	border-bottom: none;
+}
+
+/*select*/
+select {
+	width: 147px;
+	height: 35px;
+	vertical-align: middle;
+	border: 1px solid #ccc;
+	border-radius: 3px;
+}
+
+/*input / button*/
+.inputText,
+.addressBox {
+	width: 141px;
+	height: 31px;
+	vertical-align: middle;
+	border: 1px solid #ccc;
+	border-radius: 3px;
+}
+input.button {
+    padding: 8px 12px;
+	background-color: #eee;
+    border: 1px solid #bbb;
+    border-radius: 3px;
+    box-sizing: border-box;
+    align-items: center;
+    vertical-align: middle;
+}
+input.checkBtn:hover {
+	background-color: #ddd;
+}
+
+/*btnContainer*/
+.btnContainer {
+	text-align: center;
+}
+input.button[type="submit"] {
+	width: 260px;
+    height: 45px;
+    font-size: 15px;
+    font-weight: bold;
+	background-color: #ffc88a;
+	border: 2px solid #ffc88a;
+    margin-right: 640px;
+}
+input.button[type="submit"]:hover {
+	background-color: #f7bc79;
+	border: 2px solid #f7bc79;
+}
+
+/*checkVisible*/
+.joinform table td {
+	position: relative;
+}
+.checkVisible {
+	position: absolute;
+	top: 65px;
+    left: 20px;
+    width: 100%;
+	height: 20px;
+}
+td.tdPwd .checkVisible {
+	top: 141px;
+}
+.checkVisible p {
+	position: absolute;
+}
+
+/* 반응형 미디어쿼리 */
+@media screen and (max-width: 1400px) {
+	header + section {
+		width: 95%;
+	}
+	.agreecheckContainer, .joinformContainer {
+		width: 48%;
+	}
+	.joinTableContainer.joinform table td {
+		padding: 25px 10px;
+	}
+	.inputText, .addressBox {
+		width: 114px;
+	}
+	select {
+		width: 120px;
+	}
+}
+@media screen and (max-width: 1200px) {
+	.inputText, .addressBox {
+		width: 89px;
+	}
+	select {
+		width: 95px;
+	}
+}
+@media screen and (max-width: 1024px) {
+	header + section {
+		width: 80%;
+	}
+	.agreecheckContainer, .joinformContainer {
+		display: block;
+		width: 100%;
+	}
+	.joinformContainer {
+		margin-top: 30px;
+		margin-left: 0;
+	}
+	.joinTableContainer.joinform table td {
+		padding: 25px 20px;
+	}
+	.inputText, .addressBox {
+		width: 114px;
+	}
+	select {
+		width: 120px;
+	}
+	.agreeContainer .agreeArticle {
+		height: 150px;
+	}
+}
+@media screen and (max-width: 768px) {
+	.inputText, .addressBox {
+		width: 89px;
+	}
+	select {
+		width: 95px;
+	}
+}

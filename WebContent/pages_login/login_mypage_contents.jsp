@@ -21,7 +21,7 @@
 <script type="text/javascript">
 	function cart(param, flag) {
 		if(flag == 0) {
-			location.href="productDetailSelect.bo?product_name="+encodeURIComponent(param);
+			location.href="../productDetailSelect.bo?product_name="+encodeURIComponent(param);
 		}else if(flag == 1) {
 			location.href="productDetailSelect.bo?product_name="+encodeURIComponent(param);
 		}
@@ -242,9 +242,7 @@
 						</li>
 						<li class="cartBtnDetail">	
 							<ul>
-								<li><input type="button" name="cartDetail" value="상세보기" onclick="cart('<%=cart_name%>', 0)" />
-								<%System.out.println("cart : "+ cart_name); %>
-								</li>
+								<li><input type="button" name="cartDetail" value="상세보기" onclick="cart('<%=cart_name%>', 0)" />	</li>
 							</ul>
 						</li>
 						<li class="cartBtnOrder">
