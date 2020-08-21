@@ -5,22 +5,12 @@
 <%@page import="org.apache.ibatis.session.SqlSession"%>
 
 <%@page import="com.TeamPro.dto.Buyhistory_dto"%>
+<%@page import="com.TeamPro.dto.CustomerInfo_dto"%>
 <%@page import="java.util.*"%>
 
 <%
-Buyhistory_dto buyDto = (Buyhistory_dto)request.getAttribute("buyDto");
-
-/* buy_date, before_buydate, buy_condition 안 가져옴 */
-String id = buyDto.getBuy_id();
-String name = buyDto.getBuy_name();
-int price = buyDto.getBuy_price();
-String category = buyDto.getBuy_category();
-String imgsrc = buyDto.getBuy_img();
-String colors = buyDto.getBuy_colors();
-int amount = buyDto.getBuy_amount();
-int totalPrice = buyDto.getBuy_totalPrice();
-
-System.out.println("buy now jsp: " +colors);
+List<Buyhistory_dto> buyList = (List<Buyhistory_dto>)request.getAttribute("buyList");
+List<CustomerInfo_dto> customerList = (List<CustomerInfo_dto>)request.getAttribute("customerList");
 %>
 
 <!DOCTYPE html>
@@ -48,28 +38,19 @@ System.out.println("buy now jsp: " +colors);
 			<div class="orderProductContainer">
 				<h2>주문 내역</h2>
 				<div class="orderProContents">
+					<%for(int i=0; i<buyList.size(); i++) {%>
 					<div class="orderProList">
-						<div class="product_img"><img src="images/product_img/<%=category%>/<%=imgsrc%>" /></div>
+						<div class="product_img"><img src="images/product_img/<%=buyList.get(i).getBuy_category()%>/<%=buyList.get(i).getBuy_img()%>" /></div>
 						<ul>
-							<li class="product_name"><%=name%></li>
+							<li class="product_name"><%=buyList.get(i).getBuy_name()%></li>
 							<li>
-								<span class="product_color mr_10">product_color</span>
-								<span class="product_count mr_10">product_count</span>
-								<span class="product_price">product_price</span>
+								<span class="product_color mr_10"><%=buyList.get(i).getBuy_colors()%></span>
+								<span class="product_count mr_10"><%=buyList.get(i).getBuy_amount()%></span>
+								<span class="product_price"><%=buyList.get(i).getBuy_price()%></span>
 							</li>
 						</ul>
 					</div>
-					<div class="orderProList">
-						<div class="product_img"><img src="" /></div>
-						<ul>
-							<li class="product_name">product_name</li>
-							<li>
-								<span class="product_color mr_10">product_color</span>
-								<span class="product_count mr_10">product_count</span>
-								<span class="product_price">product_price</span>
-							</li>
-						</ul>
-					</div>
+					<%}%>
 				</div>
 			</div>
 			
@@ -80,21 +61,21 @@ System.out.println("buy now jsp: " +colors);
 					<table>
 						<tr>
 							<th>주문자명</th>
-							<td><input type="text" name="order_name" readonly /></td>
+							<td><input type="text" name="order_name" value="<%=customerList.get(0).getCustomer_name()%>" readonly /></td>
 						</tr>
 						<tr>
 							<th>핸드폰번호</th>
-							<td><input type="text" name="order_phone" readonly /></td>
+							<td><input type="text" name="order_phone" value="<%=customerList.get(0).getCustomer_phone()%>" readonly /></td>
 						</tr>
 						<tr>
 							<th>이메일</th>
-							<td><input type="text" name="order_email" readonly /></td>
+							<td><input type="text" name="order_email" value="<%=customerList.get(0).getCustomer_email()%>" readonly /></td>
 						</tr>
 						<tr>
 							<th>주소</th>
 							<td>
-								<input type="text" name="order_post" readonly /><br/>
-								<input type="text" name="order_addr" readonly />
+								<input type="text" name="order_post" value="<%=customerList.get(0).getCustomer_post()%>" readonly /><br/>
+								<input type="text" name="order_addr" value="<%=customerList.get(0).getCustomer_addr()%>" readonly />
 							</td>
 						</tr>
 						<tr>
@@ -116,9 +97,17 @@ System.out.println("buy now jsp: " +colors);
 							<th>총 결제예정 금액</th>
 						</tr>
 						<tr>
-							<td>1212원</td>
+							<td>
+								<%int total = 0;
+								for(int i=0; i<buyList.size(); i++) {
+									total = buyList.get(i).getBuy_price() * buyList.get(i).getBuy_amount();
+								}%>
+								<%=total%>원
+							</td>
 							<td>2500원</td>
-							<td>12121원</td>
+							<td>
+								<%=total + 2500%>원
+							</td>
 						</tr>
 					</table>
 				</div>

@@ -12,6 +12,7 @@ import org.apache.ibatis.session.SqlSessionFactoryBuilder;
 
 import com.TeamPro.dto.Buyhistory_dto;
 import com.TeamPro.dto.Product_dto;
+import com.TeamPro.dto.CustomerInfo_dto;
 
 public class TeamPro_dao {
 	SqlSessionFactory sqlfactory;
@@ -77,6 +78,20 @@ public class TeamPro_dao {
 		List<Product_dto> connresultupd= sqlsession.selectList("xml_select_weatherProList", product_weather);
 		sqlsession.close();
 		return connresultupd; 
+	}
+	// 구매내역 select - 0821 dhdbswl 수정
+	public List<Buyhistory_dto> Conn_select_buyList(Buyhistory_dto buyDto) {
+		SqlSession sqlsession = sqlfactory.openSession();
+		List<Buyhistory_dto> connresultupd = sqlsession.selectList("xml_select_buyList", buyDto);
+		sqlsession.close();
+		return connresultupd;
+	}
+	// 회원 정보 all select - 0821 dhdbswl 수정
+	public List<CustomerInfo_dto> Conn_select_customerList(String id) {
+		SqlSession sqlsession = sqlfactory.openSession();
+		List<CustomerInfo_dto> connresultupd = sqlsession.selectList("xml_select_customerList", id);
+		sqlsession.close();
+		return connresultupd;
 	}
 	
 	//insert - 0731 dhdbswl 수정
