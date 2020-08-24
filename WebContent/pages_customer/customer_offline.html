@@ -62,70 +62,25 @@
 	
 	<!-- section -->
 	<section>
-		<div class="customerContainer">
+		<div class="customerContainer offline">
 			<!-- customerNav -->
 			<div class="customerNav">
 				<ul>
-					<li class="visible">공지사항</li>
-					<li onclick="location.href='customer_offline.html';">오프라인 매장</li>
+					<li onclick="location.href='customer_notice.html';">공지사항</li>
+					<li class="visible">오프라인 매장</li>
 				</ul>
 			</div>
 
-			<div class="customerContents notice">
-				<!-- 공지사항 콘텐츠 -->
-				<div class="noticeContents">
-					<h2>공지사항</h2>
-					<div class="noticeConn">
-						<div class="noticeInner notice_header">
-							<div class="notice_num">번호</div>
-							<div class="notice_title">제목</div>
-							<div class="notice_person">작성일</div>
-						</div>
-						<div class="notice_list">
-							<!-- notice_item가 게시물 하나임 -->
-							<div class="noticeInner notice_item">
-								<div class="notice_num">1</div>
-								<div class="notice_title">글 제목입니다. 테스트입니다.</div>
-								<div class="notice_person">2020-08-24</div>
-							</div>
-						</div>
+			<div class="customerContents">
+				<!-- 오프라인 매장 콘텐츠 -->
+				<div class="showRoomContents">
+					<h2>오프라인 매장</h2>
+					<div class="mapApiContainer mb_30"></div>
+					<div  class="showRoomConn">
+						<h3 class="fs_20 fw_bold mb_10">쇼핑몰 이름 | 강남점</h3>
+						<p class="mb_10">서울시 강남구 역삼동 815-4(강남대로 428) 만이빌딩 5층, 10층</p>
+						<p>02-3481-1005</p>
 					</div>
-
-					<!-- jsp 페이징 만들면 삭제 -->
-					<div id="pageList" class="pagenation">
-						<ul>
-							<li class="firstBtn"><a href="#">&lt;</a></li>
-							<li><a href="#" class="fw_bold">1</a></li>
-							<li class="lastBtn"><a href="#">&gt;</a></li>
-						</ul>
-					</div>
-
-					<!-- 
-						페이징은 product_category.jsp에 해둔게 있어서 보고 따라 하면 됨!!! css도 적용해둠
-						Product_ListAction.java에 pageInfo 참고
-					-->
-					<!-- <div id="pageList" class="pagenation">
-						<ul>
-						<%if(productList.size() != 0) {%>
-							<%if(nowPage<=1){%>
-							<li class="firstBtn"><a href="#">&lt;</a></li>
-							<%}else{%>
-							<li class="firstBtn"><a href="productList.bo?product_category=<%out.print(productList.get(0).getProduct_category());%>&page=<%=nowPage-1%>">&lt;</a></li>
-							<%}%>
-							<%for(int a=startPage;a<=endPage;a++){
-							if(a==nowPage){%>
-							<li><a href="#" class="fw_bold"><%=a%></a></li>
-							<%}else{ %>
-							<li><a href="productList.bo?product_category=<%out.print(productList.get(0).getProduct_category());%>&page=<%=a%>"><%=a%></a></li>
-							<%}%>
-							<%}%>
-							<%if(nowPage>=maxPage){ %>
-							<li class="lastBtn"><a href="#">&gt;</a></li>
-							<%}else{%>
-							<li class="lastBtn"><a href="productList.bo?product_category=<%out.print(productList.get(0).getProduct_category());%>&page=<%=nowPage+1%>">&gt;</a></li>
-							<%}}%>
-						</ul>
-					</div> -->
 				</div>
 			</div>
 		</div>

@@ -33,11 +33,9 @@
 						</ul>
 					</li>
 					<li>
-						<a href="../TeamPro/pages_customer/customer_center.jsp">CUSTOMER CENTER</a>
+						<a href="../TeamPro/pages_customer/customer_notice.jsp">CUSTOMER CENTER</a>
 						<ul class="submenu">
-							<li><a href="../TeamPro/pages_customer/customer_center.jsp">공지사항</a></li>
-							<li><a href="../TeamPro/pages_customer/customer_contact.jsp">1:1 문의</a></li>
-							<li><a href="../TeamPro/pages_customer/customer_as.jsp">A/S 신청</a></li>
+							<li><a href="../TeamPro/pages_customer/customer_notice.jsp">공지사항</a></li>
 							<li><a href="../TeamPro/pages_customer/customer_offline.jsp">오프라인 매장</a></li>
 						</ul>
 					</li>
