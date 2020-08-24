@@ -42,7 +42,7 @@
 					<li>
 						<a href="pages_customer/customer_center.jsp">CUSTOMER CENTER</a>
 						<ul class="submenu">
-							<li><a href="pages_customer/customer_center.jsp">공지사항</a></li>
+							<li><a href="pages_customer/customer_notice.jsp">공지사항</a></li>
 							<li><a href="pages_customer/customer_contact.jsp">1:1 문의</a></li>
 							<li><a href="pages_customer/customer_as.jsp">A/S 신청</a></li>
 							<li><a href="pages_customer/customer_offline.jsp">오프라인 매장</a></li>

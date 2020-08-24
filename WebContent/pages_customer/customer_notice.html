@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<!-- 
+		1. jsp로 바꾸면 css link 태그 href=""안에 ../ 빼기 
+		2. jsp로 바꾸면 javascript src="" 안에 ../ 빼기
+	-->
+	<link rel="stylesheet" type="text/css" href="../css/reset.css">
+	<link rel="stylesheet" type="text/css" href="../css/common.css">
+	<link rel="stylesheet" type="text/css" href="../css/allStyle.css">
+	<link rel="stylesheet" type="text/css" href="../css/font.css">
+	<link rel="stylesheet" type="text/css" href="../css/customer_notice.css" />
+
+	<link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+	<!-- jQuery cdn -->
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
+	<title>공지사항</title>
+</head>
+<body>
+	<!-- 
+		jsp로 바꾸면 header, footer <jsp:include>로 바꾸기
+	 -->
+	<!-- header -->
+	<header id="page">
+		<div class="header-inner">
+			<div id="logo"><a href="../TeamPro/index.jsp"></a></div>
+			<nav>
+				<ul class="mainmenu">
+					<li><a href="../productList.bo?product_category=desk">DESK</a></li>
+					<li><a href="../productList.bo?product_category=bedroom">BEDROOM</a></li>
+					<li><a href="../productList.bo?product_category=stand">STAND</a></li>
+					<li><a href="../productList.bo?product_category=point">POINT</a></li>
+					<li><a href="#" class="mdpick">MD PICK</a></li>
+					<li>
+						<a href="../TeamPro/pages_interior/interior.jsp">INTERIOR</a>
+						<ul class="submenu">
+							<li><a href="../TeamPro/pages_interior/interior.jsp">인테리어 전시</a></li>
+						</ul>
+					</li>
+					<li>
+						<a href="../TeamPro/pages_download/download.jsp">DOWNLOAD</a>
+						<ul class="submenu">
+							<li><a href="../TeamPro/pages_download/download.jsp">제품설명서</a></li>
+						</ul>
+					</li>
+					<li>
+						<a href="customer_center.jsp">CUSTOMER CENTER</a>
+						<ul class="submenu">
+							<li><a href="customer_center.jsp">공지사항</a></li>
+							<li><a href="customer_contact.jsp">1:1 문의</a></li>
+							<li><a href="customer_as.jsp">A/S 신청</a></li>
+							<li><a href="customer_offline.jsp">오프라인 매장</a></li>
+						</ul>
+					</li>
+				</ul>
+			</nav>
+			<ul class="minimenu">
+				<li><a href="../TeamPro/pages_login/login_login.jsp">LOGIN</a></li>
+				<li><a href="../TeamPro/pages_login/login_join.jsp">JOIN</a></li>
+			</ul>
+		</div>
+	</header> <!-- header end -->
+	
+	<!-- section -->
+	<section>
+		<div class="customerContainer">
+			<!-- customerNav -->
+			<div class="customerNav">
+				<ul>
+					<li class="visible" onclick="changeView(0)">공지사항</li>
+					<li onclick="changeView(1)">오프라인 매장</li>
+				</ul>
+			</div>
+
+			<div class="customerContents">
+				<!-- 공지사항 콘텐츠 -->
+				<div class="noticeContents">
+					<h2>공지사항</h2>
+					<div class="noticeConn">
+						<div class="noticeInner notice_header">
+							<div class="notice_num">번호</div>
+							<div class="notice_title">제목</div>
+							<div class="notice_person">작성일</div>
+						</div>
+						<div class="notice_list">
+							<!-- notice_item가 게시물 하나임 -->
+							<div class="noticeInner notice_item">
+								<div class="notice_num">1</div>
+								<div class="notice_title">글 제목입니다. 테스트입니다.</div>
+								<div class="notice_person">2020-08-24</div>
+							</div>
+						</div>
+					</div>
+
+					<!-- 
+						페이징은 product_category.jsp에 해둔게 있어서 보고 따라 하면 됨!!! css도 적용해둠
+						Product_ListAction.java에 pageInfo 참고
+					-->
+					<!-- <div id="pageList" class="pagenation">
+						<ul>
+						<%if(productList.size() != 0) {%>
+							<%if(nowPage<=1){%>
+							<li class="firstBtn"><a href="#">&lt;</a></li>
+							<%}else{%>
+							<li class="firstBtn"><a href="productList.bo?product_category=<%out.print(productList.get(0).getProduct_category());%>&page=<%=nowPage-1%>">&lt;</a></li>
+							<%}%>
+							<%for(int a=startPage;a<=endPage;a++){
+							if(a==nowPage){%>
+							<li><a href="#" class="fw_bold"><%=a%></a></li>
+							<%}else{ %>
+							<li><a href="productList.bo?product_category=<%out.print(productList.get(0).getProduct_category());%>&page=<%=a%>"><%=a%></a></li>
+							<%}%>
+							<%}%>
+							<%if(nowPage>=maxPage){ %>
+							<li class="lastBtn"><a href="#">&gt;</a></li>
+							<%}else{%>
+							<li class="lastBtn"><a href="productList.bo?product_category=<%out.print(productList.get(0).getProduct_category());%>&page=<%=nowPage+1%>">&gt;</a></li>
+							<%}}%>
+						</ul>
+					</div> -->
+				</div>
+
+				<!-- 오프라인 매장 콘텐츠 -->
+				<div class="showRoomContents none">
+					<h2>오프라인 매장</h2>
+					<div class="mapApiContainer"></div>
+
+				</div>
+			</div>
+		</div>
+	</section> <!-- section end -->
+	
+	<!-- footer -->
+	<footer>
+		<div id="footerlogo"></div>
+		<ul class="footerTop">
+			<li><a href="">서비스이용약관</a></li>
+			<li><a href="">개인정보처리방침</a></li>
+			<li><a href="">이메일무단수집거부</a></li>
+			<li><a href="">고객센터</a></li>
+		</ul>
+		<div class="footerBtm">
+			<ul>
+				<li>주소</li>
+				<li>대표</li>
+				<li>사업자번호</li>
+				<li>전화번호</li>
+			</ul>
+			<p>Copyright</p>
+		</div>
+	</footer> <!-- footer end -->
+
+	<!-- script -->
+	<script type="text/javascript" src="../js/scroll.js"></script>
+	<script type="text/javascript" src="../js/customer_center.js"></script>
+</body>
+</html>

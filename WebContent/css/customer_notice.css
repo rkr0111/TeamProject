@@ -1,0 +1,176 @@
+/*
+
+customer_notice style
+
+*/
+
+html { font-size: 14px; }
+section { margin: 0 !important; }
+footer { margin: 0 auto; }
+
+
+/*
+=====================================================
+customerContainer
+=====================================================
+*/
+
+.customerContainer {
+	width: 1200px;
+    height: 100%;
+	margin: 0 auto;
+	position: relative;
+}
+.customerContainer:before {
+	content: '';
+	background-color: #f3f3f3;
+	position: absolute;
+	top: 0;
+	right: 100%;
+    width: 50%;
+    height: 100%;
+}
+.customerContainer > div {
+	display: inline-block;
+}
+
+/*
+=====================================================
+customerNav
+=====================================================
+*/
+.customerContainer .customerNav {
+	min-width: 240px;
+    background-color: #f3f3f3;
+    padding: 211px 0;
+    box-sizing: border-box;
+}
+.customerContainer .customerNav li {
+	padding: 0 0 10px 10px;
+	cursor: pointer;
+	font-size: 18px;
+}
+.customerContainer .customerNav li.visible {
+	font-weight: bold;
+    border-bottom: 5px solid #ccc;
+}
+.customerContainer .customerNav li:not(:last-of-type) {
+    margin-bottom: 30px;
+}
+.customerContainer .customerNav li:hover {
+	font-weight: bold;
+}
+
+/*
+=====================================================
+customerContents
+=====================================================
+*/
+.customerContainer .customerContents {
+	min-width: 957px;
+	margin: 210px 0 120px;
+    padding: 0 0 0 30px;
+    box-sizing: border-box;
+}
+.customerContainer .customerContents > div {
+	width: 100%;
+}
+.customerContainer .customerContents > div.none {
+	display: none;
+}
+.customerContainer .customerContents > div > h2 {
+	font-size: 27px;
+	font-weight: bold;
+	margin: 0 0 40px 0;
+}
+
+/*
+=====================================================
+noticeContents
+=====================================================
+*/
+.customerContainer .noticeContents .noticeConn .notice_header {
+	background-color: #f3f3f3;
+	border: 1px solid #ddd;
+}
+
+/*
+=====================================================
+noticeInner
+=====================================================
+*/
+.customerContainer .noticeContents .noticeConn {
+	width: 100%;
+}
+.customerContainer .noticeContents .noticeConn .noticeInner {
+	display: flex;
+	align-content: center;
+	padding: 20px 0;
+	border-bottom: 1px solid #ddd;
+}
+.customerContainer .noticeContents .noticeConn .noticeInner > div {
+	text-align: center;
+	box-sizing: border-box;
+}
+.customerContainer .noticeContents .noticeConn .noticeInner .notice_num {
+	width: 15%;
+}
+.customerContainer .noticeContents .noticeConn .noticeInner .notice_title {
+	width: 65%;
+}
+.customerContainer .noticeContents .noticeConn .noticeInner .notice_person {
+	width: 20%;
+}
+
+/* 
+=====================================================
+notice_item 
+=====================================================
+*/
+.customerContainer .noticeContents .noticeConn .notice_item .notice_title {
+	text-align: left;
+	cursor: pointer;
+}
+
+/*
+=====================================================
+pagenation
+=====================================================
+*/
+.pagenation {
+	display: flex;
+    justify-content: center;
+	margin-top: 50px;
+}
+.pagenation ul li {
+	display: inline-flex;
+    vertical-align: middle;
+    align-items: center;
+    justify-content: center;
+    width: 25px;
+    height: 25px;
+}
+.pagenation ul li:not(:last-of-type) {
+	margin-right: 10px;
+}
+.pagenation ul li a {
+	color: #656565;
+	font-size: 16px;
+}
+
+/*pagenation*/
+.pagenation ul li:hover {
+	font-weight: bold;
+}
+
+/*
+=====================================================
+showRoomContents
+=====================================================
+*/
+.showRoomContents {}
+.showRoomContents .mapApiContainer {
+	width: 100%;
+	height: 350px;
+	background-color: #aaa;
+}
