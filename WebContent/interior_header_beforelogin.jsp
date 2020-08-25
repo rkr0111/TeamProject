@@ -18,23 +18,13 @@
 					<li><a href="../productList.bo?product_category=bedroom">BEDROOM</a></li>
 					<li><a href="../productList.bo?product_category=stand">STAND</a></li>
 					<li><a href="../productList.bo?product_category=point">POINT</a></li>
-					<li><a href="#" class="mdpick">MD PICK</a></li>
-					<li>
-						<a href="interior.jsp">INTERIOR</a>
-						<ul class="submenu">
-							<li><a href="interior.jsp">인테리어 전시</a></li>
-						</ul>
-					</li>
-					<li>
-						<a href="../TeamPro/pages_download/download.jsp">DOWNLOAD</a>
-						<ul class="submenu">
-							<li><a href="../TeamPro/pages_download/download.jsp">제품설명서</a></li>
-						</ul>
-					</li>
+					<li><a href="../mdRandomList.bo" class="mdpick">MD PICK</a></li>
+					<li><a href="interior.jsp">INTERIOR</a></li>
 					<li>
 						<a href="../TeamPro/pages_customer/customer_notice.jsp">CUSTOMER CENTER</a>
 						<ul class="submenu">
 							<li><a href="../TeamPro/pages_customer/customer_notice.jsp">공지사항</a></li>
+							<li><a href="../TeamPro/pages_customer/customer_download.jsp">제품설명서</a></li>
 							<li><a href="../TeamPro/pages_customer/customer_offline.jsp">오프라인 매장</a></li>
 						</ul>
 					</li>

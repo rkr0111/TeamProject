@@ -163,7 +163,7 @@ customerContainer
 	vertical-align: middle;
 }
 
-.customerContainer .customerContents.download input[name="filedown"] {
+.customerContainer .customerContents.download .filedown {
 	width: 25px;
 	height: 25px;
 	background: url(../images/icon/download_icon.png) center/cover no-repeat;
