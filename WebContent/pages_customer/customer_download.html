@@ -15,7 +15,7 @@
 	<link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
 	<!-- jQuery cdn -->
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
-	<title>오프라인 매장</title>
+	<title>제품설명서 다운로드</title>
 </head>
 <body>
 	<!-- 
@@ -62,19 +62,35 @@
 		<div class="menuContainer">
 			<ul>
 				<li onclick="location.href='customer_notice.html';">공지사항</li>
-				<li onclick="location.href='customer_download.html';">제품 설명서</li>
-				<li onclick="location.href='customer_offline.html';" class="bgWhite">오프라인 매장</li>
+				<li onclick="location.href='customer_download.html';" class="bgWhite">제품 설명서</li>
+				<li onclick="location.href='customer_offline.html';">오프라인 매장</li>
 			</ul>
 		</div>
 		<div class="customerContainer">
-				<!-- 오프라인 매장 콘텐츠 -->
-			<div class="customerContents offline">
-				<h2>오프라인 매장</h2>
-				<div class="mapApiContainer mb_30"></div>
-				<div  class="showRoomConn">
-					<h3 class="fs_20 fw_bold mb_10">쇼핑몰 이름 | 강남점</h3>
-					<p class="mb_10">서울시 강남구 역삼동 815-4(강남대로 428) 만이빌딩 5층, 10층</p>
-					<p>02-3481-1005</p>
+			<!-- 제품설명서 다운로드 콘첸츠 -->
+			<div class="customerContents download">
+				<h2>제품설명서 다운로드</h2>
+				<div class="downloadTable">
+					<table>
+						<tr>
+							<th width="200">카테고리</th>
+							<th>상품 이름</th>
+							<th width="200">파일</th>
+						</tr>
+						<tr>
+							<th rowspan="3">desk</th>
+							<td>상품이름 1</td>
+							<th><input type="button" name="filedown" /></th>
+						</tr>
+						<tr>
+							<td>상품이름 2</td>
+							<th><input type="button" name="filedown" /></th>
+						</tr>
+						<tr>
+							<td>상품이름 3</td>
+							<th><input type="button" name="filedown" /></th>
+						</tr>
+					</table>
 				</div>
 			</div>
 		</div>

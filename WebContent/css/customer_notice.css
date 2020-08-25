@@ -4,134 +4,22 @@ customer_notice style
 
 */
 
-html { font-size: 14px; }
+html {
+	color: #656565;
+}
 section { margin: 0 !important; }
-footer { margin: 0 auto; }
 
-
-/*
-=====================================================
-customerContainer
-=====================================================
-*/
-
-.customerContainer {
-	width: 1400px;
-    height: 100%;
-	margin: 0 auto;
-	position: relative;
-}
-.customerContainer:before {
-	content: '';
-	background-color: #f3f3f3;
-	position: absolute;
-	top: 0;
-	right: 100%;
-    width: 50%;
-    height: 100%;
-}
-.customerContainer > div {
-	display: inline-flex;
-	vertical-align: top;
-}
-
-/*
-=====================================================
-customerNav
-=====================================================
-*/
-.customerContainer .customerNav {
-	width: 19.8%;
-    background-color: #f3f3f3;
-    padding: 170px 0 460px;
-    box-sizing: border-box;
-}
-.customerContainer .customerNav ul {
-	width: 100%;
-}
-.customerContainer .customerNav li {
-	padding: 0 0 10px 10px;
-	cursor: pointer;
-	font-size: 18px;
-    border-bottom: 5px solid #eee;
-}
-.customerContainer .customerNav li.visible {
-	font-weight: bold;
-    border-bottom: 5px solid #ffc88a;
-}
-.customerContainer .customerNav li:not(:last-of-type) {
-    margin-bottom: 30px;
-}
-.customerContainer .customerNav li:hover {
-	font-weight: bold;
-}
-
-/*
-=====================================================
-customerContents
-=====================================================
-*/
-.customerContainer .customerContents {
-	width: 80%;
-	margin: 170px 0 0;
-    padding: 0 0 0 30px;
-    box-sizing: border-box;
-}
-.customerContainer .customerContents > div {
-	width: 100%;
-}
-.customerContainer .customerContents > div > h2 {
-	font-size: 27px;
-	font-weight: bold;
-    margin: 0 0 40px 0;
-}
-
-/*
-=====================================================
-noticeContents
-=====================================================
-*/
-.customerContainer .noticeContents .noticeConn .notice_header {
-	background-color: #f3f3f3;
-	border: 1px solid #ddd;
-}
-
-/*
-=====================================================
-noticeInner
-=====================================================
-*/
-.customerContainer .noticeContents .noticeConn {
-	width: 100%;
-}
-.customerContainer .noticeContents .noticeConn .noticeInner {
+.titleText {
 	display: flex;
-	align-content: center;
-	padding: 20px 0;
-	border-bottom: 1px solid #ddd;
-}
-.customerContainer .noticeContents .noticeConn .noticeInner > div {
-	text-align: center;
-	box-sizing: border-box;
-}
-.customerContainer .noticeContents .noticeConn .noticeInner .notice_num {
-	width: 15%;
-}
-.customerContainer .noticeContents .noticeConn .noticeInner .notice_title {
-	width: 65%;
-}
-.customerContainer .noticeContents .noticeConn .noticeInner .notice_person {
-	width: 20%;
-}
-
-/* 
-=====================================================
-notice_item 
-=====================================================
-*/
-.customerContainer .noticeContents .noticeConn .notice_item .notice_title {
-	text-align: left;
-	cursor: pointer;
+    justify-content: center;
+	height: 400px;
+	margin: 0 auto;
+	padding-top: 235px;
+    box-sizing: border-box;
+	font-size: 24px;
+    letter-spacing: 0.8px;
+    font-family: NanumMyeongjoBold, serif;
+    background: url(../images/product_img/stand/stand04_03.jpg) center -290px/cover no-repeat;
 }
 
 /*
@@ -166,13 +54,131 @@ pagenation
 }
 
 /*
+===================================================================
+menuContainer
+===================================================================
+*/
+.menuContainer {
+    background-color: #efdbc4;
+}
+.menuContainer,
+.menuContainer ul {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+.menuContainer ul {
+	width: 1200px;
+    border-left: 1px solid #fff;
+    border-right: 1px solid #fff;
+}
+.menuContainer ul li.bgWhite {
+    background: #fff;
+}
+.menuContainer ul li {
+	width: 50%;
+    padding: 15px 0;
+    box-sizing: border-box;
+	text-align: center;
+	letter-spacing: 0.3px;
+    cursor: pointer;
+}
+.menuContainer ul li:not(:last-of-type) {
+    border-right: 1px solid #fff;
+}
+
+/*
+===================================================================
+customerContainer
+===================================================================
+*/
+.customerContainer {
+	width: 1200px;
+	margin: 100px auto 0;
+}
+.customerContainer .customerContents > h2 {
+	margin-bottom: 30px;
+    font-size: 25px;
+    font-weight: bold;
+}
+
+/*
+===================================================================
+.customerContents.notice
+===================================================================
+*/
+.customerContainer .customerContents.notice .noticeConn .notice_header {
+	background-color: #f3f3f3;
+	border: 1px solid #ddd;
+}
+
+/* noticeInner */
+.customerContainer .customerContents.notice .noticeConn {
+	width: 100%;
+}
+.customerContainer .customerContents.notice .noticeConn .noticeInner {
+	display: flex;
+	align-content: center;
+	padding: 20px 0;
+	border-bottom: 1px solid #ddd;
+}
+.customerContainer .customerContents.notice .noticeConn .noticeInner > div {
+	text-align: center;
+	box-sizing: border-box;
+}
+.customerContainer .customerContents.notice .noticeConn .noticeInner .notice_num {
+	width: 15%;
+}
+.customerContainer .customerContents.notice .noticeConn .noticeInner .notice_title {
+	width: 65%;
+}
+.customerContainer .customerContents.notice .noticeConn .noticeInner .notice_person {
+	width: 20%;
+}
+
+/* notice_item */
+.customerContainer .customerContents.notice .noticeConn .notice_item .notice_title {
+	text-align: left;
+	cursor: pointer;
+}
+
+/*
 =====================================================
-showRoomContents
+.customerContents.download
 =====================================================
 */
-.showRoomContents {}
-.showRoomContents .mapApiContainer {
+.customerContainer .customerContents.download {}
+.customerContainer .customerContents.download .downloadTable {}
+.customerContainer .customerContents.download .downloadTable table {
 	width: 100%;
-	height: 300px;
+}
+.customerContainer .customerContents.download .downloadTable tr:first-of-type th {
+	background-color: #f3f3f3;
+}
+.customerContainer .customerContents.download .downloadTable th,
+.customerContainer .customerContents.download .downloadTable td {
+	border: 1px solid #ddd;
+	padding: 20px;
+	box-sizing: border-box;
+	vertical-align: middle;
+}
+
+.customerContainer .customerContents.download input[name="filedown"] {
+	width: 25px;
+	height: 25px;
+	background: url(../images/icon/download_icon.png) center/cover no-repeat;
+	border: transparent;
+	cursor: pointer;
+}
+
+/*
+=====================================================
+.customerContents.offline
+=====================================================
+*/
+.customerContainer .customerContents.offline {}
+.customerContainer .customerContents.offline .mapApiContainer {
+	width: 100%;
+	height: 400px;
 	background-color: #aaa;
 }
