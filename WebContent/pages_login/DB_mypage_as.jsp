@@ -22,7 +22,7 @@
 			out.println("light 데이터베이스로 연결을 할 수 없습니다.");
 		}
 		stmt = conn.createStatement();
-		ResultSet rs = stmt.executeQuery("select buy_id, buy_name, buy_condition, buy_date, adddate(buy_date, +1095) from buyhistory where buy_id='"+id+"' and buy_condition='배송 완료' order by buy_date desc;");
+		ResultSet rs = stmt.executeQuery("select buy_id, buy_name, buy_condition, buy_date, adddate(buy_date, +1095) from buyhistory where buy_id='"+id+"' and buy_condition='배송완료' order by buy_date desc;");
 		if(rs.next()) {
 			ArrayList<Object> asList = new ArrayList<Object>();
 			

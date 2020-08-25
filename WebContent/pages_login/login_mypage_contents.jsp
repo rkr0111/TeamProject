@@ -286,7 +286,7 @@
 					</a>
 				</li>
 				<li id="as" class="bg">
-					<a href="DB_mypage_as.jsp">A/S 문의
+					<a href="DB_mypage_as">A/S 문의
 						<p>&gt;</p>
 					</a>
 				</li>
@@ -295,7 +295,7 @@
 	</div>
 	<div class="contentsOrder">
 		<% if(asList != null) { %>			
-			<form class="contentsAS">
+			<form class="contentsAS" action="login_mypage_aslist.jsp" method="post">
 				<div class="checkAS">
 					<h1><span class="round"></span>온라인 A/S 신청 전 확인사항</h1>
 					<ul>
@@ -319,7 +319,7 @@
 										<option name="applyAS_product">제품을 선택해주세요.</option>
 										<%for(int i=0; i<asList.size(); i++) {%>
 										<option name="applyAS_product" value="<%out.print(asList.get(i).getBuy_name());%>"><%out.print(asList.get(i).getBuy_name());%></option>
-										<%}%>
+										<%-- <%}%> --%>
 									</select>
 								</td>
 							</tr>
@@ -341,7 +341,7 @@
 							</tr>
 							<tr>
 								<th>상품 구매일</th>
-								<td><input type="date" name="applyAS_calendal"></td>
+								<td><%out.println(asList.get(i).getBuy_date()); }%></td>
 							</tr>
 							<tr>
 								<th>연락받을 연락처</th>
