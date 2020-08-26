@@ -34,7 +34,7 @@ public class Buy_nowListAction implements Light_action {
 		int i=0;
 
 		while(i<product_colors.length) {
-			if(product_colors[i] != "" && showamount[i] != "0") {
+			if(product_colors[i] != "" && Integer.parseInt(showamount[i]) != 0) {
 				buyDto.setBuy_id(id);		
 				buyDto.setBuy_name(request.getParameter("product_name"));
 				buyDto.setBuy_price(Integer.parseInt(request.getParameter("product_price")));
@@ -57,7 +57,6 @@ public class Buy_nowListAction implements Light_action {
 			buyList = buyNowListService.getBuyList(buyDto);
 			customerList = buyNowListService.getCustomerList(id);
 			request.setAttribute("buyList", buyList);
-			request.setAttribute("customerList", customerList);
 			forward = new ActionForward();
 			forward.setRedirect(false);
 			forward.setPath("pages_product/product_buynow.jsp");

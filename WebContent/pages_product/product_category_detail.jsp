@@ -42,7 +42,7 @@ int product_price = isDetailSuccess.get(0).getProduct_price();
 	<section>
 		<!-- headerProductContainer -->
 		<div class="headerProductContainer">
-			<form method="post" action="buyNowList.bo" name="form">
+			<form method="post" action="buyCustomerinfo.bo" name="form">
 				<div class="productContainer">
 					<img src="images/product_img/<%out.print(isDetailSuccess.get(0).getProduct_category());%>/<%out.print(isDetailSuccess.get(0).getProduct_img());%>">
 				</div>

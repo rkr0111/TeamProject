@@ -9,8 +9,20 @@
 <%@page import="java.util.*"%>
 
 <%
-List<Buyhistory_dto> buyList = (List<Buyhistory_dto>)request.getAttribute("buyList");
-List<CustomerInfo_dto> customerList = (List<CustomerInfo_dto>)request.getAttribute("customerList");
+/* List<Buyhistory_dto> buyList = (List<Buyhistory_dto>)request.getAttribute("buyList");
+List<CustomerInfo_dto> customerList = (List<CustomerInfo_dto>)request.getAttribute("customerList"); */
+
+List<CustomerInfo_dto> customerinfoList = (List<CustomerInfo_dto>)request.getAttribute("customerinfoList");
+
+String[] product_colors = request.getParameterValues("product_colors");
+String[] showamount = request.getParameterValues("showamount");
+
+String product_name = request.getParameter("product_name");
+int product_price = Integer.parseInt(request.getParameter("product_price"));
+String product_category = request.getParameter("product_category");
+String product_img = request.getParameter("product_img");
+int product_total = Integer.parseInt(request.getParameter("product_total"));
+
 %>
 
 <!DOCTYPE html>
@@ -26,16 +38,6 @@ List<CustomerInfo_dto> customerList = (List<CustomerInfo_dto>)request.getAttribu
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
 	<title>주문 및 결제 페이지</title>
 </head>
-<script type="text/javascript">
-	function doNotReload(){
-	    if( (event.ctrlKey == true && (event.keyCode == 78 || event.keyCode == 82)) || (event.keyCode == 116) ) {
-	        event.keyCode = 0;
-	        event.cancelBubble = true;
-	        event.returnValue = false;
-	    } 
-	}
-	document.onkeydown = doNotReload;
-</script>
 
 <body>
 	<!-- header -->
@@ -48,19 +50,20 @@ List<CustomerInfo_dto> customerList = (List<CustomerInfo_dto>)request.getAttribu
 			<div class="orderProductContainer">
 				<h2>주문 내역</h2>
 				<div class="orderProContents">
-					<%for(int i=0; i<buyList.size(); i++) {%>
+					<%for(int i=0; i<product_colors.length; i++) {
+					if(product_colors[i] != "" && Integer.parseInt(showamount[i]) != 0) {%>
 					<div class="orderProList">
-						<div class="product_img"><img src="images/product_img/<%=buyList.get(i).getBuy_category()%>/<%=buyList.get(i).getBuy_img()%>" /></div>
+						<div class="product_img"><img src="images/product_img/<%=product_category%>/<%=product_img%>" /></div>
 						<ul>
-							<li class="product_name"><%=buyList.get(i).getBuy_name()%></li>
+							<li class="product_name"><%=product_name%></li>
 							<li>
-								<span class="product_color mr_10"><%=buyList.get(i).getBuy_colors()%></span>
-								<span class="product_count mr_10"><%=buyList.get(i).getBuy_amount()%></span>
-								<span class="product_price"><%=buyList.get(i).getBuy_price()%></span>
+								<span class="product_color mr_10"><%=product_colors[i]%></span>
+								<span class="product_count mr_10"><%=showamount[i]%>개</span>
+								<span class="product_price"><%=product_price%>원</span>
 							</li>
 						</ul>
 					</div>
-					<%}%>
+					<%}}%>
 				</div>
 			</div>
 			
@@ -71,21 +74,21 @@ List<CustomerInfo_dto> customerList = (List<CustomerInfo_dto>)request.getAttribu
 					<table>
 						<tr>
 							<th>주문자명</th>
-							<td><input type="text" name="order_name" value="<%=customerList.get(0).getCustomer_name()%>" readonly /></td>
+							<td><input type="text" name="order_name" value="<%=customerinfoList.get(0).getCustomer_id()%>" readonly /></td>
 						</tr>
 						<tr>
 							<th>핸드폰번호</th>
-							<td><input type="text" name="order_phone" value="<%=customerList.get(0).getCustomer_phone()%>" readonly /></td>
+							<td><input type="text" name="order_phone" value="<%=customerinfoList.get(0).getCustomer_phone()%>" readonly /></td>
 						</tr>
 						<tr>
 							<th>이메일</th>
-							<td><input type="text" name="order_email" value="<%=customerList.get(0).getCustomer_email()%>" readonly /></td>
+							<td><input type="text" name="order_email" value="<%=customerinfoList.get(0).getCustomer_email()%>" readonly /></td>
 						</tr>
 						<tr>
 							<th>주소</th>
 							<td>
-								<input type="text" name="order_post" value="<%=customerList.get(0).getCustomer_post()%>" readonly /><br/>
-								<input type="text" name="order_addr" value="<%=customerList.get(0).getCustomer_addr()%>" readonly />
+								<input type="text" name="order_post" value="<%=customerinfoList.get(0).getCustomer_post()%>" readonly /><br/>
+								<input type="text" name="order_addr" value="<%=customerinfoList.get(0).getCustomer_addr()%>" readonly />
 							</td>
 						</tr>
 						<tr>
@@ -108,9 +111,11 @@ List<CustomerInfo_dto> customerList = (List<CustomerInfo_dto>)request.getAttribu
 						</tr>
 						<tr>
 							<td>
-								<%int total = 0;
-								for(int i=0; i<buyList.size(); i++) {
-									total = buyList.get(i).getBuy_price() * buyList.get(i).getBuy_amount();
+								<%int total = 0; 
+								for(int i=0; i<showamount.length; i++) {
+									if(Integer.parseInt(showamount[i]) != 0) {
+										total += product_price * Integer.parseInt(showamount[i]);
+									}
 								}%>
 								<%=total%>원
 							</td>
