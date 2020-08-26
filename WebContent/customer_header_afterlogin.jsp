@@ -19,7 +19,7 @@
 					<li><a href="../productList.bo?product_category=stand">STAND</a></li>
 					<li><a href="../productList.bo?product_category=point">POINT</a></li>
 					<li><a href="../mdRandomList.bo" class="mdpick">MD PICK</a></li>
-					<li><a href="../TeamPro/pages_interior/interior.jsp">INTERIOR</a></li>
+					<li><a href="../pages_interior/interior.jsp">INTERIOR</a></li>
 					<li>
 						<a href="customer_notice.jsp">CUSTOMER CENTER</a>
 						<ul class="submenu">
@@ -38,8 +38,5 @@
 			</ul>
 		</div>
 	</header> <!-- header end -->
-	
-  	<!-- script -->
-	<script type="text/javascript" src="../js/weatherApi.js"></script>
 </body>
 </html>

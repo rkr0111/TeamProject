@@ -26,6 +26,16 @@ List<CustomerInfo_dto> customerList = (List<CustomerInfo_dto>)request.getAttribu
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
 	<title>주문 및 결제 페이지</title>
 </head>
+<script type="text/javascript">
+	function doNotReload(){
+	    if( (event.ctrlKey == true && (event.keyCode == 78 || event.keyCode == 82)) || (event.keyCode == 116) ) {
+	        event.keyCode = 0;
+	        event.cancelBubble = true;
+	        event.returnValue = false;
+	    } 
+	}
+	document.onkeydown = doNotReload;
+</script>
 
 <body>
 	<!-- header -->

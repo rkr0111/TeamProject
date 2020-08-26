@@ -7,7 +7,6 @@
 <%@page import="java.util.*"%>
 
 <%
-List<Product_dto> productList = (List<Product_dto>) request.getAttribute("productList");
 List<Product_dto> productAllList = (List<Product_dto>) request.getAttribute("productAllList");
 List<Product_dto> weaterProList = (List<Product_dto>) request.getAttribute("weaterProList");
 %>
@@ -47,35 +46,14 @@ List<Product_dto> weaterProList = (List<Product_dto>) request.getAttribute("weat
 		<h1 class="titleText">MD PICK</h1>
 		<div class="menuContainer">
 			<ul>
-				<li class="bgWhite" onclick="clickPickContents(0)">Today Pick</li>
-				<li class="weatherBtn" onclick="clickPickContents(1)">Weather Pick</li>
+				<li onclick="location.href='mdRandomList.bo';">Today Pick</li>
+				<li class="mdpick bgWhite">Weather Pick</li>
 			</ul>
 		</div>
 
 		<div class="pickContainer">
-			<!-- pickContents today -->
-			<div class="pickContents today">
-				<div class="contentsTitle">
-					<h2>오늘의 추천</h2>
-					<p>오늘의 추천은 랜덤으로 상품을 소개합니다.</p>
-				</div>
-				<%if(productList.size() != 0) {%>
-				<div class="imgBox"><img src="images/product_img/<%out.print(productList.get(0).getProduct_category());%>/<%out.print(productList.get(0).getProduct_img());%>"></div>
-				<div class="contentsItems mt_30">
-					<div class="items-inner">
-						<div class="textBox">
-							<h3 class="mb_15"><%out.print(productList.get(0).getProduct_name());%></h3>
-							<p><%out.print(productList.get(0).getProduct_contents());%></p>
-						</div>
-						<div class="detailBtn mt_30">
-							<input type="button" name="detailBtn" value="상품 자세히 보기" onclick="productLink('<%out.print(productList.get(0).getProduct_name());%>')">
-						</div>
-					</div>
-				</div>
-				<%}%>
-			</div>
 			<!-- pickContents weather -->
-			<div class="pickContents weather none">
+			<div class="pickContents weather">
 				<!-- pickContents weather -->
 				<div class="contentsTitle">
 					<h2>날씨에 맞는 추천</h2>

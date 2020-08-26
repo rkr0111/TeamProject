@@ -42,7 +42,6 @@ menuContainer
 }
 .menuContainer ul li.bgWhite {
     background: #fff;
-    border-right: 1px solid #fff;
 }
 .menuContainer ul li {
 	width: 50%;
@@ -52,6 +51,9 @@ menuContainer
 	letter-spacing: 0.3px;
     font-family: NanumMyeongjoBold, serif;
     cursor: pointer;
+}
+.menuContainer ul li:not(:last-of-type) {
+    border-right: 1px solid #fff;
 }
 
 /*

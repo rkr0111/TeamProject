@@ -43,8 +43,5 @@
 			</div>
 		</nav>
 	</header> <!-- header end -->
-	
-  	<!-- script -->
-	<script type="text/javascript" src="./js/weatherApi.js"></script>
 </body>
 </html>
