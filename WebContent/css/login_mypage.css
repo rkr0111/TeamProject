@@ -399,6 +399,52 @@
     width: 910px;
     padding-bottom: 20px;
 }
+.contentsAS table {
+    width: 90%;
+    margin: 20px 43px;
+    display: inline-block;
+}
+.contentsAS table tr {
+    text-align: center;
+    font-size: 0.9em;
+    color: #656565;
+}
+.contentsAS table tr:first-of-type {
+    background-color: #e8e8e8;
+    border-top: 1px solid gray;
+    border-bottom: 1px solid gray;
+}
+.contentsAS table tr th {
+    padding: 20px 20px;
+    border-right: 1px solid #fff;
+}
+.contentsAS table tr:last-of-type {
+    border-bottom: 1px solid gray;   
+}
+.contentsAS table td {
+    width: 650px;
+    padding: 20px 30px;
+    vertical-align: left;
+}
+.asWrite input[type=button]{
+    float: right;
+    margin-right: 50px;
+    background-color: #fff;
+    border: 2px solid #ceb598;
+    color: #ceb598;
+    font-weight: bold;
+    width: 85PX;
+    height: 40PX;
+    cursor: pointer;
+}
+.none {
+    display: none;
+}
+
+/*
+applyAS.jsp
+*/
+
 .checkAS h1 {
     margin: 30px 0 10px 0;
     font-weight: bold;
