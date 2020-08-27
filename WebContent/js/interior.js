@@ -4,24 +4,26 @@
 
 // 
 
-var likeBtn = document.querySelector(".likeBtn");
-var commentBtn = document.querySelector(".commentBtn");
-var replyBtn = document.querySelector(".replyBtn");
 
-var commentsInput = document.querySelector(".commentsInput");
-var replyInput = document.querySelector(".replyInput");
-
-
-likeBtn.addEventListener("click", function() {
-	likeBtn.classList.toggle("likeColor");
-});
+// 좋아요 아이콘 클릭시 이벤트 함수
+function likeClicked(obj) {
+	obj.classList.toggle("likeColor");
+}
 
 
-commentBtn.addEventListener("click", function() {
-	commentsInput.classList.toggle("none");
-});
+// 댓글 아이콘 클릭시 이벤트 함수
+function showCommentInput(obj) {
+	var commentsbox = obj.parentNode.nextElementSibling.querySelector(".commentsInput");
+	var commentsinput = commentsbox.querySelector("input[name='comments-text']");
+	commentsbox.classList.toggle("none");
+	commentsinput.value = "";
+}
 
 
-replyBtn.addEventListener("click", function() {
-	replyInput.classList.toggle("none");
-});
+// 대댓글 창 보이기 이벤트 함수
+function showReplyInput(obj) {
+	var replybox = obj.nextElementSibling;
+	var replyinput = replybox.querySelector("input[name='reply-text']");
+	replybox.classList.toggle("none");
+	replyinput.value = "";
+}

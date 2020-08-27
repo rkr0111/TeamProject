@@ -146,9 +146,11 @@ interiorContainer
 	margin: 0 0 10px 0;
     padding: 10px 20px;
     box-sizing: border-box;
-    position: relative;
 }
-.interiorContainer .reviewTimeline li .reviewTextContents .contentsComments .comments .replyBtn {
+.interiorContainer .reviewTimeline li .reviewTextContents .contentsComments {
+	position: relative;
+}
+.interiorContainer .reviewTimeline li .reviewTextContents .contentsComments .replyBtn {
 	position: absolute;
     right: 20px;
     top: 13px;

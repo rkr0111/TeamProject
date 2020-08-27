@@ -44,8 +44,8 @@
 					<div class="reviewImg mb_15"><img src="../images/product_img/desk/desk06_04.jpg" /></div>
 
 					<ul class="btnContainer mb_15">
-						<li class="likeBtn"></li>
-						<li class="commentBtn"></li>
+						<li class="likeBtn" onclick="likeClicked(this)"></li>
+						<li class="commentBtn" onclick="showCommentInput(this)"></li>
 					</ul>
 
 					<div class="reviewTextContents">
@@ -55,7 +55,7 @@
 						</div>
 
 						<div class="commentsInput none mb_20">
-							<input type="text" name="comments-text" />
+							<input type="text" name="comments-text" value="" placeholder="댓글 입력..." />
 							<input type="button" name="comments-insert" value="입력" />
 						</div>
 
@@ -63,7 +63,6 @@
 							<div class="comments">
 								<p class="fw_bold reviewId pr_10">user_id</p>
 								<P>인테리어 리뷰 댓글댓글</P>
-								<p class="replyBtn">댓글쓰기</p>
 							</div>
 							<div class="reply">
 								<p class="fw_bold reviewId pr_10">user_id</p>
@@ -74,8 +73,9 @@
 								<P>인테리어 리뷰 대댓글입니다.</P>
 							</div>
 
+							<p class="replyBtn" onclick="showReplyInput(this)">댓글쓰기</p>
 							<div class="replyInput none">
-								<input type="text" name="reply-text" />
+								<input type="text" name="reply-text" value="" placeholder="댓글 입력..." />
 								<input type="button" name="reply-insert" value="입력" />
 							</div>
 						</div>
@@ -84,15 +84,74 @@
 							<div class="comments">
 								<p class="fw_bold reviewId pr_10">user_id</p>
 								<P>인테리어 리뷰 댓글댓글</P>
-								<p class="replyBtn">댓글쓰기</p>
 							</div>
 							<div class="reply">
 								<p class="fw_bold reviewId pr_10">user_id</p>
 								<P>인테리어 리뷰 대댓글입니다.</P>
 							</div>
 
+							<p class="replyBtn" onclick="showReplyInput(this)">댓글쓰기</p>
 							<div class="replyInput none">
-								<input type="text" name="reply-text" />
+								<input type="text" name="reply-text" value="" placeholder="댓글 입력..." />
+								<input type="button" name="reply-insert" value="입력" />
+							</div>
+						</div>
+					</div>
+				</li>
+
+				<li>
+					<div class="reviewImg mb_15"><img src="../images/product_img/desk/desk06_04.jpg" /></div>
+
+					<ul class="btnContainer mb_15">
+						<li class="likeBtn" onclick="likeClicked(this)"></li>
+						<li class="commentBtn" onclick="showCommentInput(this)"></li>
+					</ul>
+
+					<div class="reviewTextContents">
+						<div class="contentsText mb_10">
+							<p class="fw_bold reviewId pr_10">user_id</p>
+							<p class="conText">인테리어 리뷰 텍스트 예시 테스트 인테리어 리뷰 텍스트 예시 테스트 인테리어 리뷰 텍스트 예시 테스트 인테리어 리뷰 텍스트 예시 테스트 인테리어 리뷰 텍스트 예시 테스트 인테리어 리뷰 텍스트 예시 테스트</p>
+						</div>
+
+						<div class="commentsInput none mb_20">
+							<input type="text" name="comments-text" value="" placeholder="댓글 입력..." />
+							<input type="button" name="comments-insert" value="입력" />
+						</div>
+
+						<div class="contentsComments">
+							<div class="comments">
+								<p class="fw_bold reviewId pr_10">user_id</p>
+								<P>인테리어 리뷰 댓글댓글</P>
+							</div>
+							<div class="reply">
+								<p class="fw_bold reviewId pr_10">user_id</p>
+								<P>인테리어 리뷰 대댓글입니다.</P>
+							</div>
+							<div class="reply">
+								<p class="fw_bold reviewId pr_10">user_id</p>
+								<P>인테리어 리뷰 대댓글입니다.</P>
+							</div>
+
+							<p class="replyBtn" onclick="showReplyInput(this)">댓글쓰기</p>
+							<div class="replyInput none">
+								<input type="text" name="reply-text" value="" placeholder="댓글 입력..." />
+								<input type="button" name="reply-insert" value="입력" />
+							</div>
+						</div>
+
+						<div class="contentsComments">
+							<div class="comments">
+								<p class="fw_bold reviewId pr_10">user_id</p>
+								<P>인테리어 리뷰 댓글댓글</P>
+							</div>
+							<div class="reply">
+								<p class="fw_bold reviewId pr_10">user_id</p>
+								<P>인테리어 리뷰 대댓글입니다.</P>
+							</div>
+
+							<p class="replyBtn" onclick="showReplyInput(this)">댓글쓰기</p>
+							<div class="replyInput none">
+								<input type="text" name="reply-text" value="" placeholder="댓글 입력..." />
 								<input type="button" name="reply-insert" value="입력" />
 							</div>
 						</div>
