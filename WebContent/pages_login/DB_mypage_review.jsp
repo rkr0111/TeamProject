@@ -16,7 +16,7 @@
 <%
 	request.setCharacterEncoding("UTF-8");
 	String id = (String)session.getAttribute("id");
-	String mypageCategory = "작성한 리뷰";	
+	String mypageCategory = "리뷰작성";	
 
 	if (id== null) {
 		throw new Exception("로그인을 해주세요.");
@@ -30,7 +30,7 @@
 			out.println("light 데이터베이스로 연결을 할 수 없습니다.");
 		}
 		stmt = conn.createStatement();
-		ResultSet rs = stmt.executeQuery("select distinct interior_id, interior_name, interior_contents, interior_img, interior_date, buy_condition, product_category from light.buyhistory, light.interior, light.product where buy_id=interior_id and interior_name=product_name and interior_id='a' and buy_condition='배송 완료' order by interior_date desc");
+		ResultSet rs = stmt.executeQuery("select distinct review_id, review_name, review_contents, review_img, review_date, buy_condition, product_category from light.buyhistory, light.review, light.product where buy_id=review_id and review_name=product_name and review_id='a' and buy_condition='배송완료' order by review_date desc");
 		
 		if(rs.next()) {
 			ArrayList<Object> reviewList = new ArrayList<Object>();

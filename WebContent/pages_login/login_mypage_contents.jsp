@@ -19,12 +19,8 @@
 <title></title>
 
 <script type="text/javascript">
-	function cart(param, flag) {
-		if(flag == 0) {
-			location.href="../productDetailSelect.bo?product_name="+encodeURIComponent(param);
-		}else if(flag == 1) {
-			location.href="productDetailSelect.bo?product_name="+encodeURIComponent(param);
-		}
+	function cartBtnDetail(param) {
+		location.href="../productDetailSelect.bo?product_name="+encodeURIComponent(param);
 	}
 	$(function() {
 		$(".asWrite_btn").click(function() {
@@ -43,6 +39,8 @@
 	ArrayList<Buyhistory_dto> applyASlist = (ArrayList<Buyhistory_dto>) request.getAttribute("applyASlist");
 
 	String mypageCategory = request.getParameter("mypageCategory");
+	
+	
 %>
 
 	<div class="contentsTitle">
@@ -63,7 +61,7 @@
 					</a>
 				</li>
 				<li id="review">
-					<a href="DB_mypage_review.jsp">작성한 리뷰
+					<a href="DB_mypage_review.jsp">리뷰작성
 						<p>&gt;</p>
 					</a>
 				</li>
@@ -94,8 +92,8 @@
 				<li> 
 					<div><%out.print(buyhistoryList.get(i).getBuy_name());%></div>
 					<ul class="addEtc">
-						<li>리뷰작성</li>
-						<li>문의하기</li>
+						<a href="DB_mypage_review.jsp"><li>리뷰작성</li></a>
+						<a href=""><li>문의하기</li></a>
 					</ul>
 				</li>
 				<li>
@@ -123,7 +121,7 @@
 	</div>
 	
 <!-- review -->
-	<%}else if(mypageCategory.equals("작성한 리뷰")) { %>
+	<%}else if(mypageCategory.equals("리뷰작성")) { %>
 	<div class="mypageAsideTitle">
 		<h3>마이페이지</h3>
 		<aside class="mypageAside">
@@ -134,7 +132,7 @@
 					</a>
 				</li>
 				<li id="review" class="bg">
-					<a href="DB_mypage_review.jsp">작성한 리뷰
+					<a href="DB_mypage_review.jsp">리뷰작성
 						<p>&gt;</p>
 					</a>
 				</li>
@@ -157,27 +155,51 @@
 		</aside>
 	</div>
 	<div class="contentsOrder">
-		<%if(reviewList != null) { 
-			for(int i=0; i<reviewList.size(); i++) {%>		
-		<div class="orderList">
-			<p><%out.print(reviewList.get(i).getInterior_date());%></p>
-			<ul class="order">
-				<li> 
-					<div><%out.print(reviewList.get(i).getInterior_name());%></div>
-				</li>
-				<li>
-					<div class="orderImgBox">
-						<img src="../images/product_img/<%out.print(reviewList.get(i).getInterior_category()); %>/<%out.print(reviewList.get(i).getInterior_img());%>">
-					</div>
-					<ul class="reviewContain">
-						<li>
-							<%out.print(reviewList.get(i).getInterior_contents());%>
-						</li>
-					</ul>
-				</li>
+		<%if(reviewList != null) { %>
+		<div class="checkReview">
+			<h1><span class="round"></span>리뷰 작성 전 확인사항</h1>
+			<ul>
+				<li class="number">1. 리뷰 작성을 하시면 Interior 메뉴에 자동으로 업로드됩니다.</li>
+				<li class="innerNumber">- 다른 고객분들과 의사소통이 가능합니다.</li>
+				<li class="number">2. 작성하신 리뷰의 삭제는 불가능합니다.</li>
+				<li class="number">3. 작성하신 리뷰의 삭제는 고객센터로 문의주십시오.</li>
 			</ul>
 		</div>
-		<%}}else {%>
+
+		<div class="applyReview">
+			<h1><span class="round"></span>리뷰 게시글 작성</h1>
+			<form action="DB_mypage_applyAS.jsp" method="post">
+				<table>
+					<tr>
+						<th>제품 이름</th>
+						<td>
+							<select name="applyReview_findName">
+								<option name="applyReview_product">제품을 선택해주세요.</option>
+								<%for(int i=0; i<reviewList.size(); i++) {%>
+								<option name="applyReview_product" value="<%out.print(reviewList.get(i).getInterior_name());%>"><%out.print(reviewList.get(i).getInterior_name());%></option>
+							</select>
+						</td>
+					</tr>
+					<tr>
+						<th>제목</th>
+						<td>
+							<input type="text" name="reviewSubject">
+						</td>
+					</tr>
+					<tr>
+						<th>사진 업로드</th>
+						<td><input type="text" name="img"></td>
+					</tr>
+					<tr>
+						<th>내용</th>
+						<td><textarea name="applyReview_contents" rows="5" cols="50"></textarea></td>
+					</tr>
+				</table>
+
+				<input class="applyReview_btn" type="submit" name="applyReview_btn" value="올리기">
+			</form>
+		</div>
+		<%}} else {%>
 			<p>작성하신 리뷰가 없습니다.</p><%
 		}%>			
 	</div>
@@ -194,7 +216,7 @@
 					</a>
 				</li>
 				<li id="review">
-					<a href="DB_mypage_review.jsp">작성한 리뷰
+					<a href="DB_mypage_review.jsp">리뷰작성
 						<p>&gt;</p>
 					</a>
 				</li>
@@ -219,8 +241,7 @@
 	<div class="contentsOrder">
 		<div class="allCheckbox">
 			<ul>
-				<li><input type="checkbox" name="cartAllCheck">&nbsp;전체선택</li>
-				<li><input type="checkbox" name="cartAllOrder">&nbsp;전체구매</li>
+				<li><input type="checkbox" name="cartCheck">&nbsp;전체선택</li>
 			</ul>
 		</div>
 		<% if(cartList != null) { 
@@ -240,25 +261,27 @@
 							<ul><%out.print(cartList.get(i).getCart_price());%> 원</ul>
 							<ul class="amount">
 								<li class="btn_minus" onclick="amountCountBtn(<%=i%>, 0)">-</li>
-								<li><input type="number" name="showamount" value="0" readonly /></li>
+								<li><input type="number" name="showamount" value="0" readonly ></li>
 								<li class="btn_plus" onclick="amountCountBtn(<%=i%>, 1)">+</li>
 							</ul>
 						</li>
 						<li class="cartBtnDetail">	
 							<ul>
-								<li><input type="button" name="cartDetail" value="상세보기" onclick="cart('<%=cart_name%>', 0)" />	</li>
-							</ul>
-						</li>
-						<li class="cartBtnOrder">
-							<ul>
-								<li><input type="button" name="cartOrder" value="구매하기" onclick="cart('<%=cart_name%>', 1)" /></li>
+								<li><input type="button" name="cartDetail" value="상세보기" onclick="cartBtnDetail('<%=cart_name%>')" />	</li>
 							</ul>
 						</li>
 					</ul>
 				</li>
 			</ul>
 		</div>
-		<%}}else {%>
+		<%}%>
+		<div class="cartBtnContents">
+			<ul class="cartBtn">
+				<li><input class="cartDelete_btn" type="button" name="cartDelete_btn" value="선택제품 삭제하기"></li>
+				<li><input class="cartOrder_btn" type="button" name="cartOrder_btn" value="선택제품 구매하기"></li>
+			</ul>
+		</div>
+		<%}else {%>
 			<p>장바구니에 담은 상품이 없습니다.</p>
 		<%}%>			
 	</div>
@@ -275,7 +298,7 @@
 					</a>
 				</li>
 				<li id="review">
-					<a href="DB_mypage_review.jsp">작성한 리뷰
+					<a href="DB_mypage_review.jsp">리뷰작성
 						<p>&gt;</p>
 					</a>
 				</li>

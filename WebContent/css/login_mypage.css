@@ -166,8 +166,19 @@
     position: absolute;
     right: 20px;
 }
-/*mypage_contents -> buyhistory*/
-/*contentsTitle*/
+
+/*
+
+================================================
+
+*/
+
+/*
+
+mypage_contents -> buyhistory
+
+*/
+/* contentsTitle */
 .contentsTitle {
     float: right;
     width: 910px;
@@ -185,14 +196,13 @@
     font-size: 22px;
     color: #444;
 }
-/*contentsOrder */
+/* contentsOrder */
 .contentsOrder {
     width: 910px;
     margin-right: 20px;
     float: right;
 }
-
-/*orderList*/
+/* orderList */
 .orderList {
     margin-top: 30px;
 }
@@ -202,7 +212,7 @@
     margin-bottom: 20px;
     color: #656565;
 }
-/*order*/
+/* order */
 .order {
     padding: 20px 30px;
     box-sizing: border-box;
@@ -227,19 +237,21 @@
 .order input:nth-of-type(1) {
 	vertical-align: middle;
 }
-/*addEtc*/
+/* addEtc */
 .addEtc {
     float: right;
     font-size: 0.8em;
     color: #7f7f7f;
     margin-top: 4px;
 }
+.addEtc a {
+    color: #7f7f7f;
+}
 .addEtc li {
 	margin-left: 7px;
     display: inline-block;
-    /* border-bottom: 1px solid #7f7f7f; */
 }
-/*orderImgBox*/
+/* orderImgBox */
 .orderImgBox {
     display: inline-block;
     width: 120px;
@@ -248,10 +260,7 @@
 .orderImgBox img {
     width: 100%;
 }
-/*orderInfo*/
-/*.orderInfo {
-    margin-top: 25px;
-}*/
+/* orderInfo */
 .orderInfo > li p {
     display: inline-block;
     font-size: 0.9em;
@@ -264,7 +273,11 @@
     margin-bottom: 10px;
 }
 
-/*mypage_contents->review*/
+/*
+
+mypage_contents->review
+
+*/
 /* reviewContain */
 .reviewContain {
 	margin-left: 15px;
@@ -274,9 +287,125 @@
 	overflow: auto;
 	font-size: 0.9em;
 }
+/* applyReview */
+.checkReview h1 {
+    margin: 30px 0 10px 0;
+    font-weight: bold;
+    font-size: 1.2em;
+}
+.checkReview h1 .round {
+    width: 15px;
+    height: 15px;
+    background: #aaa;
+    display: inline-block;
+    vertical-align: middle;
+    border-radius: 50%;
+    position: relative;
+    margin-right: 7px;
+}
+.checkReview h1 .round:before {
+    content: '';
+    width: 7px;
+    height: 7px;
+    border-radius: 50%;
+    background: #fff;
+    position: absolute;
+    top: 4px;
+    left: 4px;
+}
+.checkReview ul {
+    color: #656565;
+    margin: 20px 0 40px 20px;
+}
+.checkReview ul .number {
+    margin-bottom: 10px;
+    font-weight: bold;
+}
+.checkReview ul .innerNumber {
+    margin: 0 0 10px 20px;
+    font-size: 0.9em;
+}
+/* applyReview */
+.applyReview h1 {
+    margin: 10px 0;
+    font-weight: bold;
+    font-size: 1.2em;
+}
+.applyReview h1 .round {
+    width: 15px;
+    height: 15px;
+    background: #aaa;
+    display: inline-block;
+    vertical-align: middle;
+    border-radius: 50%;
+    position: relative;
+    margin-right: 7px;
+}
+.applyReview h1 .round:before {
+    content: '';
+    width: 7px;
+    height: 7px;
+    border-radius: 50%;
+    background: #fff;
+    position: absolute;
+    top: 4px;
+    left: 4px;
+}
+.applyReview table {
+    width: 100%;
+}
+.applyReview table tr:first-of-type {
+    border-top: 1px solid black;
+}
+.applyReview table tr {
+    border-bottom: 1px solid gray;
+}
+.applyReview table th {
+    font-size: 0.9em;
+    padding: 20px 20px;
+    text-align: left;
+    vertical-align: middle;
+    border-right: 1px solid gray;
+    background-color: #e8e8e8;
+}
+.applyReview table td {
+    width: 650px;
+    padding: 20px 30px;
+    vertical-align: left;
+}
+.applyReview table tr td select {
+    height: 31px;
+    width: 200px;
+}
+.applyReview textarea {
+    width: 100%;
+    height: 150px;
+}
+.applyReview table tr td input[type=date] {
+    height: 26px;
+    width: 194px;
+}
+.applyReview table tr td input[type=text] {
+    height: 25px;
+    width: 192px;
+}
+.applyReview_btn {
+    margin: 50px 0 0 373px;
+    background-color: #fff;
+    border: 2px solid #ceb598;
+    color: #ceb598;
+    font-weight: bold;
+    width: 165PX;
+    height: 60PX;
+    cursor: pointer;
+}
 
-/*mypage_contents->cart*/
-/*allCheckbox*/
+/*
+
+mypage_contents->cart
+
+*/
+/* allCheckbox */
 .allCheckbox {
 	margin-top: 30px;
     font-size: 0.9em;
@@ -292,6 +421,15 @@
 .allCheckbox input {
 	vertical-align: middle;
 }
+.cartDel_btn {
+    margin-left: 530px;
+    padding: 10px 20px;
+    background-color: #fff;
+    border: 2px solid #ceb598;
+    color: #ceb598;
+    font-weight: bold;
+    cursor: pointer;
+}
 /* cartList */
 .cartList {
 	 margin-top: 30px;
@@ -302,7 +440,7 @@
     margin-bottom: 20px;
     color: #656565;
 }
-/*cart*/
+/* cart */
 .cart {
     padding: 20px 30px;
     box-sizing: border-box;
@@ -327,7 +465,7 @@
 .cart input:nth-of-type(1) {
 	vertical-align: middle;
 }
-/*cartInfo*/
+/* cartInfo */
 .cartInfo > li { 
     display: inline-block;
     vertical-align: middle;
@@ -341,10 +479,7 @@
     margin-bottom: 20px;
 }
 .cartBtnDetail > ul {
-	margin-left: 238px;
-}
-.cartBtnOrder > ul {
-	margin-left: 10px;
+	margin-left: 400px;
 }
 .cartInfo > li:not(:first-of-type) > ul > li {
 	width: 150px;
@@ -359,7 +494,27 @@
 	height: 100%;
 	cursor: pointer;
 }
-/*amount*/
+.cartBtnContents {
+    margin: 50px 33px 0 0;
+}
+.cartBtn > li {
+    width: 150px;
+    height: 45px;
+    float: right;
+}
+.cartBtn > li:first-of-type {
+    margin-left: 30px;   
+}
+.cartBtn > li input {
+    background-color: #fff;
+    border: 2px solid #ceb598;
+    color: #ceb598;
+    font-weight: bold;
+    width: 100%;
+    height: 100%;
+    cursor: pointer;
+}
+/* amount */
 .amount {
 	overflow: hidden;
 }
@@ -392,8 +547,12 @@
 	color: #656565;
 }
 
-/*mypage_contents->as*/
-/*contentsAS*/
+/*
+
+mypage_contents->as
+
+*/
+/* contentsAS */
 .contentsAS {
     float: right;
     width: 910px;
@@ -440,11 +599,7 @@
 .none {
     display: none;
 }
-
-/*
-applyAS.jsp
-*/
-
+/* applyAS.jsp */
 .checkAS h1 {
     margin: 30px 0 10px 0;
     font-weight: bold;
@@ -482,8 +637,7 @@ applyAS.jsp
     margin: 0 0 10px 20px;
     font-size: 0.9em;
 }
-
-
+/* applyAS */
 .applyAS h1 {
     margin: 10px 0;
     font-weight: bold;
