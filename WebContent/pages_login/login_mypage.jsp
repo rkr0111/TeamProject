@@ -31,6 +31,8 @@
 	String name = (String)session.getAttribute("name");
 	String addr = (String)session.getAttribute("addr");
 	String phone = (String)session.getAttribute("phone");
+	Date birth = (Date)session.getAttribute("birth");
+	System.out.println(birth);
 	
 	//orderList 클래스에 들어갈 정보
 	Buyhistory_dto dto = new Buyhistory_dto();	

@@ -27,6 +27,55 @@
 			$(".none").removeClass('none');
 		});
 	});
+
+	// 1.모두 체크
+	function allChk(obj){
+		var chkObj = document.getElementsByName("RowCheck");
+	    var rowCnt = chkObj.length - 1;
+	    var check = obj.checked;
+	   	
+	    if (check) {﻿
+	       	for (var i=0; i<=rowCnt; i++){
+	         	if(chkObj[i].type == "checkbox")
+	            	chkObj[i].checked = true;
+	         }
+	     } else {
+	       for (var i=0; i<=rowCnt; i++) {
+	         if(chkObj[i].type == "checkbox"){
+	           chkObj[i].checked = false;
+	          }
+	        }
+	     }
+	} 
+
+﻿ ﻿ 
+
+	//﻿2. 체크박스 선택된 것 삭제 처리 (N개) 
+	function fn_userDel(){
+		var userid = "";
+		var memberChk = document.getElementsByName("RowCheck");
+		var chked = false;
+		var indexid = false;
+		
+		for(i=0; i < memberChk.length; i++){
+			if(memberChk[i].checked){
+				if(indexid){
+					userid = userid + '-';
+				}
+			userid = userid + memberChk[i].value;
+			indexid = true;
+			}
+		}
+		if(!indexid){
+			alert("삭제할 사용자를 체크해 주세요");
+			return;
+		} 
+		var agree=confirm("삭제 하시겠습니까?");
+	    if (agree){
+	  		document.userForm.execute.value = "userDel";
+	     	document.userForm.submit();
+	    }
+	}﻿
 </script>
 
 </head>
@@ -168,7 +217,7 @@
 
 		<div class="applyReview">
 			<h1><span class="round"></span>리뷰 게시글 작성</h1>
-			<form action="DB_mypage_applyAS.jsp" method="post">
+			<form action="" method="post">
 				<table>
 					<tr>
 						<th>제품 이름</th>

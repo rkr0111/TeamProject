@@ -1,6 +1,8 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%request.setCharacterEncoding("utf-8");%>
 
+<%@page import="com.TeamPro.dto.CustomerInfo_dto"%>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -16,6 +18,13 @@
 	<title>개인정보 수정</title>
 </head>
 <body>
+
+<%
+	String id = (String)session.getAttribute("id");
+	String name = (String)session.getAttribute("name");
+	String birth = (String)session.getAttribute("birth");
+	
+%>
 	<!-- header -->
 	<jsp:include page="../login_header_afterlogin.jsp" /> <!-- header end -->
 
@@ -32,9 +41,9 @@
 								<ul>
 									<li>
 										<label for="join-id">아이디</label>
-										<input class="inputText" type="text" name="join-id" placeholder="아이디" maxlength="10" onKeyup="this.value=this.value.replace(/[ㄱ-ㅎㅏ-ㅡ가-핳]/g,'');">
 									</li>
-									<li><input class="button checkBtn textColor gray_656565" type="button" name="idcheck" value="중복확인" onclick="return idChecked()"></li>
+									<%=id %>
+									<%-- <%out.print(customerinfo_dto.getCustomer_id()); %> --%>
 								</ul>
 								<div class="checkVisible id fs_11"></div>
 							</td>
@@ -83,7 +92,7 @@
 							<th>이름<span class="textColor orange ml_5">*</span></th>
 							<td>
 								<label for="join-name">이름</label>
-								<input class="inputText" type="text" name="join-name" placeholder="이름" maxlength="5">
+								<%=name%>
 							</td>
 						</tr>
 						<tr>
@@ -91,61 +100,7 @@
 							<td>
 								<ul>
 									<li>
-										<label for="year-number">연도</label>
-										<input class="inputText" type="text" name="year-number" placeholder="연도(숫자만 입력)" maxlength="4" onKeyup="this.value=this.value.replace(/[^0-9]/g,'');">
-									</li>
-									<li>
-										<select name="month-choice" size="1">
-											<option name="month-view">월</option>
-											<option name="month1" value="1">1</option>
-											<option name="month2" value="2">2</option>
-											<option name="month3" value="3">3</option>
-											<option name="month4" value="4">4</option>
-											<option name="month5" value="5">5</option>
-											<option name="month6" value="6">6</option>
-											<option name="month7" value="7">7</option>
-											<option name="month8" value="8">8</option>
-											<option name="month9" value="9">9</option>
-											<option name="month10" value="10">10</option>
-											<option name="month11" value="11">11</option>
-											<option name="month12" value="12">12</option>
-										</select>
-									</li>
-									<li>
-										<select name="date-choice" size="1">
-											<option name="date-view">일</option>
-											<option name="date1" value="1">1</option>
-											<option name="date2" value="2">2</option>
-											<option name="date3" value="3">3</option>
-											<option name="date4" value="4">4</option>
-											<option name="date5" value="5">5</option>
-											<option name="date6" value="6">6</option>
-											<option name="date7" value="7">7</option>
-											<option name="date8" value="8">8</option>
-											<option name="date9" value="9">9</option>
-											<option name="date10" value="10">10</option>
-											<option name="date11" value="11">11</option>
-											<option name="date12" value="12">12</option>
-											<option name="date13" value="13">13</option>
-											<option name="date14" value="14">14</option>
-											<option name="date15" value="15">15</option>
-											<option name="date16" value="16">16</option>
-											<option name="date17" value="17">17</option>
-											<option name="date18" value="18">18</option>
-											<option name="date19" value="19">19</option>
-											<option name="date20" value="20">20</option>
-											<option name="date21" value="21">21</option>
-											<option name="date22" value="22">22</option>
-											<option name="date23" value="23">23</option>
-											<option name="date24" value="24">24</option>
-											<option name="date25" value="25">25</option>
-											<option name="date26" value="26">26</option>
-											<option name="date27" value="27">27</option>
-											<option name="date28" value="28">28</option>
-											<option name="date29" value="29">29</option>
-											<option name="date30" value="30">30</option>
-											<option name="date31" value="31">31</option>
-										</select>
+										<%=birth%>
 									</li>
 								</ul>
 							</td>
@@ -206,7 +161,7 @@
 
 			<!-- 수정하기 버튼 -->
 			<div class="btnContainer">
-				<input class="button textColor gray_4c4c4c" type="submit" name="submit" value="수정하기" onclick="return submitClick()">
+				<input class="button textColor gray_4c4c4c" type="submit" name="submit" value="수정하기" >
 			</div>
 		</form>
 	</section>
