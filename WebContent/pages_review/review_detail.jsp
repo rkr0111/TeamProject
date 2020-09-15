@@ -10,11 +10,11 @@
 <html>
 <head>
 	<meta charset="utf-8">
-	<link rel="stylesheet" type="text/css" href="../css/reset.css">
-	<link rel="stylesheet" type="text/css" href="../css/common.css">
-	<link rel="stylesheet" type="text/css" href="../css/allStyle.css">
-	<link rel="stylesheet" type="text/css" href="../css/font.css">
-	<link rel="stylesheet" type="text/css" href="../css/interior.css">
+	<link rel="stylesheet" type="text/css" href="css/reset.css">
+	<link rel="stylesheet" type="text/css" href="css/common.css">
+	<link rel="stylesheet" type="text/css" href="css/allStyle.css">
+	<link rel="stylesheet" type="text/css" href="css/font.css">
+	<link rel="stylesheet" type="text/css" href="css/review_detail.css">
 	<!-- jQuery cdn -->
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
 	<title>인테리어 리뷰</title>
@@ -25,9 +25,9 @@
 	String id = (String)session.getAttribute("id");
 	if(id == null) {
 	%>
-	<jsp:include page="../interior_header_beforelogin.jsp" />
+	<jsp:include page="../review_header_beforelogin.jsp" />
 	<%}else {%>
-	<jsp:include page="../interior_header_afterlogin.jsp" />
+	<jsp:include page="../review_header_afterlogin.jsp" />
 	<%}%> <!-- header end -->
 	
 	<!-- section -->
@@ -35,7 +35,7 @@
 		<h1 class="titleText">INTERIOR REVIEWS</h1>
 		<div class="menuContainer">
 			<ul>
-				<li>Timelineaa</li>
+				<li>Timeline</li>
 			</ul>
 		</div>
 		<div class="interiorContainer">
@@ -165,7 +165,7 @@
 	<jsp:include page="../footer.jsp" /> <!-- footer end -->
 
 	<!-- script -->
-	<script type="text/javascript" src="../js/scroll.js"></script>
-	<script type="text/javascript" src="../js/interior.js"></script>
+	<script type="text/javascript" src="js/scroll.js"></script>
+	<script type="text/javascript" src="js/interior.js"></script>
 </body>
 </html>

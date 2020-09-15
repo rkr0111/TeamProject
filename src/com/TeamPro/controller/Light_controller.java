@@ -18,6 +18,7 @@ import com.TeamPro.action.Product_DetailAction;
 import com.TeamPro.action.Product_InsertAction;
 import com.TeamPro.action.Product_ListAction;
 import com.TeamPro.action.Product_UpdateAction;
+import com.TeamPro.action.Review_AllListAction;
 import com.TeamPro.dto.ActionForward;
 
 @WebServlet("*.bo")
@@ -92,6 +93,13 @@ public class Light_controller extends javax.servlet.http.HttpServlet {
 			}
 		}else if(command.equals("/buyCustomerinfo.bo")) { // 0826 dhdbswl 수정
 			action = new Buy_nowformAction();
+			try{
+				forward=action.execute(request, response);
+			}catch(Exception e){
+				System.out.println(e);
+			}
+		}else if(command.equals("/reviewAllList.bo")) { // 0914 dhdbswl 수정
+			action = new Review_AllListAction();
 			try{
 				forward=action.execute(request, response);
 			}catch(Exception e){

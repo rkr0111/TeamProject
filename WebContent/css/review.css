@@ -1,0 +1,103 @@
+/*
+
+interior style
+
+*/
+
+html {
+	color: #656565;
+}
+section { margin: 0 !important; }
+footer { margin: 0 auto; }
+
+.titleText {
+	display: flex;
+    justify-content: center;
+	height: 400px;
+	margin: 0 auto;
+	padding-top: 235px;
+    box-sizing: border-box;
+	font-size: 24px;
+    letter-spacing: 0.8px;
+    font-family: NanumMyeongjoBold, serif;
+    background: url(../images/product_img/desk/desk06_04.jpg) center -200px/cover no-repeat;
+}
+
+/*
+===================================================================
+menuContainer
+===================================================================
+*/
+.menuContainer {
+    background-color: #efdbc4;
+}
+.menuContainer,
+.menuContainer ul {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+.menuContainer ul {
+	width: 1200px;
+    border-left: 1px solid #fff;
+    border-right: 1px solid #fff;
+}
+.menuContainer ul li.bgWhite {
+    background: #fff;
+}
+.menuContainer ul li {
+	width: 50%;
+    padding: 15px 0;
+    box-sizing: border-box;
+	text-align: center;
+	letter-spacing: 0.3px;
+    font-family: NanumMyeongjoBold, serif;
+}
+.menuContainer ul li:not(:last-of-type) {
+    border-right: 1px solid #fff;
+}
+
+/*
+===================================================================
+interiorContainer
+===================================================================
+*/
+.interiorContainer {
+	width: 1200px;
+	margin: 0 auto;
+    padding: 100px 0;
+    box-sizing: border-box;
+    border-left: 1px solid #fff7ee;
+    border-right: 1px solid #fff7ee;
+}
+
+/*reviewTimeline*/
+.interiorContainer .reviewTimeline {
+	width: 1000px;
+    margin: 0 auto;
+}
+.interiorContainer .reviewTimeline li {
+    display: inline-block;
+    width: 247px;
+    height: 247px;
+    overflow: hidden;
+    cursor: pointer;
+    position: relative;
+}
+.interiorContainer .reviewTimeline li:hover:after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+    background-color: rgba(0, 0, 0, 0.3);
+}
+.interiorContainer .reviewTimeline li img {
+    width: 150%;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}

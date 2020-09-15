@@ -13,6 +13,7 @@ PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
 		<typeAlias type="com.TeamPro.dto.PageInfo" alias="pageInfo"/>
 		<typeAlias type="com.TeamPro.dto.Buyhistory_dto" alias="buyhistory"/>
 		<typeAlias type="com.TeamPro.dto.CustomerInfo_dto" alias="customerInfo"/>
+		<typeAlias type="com.TeamPro.dto.Review_dto" alias="review"/>
 	</typeAliases>
 
 	<environments default="development">

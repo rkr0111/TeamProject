@@ -12,6 +12,7 @@ import org.apache.ibatis.session.SqlSessionFactoryBuilder;
 
 import com.TeamPro.dto.Buyhistory_dto;
 import com.TeamPro.dto.Product_dto;
+import com.TeamPro.dto.Review_dto;
 import com.TeamPro.dto.CustomerInfo_dto;
 
 public class TeamPro_dao {
@@ -92,6 +93,13 @@ public class TeamPro_dao {
 		List<CustomerInfo_dto> connresultupd = sqlsession.selectList("xml_select_customerList", id);
 		sqlsession.close();
 		return connresultupd;
+	}
+	// 인테리어 리뷰 all select - 0914 dhdbswl 수정
+	public List<Review_dto> Conn_select_reviewAllList() {
+		SqlSession sqlsession = sqlfactory.openSession();
+		List<Review_dto> connresultsel= sqlsession.selectList("xml_select_reviewAllList");
+		sqlsession.close();
+		return connresultsel;
 	}
 	
 	//insert - 0731 dhdbswl 수정
