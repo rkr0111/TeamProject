@@ -10,24 +10,29 @@ import com.TeamPro.dto.ActionForward;
 import com.TeamPro.dto.Product_dto;
 import com.TeamPro.dto.Review_dto;
 import com.TeamPro.service.Review_AllListService;
+import com.TeamPro.service.Review_DetailService;
 
-public class Review_AllListAction implements Light_action {
+public class Review_DetailAction implements Light_action {
 
 	public ActionForward execute(HttpServletRequest request,HttpServletResponse response) throws Exception {
 		ActionForward forward = null;
-		List<Product_dto> listimg = new ArrayList<Product_dto>();
 		List<Review_dto> listinfo = new ArrayList<Review_dto>();
-		Review_AllListService reviewAllListService = new Review_AllListService();
+		List<Product_dto> listimg = new ArrayList<Product_dto>();
 		
-		listimg = reviewAllListService.getListImg();
-		listinfo = reviewAllListService.getListInfo();
+		String review_name = request.getParameter("review_name");
+		String review_id = request.getParameter("review_id");
 		
-		request.setAttribute("listimg", listimg);
+		Review_DetailService reviewDetailService = new Review_DetailService();
+		
+		listinfo = reviewDetailService.getReviewDetail(review_name, review_id);
+		listimg = reviewDetailService.getReviewDetailImg(review_name);
+		
 		request.setAttribute("listinfo", listinfo);
+		request.setAttribute("listimg", listimg);
    		
 		forward = new ActionForward();
 		forward.setRedirect(false);
-		forward.setPath("pages_review/review.jsp");
+		forward.setPath("pages_review/review_detail.jsp");
 		return forward;
 	}
 	

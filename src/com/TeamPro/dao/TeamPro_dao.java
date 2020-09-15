@@ -95,9 +95,33 @@ public class TeamPro_dao {
 		return connresultupd;
 	}
 	// 인테리어 리뷰 all select - 0914 dhdbswl 수정
-	public List<Review_dto> Conn_select_reviewAllList() {
+	public List<Product_dto> Conn_select_listImg() {
 		SqlSession sqlsession = sqlfactory.openSession();
-		List<Review_dto> connresultsel= sqlsession.selectList("xml_select_reviewAllList");
+		List<Product_dto> connresultsel= sqlsession.selectList("xml_select_listImg");
+		sqlsession.close();
+		return connresultsel;
+	}
+	// 인테리어 리뷰 all select - 0915 dhdbswl 수정
+	public List<Review_dto> Conn_select_listInfo() {
+		SqlSession sqlsession = sqlfactory.openSession();
+		List<Review_dto> connresultsel= sqlsession.selectList("xml_select_listInfo");
+		sqlsession.close();
+		return connresultsel;
+	}
+	// 인테리어 리뷰 디테일 페이지 select - 0915 dhdbswl 수정
+	public List<Review_dto> Conn_reviewDetailSelect(String review_name, String review_id) {
+		Review_dto reviewdto = new Review_dto();
+		reviewdto.setReview_name(review_name);
+		reviewdto.setReview_id(review_id);
+		SqlSession sqlsession = sqlfactory.openSession();
+		List<Review_dto> connresultsel= sqlsession.selectList("xml_select_reviewDetail", reviewdto);
+		sqlsession.close();
+		return connresultsel;
+	}
+	// 인테리어 리뷰 디테일 페이지 이미지 select - 0915 dhdbswl 수정
+	public List<Product_dto> Conn_reviewDetailImgSelcet(String review_name) {
+		SqlSession sqlsession = sqlfactory.openSession();
+		List<Product_dto> connresultsel= sqlsession.selectList("xml_select_reviewDetailImg", review_name);
 		sqlsession.close();
 		return connresultsel;
 	}

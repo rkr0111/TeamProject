@@ -31,8 +31,17 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	<select id="xml_select_customerList" resultType="customerInfo" parameterType="customerInfo">
 		select * from light.customerinfo where customer_id=#{customer_id};
 	</select>
-	<select id="xml_select_reviewAllList" resultType="review">
-		select * from light.review;
+	<select id="xml_select_listImg" resultType="xmlDto">
+		select product_name, product_category from light.review, light.product where product_name=review_name;
+	</select>
+	<select id="xml_select_listInfo" resultType="review">
+		select review_name, review_img, review_contents, review_date, review_id, review_comment, review_reply, review_like from light.review, light.product where product_name=review_name;
+	</select>
+	<select id="xml_select_reviewDetail" resultType="review" parameterType="review">
+		select * from light.review where review_name=#{review_name} and review_id=#{review_id};
+	</select>
+	<select id="xml_select_reviewDetailImg" resultType="xmlDto" parameterType="review">
+		select product_category from light.review, light.product where product_name=#{review_name};
 	</select>
 	
 	<insert id="xml_insert_prolist" parameterType="xmlDto">

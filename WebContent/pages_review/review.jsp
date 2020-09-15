@@ -6,10 +6,12 @@
 
 <%@page import="com.TeamPro.dao.TeamPro_dao"%>
 <%@page import="com.TeamPro.dto.Review_dto"%>
+<%@page import="com.TeamPro.dto.Product_dto"%>
 <%@page import="java.util.*"%>
 
 <%
-	List<Review_dto> reviewalllist = (List<Review_dto>) request.getAttribute("reviewalllist");
+	List<Product_dto> listimg = (List<Product_dto>) request.getAttribute("listimg");
+	List<Review_dto> listinfo = (List<Review_dto>) request.getAttribute("listinfo");
 %>
 
 <!DOCTYPE html>
@@ -25,6 +27,11 @@
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
 	<title>인테리어 리뷰</title>
 </head>
+<script>
+	function reviewDetailPage(id, name) {
+		location.href="reviewDetailSelect.bo?review_name="+encodeURIComponent(name)+"&review_id="+encodeURIComponent(id);
+	}
+</script>
 <body>
 	<!-- header -->
 	<%
@@ -46,11 +53,13 @@
 		</div>
 		<div class="interiorContainer">
 			<ul class="reviewTimeline">
-			<%if(reviewalllist.size() != 0) {
-			for(int i=0; i<reviewalllist.size(); i++) {%>
-				<li><img src="images/product_img/desk/<%=reviewalllist.get(i).getReview_img()%>"></li>
+			<%if(listimg.size() != 0) {
+			for(int i=0; i<listimg.size(); i++) {%>
+				<li onclick="reviewDetailPage('<%=listinfo.get(i).getReview_id()%>', '<%=listinfo.get(i).getReview_name()%>')">
+					<img src="images/product_img/<%=listimg.get(i).getProduct_category()%>/<%=listinfo.get(i).getReview_img()%>">
+				</li>
 			<%}}%>
-			</ul>			
+			</ul>
 		</div>
 	</section> <!-- section end -->
 
