@@ -1,7 +1,9 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%request.setCharacterEncoding("utf-8");%>
 
-<%@page import="com.TeamPro.dto.CustomerInfo_dto"%>
+<%@ page import="java.util.List"%>
+<%@ page import="java.util.ArrayList"%>
+<%@ page import="com.TeamPro.dto.CustomerInfo_dto"%>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -20,16 +22,15 @@
 <body>
 
 <%
-	String id = (String)session.getAttribute("id");
-	String name = (String)session.getAttribute("name");
-	String birth = (String)session.getAttribute("birth");
-	
+	String id = (String)session.getAttribute("id");	
+	List<CustomerInfo_dto> customerinfoList = (ArrayList<CustomerInfo_dto>) request.getAttribute("customerinfoList");
+	CustomerInfo_dto customerinfo_dto = new CustomerInfo_dto();
 %>
 	<!-- header -->
 	<jsp:include page="../login_header_afterlogin.jsp" /> <!-- header end -->
 
 	<section>
-		<form name="join-form" method="post" action="./DB_login_infoUpdate.jsp">
+		<form name="join-form" method="post" action="./DB_infoUpdateAfter.jsp">
 			<!-- 개인정보 수정 폼 -->
 			<div class="joinformContainer">
 				<h1 class="titleText">개인정보 수정</h1>
@@ -42,8 +43,7 @@
 									<li>
 										<label for="join-id">아이디</label>
 									</li>
-									<%=id %>
-									<%-- <%out.print(customerinfo_dto.getCustomer_id()); %> --%>
+									<%out.println(customerinfoList.get(0).getCustomer_id()); %>
 								</ul>
 								<div class="checkVisible id fs_11"></div>
 							</td>
@@ -74,7 +74,7 @@
 								<ul>
 									<li>
 										<label for="join-email-id">이메일</label>
-										<input class="inputText" type="text" name="join-email-id" placeholder="이메일 아이디" onKeyup="this.value=this.value.replace(/[ㄱ-ㅎㅏ-ㅡ가-핳]/g,'')">
+										<input class="inputText" type="text" name="join-email-id" value="<%out.println(customerinfoList.get(0).getCustomer_id()); %>" onKeyup="this.value=this.value.replace(/[ㄱ-ㅎㅏ-ㅡ가-핳]/g,'')">
 									</li>
 									<li>@</li>
 									<li>
@@ -92,7 +92,7 @@
 							<th>이름<span class="textColor orange ml_5">*</span></th>
 							<td>
 								<label for="join-name">이름</label>
-								<%=name%>
+								<%out.println(customerinfoList.get(0).getCustomer_name()); %>
 							</td>
 						</tr>
 						<tr>
@@ -100,7 +100,7 @@
 							<td>
 								<ul>
 									<li>
-										<%=birth%>
+										<%out.println(customerinfoList.get(0).getCustomer_birth()); %>
 									</li>
 								</ul>
 							</td>
@@ -116,16 +116,16 @@
 								</ul>
 								<ul>
 									<li class="mb_5">
-										<label for="first-address">주소</label>
-										<input id="sample6_address" class="inputText" type="text" name="first-address" placeholder="주소">
+										<label for="first-address"></label>
+										<input id="sample6_address" class="inputText" type="text" name="first-address" value="<%out.println(customerinfoList.get(0).getCustomer_id()); %>">
 									</li> 
 									<li>
 										<label for="last-address">상세주소</label>
-										<input id="sample6_detailAddress" class="inputText" type="text" name="last-address" placeholder="상세주소">
+										<input id="sample6_detailAddress" class="inputText" type="text" name="last-address" value="<%out.println(customerinfoList.get(0).getCustomer_id()); %>">
 									</li>
 									<li>
 										<label for="extra-address">참고항목</label>
-										<input id="sample6_extraAddress" class="inputText" type="text" name="extra-address" placeholder="참고항목">
+										<input id="sample6_extraAddress" class="inputText" type="text" name="extra-address" value="<%out.println(customerinfoList.get(0).getCustomer_id()); %>">
 									</li>
 								</ul>
 							</td>
@@ -144,13 +144,13 @@
 									</li>
 									<li>-</li>
 									<li>
-										<label for="middle-phonenum">두번째 휴대폰 번호</label>
-										<input class="inputText" type="text" name="middle-phonenum" maxlength="4" onKeyup="this.value=this.value.replace(/[^0-9]/g,'');">
+										<label for="middle-phonenum"></label>
+										<input class="inputText" type="text" name="middle-phonenum" value="<%out.println(customerinfoList.get(0).getCustomer_id()); %>" maxlength="4" onKeyup="this.value=this.value.replace(/[^0-9]/g,'');">
 									</li>
 									<li>-</li>
 									<li>
-										<label for="last-phonenum">마지막 휴대폰 번호</label>
-										<input class="inputText" type="text" name="last-phonenum" maxlength="4" onKeyup="this.value=this.value.replace(/[^0-9]/g,'');">
+										<label for="last-phonenum"></label>
+										<input class="inputText" type="text" name="last-phonenum" value="<%out.println(customerinfoList.get(0).getCustomer_id()); %>" maxlength="4" onKeyup="this.value=this.value.replace(/[^0-9]/g,'');">
 									</li>
 								</ul>
 							</td>

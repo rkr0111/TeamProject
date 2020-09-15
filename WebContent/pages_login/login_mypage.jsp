@@ -31,8 +31,6 @@
 	String name = (String)session.getAttribute("name");
 	String addr = (String)session.getAttribute("addr");
 	String phone = (String)session.getAttribute("phone");
-	Date birth = (Date)session.getAttribute("birth");
-	System.out.println(birth);
 	
 	//orderList 클래스에 들어갈 정보
 	Buyhistory_dto dto = new Buyhistory_dto();	
@@ -40,7 +38,6 @@
 	
 	//
 	List<Product_dto> productList = (List<Product_dto>) request.getAttribute("productList");
-	
 %>
 
 <!-- 마이페이지의 인덱스페이지는 구매내역 (마이페이지 = 구매내역 페이지) -->
@@ -55,7 +52,7 @@
 					</ul>
 				</div>
 				<div class="memberInfo">
-					<div class="info_update"><a href="login_infoUpdate.jsp">개인정보 수정</a></div>
+					<div class="info_update"><a href="DB_infoUpdateBefore.jsp">개인정보 수정</a></div>
 					<ul>
 						<li>
 							<p>이름 : </p>

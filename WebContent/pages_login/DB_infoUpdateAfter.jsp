@@ -45,8 +45,9 @@
 		stmt = conn.createStatement();
 		int result = stmt.executeUpdate("insert into customerinfo values('"+joinId+"', '"+joinPwd+"', '"+emailId+"@"+emailAddr+"', '"+joinName+"', '"+yearNum+"-"+monthNum+"-"+dateNum+"', '"+postAddr+"', '"+firstAddr+" "+lastAddr+" "+extraAddr+"', '"+firstPhone+"-"+middlePhone+"-"+lastPhone+"');");
 		if(result > 0) {
-			out.println("<script>alert('수정이 완료되었습니다.');</script>");
-			out.println("<script>location.href='login_login.jsp'</script>");
+			System.out.println("개인정보 수정 완료, 마이페이지로 이동");
+			out.println("<script>alert('개인정보 수정이 완료되었습니다.');</script>");
+			out.println("<script>location.href='login_mypage.jsp'</script>");
 		}
 	}finally {
 		try {
