@@ -8,6 +8,7 @@ import javax.servlet.http.HttpServletResponse;
 
 import com.TeamPro.dto.ActionForward;
 import com.TeamPro.dto.Product_dto;
+import com.TeamPro.dto.ReviewComment_dto;
 import com.TeamPro.dto.Review_dto;
 import com.TeamPro.service.Review_AllListService;
 import com.TeamPro.service.Review_DetailService;
@@ -18,17 +19,19 @@ public class Review_DetailAction implements Light_action {
 		ActionForward forward = null;
 		List<Review_dto> listinfo = new ArrayList<Review_dto>();
 		List<Product_dto> listimg = new ArrayList<Product_dto>();
+		List<ReviewComment_dto> listcomment = new ArrayList<ReviewComment_dto>();
 		
-		String review_name = request.getParameter("review_name");
-		String review_id = request.getParameter("review_id");
+		Integer review_num = Integer.parseInt(request.getParameter("review_num"));
 		
 		Review_DetailService reviewDetailService = new Review_DetailService();
 		
-		listinfo = reviewDetailService.getReviewDetail(review_name, review_id);
-		listimg = reviewDetailService.getReviewDetailImg(review_name);
+		listinfo = reviewDetailService.getReviewDetail(review_num);
+		listimg = reviewDetailService.getReviewDetailImg(review_num);
+		listcomment = reviewDetailService.getReviewComment(review_num);
 		
 		request.setAttribute("listinfo", listinfo);
 		request.setAttribute("listimg", listimg);
+		request.setAttribute("listcomment", listcomment);
    		
 		forward = new ActionForward();
 		forward.setRedirect(false);

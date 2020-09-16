@@ -12,6 +12,7 @@ import org.apache.ibatis.session.SqlSessionFactoryBuilder;
 
 import com.TeamPro.dto.Buyhistory_dto;
 import com.TeamPro.dto.Product_dto;
+import com.TeamPro.dto.ReviewComment_dto;
 import com.TeamPro.dto.Review_dto;
 import com.TeamPro.dto.CustomerInfo_dto;
 
@@ -109,19 +110,29 @@ public class TeamPro_dao {
 		return connresultsel;
 	}
 	// 인테리어 리뷰 디테일 페이지 select - 0915 dhdbswl 수정
-	public List<Review_dto> Conn_reviewDetailSelect(String review_name, String review_id) {
+	public List<Review_dto> Conn_reviewDetailSelect(int review_num) {
 		Review_dto reviewdto = new Review_dto();
-		reviewdto.setReview_name(review_name);
-		reviewdto.setReview_id(review_id);
+		reviewdto.setReview_num(review_num);
 		SqlSession sqlsession = sqlfactory.openSession();
 		List<Review_dto> connresultsel= sqlsession.selectList("xml_select_reviewDetail", reviewdto);
 		sqlsession.close();
 		return connresultsel;
 	}
 	// 인테리어 리뷰 디테일 페이지 이미지 select - 0915 dhdbswl 수정
-	public List<Product_dto> Conn_reviewDetailImgSelcet(String review_name) {
+	public List<Product_dto> Conn_reviewDetailImgSelcet(int review_num) {
+		Review_dto reviewdto = new Review_dto();
+		reviewdto.setReview_num(review_num);
 		SqlSession sqlsession = sqlfactory.openSession();
-		List<Product_dto> connresultsel= sqlsession.selectList("xml_select_reviewDetailImg", review_name);
+		List<Product_dto> connresultsel= sqlsession.selectList("xml_select_reviewDetailImg", reviewdto);
+		sqlsession.close();
+		return connresultsel;
+	}
+	// 인테리어 리뷰 디테일 페이지 댓글 select - 0916 dhdbswl 수정
+	public List<ReviewComment_dto> Conn_reviewCommentSelect(int review_num) {
+		Review_dto reviewdto = new Review_dto();
+		reviewdto.setReview_num(review_num);
+		SqlSession sqlsession = sqlfactory.openSession();
+		List<ReviewComment_dto> connresultsel= sqlsession.selectList("xml_select_reviewDetailCmt", reviewdto);
 		sqlsession.close();
 		return connresultsel;
 	}
@@ -141,6 +152,16 @@ public class TeamPro_dao {
 		int insertCount = 0;
 		SqlSession sqlsession = sqlfactory.openSession();
 		sqlsession.insert("xml_insert_buyhistory", buyDto);
+		sqlsession.commit();
+		insertCount = 1;
+		sqlsession.close();
+		return insertCount;
+	}
+	// review 상세페이지내 comment insert - 0916 dhdbswl 수정 
+	public int Conn_reviewCommentInsert(ReviewComment_dto cmtdto) {
+		int insertCount = 0;
+		SqlSession sqlsession = sqlfactory.openSession();
+		sqlsession.insert("insert_reviewComment", cmtdto);
 		sqlsession.commit();
 		insertCount = 1;
 		sqlsession.close();

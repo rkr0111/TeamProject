@@ -28,8 +28,8 @@
 	<title>인테리어 리뷰</title>
 </head>
 <script>
-	function reviewDetailPage(id, name) {
-		location.href="reviewDetailSelect.bo?review_name="+encodeURIComponent(name)+"&review_id="+encodeURIComponent(id);
+	function reviewDetailPage(review_name, review_num) {
+		location.href="reviewDetailSelect.bo?review_num="+review_num;
 	}
 </script>
 <body>
@@ -53,9 +53,9 @@
 		</div>
 		<div class="interiorContainer">
 			<ul class="reviewTimeline">
-			<%if(listimg.size() != 0) {
-			for(int i=0; i<listimg.size(); i++) {%>
-				<li onclick="reviewDetailPage('<%=listinfo.get(i).getReview_id()%>', '<%=listinfo.get(i).getReview_name()%>')">
+			<%if(listinfo.size() != 0) {
+			for(int i=0; i<listinfo.size(); i++) {%>
+				<li onclick="reviewDetailPage('<%=listinfo.get(i).getReview_name()%>', <%=listinfo.get(i).getReview_num()%>)">
 					<img src="images/product_img/<%=listimg.get(i).getProduct_category()%>/<%=listinfo.get(i).getReview_img()%>">
 				</li>
 			<%}}%>

@@ -4,6 +4,7 @@
 <%@page import="com.TeamPro.dao.TeamPro_dao"%>
 <%@page import="com.TeamPro.dto.Review_dto"%>
 <%@page import="com.TeamPro.dto.Product_dto"%>
+<%@page import="com.TeamPro.dto.ReviewComment_dto"%>
 <%@page import="java.util.*"%>
 
 <!DOCTYPE html>
@@ -23,6 +24,7 @@
 <%
 List<Review_dto> listinfo = (List<Review_dto>) request.getAttribute("listinfo");
 List<Product_dto> listimg = (List<Product_dto>) request.getAttribute("listimg");
+List<ReviewComment_dto> listcomment = (List<ReviewComment_dto>) request.getAttribute("listcomment");
 %>
 
 <body>
@@ -62,13 +64,15 @@ List<Product_dto> listimg = (List<Product_dto>) request.getAttribute("listimg");
 
 						<div class="commentsInput none mb_20">
 							<input type="text" name="comments-text" value="" placeholder="댓글 입력..." />
-							<input type="button" name="comments-insert" value="입력" />
+							<input type="button" name="comments-insert" value="입력" onclick="inputCmt(this, '<%=id%>', <%=listinfo.get(0).getReview_num()%>)" />
 						</div>
 
+						<%if(listcomment.size() != 0) {
+						for(int i=0; i<listcomment.size(); i++) {%>
 						<div class="contentsComments">
 							<div class="comments">
-								<p class="fw_bold reviewId pr_10">user_id</p>
-								<P>인테리어 리뷰 댓글댓글</P>
+								<p class="cmtId fw_bold reviewId pr_10"><%=listcomment.get(i).getComment_id()%></p>
+								<P class="cmtText"><%=listcomment.get(i).getComment_text()%></P>
 							</div>
 							<div class="reply">
 								<p class="fw_bold reviewId pr_10">user_id</p>
@@ -85,23 +89,7 @@ List<Product_dto> listimg = (List<Product_dto>) request.getAttribute("listimg");
 								<input type="button" name="reply-insert" value="입력" />
 							</div>
 						</div>
-
-						<div class="contentsComments">
-							<div class="comments">
-								<p class="fw_bold reviewId pr_10">user_id</p>
-								<P>인테리어 리뷰 댓글댓글</P>
-							</div>
-							<div class="reply">
-								<p class="fw_bold reviewId pr_10">user_id</p>
-								<P>인테리어 리뷰 대댓글입니다.</P>
-							</div>
-
-							<p class="replyBtn" onclick="showReplyInput(this)">댓글쓰기</p>
-							<div class="replyInput none">
-								<input type="text" name="reply-text" value="" placeholder="댓글 입력..." />
-								<input type="button" name="reply-insert" value="입력" />
-							</div>
-						</div>
+						<%}}%>
 					</div>
 				</li>
 			</ul>
@@ -113,6 +101,6 @@ List<Product_dto> listimg = (List<Product_dto>) request.getAttribute("listimg");
 
 	<!-- script -->
 	<script type="text/javascript" src="js/scroll.js"></script>
-	<script type="text/javascript" src="js/interior.js"></script>
+	<script type="text/javascript" src="js/review_detail.js"></script>
 </body>
 </html>

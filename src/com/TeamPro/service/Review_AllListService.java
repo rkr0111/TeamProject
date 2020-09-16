@@ -42,6 +42,7 @@ public class Review_AllListService {
 			reviewdto.setReview_comment(infolist.get(i).getReview_comment());
 			reviewdto.setReview_reply(infolist.get(i).getReview_reply());
 			reviewdto.setReview_like(infolist.get(i).getReview_like());
+			reviewdto.setReview_num(infolist.get(i).getReview_num());
 			list.add(reviewdto);
 		}
 		

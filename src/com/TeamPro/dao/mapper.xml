@@ -35,13 +35,16 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		select product_name, product_category from light.review, light.product where product_name=review_name;
 	</select>
 	<select id="xml_select_listInfo" resultType="review">
-		select review_name, review_img, review_contents, review_date, review_id, review_comment, review_reply, review_like from light.review, light.product where product_name=review_name;
+		select review_name, review_img, review_contents, review_date, review_id, review_comment, review_reply, review_like, review_num from light.review, light.product where product_name=review_name;
 	</select>
 	<select id="xml_select_reviewDetail" resultType="review" parameterType="review">
-		select * from light.review where review_name=#{review_name} and review_id=#{review_id};
+		select * from light.review where review_num=#{review_num};
 	</select>
 	<select id="xml_select_reviewDetailImg" resultType="xmlDto" parameterType="review">
-		select product_category from light.review, light.product where product_name=#{review_name};
+		select product_category from light.review, light.product where product_name=review_name and review_num=#{review_num};
+	</select>
+	<select id="xml_select_reviewDetailCmt" resultType="reviewComment" parameterType="review">
+		select * from light.reviewcomment where reviewboard_num=#{review_num};
 	</select>
 	
 	<insert id="xml_insert_prolist" parameterType="xmlDto">
@@ -49,6 +52,9 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	</insert>
 	<insert id="xml_insert_buyhistory" parameterType="buyhistory">
 		insert into light.buyhistory values(#{buy_id}, #{buy_name}, #{buy_price}, now(), #{buy_condition}, #{buy_category}, #{buy_img}, #{buy_colors}, #{buy_amount}, #{buy_totalprice}); 
+	</insert>
+	<insert id="insert_reviewComment" parameterType="reviewComment">
+		insert into light.reviewcomment values(default, #{reviewboard_num}, #{comment_id}, #{comment_text}, now()); 
 	</insert>
 	
 	<update id="xml_update" parameterType="xmlDto">

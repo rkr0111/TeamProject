@@ -5,11 +5,12 @@ import java.util.List;
 
 import com.TeamPro.dao.TeamPro_dao;
 import com.TeamPro.dto.Product_dto;
+import com.TeamPro.dto.ReviewComment_dto;
 import com.TeamPro.dto.Review_dto;
 
 public class Review_DetailService {
 	
-	public List<Review_dto> getReviewDetail(String review_name, String review_id) throws Exception {
+	public List<Review_dto> getReviewDetail(int review_num) throws Exception {
 		TeamPro_dao prodao = TeamPro_dao.getinstance();
 		prodao.getConn();
 		
@@ -17,7 +18,7 @@ public class Review_DetailService {
 		ArrayList<Review_dto> list = new ArrayList<Review_dto>();
 		Review_dto reviewdto = new Review_dto();
 		
-		detailSelect = prodao.Conn_reviewDetailSelect(review_name, review_id);
+		detailSelect = prodao.Conn_reviewDetailSelect(review_num);
 		
 		reviewdto.setReview_name(detailSelect.get(0).getReview_name());
 		reviewdto.setReview_img(detailSelect.get(0).getReview_img());
@@ -27,12 +28,13 @@ public class Review_DetailService {
 		reviewdto.setReview_comment(detailSelect.get(0).getReview_comment());
 		reviewdto.setReview_reply(detailSelect.get(0).getReview_reply());
 		reviewdto.setReview_like(detailSelect.get(0).getReview_like());
+		reviewdto.setReview_num(detailSelect.get(0).getReview_num());
 		list.add(reviewdto);
 		
 		return detailSelect;
 	}
 	
-	public List<Product_dto> getReviewDetailImg(String review_name) throws Exception {
+	public List<Product_dto> getReviewDetailImg(int review_num) throws Exception {
 		TeamPro_dao prodao = TeamPro_dao.getinstance();
 		prodao.getConn();
 		
@@ -40,13 +42,35 @@ public class Review_DetailService {
 		ArrayList<Product_dto> list = new ArrayList<Product_dto>();
 		Product_dto prodto = new Product_dto();
 		
-		prolist = prodao.Conn_reviewDetailImgSelcet(review_name);
+		prolist = prodao.Conn_reviewDetailImgSelcet(review_num);
 		
 		prodto.setProduct_category(prolist.get(0).getProduct_category());
 		prodto.setProduct_img(prolist.get(0).getProduct_img());
 		list.add(prodto);
 		
 		return prolist;
+	}
+	
+	public List<ReviewComment_dto> getReviewComment(int review_num) throws Exception {
+		TeamPro_dao prodao = TeamPro_dao.getinstance();
+		prodao.getConn();
+		
+		List<ReviewComment_dto> cmtlist = null;
+		ArrayList<ReviewComment_dto> list = new ArrayList<ReviewComment_dto>();
+		ReviewComment_dto cmtdto = new ReviewComment_dto();
+		
+		cmtlist = prodao.Conn_reviewCommentSelect(review_num);
+		
+		if(!cmtlist.isEmpty()) {
+			cmtdto.setComment_num(cmtlist.get(0).getComment_num());
+			cmtdto.setReviewboard_num(cmtlist.get(0).getReviewboard_num());
+			cmtdto.setComment_id(cmtlist.get(0).getComment_id());
+			cmtdto.setComment_text(cmtlist.get(0).getComment_text());
+			cmtdto.setComment_date(cmtlist.get(0).getComment_date());
+			list.add(cmtdto);
+		}
+		
+		return cmtlist;
 	}
 	
 }

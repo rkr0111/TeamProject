@@ -14,6 +14,7 @@ public class Review_dto {
 	String review_reply;
 	
 	int review_like;
+	int review_num;
 
 	public String getReview_name() {
 		return review_name;
@@ -77,6 +78,14 @@ public class Review_dto {
 
 	public void setReview_like(int review_like) {
 		this.review_like = review_like;
+	}
+
+	public int getReview_num() {
+		return review_num;
+	}
+
+	public void setReview_num(int review_num) {
+		this.review_num = review_num;
 	}
 	
 }

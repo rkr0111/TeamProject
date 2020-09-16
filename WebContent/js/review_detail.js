@@ -27,3 +27,28 @@ function showReplyInput(obj) {
 	replybox.classList.toggle("none");
 	replyinput.value = "";
 }
+
+// 댓글 함수
+function inputCmt(there, id, reviewnum) {
+	var commentsbox = there.parentNode;
+	var cmtText = commentsbox.querySelector("input[name='comments-text']");
+	
+	var param = "comment_id=" + id
+				+ "&comment_text=" + cmtText.value
+				+ "&reviewboard_num=" + reviewnum;
+	
+	$.ajax({
+		type: "post",
+		url: "reviewComment.bo",
+		data: param,
+		success: function(obj) {
+			var cmtId = document.querySelectorAll("cmtId");
+			var cmtText = document.querySelectorAll("cmtText");
+			$(".cmtId").append(id);
+			$(".cmtText").append(cmtText.value);
+		},
+		error: function(e) {
+			alet(e.responseText);
+		}
+	});
+}
