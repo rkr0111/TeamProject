@@ -21,6 +21,7 @@ import com.TeamPro.action.Product_UpdateAction;
 import com.TeamPro.action.Review_AllListAction;
 import com.TeamPro.action.Review_CommentInsertAction;
 import com.TeamPro.action.Review_DetailAction;
+import com.TeamPro.action.Review_ReplyInsertAction;
 import com.TeamPro.dto.ActionForward;
 
 @WebServlet("*.bo")
@@ -116,6 +117,13 @@ public class Light_controller extends javax.servlet.http.HttpServlet {
 			}
 		}else if(command.equals("/reviewComment.bo")) { // 0916 dhdbswl 수정
 			action = new Review_CommentInsertAction();
+			try{
+				forward=action.execute(request, response);
+			}catch(Exception e){
+				System.out.println(e);
+			}
+		}else if(command.equals("/reviewReply.bo")) { // 0916 dhdbswl 수정
+			action = new Review_ReplyInsertAction();
 			try{
 				forward=action.execute(request, response);
 			}catch(Exception e){

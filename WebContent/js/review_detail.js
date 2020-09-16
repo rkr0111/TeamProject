@@ -28,9 +28,9 @@ function showReplyInput(obj) {
 	replyinput.value = "";
 }
 
-// 댓글 함수
-function inputCmt(there, id, reviewnum) {
-	var commentsbox = there.parentNode;
+// 댓글 함수 (comment)
+function inputCmt(obj, id, reviewnum) {
+	var commentsbox = obj.parentNode;
 	var cmtText = commentsbox.querySelector("input[name='comments-text']");
 	
 	var param = "comment_id=" + id
@@ -41,14 +41,35 @@ function inputCmt(there, id, reviewnum) {
 		type: "post",
 		url: "reviewComment.bo",
 		data: param,
-		success: function(obj) {
-			var cmtId = document.querySelectorAll("cmtId");
-			var cmtText = document.querySelectorAll("cmtText");
-			$(".cmtId").append(id);
-			$(".cmtText").append(cmtText.value);
+		success: function() {
+			location.href="reviewDetailSelect.bo?review_num="+reviewnum;
 		},
 		error: function(e) {
 			alet(e.responseText);
 		}
 	});
 }
+
+// 대댓글 함수 (reply)
+function inputReply(obj, id, reviewnum, commentnum) {
+	var commentsbox = obj.parentNode;
+	var replyText = commentsbox.querySelector("input[name='reply-text']");
+	
+	var param = "reply_id=" + id
+				+ "&reply_text=" + replyText.value
+				+ "&reviewboard_num=" + reviewnum
+				+ "&comment_num=" + commentnum;
+				
+	$.ajax({
+		type: "post",
+		url: "reviewReply.bo",
+		data: param,
+		success: function() {
+			location.href="reviewDetailSelect.bo?review_num="+reviewnum;
+		},
+		error: function(e) {
+			alet(e.responseText);
+		}
+	});
+}
+

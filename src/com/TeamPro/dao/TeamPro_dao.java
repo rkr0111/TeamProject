@@ -13,6 +13,7 @@ import org.apache.ibatis.session.SqlSessionFactoryBuilder;
 import com.TeamPro.dto.Buyhistory_dto;
 import com.TeamPro.dto.Product_dto;
 import com.TeamPro.dto.ReviewComment_dto;
+import com.TeamPro.dto.ReviewReply_dto;
 import com.TeamPro.dto.Review_dto;
 import com.TeamPro.dto.CustomerInfo_dto;
 
@@ -136,6 +137,17 @@ public class TeamPro_dao {
 		sqlsession.close();
 		return connresultsel;
 	}
+	// 인테리어 리뷰 디테일 페이지 대댓글 select - 0916 dhdbswl 수정
+	public List<ReviewReply_dto> Conn_reviewReplySelect(int review_num, int comment_num) {
+		ReviewReply_dto reviewdto = new ReviewReply_dto();
+		reviewdto.setReviewboard_num(review_num);
+		reviewdto.setComment_num(comment_num);
+		System.out.println("dao : " + reviewdto.getReviewboard_num() + ", review_num : " + review_num);
+		SqlSession sqlsession = sqlfactory.openSession();
+		List<ReviewReply_dto> connresultsel= sqlsession.selectList("xml_select_reviewDetailReply", reviewdto);
+		sqlsession.close();
+		return connresultsel;
+	}
 	
 	//insert - 0731 dhdbswl 수정
 	public int Conn_insert(Product_dto dto) {
@@ -162,6 +174,16 @@ public class TeamPro_dao {
 		int insertCount = 0;
 		SqlSession sqlsession = sqlfactory.openSession();
 		sqlsession.insert("insert_reviewComment", cmtdto);
+		sqlsession.commit();
+		insertCount = 1;
+		sqlsession.close();
+		return insertCount;
+	}
+	// review 상세페이지내 reply insert - 0916 dhdbswl 수정 
+	public int Conn_reviewReplyInsert(ReviewReply_dto replydto) {
+		int insertCount = 0;
+		SqlSession sqlsession = sqlfactory.openSession();
+		sqlsession.insert("insert_reviewReply", replydto);
 		sqlsession.commit();
 		insertCount = 1;
 		sqlsession.close();

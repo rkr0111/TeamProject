@@ -19,7 +19,7 @@
 					<li><a href="../TeamPro/productList.bo?product_category=stand">STAND</a></li>
 					<li><a href="../TeamPro/productList.bo?product_category=point">POINT</a></li>
 					<li><a href="mdRandomList.bo" class="mdpick">MD PICK</a></li>
-					<li><a href="../TeamPro/pages_interior/interior.jsp">INTERIOR</a></li>
+					<li><a href="../TeamPro/reviewAllList.bo">INTERIOR</a></li>
 					<li>
 						<a href="../TeamPro/pages_customer/customer_notice.jsp">CUSTOMER CENTER</a>
 						<ul class="submenu">

@@ -8,7 +8,7 @@ import com.TeamPro.dto.Product_dto;
 import com.TeamPro.dto.ReviewComment_dto;
 import com.TeamPro.dto.Review_dto;
 
-public class Review_CommentService {
+public class Review_CommentInsertService {
 	
 	public boolean setReviewComment(String comment_id, String comment_text, int reviewboard_num) throws Exception {
 		ReviewComment_dto cmtdto = new ReviewComment_dto();

@@ -6,6 +6,7 @@ import java.util.List;
 import com.TeamPro.dao.TeamPro_dao;
 import com.TeamPro.dto.Product_dto;
 import com.TeamPro.dto.ReviewComment_dto;
+import com.TeamPro.dto.ReviewReply_dto;
 import com.TeamPro.dto.Review_dto;
 
 public class Review_DetailService {
@@ -71,6 +72,30 @@ public class Review_DetailService {
 		}
 		
 		return cmtlist;
+	}
+	
+	public List<ReviewReply_dto> getReviewReply(int review_num, int comment_num) throws Exception {
+		TeamPro_dao prodao = TeamPro_dao.getinstance();
+		prodao.getConn();
+		
+		List<ReviewReply_dto> replyist = null;
+		ArrayList<ReviewReply_dto> list = new ArrayList<ReviewReply_dto>();
+		ReviewReply_dto replydto = new ReviewReply_dto();
+		
+		System.out.println("service : " + review_num + ", " + comment_num);
+		
+		replyist = prodao.Conn_reviewReplySelect(review_num, comment_num);
+		
+		if(!replyist.isEmpty()) {
+			replydto.setReply_num(replyist.get(0).getReply_num());
+			replydto.setReviewboard_num(replyist.get(0).getReviewboard_num());
+			replydto.setReply_id(replyist.get(0).getReply_id());
+			replydto.setReply_text(replyist.get(0).getReply_text());
+			replydto.setReply_date(replyist.get(0).getReply_date());
+			list.add(replydto);
+		}
+		
+		return replyist;
 	}
 	
 }

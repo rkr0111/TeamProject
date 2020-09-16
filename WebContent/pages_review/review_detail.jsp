@@ -5,6 +5,7 @@
 <%@page import="com.TeamPro.dto.Review_dto"%>
 <%@page import="com.TeamPro.dto.Product_dto"%>
 <%@page import="com.TeamPro.dto.ReviewComment_dto"%>
+<%@page import="com.TeamPro.dto.ReviewReply_dto"%>
 <%@page import="java.util.*"%>
 
 <!DOCTYPE html>
@@ -25,6 +26,7 @@
 List<Review_dto> listinfo = (List<Review_dto>) request.getAttribute("listinfo");
 List<Product_dto> listimg = (List<Product_dto>) request.getAttribute("listimg");
 List<ReviewComment_dto> listcomment = (List<ReviewComment_dto>) request.getAttribute("listcomment");
+List<ReviewReply_dto> listreply = (List<ReviewReply_dto>) request.getAttribute("listreply");
 %>
 
 <body>
@@ -74,19 +76,18 @@ List<ReviewComment_dto> listcomment = (List<ReviewComment_dto>) request.getAttri
 								<p class="cmtId fw_bold reviewId pr_10"><%=listcomment.get(i).getComment_id()%></p>
 								<P class="cmtText"><%=listcomment.get(i).getComment_text()%></P>
 							</div>
+							<%if(listreply.size() != 0)
+							for(int j=0; j<listreply.size(); j++) {%>
 							<div class="reply">
-								<p class="fw_bold reviewId pr_10">user_id</p>
-								<P>인테리어 리뷰 대댓글입니다.</P>
+								<p class="fw_bold reviewId pr_10"><%=listreply.get(j).getReply_id()%></p>
+								<P><%=listreply.get(j).getReply_text()%></P>
 							</div>
-							<div class="reply">
-								<p class="fw_bold reviewId pr_10">user_id</p>
-								<P>인테리어 리뷰 대댓글입니다.</P>
-							</div>
+							<%}%>
 
 							<p class="replyBtn" onclick="showReplyInput(this)">댓글쓰기</p>
 							<div class="replyInput none">
 								<input type="text" name="reply-text" value="" placeholder="댓글 입력..." />
-								<input type="button" name="reply-insert" value="입력" />
+								<input type="button" name="reply-insert" value="입력" onclick="inputReply(this, '<%=id%>', <%=listinfo.get(0).getReview_num()%>, <%=listcomment.get(0).getComment_num()%>)" />
 							</div>
 						</div>
 						<%}}%>

@@ -13,20 +13,22 @@ import com.TeamPro.dto.Review_dto;
 import com.TeamPro.service.Review_AllListService;
 import com.TeamPro.service.Review_CommentInsertService;
 import com.TeamPro.service.Review_DetailService;
+import com.TeamPro.service.Review_ReplyInsertService;
 
-public class Review_CommentInsertAction implements Light_action {
+public class Review_ReplyInsertAction implements Light_action {
 
 	public ActionForward execute(HttpServletRequest request,HttpServletResponse response) throws Exception {
 		ActionForward forward = null;
 		boolean isComment = false;
 		
-		String comment_id = request.getParameter("comment_id");
-		String comment_text = request.getParameter("comment_text");
+		String reply_id = request.getParameter("reply_id");
+		String reply_text = request.getParameter("reply_text");
 		int reviewboard_num = Integer.parseInt(request.getParameter("reviewboard_num"));
+		int comment_num = Integer.parseInt(request.getParameter("comment_num"));
 		
-		Review_CommentInsertService reviewCommentService = new Review_CommentInsertService();
+		Review_ReplyInsertService reviewReplyInsertService = new Review_ReplyInsertService();
 		
-		isComment = reviewCommentService.setReviewComment(comment_id, comment_text, reviewboard_num);
+		isComment = reviewReplyInsertService.setReviewReply(reply_id, reply_text, reviewboard_num, comment_num);
 		
 		if(isComment) {
 			forward = new ActionForward();
