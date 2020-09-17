@@ -129,6 +129,13 @@ public class Light_controller extends javax.servlet.http.HttpServlet {
 			}catch(Exception e){
 				System.out.println(e);
 			}
+		}else if(command.equals("/reivewLikeUpdate.bo")) { // 0917 dhdbswl ¼öÁ¤
+			action = new Review_ReplyInsertAction();
+			try{
+				forward=action.execute(request, response);
+			}catch(Exception e){
+				System.out.println(e);
+			}
 		}
  		
 		// check forward

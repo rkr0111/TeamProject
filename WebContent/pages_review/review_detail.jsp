@@ -86,7 +86,7 @@ List<ReviewReply_dto> listreply = (List<ReviewReply_dto>) request.getAttribute("
 							if(listcomment.get(i).getComment_num() == listreply.get(j).getComment_num()) {%>
 							<div class="reply">
 								<p class="fw_bold reviewId pr_10"><%=listreply.get(j).getReply_id()%></p>
-								<P><%=listreply.get(j).getReply_text()%></P>
+								<P class="replyText <%=j%>"><%=listreply.get(j).getReply_text()%></P>
 							</div>
 							<%}}}%>
 							<%if(id != null) {%>

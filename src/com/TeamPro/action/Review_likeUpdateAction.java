@@ -14,26 +14,25 @@ import com.TeamPro.service.Review_AllListService;
 import com.TeamPro.service.Review_CommentInsertService;
 import com.TeamPro.service.Review_DetailService;
 import com.TeamPro.service.Review_ReplyInsertService;
+import com.TeamPro.service.Review_likeUpdateService;
 
-public class Review_ReplyInsertAction implements Light_action {
+public class Review_likeUpdateAction implements Light_action {
 
 	public ActionForward execute(HttpServletRequest request,HttpServletResponse response) throws Exception {
 		ActionForward forward = null;
 		boolean isComment = false;
 		
-		String reply_id = request.getParameter("reply_id");
-		String reply_text = request.getParameter("reply_text");
-		int reviewboard_num = Integer.parseInt(request.getParameter("reviewboard_num"));
-		int comment_num = Integer.parseInt(request.getParameter("comment_num"));
+		String reivew_id = request.getParameter("reivew_id");
+		int review_num = Integer.parseInt(request.getParameter("review_num"));
 		
-		Review_ReplyInsertService reviewReplyInsertService = new Review_ReplyInsertService();
+		Review_likeUpdateService reviewReplyInsertService = new Review_likeUpdateService();
 		
-		isComment = reviewReplyInsertService.setReviewReply(reply_id, reply_text, reviewboard_num, comment_num);
+		isComment = reviewReplyInsertService.setReviewReply(reivew_id, review_num);
 		
 		if(isComment) {
 			forward = new ActionForward();
 			forward.setRedirect(true);
-			forward.setPath("reviewDetailSelect.bo?review_num="+reviewboard_num);
+			forward.setPath("reviewDetailSelect.bo?review_num="+review_num);
 		}
 		return forward;		
 	}
