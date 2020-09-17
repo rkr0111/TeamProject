@@ -42,8 +42,8 @@
 								<ul>
 									<li>
 										<label for="join-id">아이디</label>
+										<input class="inputText" type="text" name="join-id" value="<%out.println(customerinfoList.get(0).getCustomer_id()); %>" maxlength="10" onKeyup="this.value=this.value.replace(/[ㄱ-ㅎㅏ-ㅡ가-핳]/g,'');">
 									</li>
-									<%out.println(customerinfoList.get(0).getCustomer_id()); %>
 								</ul>
 								<div class="checkVisible id fs_11"></div>
 							</td>

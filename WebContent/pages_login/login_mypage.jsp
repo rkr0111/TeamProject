@@ -6,6 +6,7 @@
 
 <%@page import="com.TeamPro.dto.Buyhistory_dto"%>
 <%@page import="com.TeamPro.dto.Product_dto"%>
+<%@page import="com.TeamPro.dto.CustomerInfo_dto"%>
 <%@page import="java.util.*"%>
 
 <!DOCTYPE html>
@@ -34,11 +35,20 @@
 	
 	//orderList 클래스에 들어갈 정보
 	Buyhistory_dto dto = new Buyhistory_dto();	
-	ArrayList<Buyhistory_dto> buyhistoryList = (ArrayList<Buyhistory_dto>) request.getAttribute("buyhistoryList"); 
+	ArrayList<Buyhistory_dto> buyhistoryList = (ArrayList<Buyhistory_dto>) request.getAttribute("buyhistoryList");
 	
 	//
 	List<Product_dto> productList = (List<Product_dto>) request.getAttribute("productList");
+	
+	//
+	List<CustomerInfo_dto> custominfoupdateList = (List<CustomerInfo_dto>) request.getAttribute("custominfoupdateList");
 %>
+	if(custominfoupdateList.size!=null) {
+<% 	
+		System.out.println("hey"+custominfoupdateList);
+%>
+	}
+
 
 <!-- 마이페이지의 인덱스페이지는 구매내역 (마이페이지 = 구매내역 페이지) -->
 
@@ -48,7 +58,7 @@
 				<div class="memberId">
 					<div><img src="../images/mypage_img/icons/person1.png"></div>
 					<ul>
-						<li><%=id%> 님</li>	
+						<li><%out.println(custominfoupdateList.get(0).getCustomer_id());%> 님</li>	
 					</ul>
 				</div>
 				<div class="memberInfo">
