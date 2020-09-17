@@ -138,11 +138,9 @@ public class TeamPro_dao {
 		return connresultsel;
 	}
 	// 인테리어 리뷰 디테일 페이지 대댓글 select - 0916 dhdbswl 수정
-	public List<ReviewReply_dto> Conn_reviewReplySelect(int review_num, int comment_num) {
+	public List<ReviewReply_dto> Conn_reviewReplySelect(int review_num) {
 		ReviewReply_dto reviewdto = new ReviewReply_dto();
 		reviewdto.setReviewboard_num(review_num);
-		reviewdto.setComment_num(comment_num);
-		System.out.println("dao : " + reviewdto.getReviewboard_num() + ", review_num : " + review_num);
 		SqlSession sqlsession = sqlfactory.openSession();
 		List<ReviewReply_dto> connresultsel= sqlsession.selectList("xml_select_reviewDetailReply", reviewdto);
 		sqlsession.close();

@@ -26,6 +26,9 @@ public class Review_ReplyInsertAction implements Light_action {
 		int reviewboard_num = Integer.parseInt(request.getParameter("reviewboard_num"));
 		int comment_num = Integer.parseInt(request.getParameter("comment_num"));
 		
+		System.out.println("id : " + reply_id + ", text : " + reply_text + ", boardnum : " + reviewboard_num
+							+ ", commentnum : " + comment_num);
+		
 		Review_ReplyInsertService reviewReplyInsertService = new Review_ReplyInsertService();
 		
 		isComment = reviewReplyInsertService.setReviewReply(reply_id, reply_text, reviewboard_num, comment_num);

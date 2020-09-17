@@ -54,8 +54,13 @@ List<ReviewReply_dto> listreply = (List<ReviewReply_dto>) request.getAttribute("
 					<div class="reviewImg mb_15"><img src="images/product_img/<%=listimg.get(0).getProduct_category()%>/<%=listinfo.get(0).getReview_img()%>" /></div>
 
 					<ul class="btnContainer mb_15">
-						<li class="likeBtn" onclick="likeClicked(this)"></li>
+						<%if(id != null) {%>
+						<li class="likeBtn" onclick="likeClicked(this, '<%=id%>', <%=listinfo.get(0).getReview_num()%>)"></li>
 						<li class="commentBtn" onclick="showCommentInput(this)"></li>
+						<%}else {%>
+						<li class="likeBtn" onclick="location.href='pages_login/login_login.jsp';"></li>
+						<li class="commentBtn" onclick="location.href='pages_login/login_login.jsp';"></li>
+						<%}%>
 					</ul>
 
 					<div class="reviewTextContents">
@@ -76,18 +81,22 @@ List<ReviewReply_dto> listreply = (List<ReviewReply_dto>) request.getAttribute("
 								<p class="cmtId fw_bold reviewId pr_10"><%=listcomment.get(i).getComment_id()%></p>
 								<P class="cmtText"><%=listcomment.get(i).getComment_text()%></P>
 							</div>
-							<%if(listreply.size() != 0)
-							for(int j=0; j<listreply.size(); j++) {%>
+							<%if(listreply.size() != 0) {
+							for(int j=0; j<listreply.size(); j++) {
+							if(listcomment.get(i).getComment_num() == listreply.get(j).getComment_num()) {%>
 							<div class="reply">
 								<p class="fw_bold reviewId pr_10"><%=listreply.get(j).getReply_id()%></p>
 								<P><%=listreply.get(j).getReply_text()%></P>
 							</div>
-							<%}%>
-
+							<%}}}%>
+							<%if(id != null) {%>
 							<p class="replyBtn" onclick="showReplyInput(this)">댓글쓰기</p>
+							<%}else {%>
+							<p class="replyBtn" onclick="location.href='pages_login/login_login.jsp';">댓글쓰기</p>
+							<%}%>
 							<div class="replyInput none">
 								<input type="text" name="reply-text" value="" placeholder="댓글 입력..." />
-								<input type="button" name="reply-insert" value="입력" onclick="inputReply(this, '<%=id%>', <%=listinfo.get(0).getReview_num()%>, <%=listcomment.get(0).getComment_num()%>)" />
+								<input type="button" name="reply-insert" value="입력" onclick="inputReply(this, '<%=id%>', <%=listinfo.get(0).getReview_num()%>, <%=listcomment.get(i).getComment_num()%>)" />
 							</div>
 						</div>
 						<%}}%>

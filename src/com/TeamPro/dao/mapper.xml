@@ -47,7 +47,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		select * from light.reviewcomment where reviewboard_num=#{review_num};
 	</select>
 	<select id="xml_select_reviewDetailReply" resultType="reviewReply" parameterType="reviewReply">
-		select * from light.reviewreply where reviewboard_num=#{reviewboard_num} and comment_num=#{comment_num};
+		select * from light.reviewreply where reviewboard_num=#{reviewboard_num};
 	</select>
 	
 	<insert id="xml_insert_prolist" parameterType="xmlDto">

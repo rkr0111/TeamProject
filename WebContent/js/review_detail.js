@@ -4,14 +4,7 @@
 
 // 
 
-
-// 좋아요 아이콘 클릭시 이벤트 함수
-function likeClicked(obj) {
-	obj.classList.toggle("likeColor");
-}
-
-
-// 댓글 아이콘 클릭시 이벤트 함수
+// 댓글 창 나타내기
 function showCommentInput(obj) {
 	var commentsbox = obj.parentNode.nextElementSibling.querySelector(".commentsInput");
 	var commentsinput = commentsbox.querySelector("input[name='comments-text']");
@@ -20,7 +13,7 @@ function showCommentInput(obj) {
 }
 
 
-// 대댓글 창 보이기 이벤트 함수
+// 대댓글 창 나타내기
 function showReplyInput(obj) {
 	var replybox = obj.nextElementSibling;
 	var replyinput = replybox.querySelector("input[name='reply-text']");
@@ -28,7 +21,8 @@ function showReplyInput(obj) {
 	replyinput.value = "";
 }
 
-// 댓글 함수 (comment)
+
+// 댓글 Ajax (comment)
 function inputCmt(obj, id, reviewnum) {
 	var commentsbox = obj.parentNode;
 	var cmtText = commentsbox.querySelector("input[name='comments-text']");
@@ -50,7 +44,8 @@ function inputCmt(obj, id, reviewnum) {
 	});
 }
 
-// 대댓글 함수 (reply)
+
+// 대댓글 Ajax (reply)
 function inputReply(obj, id, reviewnum, commentnum) {
 	var commentsbox = obj.parentNode;
 	var replyText = commentsbox.querySelector("input[name='reply-text']");
@@ -72,4 +67,27 @@ function inputReply(obj, id, reviewnum, commentnum) {
 		}
 	});
 }
+
+
+// 좋아요 Ajax
+function likeClicked(obj, id, reviewnum) {
+	obj.classList.toggle("likeColor");
+	
+	var param = "reivew_id=" + id
+				+ "&review_num=" + reviewnum;
+				
+	$.ajax({
+		type: "post",
+		url: "reivewLikeUpdate.bo",
+		data: param,
+		success: function() {
+			location.href="reviewDetailSelect.bo?review_num="+reviewnum;
+		},
+		error: function(e) {
+			alet(e.responseText);
+		}
+	});
+	
+}
+
 

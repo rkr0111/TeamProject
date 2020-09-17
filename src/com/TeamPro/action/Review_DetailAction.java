@@ -24,14 +24,13 @@ public class Review_DetailAction implements Light_action {
 		List<ReviewReply_dto> listreply = new ArrayList<ReviewReply_dto>();
 		
 		Integer review_num = Integer.parseInt(request.getParameter("review_num"));
-		Integer comment_num = Integer.parseInt(request.getParameter("comment_num"));
 		
 		Review_DetailService reviewDetailService = new Review_DetailService();
 		
 		listinfo = reviewDetailService.getReviewDetail(review_num);
 		listimg = reviewDetailService.getReviewDetailImg(review_num);
 		listcomment = reviewDetailService.getReviewComment(review_num);
-		listreply = reviewDetailService.getReviewReply(review_num, comment_num);
+		listreply = reviewDetailService.getReviewReply(review_num);
 		
 		request.setAttribute("listinfo", listinfo);
 		request.setAttribute("listimg", listimg);

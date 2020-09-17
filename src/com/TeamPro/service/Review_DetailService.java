@@ -74,7 +74,7 @@ public class Review_DetailService {
 		return cmtlist;
 	}
 	
-	public List<ReviewReply_dto> getReviewReply(int review_num, int comment_num) throws Exception {
+	public List<ReviewReply_dto> getReviewReply(int review_num) throws Exception {
 		TeamPro_dao prodao = TeamPro_dao.getinstance();
 		prodao.getConn();
 		
@@ -82,9 +82,7 @@ public class Review_DetailService {
 		ArrayList<ReviewReply_dto> list = new ArrayList<ReviewReply_dto>();
 		ReviewReply_dto replydto = new ReviewReply_dto();
 		
-		System.out.println("service : " + review_num + ", " + comment_num);
-		
-		replyist = prodao.Conn_reviewReplySelect(review_num, comment_num);
+		replyist = prodao.Conn_reviewReplySelect(review_num);
 		
 		if(!replyist.isEmpty()) {
 			replydto.setReply_num(replyist.get(0).getReply_num());

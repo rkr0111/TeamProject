@@ -21,6 +21,7 @@ public class Review_ReplyInsertService {
 		replydto.setReply_text(reply_text);
 		replydto.setReviewboard_num(reviewboard_num);
 		replydto.setComment_num(comment_num);
+		
 		int insertCount = prodao.Conn_reviewReplyInsert(replydto);
 		
 		if(insertCount > 0) {
