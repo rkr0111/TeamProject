@@ -39,12 +39,12 @@
 	
 	//List<Product_dto> productList = (List<Product_dto>) request.getAttribute("productList");
 	
-	//
+	ArrayList<Buyhistory_dto> customerinfoList = (ArrayList<Buyhistory_dto>) request.getAttribute("customerinfoList");
 	List<CustomerInfo_dto> custominfoupdateList = (List<CustomerInfo_dto>) request.getAttribute("custominfoupdateList");
 %>
 	if(custominfoupdateList.size!=null) {
 <% 	
-		System.out.println("hey"+custominfoupdateList);
+		System.out.println("login_mypage : "+custominfoupdateList);
 %>
 	}
 
@@ -57,7 +57,7 @@
 				<div class="memberId">
 					<div><img src="../images/mypage_img/icons/person1.png"></div>
 					<ul>
-						<li><%out.println(custominfoupdateList.get(0).getCustomer_id());%> 님</li>	
+						<li><%=id %> 님</li>	
 					</ul>
 				</div>
 				<div class="memberInfo">

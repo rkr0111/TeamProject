@@ -23,7 +23,7 @@
 		conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/light?characterEncoding=utf8&serverTimezone=UTC", "orro", "1995");
 		if(conn == null) throw new Exception("DB에 연결할 수 없습니다.");
 		stmt = conn.createStatement();
-		ResultSet rs = stmt.executeQuery("select * from light.customerinfo where customer_id='"+id+"';");
+		ResultSet rs = stmt.executeQuery("select * from customerinfo where customer_id='"+id+"';");
 		
 		ArrayList<Object> customerinfoList = new ArrayList<Object>();
 		
