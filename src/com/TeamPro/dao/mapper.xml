@@ -49,6 +49,9 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	<select id="xml_select_reviewDetailReply" resultType="reviewReply" parameterType="reviewReply">
 		select * from light.reviewreply where reviewboard_num=#{reviewboard_num};
 	</select>
+	<select id="xml_select_reviewLike" resultType="reviewLike" parameterType="reviewLike">
+		select * from light.reviewlike where reviewboard_num=#{review_num};
+	</select>
 	
 	<insert id="xml_insert_prolist" parameterType="xmlDto">
 		insert into light.product values(#{product_name}, #{product_category}, #{product_price}, #{product_color}, '', #{product_img}, #{product_contents}, #{product_weather}); 
@@ -61,6 +64,9 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	</insert>
 	<insert id="insert_reviewReply" parameterType="reviewReply">
 		insert into light.reviewreply values(default, #{reviewboard_num}, #{comment_num}, #{reply_id}, #{reply_text}, now()); 
+	</insert>
+	<insert id="insert_reviewLike" parameterType="reviewLike">
+		insert into light.reviewlike values(default, #{reviewboard_num}, #{like_id}, #{like_check}); 
 	</insert>
 	
 	<update id="xml_update" parameterType="xmlDto">

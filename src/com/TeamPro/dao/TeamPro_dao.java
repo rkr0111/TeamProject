@@ -13,6 +13,7 @@ import org.apache.ibatis.session.SqlSessionFactoryBuilder;
 import com.TeamPro.dto.Buyhistory_dto;
 import com.TeamPro.dto.Product_dto;
 import com.TeamPro.dto.ReviewComment_dto;
+import com.TeamPro.dto.ReviewLike_dto;
 import com.TeamPro.dto.ReviewReply_dto;
 import com.TeamPro.dto.Review_dto;
 import com.TeamPro.dto.CustomerInfo_dto;
@@ -146,6 +147,16 @@ public class TeamPro_dao {
 		sqlsession.close();
 		return connresultsel;
 	}
+	// 인테리어 리뷰 디테일 페이지 좋아요 버튼 누른 사람 select - 0918 dhdbswl 수정
+	public List<ReviewLike_dto> Conn_reviewLikeSelect(String reply_id, int review_num) {
+		ReviewLike_dto likedto = new ReviewLike_dto();
+		likedto.setLike_id(reply_id);
+		likedto.setReviewboard_num(review_num);
+		SqlSession sqlsession = sqlfactory.openSession();
+		List<ReviewLike_dto> connresultsel= sqlsession.selectList("xml_select_reviewLike", likedto);
+		sqlsession.close();
+		return connresultsel;
+	}
 	
 	//insert - 0731 dhdbswl 수정
 	public int Conn_insert(Product_dto dto) {
@@ -182,6 +193,16 @@ public class TeamPro_dao {
 		int insertCount = 0;
 		SqlSession sqlsession = sqlfactory.openSession();
 		sqlsession.insert("insert_reviewReply", replydto);
+		sqlsession.commit();
+		insertCount = 1;
+		sqlsession.close();
+		return insertCount;
+	}
+	// review 상세페이지내 like insert - 0918 dhdbswl 수정 
+	public int Conn_reviewLikeInsert(ReviewLike_dto likedto) {
+		int insertCount = 0;
+		SqlSession sqlsession = sqlfactory.openSession();
+		sqlsession.insert("insert_reviewLike", likedto);
 		sqlsession.commit();
 		insertCount = 1;
 		sqlsession.close();

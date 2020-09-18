@@ -70,28 +70,26 @@ function inputReply(obj, id, reviewnum, commentnum) {
 
 
 // 좋아요 Ajax
-var cnt = 0;
 function likeClicked(obj, id, reviewnum) {
-	cnt++;
-	
-	if(cnt%2 != 0) {
-		var param = "reivew_id=" + id
-					+ "&review_num=" + reviewnum;
-					
-		$.ajax({
-			type: "post",
-			url: "reivewLikeUpdate.bo",
-			data: param,
-			success: function() {
+	var param = "reivew_id=" + id
+				+ "&review_num=" + reviewnum;
+				
+	$.ajax({
+		type: "post",
+		url: "reivewLikeUpdate.bo",
+		data: param,
+		dataType: "json",
+		success: function(data) {
+			if(data.like_check == 0) {
+				obj.classList.remove("likeColor");
+			}else if(data.like_check == 1) {
 				obj.classList.add("likeColor");
-			},
-			error: function(e) {
-				alet(e.responseText);
 			}
-		});
-	}else {
-		obj.classList.remove("likeColor");
-	}
+		},
+		error: function(e) {
+			alet(e.responseText);
+		}
+	});
 }
 
 
