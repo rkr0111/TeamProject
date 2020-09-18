@@ -63,7 +63,7 @@ function inputReply(obj, id, reviewnum, commentnum) {
 			location.href="reviewDetailSelect.bo?review_num="+reviewnum;
 		},
 		error: function(e) {
-			alet(e.responseText);
+			alert(e.responseText);
 		}
 	});
 }
@@ -73,12 +73,11 @@ function inputReply(obj, id, reviewnum, commentnum) {
 function likeClicked(obj, id, reviewnum) {
 	var param = "reivew_id=" + id
 				+ "&review_num=" + reviewnum;
-				
+					
 	$.ajax({
 		type: "post",
 		url: "reivewLikeUpdate.bo",
 		data: param,
-		dataType: "json",
 		success: function(data) {
 			if(data.like_check == 0) {
 				obj.classList.remove("likeColor");
@@ -87,7 +86,7 @@ function likeClicked(obj, id, reviewnum) {
 			}
 		},
 		error: function(e) {
-			alet(e.responseText);
+			alert(e);
 		}
 	});
 }

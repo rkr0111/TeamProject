@@ -219,7 +219,17 @@ public class TeamPro_dao {
 		updateCount = 1;
 		return updateCount;
 	}
-		
+	// review 상세페이지내 like update - 0918 dhdbswl 수정 
+	public int Conn_reviewLikeUpdate(ReviewLike_dto likedto) {
+		int updateCount = 0;
+		SqlSession sqlsession = sqlfactory.openSession();
+		sqlsession.update("update_reviewlike", likedto);
+		sqlsession.commit();
+		sqlsession.close();
+		updateCount = 1;
+		return updateCount;
+	}
+	
 	//delete 
 	public void Conn_delete(Product_dto dto) {
 		SqlSession sqlsession = sqlfactory.openSession();

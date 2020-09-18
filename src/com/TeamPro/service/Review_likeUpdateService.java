@@ -45,4 +45,18 @@ public class Review_likeUpdateService {
 		return isInsertSuccess;
 	}
 	
+	public boolean updateReviewLike(ReviewLike_dto likedto) {
+		boolean isUpdateSuccess = false;
+		TeamPro_dao prodao = TeamPro_dao.getinstance();
+		prodao.getConn();
+		
+		int updateCount = prodao.Conn_reviewLikeUpdate(likedto);
+		
+		if(updateCount > 0) {
+			isUpdateSuccess = true;
+		}	
+		
+		return isUpdateSuccess;
+	}
+	
 }

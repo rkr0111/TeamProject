@@ -52,7 +52,7 @@ List<ReviewReply_dto> listreply = (List<ReviewReply_dto>) request.getAttribute("
 			<ul class="reviewTimeline">
 				<li>
 					<div class="reviewImg mb_15"><img src="images/product_img/<%=listimg.get(0).getProduct_category()%>/<%=listinfo.get(0).getReview_img()%>" /></div>
-
+					<p class="reviewlike"></p>
 					<ul class="btnContainer mb_15">
 						<%if(id != null) {%>
 						<li class="likeBtn" onclick="likeClicked(this, '<%=id%>', <%=listinfo.get(0).getReview_num()%>)"></li>

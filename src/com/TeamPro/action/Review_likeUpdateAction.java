@@ -26,7 +26,7 @@ public class Review_likeUpdateAction implements Light_action {
 		JSONObject jobj = new JSONObject();
 		ReviewLike_dto likedto = new ReviewLike_dto();
 		List<ReviewLike_dto> likelist = null;
-		boolean isInsert = false;
+		boolean isCheck = false;
 		
 		Review_likeUpdateService reviewLikeUpdateService = new Review_likeUpdateService();
 		
@@ -39,16 +39,21 @@ public class Review_likeUpdateAction implements Light_action {
 			likedto.setLike_id(reivew_id);
 			likedto.setReviewboard_num(review_num);
 			likedto.setLike_check(1);
-			isInsert = reviewLikeUpdateService.setReviewLike(likedto);
+			isCheck = reviewLikeUpdateService.setReviewLike(likedto);
 		}else {
-			// 해당 아이디로 좋아요 클릭하지 않았을 떼 좋아요 
+			// 해당 아이디로 좋아요 클릭하지 않았을 떼 좋아요 update
+			likedto.setLike_id(reivew_id);
+			likedto.setReviewboard_num(review_num);
+			likedto.setLike_check(0);
+			isCheck = reviewLikeUpdateService.updateReviewLike(likedto);
 		}
 		
-//		if(isComment) {
-//			forward = new ActionForward();
-//			forward.setRedirect(true);
-//			forward.setPath("reviewDetailSelect.bo?review_num="+review_num);
-//		}
+		request.setAttribute("likeCheck", likedto.getLike_check());
+		
+		forward = new ActionForward();
+		forward.setRedirect(true);
+		forward.setPath("reviewDetailSelect.bo?review_num="+review_num);
+		
 		return forward;		
 	}
 	
