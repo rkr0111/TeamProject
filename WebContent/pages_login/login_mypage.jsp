@@ -34,11 +34,10 @@
 	String phone = (String)session.getAttribute("phone");
 	
 	//orderList 클래스에 들어갈 정보
-	Buyhistory_dto dto = new Buyhistory_dto();	
+	Buyhistory_dto buyhistoryDto = new Buyhistory_dto();	
 	ArrayList<Buyhistory_dto> buyhistoryList = (ArrayList<Buyhistory_dto>) request.getAttribute("buyhistoryList");
 	
-	//
-	List<Product_dto> productList = (List<Product_dto>) request.getAttribute("productList");
+	//List<Product_dto> productList = (List<Product_dto>) request.getAttribute("productList");
 	
 	//
 	List<CustomerInfo_dto> custominfoupdateList = (List<CustomerInfo_dto>) request.getAttribute("custominfoupdateList");
