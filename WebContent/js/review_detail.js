@@ -79,6 +79,7 @@ function likeClicked(obj, id, reviewnum) {
 		url: "reivewLikeUpdate.bo",
 		data: param,
 		success: function(data) {
+			console.log(data);
 			if(data.like_check == 0) {
 				obj.classList.remove("likeColor");
 			}else if(data.like_check == 1) {

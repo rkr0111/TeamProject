@@ -27,6 +27,7 @@ List<Review_dto> listinfo = (List<Review_dto>) request.getAttribute("listinfo");
 List<Product_dto> listimg = (List<Product_dto>) request.getAttribute("listimg");
 List<ReviewComment_dto> listcomment = (List<ReviewComment_dto>) request.getAttribute("listcomment");
 List<ReviewReply_dto> listreply = (List<ReviewReply_dto>) request.getAttribute("listreply");
+int likeCheck = request.getAttribute("likeCheck");
 %>
 
 <body>
