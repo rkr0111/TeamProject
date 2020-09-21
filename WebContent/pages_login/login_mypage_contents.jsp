@@ -88,8 +88,6 @@
 	ArrayList<Buyhistory_dto> applyASlist = (ArrayList<Buyhistory_dto>) request.getAttribute("applyASlist");
 
 	String mypageCategory = request.getParameter("mypageCategory");
-	
-	
 %>
 
 	<div class="contentsTitle">

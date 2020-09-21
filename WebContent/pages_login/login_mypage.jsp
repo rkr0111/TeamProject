@@ -29,20 +29,15 @@
 <%
 	//memberInfo 클래스에 들어갈 정보
 	String id = (String)session.getAttribute("id");
-	//String name = (String)session.getAttribute("name");
-	//String addr = (String)session.getAttribute("addr");
-	//String phone = (String)session.getAttribute("phone");
+	String name = (String)session.getAttribute("name");
+	String addr = (String)session.getAttribute("addr");
+	String phone = (String)session.getAttribute("phone");
 	
 	//orderList 클래스에 들어갈 정보
 	Buyhistory_dto buyhistoryDto = new Buyhistory_dto();	
-	//ArrayList<Buyhistory_dto> buyhistoryList = (ArrayList<Buyhistory_dto>) request.getAttribute("buyhistoryList");
-	//List<Product_dto> productList = (List<Product_dto>) request.getAttribute("productList");
-	
+	ArrayList<Buyhistory_dto> buyhistoryList = (ArrayList<Buyhistory_dto>) request.getAttribute("buyhistoryList");
+	ArrayList<Product_dto> productList = (ArrayList<Product_dto>) request.getAttribute("productList");
 	ArrayList<CustomerInfo_dto> customerinfoList = (ArrayList<CustomerInfo_dto>) request.getAttribute("customerinfoList");
-	
-	
-	
-	//List<CustomerInfo_dto> custominfoupdateList = (List<CustomerInfo_dto>) request.getAttribute("custominfoupdateList");
 %>
 
 
@@ -62,15 +57,15 @@
 					<ul>
 						<li>
 							<p>이름 : </p>
-							<p><%-- <%out.print(customerinfoList.get(0).getCustomer_name());%> --%></p>
+							<p><%=name %></p>
 						</li>
 						<li>
 							<p>주소 : </p>
-							<p><%-- <%out.print(customerinfoList.get(0).getCustomer_addr());%> --%></p>
+							<p><%=addr %></p>
 						</li>
 						<li>
 							<p>연락처 : </p>
-							<p><%-- <%out.print(customerinfoList.get(0).getCustomer_phone());%> --%></p>
+							<p><%=phone %></p>
 						</li>
 					</ul>
 				</div>

@@ -21,31 +21,23 @@
 			out.println("light 데이터베이스로 연결을 할 수 없습니다.");
 		}
 		stmt = conn.createStatement();
-		ResultSet rs = stmt.executeQuery("select * from customerinfo where customer_id='"+id+"' and customer_pwd='"+pwd+"' ;");
+		ResultSet rs = stmt.executeQuery("select customer_id, customer_pwd, customer_name, customer_addr, customer_phone from customerinfo where customer_id='"+id+"' and customer_pwd='"+pwd+"' ;");
 		if(rs.next()) {
-			ArrayList<CustomerInfo_dto> customerinfoList = new ArrayList<CustomerInfo_dto>();
+			request.setCharacterEncoding("UTF-8");
+			id = request.getParameter("id");
+			session.setAttribute("id", id);
 			
-			do {
-				id = request.getParameter("id");
-				session.setAttribute("id", id);
-				
-				CustomerInfo_dto customerinfo_dto = new CustomerInfo_dto();
-				customerinfo_dto.setCustomer_id(rs.getString(1)); 
-				customerinfo_dto.setCustomer_pwd(rs.getString(2));
-				customerinfo_dto.setCustomer_email(rs.getString(3));
-				customerinfo_dto.setCustomer_name(rs.getString(4));
-				customerinfo_dto.setCustomer_birth(rs.getDate(5));
-				customerinfo_dto.setCustomer_addr(rs.getString(6));
-				customerinfo_dto.setCustomer_phone(rs.getString(7));
-				
-				customerinfoList.add(customerinfo_dto);
-				request.setAttribute("customerinfoList", customerinfoList);
-			}
-			while(rs.next()); 
-
-			RequestDispatcher dispatcher = request.getRequestDispatcher("login_mypage.jsp");
-			dispatcher.forward(request, response);
-		}else {
+			String name = rs.getString(3);
+			session.setAttribute("name", name);
+			String addr = rs.getString(4);
+			session.setAttribute("addr", addr);
+			String phone = rs.getString(5);
+			session.setAttribute("phone", phone);
+			
+			
+			response.sendRedirect("../index.jsp");
+		}
+		else {
 			out.println("<script>alert('아이디 혹은 비밀번호가 맞지 않습니다.');</script>");
 			out.println("<script>location.href='login_login.jsp';</script>");
 		}
