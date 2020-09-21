@@ -23,7 +23,7 @@
 		stmt = conn.createStatement();
 		ResultSet rs = stmt.executeQuery("select * from customerinfo where customer_id='"+id+"' and customer_pwd='"+pwd+"' ;");
 		if(rs.next()) {
-			ArrayList<Object> customerinfoList = new ArrayList<Object>();
+			ArrayList<CustomerInfo_dto> customerinfoList = new ArrayList<CustomerInfo_dto>();
 			
 			do {
 				id = request.getParameter("id");
@@ -41,9 +41,9 @@
 				customerinfoList.add(customerinfo_dto);
 				request.setAttribute("customerinfoList", customerinfoList);
 			}
-			while(rs.next());
-			
-			RequestDispatcher dispatcher = request.getRequestDispatcher("../index.jsp");
+			while(rs.next()); 
+
+			RequestDispatcher dispatcher = request.getRequestDispatcher("login_mypage.jsp");
 			dispatcher.forward(request, response);
 		}else {
 			out.println("<script>alert('아이디 혹은 비밀번호가 맞지 않습니다.');</script>");

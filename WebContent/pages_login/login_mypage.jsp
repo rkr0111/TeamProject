@@ -29,24 +29,21 @@
 <%
 	//memberInfo 클래스에 들어갈 정보
 	String id = (String)session.getAttribute("id");
-	String name = (String)session.getAttribute("name");
-	String addr = (String)session.getAttribute("addr");
-	String phone = (String)session.getAttribute("phone");
+	//String name = (String)session.getAttribute("name");
+	//String addr = (String)session.getAttribute("addr");
+	//String phone = (String)session.getAttribute("phone");
 	
 	//orderList 클래스에 들어갈 정보
 	Buyhistory_dto buyhistoryDto = new Buyhistory_dto();	
-	ArrayList<Buyhistory_dto> buyhistoryList = (ArrayList<Buyhistory_dto>) request.getAttribute("buyhistoryList");
-	
+	//ArrayList<Buyhistory_dto> buyhistoryList = (ArrayList<Buyhistory_dto>) request.getAttribute("buyhistoryList");
 	//List<Product_dto> productList = (List<Product_dto>) request.getAttribute("productList");
 	
-	ArrayList<Buyhistory_dto> customerinfoList = (ArrayList<Buyhistory_dto>) request.getAttribute("customerinfoList");
-	List<CustomerInfo_dto> custominfoupdateList = (List<CustomerInfo_dto>) request.getAttribute("custominfoupdateList");
+	ArrayList<CustomerInfo_dto> customerinfoList = (ArrayList<CustomerInfo_dto>) request.getAttribute("customerinfoList");
+	
+	
+	
+	//List<CustomerInfo_dto> custominfoupdateList = (List<CustomerInfo_dto>) request.getAttribute("custominfoupdateList");
 %>
-	if(custominfoupdateList.size!=null) {
-<% 	
-		System.out.println("login_mypage : "+custominfoupdateList);
-%>
-	}
 
 
 <!-- 마이페이지의 인덱스페이지는 구매내역 (마이페이지 = 구매내역 페이지) -->
@@ -65,15 +62,15 @@
 					<ul>
 						<li>
 							<p>이름 : </p>
-							<p><%=name%></p>
+							<p><%-- <%out.print(customerinfoList.get(0).getCustomer_name());%> --%></p>
 						</li>
 						<li>
 							<p>주소 : </p>
-							<p><%=addr%></p>
+							<p><%-- <%out.print(customerinfoList.get(0).getCustomer_addr());%> --%></p>
 						</li>
 						<li>
 							<p>연락처 : </p>
-							<p><%=phone%></p>
+							<p><%-- <%out.print(customerinfoList.get(0).getCustomer_phone());%> --%></p>
 						</li>
 					</ul>
 				</div>
