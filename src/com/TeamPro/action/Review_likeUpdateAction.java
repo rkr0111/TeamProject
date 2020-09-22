@@ -38,34 +38,29 @@ public class Review_likeUpdateAction implements Light_action {
 			
 			while( i<likelist.size() ) {
 				
-				if(!likelist.get(i).getLike_id().equals(reivew_id) || (!likelist.get(i).getLike_id().equals(reivew_id) && likelist.get(i).getReviewboard_num() != review_num)) {
-					// 해당 아이디로 좋아요 클릭하지 않았을 떼 좋아요 insert
+				if(!likelist.get(i).getLike_id().equals(reivew_id)) {
 					likedto.setLike_id(reivew_id);
 					likedto.setReviewboard_num(review_num);
 					likedto.setLike_check(1);
 					isis = 0;
-					break;
 				}else if(likelist.get(i).getLike_id().equals(reivew_id) && likelist.get(i).getReviewboard_num() == review_num && likelist.get(i).getLike_check() == 1) {
 					// 다시 해당 아이디로 좋아요 클릭했을 때 update - off
 					likedto.setLike_id(reivew_id);
 					likedto.setReviewboard_num(review_num);
 					likedto.setLike_check(0);
 					isis = 1;
-					break;
 				}else if(likelist.get(i).getLike_id().equals(reivew_id) && likelist.get(i).getReviewboard_num() == review_num && likelist.get(i).getLike_check() == 0) {
 					// 다시 해당 아이디로 좋아요 클릭했을 때 update - on
 					likedto.setLike_id(reivew_id);
 					likedto.setReviewboard_num(review_num);
 					likedto.setLike_check(1);
 					isis = 1;
-					break;
 				}
-				
 				i++;
 				
 			}
 			
-			if(isis == 0) {					
+			if(isis == 0) {	
 				isCheck = reviewLikeUpdateService.setReviewLike(likedto);
 			}else if(isis == 1) {
 				isCheck = reviewLikeUpdateService.updateReviewLike(likedto);
