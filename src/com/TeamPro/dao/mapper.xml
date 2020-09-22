@@ -35,7 +35,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		select product_name, product_category from light.review, light.product where product_name=review_name;
 	</select>
 	<select id="xml_select_listInfo" resultType="review">
-		select review_name, review_img, review_contents, review_date, review_id, review_comment, review_reply, review_like, review_num from light.review, light.product where product_name=review_name;
+		select review_name, review_img, review_contents, review_date, review_id, review_num from light.review, light.product where product_name=review_name;
 	</select>
 	<select id="xml_select_reviewDetail" resultType="review" parameterType="review">
 		select * from light.review where review_num=#{review_num};
@@ -51,6 +51,9 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	</select>
 	<select id="xml_select_reviewLike" resultType="reviewLike" parameterType="reviewLike">
 		select * from light.reviewlike where reviewboard_num=#{reviewboard_num};
+	</select>
+	<select id="xml_select_reviewLikeCnt" resultType="reviewLike" parameterType="reviewLike">
+		select * from light.reviewlike where reviewboard_num=#{reviewboard_num} and like_check=1;
 	</select>
 	
 	<insert id="xml_insert_prolist" parameterType="xmlDto">

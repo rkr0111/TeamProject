@@ -6,6 +6,7 @@
 <%@page import="com.TeamPro.dto.Product_dto"%>
 <%@page import="com.TeamPro.dto.ReviewComment_dto"%>
 <%@page import="com.TeamPro.dto.ReviewReply_dto"%>
+<%@page import="com.TeamPro.dto.ReviewLike_dto"%>
 <%@page import="java.util.*"%>
 
 <!DOCTYPE html>
@@ -27,7 +28,9 @@ List<Review_dto> listinfo = (List<Review_dto>) request.getAttribute("listinfo");
 List<Product_dto> listimg = (List<Product_dto>) request.getAttribute("listimg");
 List<ReviewComment_dto> listcomment = (List<ReviewComment_dto>) request.getAttribute("listcomment");
 List<ReviewReply_dto> listreply = (List<ReviewReply_dto>) request.getAttribute("listreply");
-int likeCheck = request.getAttribute("likeCheck");
+List<ReviewLike_dto> listLike = (List<ReviewLike_dto>) request.getAttribute("listLike");
+
+Object like_check = (Object) request.getAttribute("like_check");
 %>
 
 <body>
@@ -52,15 +55,33 @@ int likeCheck = request.getAttribute("likeCheck");
 		<div class="interiorContainer">
 			<ul class="reviewTimeline">
 				<li>
-					<div class="reviewImg mb_15"><img src="images/product_img/<%=listimg.get(0).getProduct_category()%>/<%=listinfo.get(0).getReview_img()%>" /></div>
-					<p class="reviewlike"></p>
+					<div class="reviewImg mb_5"><img src="images/product_img/<%=listimg.get(0).getProduct_category()%>/<%=listinfo.get(0).getReview_img()%>" /></div>
+					
+					<input type="hidden" value="<%=like_check%>" name="like_check"/>
+					<p class="reviewlike mb_15">좋아요 <span class="likecount"><%=listLike.size()%></span>개</p>
+					
 					<ul class="btnContainer mb_15">
-						<%if(id != null) {%>
-						<li class="likeBtn" onclick="likeClicked(this, '<%=id%>', <%=listinfo.get(0).getReview_num()%>)"></li>
-						<li class="commentBtn" onclick="showCommentInput(this)"></li>
+						<%if(id != null) {
+							int i=0;
+							int flag = 0;
+							while( i<listLike.size() ) {
+								if(listLike.get(i).getLike_id().equals(id)) {
+									flag = 1;
+									break;
+								}else {
+									flag = 0;
+								}
+								i++;
+							}							
+							if(flag == 1) {%>
+								<li class="likeBtn likeColor" onclick="likeClicked(this, '<%=id%>', <%=listinfo.get(0).getReview_num()%>)"></li>
+							<%} else {%>
+								<li class="likeBtn" onclick="likeClicked(this, '<%=id%>', <%=listinfo.get(0).getReview_num()%>)"></li>
+							<%}%>
+							<li class="commentBtn" onclick="showCommentInput(this)"></li>
 						<%}else {%>
-						<li class="likeBtn" onclick="location.href='pages_login/login_login.jsp';"></li>
-						<li class="commentBtn" onclick="location.href='pages_login/login_login.jsp';"></li>
+							<li class="likeBtn" onclick="location.href='pages_login/login_login.jsp';"></li>
+							<li class="commentBtn" onclick="location.href='pages_login/login_login.jsp';"></li>
 						<%}%>
 					</ul>
 

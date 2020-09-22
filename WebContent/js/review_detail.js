@@ -75,15 +75,23 @@ function likeClicked(obj, id, reviewnum) {
 				+ "&review_num=" + reviewnum;
 					
 	$.ajax({
-		type: "post",
+		type: "GET",
 		url: "reivewLikeUpdate.bo",
 		data: param,
+		dataType: "html",
 		success: function(data) {
-			console.log(data);
-			if(data.like_check == 0) {
+			var findel = $(data).find("input[name='like_check']");
+			var likecount = $(".likecount");
+			var rscount = 0;
+			
+			if(findel.val() == 0) {
 				obj.classList.remove("likeColor");
-			}else if(data.like_check == 1) {
+				rscount = parseInt(likecount.text()) - 1;
+				likecount.text(rscount);
+			}else if(findel.val() == 1) {
 				obj.classList.add("likeColor");
+				rscount = parseInt(likecount.text()) + 1;
+				likecount.text(rscount);
 			}
 		},
 		error: function(e) {

@@ -26,9 +26,9 @@
 	<!-- jQuery cdn -->
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
 	<title>인테리어 리뷰</title>
-</head>
-<script>
-	function reviewDetailPage(review_name, review_num) {
+</head>	
+<script type="text/javascript">
+	function reviewDetailPage(review_name, review_num, review_id) {
 		location.href="reviewDetailSelect.bo?review_num="+review_num;
 	}
 </script>
@@ -55,7 +55,7 @@
 			<ul class="reviewTimeline">
 			<%if(listinfo.size() != 0) {
 			for(int i=0; i<listinfo.size(); i++) {%>
-				<li onclick="reviewDetailPage('<%=listinfo.get(i).getReview_name()%>', <%=listinfo.get(i).getReview_num()%>)">
+				<li onclick="reviewDetailPage('<%=listinfo.get(i).getReview_name()%>', <%=listinfo.get(i).getReview_num()%>, '<%=id%>')" >
 					<img src="images/product_img/<%=listimg.get(i).getProduct_category()%>/<%=listinfo.get(i).getReview_img()%>">
 				</li>
 			<%}}%>

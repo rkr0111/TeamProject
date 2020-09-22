@@ -157,6 +157,15 @@ public class TeamPro_dao {
 		sqlsession.close();
 		return connresultsel;
 	}
+	// 인테리어 리뷰 디테일페이지 게시물 좋아요 리스트 select - 0922 dhdbswl 수정
+	public List<ReviewLike_dto> select_ReviewLikeList(int review_num) {
+		ReviewLike_dto likedto = new ReviewLike_dto();
+		likedto.setReviewboard_num(review_num);
+		SqlSession sqlsession = sqlfactory.openSession();
+		List<ReviewLike_dto> connresultsel= sqlsession.selectList("xml_select_reviewLikeCnt", likedto);
+		sqlsession.close();
+		return connresultsel;
+	}
 	
 	//insert - 0731 dhdbswl 수정
 	public int Conn_insert(Product_dto dto) {

@@ -21,45 +21,51 @@ public class Review_likeUpdateAction implements Light_action {
 		Review_likeUpdateService reviewLikeUpdateService = new Review_likeUpdateService();
 		
 		String reivew_id = request.getParameter("reivew_id");
-		int review_num = Integer.parseInt(request.getParameter("review_num"));     
+		int review_num = Integer.parseInt(request.getParameter("review_num"));
 
 		likelist = reviewLikeUpdateService.getReviewLike(reivew_id, review_num);
 		
 		if(likelist.size() == 0) {
 			
-			// 한 번도 클릭하지 않았을 때
+			// 게시물 좋아요가 없을 경우
 			likedto.setLike_id(reivew_id);
 			likedto.setReviewboard_num(review_num);
 			likedto.setLike_check(1);
 			isCheck = reviewLikeUpdateService.setReviewLike(likedto);
 			
 		}else if(likelist.size() != 0) {
+			int i=0;
 			
-			for(int i=0; i<likelist.size(); i++) {
+			while( i<likelist.size() ) {
 				
-				if(!likelist.get(i).getLike_id().equals(reivew_id) || likelist.get(i).getReviewboard_num() != review_num) {
+				if(!likelist.get(i).getLike_id().equals(reivew_id) || (!likelist.get(i).getLike_id().equals(reivew_id) && likelist.get(i).getReviewboard_num() != review_num)) {
 					// 해당 아이디로 좋아요 클릭하지 않았을 떼 좋아요 insert
 					likedto.setLike_id(reivew_id);
 					likedto.setReviewboard_num(review_num);
 					likedto.setLike_check(1);
 					isis = 0;
+					break;
 				}else if(likelist.get(i).getLike_id().equals(reivew_id) && likelist.get(i).getReviewboard_num() == review_num && likelist.get(i).getLike_check() == 1) {
-					// 다시 해당 아이디로 좋아요 클릭했을 때 update
+					// 다시 해당 아이디로 좋아요 클릭했을 때 update - off
 					likedto.setLike_id(reivew_id);
 					likedto.setReviewboard_num(review_num);
 					likedto.setLike_check(0);
 					isis = 1;
+					break;
 				}else if(likelist.get(i).getLike_id().equals(reivew_id) && likelist.get(i).getReviewboard_num() == review_num && likelist.get(i).getLike_check() == 0) {
-					// 다시 해당 아이디로 좋아요 클릭했을 때 update
+					// 다시 해당 아이디로 좋아요 클릭했을 때 update - on
 					likedto.setLike_id(reivew_id);
 					likedto.setReviewboard_num(review_num);
 					likedto.setLike_check(1);
 					isis = 1;
+					break;
 				}
+				
+				i++;
 				
 			}
 			
-			if(isis == 0) {
+			if(isis == 0) {					
 				isCheck = reviewLikeUpdateService.setReviewLike(likedto);
 			}else if(isis == 1) {
 				isCheck = reviewLikeUpdateService.updateReviewLike(likedto);
@@ -67,11 +73,11 @@ public class Review_likeUpdateAction implements Light_action {
 			
 		}
 		
-		request.setAttribute("likeCheck", likedto.getLike_check());
+		request.setAttribute("like_check", likedto.getLike_check());
 		
 		forward = new ActionForward();
 		forward.setRedirect(false);
-		forward.setPath("reviewDetailSelect.bo?review_num="+review_num);
+		forward.setPath("reviewDetailSelect.bo?review_num="+review_num+"&like_check="+request.getAttribute("like_check"));
 		
 		return forward;		
 	}

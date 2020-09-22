@@ -9,6 +9,7 @@ import javax.servlet.http.HttpServletResponse;
 import com.TeamPro.dto.ActionForward;
 import com.TeamPro.dto.Product_dto;
 import com.TeamPro.dto.ReviewComment_dto;
+import com.TeamPro.dto.ReviewLike_dto;
 import com.TeamPro.dto.ReviewReply_dto;
 import com.TeamPro.dto.Review_dto;
 import com.TeamPro.service.Review_AllListService;
@@ -22,6 +23,7 @@ public class Review_DetailAction implements Light_action {
 		List<Product_dto> listimg = new ArrayList<Product_dto>();
 		List<ReviewComment_dto> listcomment = new ArrayList<ReviewComment_dto>();
 		List<ReviewReply_dto> listreply = new ArrayList<ReviewReply_dto>();
+		List<ReviewLike_dto> listLike = new ArrayList<ReviewLike_dto>();
 		
 		Integer review_num = Integer.parseInt(request.getParameter("review_num"));
 		
@@ -31,11 +33,13 @@ public class Review_DetailAction implements Light_action {
 		listimg = reviewDetailService.getReviewDetailImg(review_num);
 		listcomment = reviewDetailService.getReviewComment(review_num);
 		listreply = reviewDetailService.getReviewReply(review_num);
+		listLike = reviewDetailService.getReviewLike(review_num);
 		
 		request.setAttribute("listinfo", listinfo);
 		request.setAttribute("listimg", listimg);
 		request.setAttribute("listcomment", listcomment);
 		request.setAttribute("listreply", listreply);
+		request.setAttribute("listLike", listLike);
    		
 		forward = new ActionForward();
 		forward.setRedirect(false);
