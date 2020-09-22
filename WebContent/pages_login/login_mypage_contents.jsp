@@ -215,7 +215,7 @@
 
 		<div class="applyReview">
 			<h1><span class="round"></span>리뷰 게시글 작성</h1>
-			<form action="" method="post">
+			<form action="reviewAllList.bo" method="post">
 				<table>
 					<tr>
 						<th>제품 이름</th>
