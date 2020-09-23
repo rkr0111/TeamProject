@@ -23,7 +23,7 @@
 
 <%
 	String id = (String)session.getAttribute("id");	
-	List<CustomerInfo_dto> customerinfoList = (ArrayList<CustomerInfo_dto>) request.getAttribute("customerinfoList");
+	List<CustomerInfo_dto> customerinfoList = (ArrayList<CustomerInfo_dto>)request.getAttribute("customerinfoList");
 	CustomerInfo_dto customerinfo_dto = new CustomerInfo_dto();
 %>
 	<!-- header -->
