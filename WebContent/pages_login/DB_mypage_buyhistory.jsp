@@ -48,11 +48,13 @@
 	} finally {
 	try {
 		stmt.close();
-	} catch (Exception ignored) {
+	} catch (Exception e) {
+		System.out.println("buyhistory1 : "+e);
 	}
 	try {
 		conn.close();
-	} catch (Exception ignored) {
+	} catch (Exception e) {
+		System.out.println("buyhistory2 : "+e);
 	}
 	}
 %>

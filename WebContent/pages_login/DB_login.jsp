@@ -21,20 +21,12 @@
 			out.println("light 데이터베이스로 연결을 할 수 없습니다.");
 		}
 		stmt = conn.createStatement();
-		ResultSet rs = stmt.executeQuery("select customer_id, customer_pwd, customer_name, customer_addr, customer_phone from customerinfo where customer_id='"+id+"' and customer_pwd='"+pwd+"' ;");
+		ResultSet rs = stmt.executeQuery("select * from light.customerinfo where customer_id='"+id+"' and customer_pwd='"+pwd+"' ;");
 		if(rs.next()) {
 			request.setCharacterEncoding("UTF-8");
 			id = request.getParameter("id");
 			session.setAttribute("id", id);
-			
-			String name = rs.getString(3);
-			session.setAttribute("name", name);
-			String addr = rs.getString(4);
-			session.setAttribute("addr", addr);
-			String phone = rs.getString(5);
-			session.setAttribute("phone", phone);
-			
-			
+		
 			response.sendRedirect("../index.jsp");
 		}
 		else {
