@@ -11,21 +11,21 @@
 	<!-- header -->
 	<header id="page">
 		<div class="header-inner">
-			<div id="logo"><a href="../index.jsp"></a></div>
+			<div id="logo"><a href="index.jsp"></a></div>
 			<nav>
 				<ul class="mainmenu">
-					<li><a href="../productList.bo?product_category=desk">DESK</a></li>
-					<li><a href="../productList.bo?product_category=bedroom">BEDROOM</a></li>
-					<li><a href="../productList.bo?product_category=stand">STAND</a></li>
-					<li><a href="../productList.bo?product_category=point">POINT</a></li>
-					<li><a href="../mdRandomList.bo" class="mdpick">MD PICK</a></li>
-					<li><a href="../reviewAllList.bo">INTERIOR</a></li>
+					<li><a href="../TeamPro/productList.bo?product_category=desk">DESK</a></li>
+					<li><a href="../TeamPro/productList.bo?product_category=bedroom">BEDROOM</a></li>
+					<li><a href="../TeamPro/productList.bo?product_category=stand">STAND</a></li>
+					<li><a href="../TeamPro/productList.bo?product_category=point">POINT</a></li>
+					<li><a href="../TeamPro/mdRandomList.bo" class="mdpick">MD PICK</a></li>
+					<li><a href="../TeamPro/reviewAllList.bo">INTERIOR</a></li>
 					<li>
-						<a href="customer_notice.jsp">CUSTOMER CENTER</a>
+						<a href="../TeamPro/pages_customer/customer_notice.jsp">CUSTOMER CENTER</a>
 						<ul class="submenu">
-							<li><a href="customer_notice.jsp">공지사항</a></li>
-							<li><a href="customer_download.jsp">제품설명서</a></li>
-							<li><a href="customer_offline.jsp">오프라인 매장</a></li>
+							<li><a href="../TeamPro/pages_customer/customer_notice.jsp">공지사항</a></li>
+							<li><a href="customerDownload.bo">제품설명서</a></li>
+							<li><a href="../TeamPro/pages_customer/customer_offline.jsp">오프라인 매장</a></li>
 						</ul>
 					</li>
 				</ul>

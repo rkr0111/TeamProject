@@ -147,10 +147,18 @@ customerContainer
 .customerContents.download
 =====================================================
 */
-.customerContainer .customerContents.download {}
-.customerContainer .customerContents.download .downloadTable {}
+.customerContainer .customerContents.download > h2 {
+	margin-bottom: 20px;
+}
+.customerContainer .customerContents.download .downloadTable h3 {
+	margin-bottom: 7px;
+	font-size: 17px;
+}
 .customerContainer .customerContents.download .downloadTable table {
 	width: 100%;
+}
+.customerContainer .customerContents.download .downloadTable table:not(:last-of-type) {
+	margin-bottom: 20px;
 }
 .customerContainer .customerContents.download .downloadTable tr:first-of-type th {
 	background-color: #f3f3f3;
@@ -169,6 +177,7 @@ customerContainer
 	background: url(../images/icon/download_icon.png) center/cover no-repeat;
 	border: transparent;
 	cursor: pointer;
+	margin: 0 auto;
 }
 
 /*
@@ -176,7 +185,6 @@ customerContainer
 .customerContents.offline
 =====================================================
 */
-.customerContainer .customerContents.offline {}
 .customerContainer .customerContents.offline .mapApiContainer {
 	width: 100%;
 	height: 400px;

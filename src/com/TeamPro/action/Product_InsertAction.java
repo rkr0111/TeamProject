@@ -1,6 +1,7 @@
 package com.TeamPro.action;
 
 import java.io.PrintWriter;
+import java.util.Enumeration;
 
 import javax.servlet.ServletContext;
 import javax.servlet.http.HttpServletRequest;
@@ -29,21 +30,36 @@ public class Product_InsertAction implements Light_action {
 				"UTF-8",
 				new DefaultFileRenamePolicy());
 		
+		// 컬러 ,로 구분
 		String colors[] = multi.getParameterValues("product_color");
 		String proColors = "";
 		for(int i=0; i<colors.length; i++) {
 			proColors += colors[i] + ",";
 		}
 		
+		// file, img file 가져오기
+		Enumeration files=multi.getFileNames();
+		
+		String file1 =(String)files.nextElement();
+		String filename1=multi.getFilesystemName(file1);
+		String origfilename1= multi.getOriginalFileName(file1);
+		
+		String file2 =(String)files.nextElement();
+		String filename2=multi.getFilesystemName(file2);
+		String origfilename2=multi.getOriginalFileName(file2);
+		
+		// set dto
 		prodto = new Product_dto();
 		prodto.setProduct_name(multi.getParameter("product_name"));
 		prodto.setProduct_category(multi.getParameter("product_category"));
 		prodto.setProduct_price(Integer.parseInt(multi.getParameter("product_price")));
 		prodto.setProduct_color(proColors);
-		prodto.setProduct_img(multi.getOriginalFileName((String)multi.getFileNames().nextElement()));
+		prodto.setProduct_file(origfilename1);
+		prodto.setProduct_img(origfilename2);
 		prodto.setProduct_contents(multi.getParameter("product_contents"));
 		prodto.setProduct_weather(multi.getParameter("product_weather"));
 		
+		// service 호출
 		Product_InsertService productInsertService = new Product_InsertService();
 		boolean isInsert = productInsertService.isInsert(prodto);
 		

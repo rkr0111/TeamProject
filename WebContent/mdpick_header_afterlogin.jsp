@@ -24,7 +24,7 @@
 						<a href="../TeamPro/pages_customer/customer_notice.jsp">CUSTOMER CENTER</a>
 						<ul class="submenu">
 							<li><a href="../TeamPro/pages_customer/customer_notice.jsp">공지사항</a></li>
-							<li><a href="../TeamPro/pages_customer/customer_download.jsp">제품설명서</a></li>
+							<li><a href="../TeamPro/customerDownload.bo">제품설명서</a></li>
 							<li><a href="../TeamPro/pages_customer/customer_offline.jsp">오프라인 매장</a></li>
 						</ul>
 					</li>

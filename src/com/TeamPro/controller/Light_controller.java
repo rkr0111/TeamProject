@@ -9,6 +9,8 @@ import javax.servlet.http.HttpServletResponse;
 
 import com.TeamPro.action.Buy_nowListAction;
 import com.TeamPro.action.Buy_nowformAction;
+import com.TeamPro.action.Customer_DownloadAction;
+import com.TeamPro.action.Customer_DownloadFileAction;
 import com.TeamPro.action.Light_action;
 import com.TeamPro.action.MD_randomListAction;
 import com.TeamPro.action.MD_weatherAction;
@@ -132,6 +134,20 @@ public class Light_controller extends javax.servlet.http.HttpServlet {
 			}
 		}else if(command.equals("/reivewLikeUpdate.bo")) { // 0917 dhdbswl 수정
 			action = new Review_likeUpdateAction();
+			try{
+				forward=action.execute(request, response);
+			}catch(Exception e){
+				System.out.println(e);
+			}
+		}else if(command.equals("/customerDownload.bo")) { // 0917 dhdbswl 수정
+			action = new Customer_DownloadAction();
+			try{
+				forward=action.execute(request, response);
+			}catch(Exception e){
+				System.out.println(e);
+			}
+		}else if(command.equals("/customerDownloadfile.bo")) { // 0917 dhdbswl 수정
+			action = new Customer_DownloadFileAction();
 			try{
 				forward=action.execute(request, response);
 			}catch(Exception e){

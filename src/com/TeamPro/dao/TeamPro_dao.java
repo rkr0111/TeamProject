@@ -166,6 +166,13 @@ public class TeamPro_dao {
 		sqlsession.close();
 		return connresultsel;
 	}
+	// 고객센터 - 제품설명서 product 테이블 select - 0923 dhdbswl 수정
+	public List<Product_dto> Conn_select_productlist() {
+		SqlSession sqlsession = sqlfactory.openSession();
+		List<Product_dto> connresultsel= sqlsession.selectList("xml_select");
+		sqlsession.close();
+		return connresultsel; 
+	}
 	
 	//insert - 0731 dhdbswl 수정
 	public int Conn_insert(Product_dto dto) {
