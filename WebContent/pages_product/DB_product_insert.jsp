@@ -26,7 +26,7 @@
 	    font-size: 13px;
     	color: #aaa;
 	}
-	.colorBoxUL {
+	ul {
 	    margin: 0;
 	    padding: 0;
 	    list-style-type: none;
@@ -73,8 +73,26 @@
 				</td>
 			</tr>
 			<tr>
+				<th>파일</th>
+				<td><input type="file" name="product_file" required="required"></td>
+			</tr>
+			<tr>
 				<th>사진</th>
-				<td><input type="file" name="product_img" required="required"></td>
+				<td>
+					<div>
+					<p>썸네일</p>
+						<input type="file" name="product_img" required="required">
+					</div>
+					<div style="margin-top: 10px;">
+						<p>상세 이미지</p>
+						<ul>
+							<li><input type="file" name="product_cntimg"></li>
+							<li><input type="file" name="product_cntimg"></li>
+							<li><input type="file" name="product_cntimg"></li>
+							<li><input type="file" name="product_cntimg"></li>
+						</ul>
+					</div>
+				</td>
 			</tr>
 			<tr>
 				<th>내용</th>

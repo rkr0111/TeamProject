@@ -8,6 +8,7 @@ public class Product_dto {
 	String product_color;
 	String product_file;
 	String product_img;
+	String product_detailimg;
 	String product_contents;
 	String product_weather;
 	
@@ -55,6 +56,12 @@ public class Product_dto {
 	}
 	public void setProduct_img(String product_img) {
 		this.product_img = product_img;
+	}
+	public String getProduct_detailimg() {
+		return product_detailimg;
+	}
+	public void setProduct_detailimg(String product_detailimg) {
+		this.product_detailimg = product_detailimg;
 	}
 	public String getProduct_contents() {
 		return product_contents;

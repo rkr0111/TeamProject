@@ -20,7 +20,7 @@ public class Product_InsertAction implements Light_action {
 		Product_dto prodto = null;
 		String realFolder="";
 		String saveFolder="/product_file";
-		int fileSize=5*1024*1024;
+		int fileSize=100*1024*1024;
 		ServletContext context = request.getServletContext();
 		realFolder=context.getRealPath(saveFolder);
 		
@@ -37,16 +37,47 @@ public class Product_InsertAction implements Light_action {
 			proColors += colors[i] + ",";
 		}
 		
-		// file, img file 가져오기
-		Enumeration files=multi.getFileNames();
+		// file 가져오기
+		Enumeration<String> files = multi.getFileNames();
 		
-		String file1 =(String)files.nextElement();
-		String filename1=multi.getFilesystemName(file1);
-		String origfilename1= multi.getOriginalFileName(file1);
-		
-		String file2 =(String)files.nextElement();
-		String filename2=multi.getFilesystemName(file2);
-		String origfilename2=multi.getOriginalFileName(file2);
+		while (files.hasMoreElements()) {
+			String file = (String)files.nextElement();
+			String filename = multi.getFilesystemName(file);
+			String origfilename = multi.getOriginalFileName(file);
+			
+			// 이미지 썸네일 가져오기
+			String thumbnail = (String)files.nextElement();
+			String thumbnailname = multi.getFilesystemName(thumbnail);
+			String origfilethumbnail = multi.getOriginalFileName(thumbnail);
+			
+			// 상세 이미지들 가져오기
+			String detailimg1 = (String)files.nextElement();
+			String detailimgname1 = multi.getFilesystemName(detailimg1);
+			String origfiledetailimg1 = multi.getOriginalFileName(detailimg1);
+			
+			String detailimg2 = (String)files.nextElement();
+			String detailimgname2 = multi.getFilesystemName(detailimg2);
+			String origfiledetailimg2 = multi.getOriginalFileName(detailimg2);
+			
+			String detailimg3 = (String)files.nextElement();
+			String detailimgname3 = multi.getFilesystemName(detailimg3);
+			String origfiledetailimg3 = multi.getOriginalFileName(detailimg3);
+			
+			String detailimg4 = (String)files.nextElement();
+			String detailimgname4 = multi.getFilesystemName(detailimg4);
+			String origfiledetailimg4 = multi.getOriginalFileName(detailimg4);
+
+			// 상세이미지 ,로 구분
+			String detailimgs = origfiledetailimg1 + "," 
+						+ origfiledetailimg2 + "," 
+						+ origfiledetailimg3 + "," 
+						+ origfiledetailimg4;
+			
+			System.out.println("action detailimgs : " + detailimgs);
+			prodto.setProduct_file(origfilename);
+			prodto.setProduct_img(origfilethumbnail);
+			prodto.setProduct_detailimg(detailimgs);
+		}
 		
 		// set dto
 		prodto = new Product_dto();
@@ -54,8 +85,6 @@ public class Product_InsertAction implements Light_action {
 		prodto.setProduct_category(multi.getParameter("product_category"));
 		prodto.setProduct_price(Integer.parseInt(multi.getParameter("product_price")));
 		prodto.setProduct_color(proColors);
-		prodto.setProduct_file(origfilename1);
-		prodto.setProduct_img(origfilename2);
 		prodto.setProduct_contents(multi.getParameter("product_contents"));
 		prodto.setProduct_weather(multi.getParameter("product_weather"));
 		
