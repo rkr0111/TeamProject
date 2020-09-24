@@ -36,9 +36,9 @@
 				dto.setCustomer_email(rs.getString(3));
 				dto.setCustomer_name(rs.getString(4));
 				dto.setCustomer_birth(rs.getDate(5));
-				dto.setCustomer_post(rs.getString(6));
-				dto.setCustomer_addr(rs.getString(7));
-				dto.setCustomer_phone(rs.getString(8));
+				//dto.setCustomer_post(rs.getString(6));
+				dto.setCustomer_addr(rs.getString(6));
+				dto.setCustomer_phone(rs.getString(7));
 				
 				memeberList.add(dto);
 				

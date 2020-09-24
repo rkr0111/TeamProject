@@ -58,7 +58,7 @@
 
 		<div class="contents">
 			<!-- mypage_contents include -->
-			<jsp:include page="DB_mypage_buyhistory.jsp" />
+			<%-- <jsp:include page="login_mypage_contents.jsp" /> --%>
 		</div>
 	</section>
 
