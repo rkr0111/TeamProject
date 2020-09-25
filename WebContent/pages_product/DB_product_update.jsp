@@ -100,7 +100,7 @@
 			<tr>
 				<th>사진</th>
 				<td>
-					<p>현재 사진 파일명입니다.</p>
+					<p>현재 썸네일</p>
 					<input type="text" name="udt_img" value="<%=connresultsel.get(0).getProduct_img()%>" readonly>
 					<p style="margin-top: 10px;">변경할 사진을 선택하세요.</p>
 					<input type="file" name="udt_img_change">

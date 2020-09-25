@@ -1,7 +1,10 @@
 package com.TeamPro.action;
 
 import java.io.PrintWriter;
+import java.util.ArrayList;
+import java.util.Collections;
 import java.util.Enumeration;
+import java.util.List;
 
 import javax.servlet.ServletContext;
 import javax.servlet.http.HttpServletRequest;
@@ -40,44 +43,69 @@ public class Product_InsertAction implements Light_action {
 		// file 가져오기
 		Enumeration<String> files = multi.getFileNames();
 		
+		String origfilename1 = null;
+		String origfilename2 = null;
+		String origfilename3 = null;
+		String origfilename4 = null;
+		String origfilename5 = null;
+		
 		while (files.hasMoreElements()) {
-			String file = (String)files.nextElement();
-			String filename = multi.getFilesystemName(file);
-			String origfilename = multi.getOriginalFileName(file);
+			List<String> list = new ArrayList<String>();
+
+			for(int i=0; i<5; i++) {
+				list.add((String)files.nextElement());
+			}
+			System.out.println("action list.size() : " + list.size());
+			for(int i=list.size()-1; i>0; i--) {
+				System.out.println("action list : " + list.get(i));
+			}
 			
-			// 이미지 썸네일 가져오기
-			String thumbnail = (String)files.nextElement();
-			String thumbnailname = multi.getFilesystemName(thumbnail);
-			String origfilethumbnail = multi.getOriginalFileName(thumbnail);
+			String file1 = list.get(4);
+			String file2 = list.get(3);
+			String file3 = list.get(2);
+			String file4 = list.get(1);
+			String file5 = list.get(0);
+			
+			if(file1 != null) {
+	 			// 파일 가져오기
+				String filename1 = multi.getFilesystemName(file1);
+				origfilename1 = multi.getOriginalFileName(file1);
+			}
+			if(file2 != null) {				
+				// 이미지 썸네일 가져오기
+				String filename2 = multi.getFilesystemName(file2);
+				origfilename2 = multi.getOriginalFileName(file2);
+			}
 			
 			// 상세 이미지들 가져오기
-			String detailimg1 = (String)files.nextElement();
-			String detailimgname1 = multi.getFilesystemName(detailimg1);
-			String origfiledetailimg1 = multi.getOriginalFileName(detailimg1);
-			
-			String detailimg2 = (String)files.nextElement();
-			String detailimgname2 = multi.getFilesystemName(detailimg2);
-			String origfiledetailimg2 = multi.getOriginalFileName(detailimg2);
-			
-			String detailimg3 = (String)files.nextElement();
-			String detailimgname3 = multi.getFilesystemName(detailimg3);
-			String origfiledetailimg3 = multi.getOriginalFileName(detailimg3);
-			
-			String detailimg4 = (String)files.nextElement();
-			String detailimgname4 = multi.getFilesystemName(detailimg4);
-			String origfiledetailimg4 = multi.getOriginalFileName(detailimg4);
+			if(file3 != null) {
+				String filename3 = multi.getFilesystemName(file3);
+				origfilename3 = multi.getOriginalFileName(file3);
+			}
+			if(file4 != null) {
+				String filename4 = multi.getFilesystemName(file4);
+				origfilename4 = multi.getOriginalFileName(file4);
+			}
+			if(file5 != null) {
+				String filename5 = multi.getFilesystemName(file5);
+				origfilename5 = multi.getOriginalFileName(file5);
+			}
 
-			// 상세이미지 ,로 구분
-			String detailimgs = origfiledetailimg1 + "," 
-						+ origfiledetailimg2 + "," 
-						+ origfiledetailimg3 + "," 
-						+ origfiledetailimg4;
-			
-			System.out.println("action detailimgs : " + detailimgs);
-			prodto.setProduct_file(origfilename);
-			prodto.setProduct_img(origfilethumbnail);
-			prodto.setProduct_detailimg(detailimgs);
+			System.out.println("--------------------------------------");
+			System.out.println("action file : " + origfilename1);
+			System.out.println("action thumbnail : " + origfilename2);
+			System.out.println("action detailimg1 : " + origfilename3);
+			System.out.println("action detailimg2 : " + origfilename4);
+			System.out.println("action detailimg3 : " + origfilename5);
 		}
+
+		// 상세이미지 ,로 구분
+		String detailimgs = origfilename3 + "," 
+					+ origfilename4 + "," 
+					+ origfilename5;
+
+		System.out.println("--------------------------------------");
+		System.out.println("action detailimgs : " + detailimgs);		
 		
 		// set dto
 		prodto = new Product_dto();
@@ -85,12 +113,23 @@ public class Product_InsertAction implements Light_action {
 		prodto.setProduct_category(multi.getParameter("product_category"));
 		prodto.setProduct_price(Integer.parseInt(multi.getParameter("product_price")));
 		prodto.setProduct_color(proColors);
+		prodto.setProduct_file(origfilename1);
+		prodto.setProduct_img(origfilename2);
+		prodto.setProduct_detailimg(detailimgs);
 		prodto.setProduct_contents(multi.getParameter("product_contents"));
 		prodto.setProduct_weather(multi.getParameter("product_weather"));
+		
+		System.out.println("--------------------------------------");
+		System.out.println("action prodto : " + prodto.getProduct_file());
+		System.out.println("action prodto : " + prodto.getProduct_img());
+		System.out.println("action prodto : " + prodto.getProduct_detailimg());
 		
 		// service 호출
 		Product_InsertService productInsertService = new Product_InsertService();
 		boolean isInsert = productInsertService.isInsert(prodto);
+		
+		System.out.println("--------------------------------------");
+		System.out.println("action isInsert : " + isInsert);
 		
 		if(!isInsert){
 			response.setContentType("text/html;charset=UTF-8");
@@ -102,6 +141,10 @@ public class Product_InsertAction implements Light_action {
 		else{
 			request.setAttribute("product_name", multi.getParameter("product_name"));
 			String product_name = (String) request.getAttribute("product_name");
+			
+			System.out.println("--------------------------------------");
+			System.out.println("action product_name : " + product_name);
+			
 			forward = new ActionForward();
 			forward.setRedirect(true);
 			forward.setPath("productList.bo?product_category="+prodto.getProduct_category());

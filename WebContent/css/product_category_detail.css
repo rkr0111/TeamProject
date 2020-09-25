@@ -227,6 +227,9 @@ detailContainer
 .detailContainer .detailImg img {
 	width: 100%;
 }
+.detailContainer .detailImg img:not(:last-of-type) {
+	margin-bottom: 10px;
+}
 
 /*detailDelInfo*/
 .detailContainer .detailDelInfo {

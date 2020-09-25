@@ -23,6 +23,7 @@ public class Product_DetailService {
 		dto.setProduct_color(detailSelect.get(0).getProduct_color());
 		dto.setProduct_file(detailSelect.get(0).getProduct_file());
 		dto.setProduct_img(detailSelect.get(0).getProduct_img());
+		dto.setProduct_detailimg(detailSelect.get(0).getProduct_detailimg());
 		dto.setProduct_contents(detailSelect.get(0).getProduct_contents());
 		list.add(dto);
 		

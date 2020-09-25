@@ -74,22 +74,21 @@
 			</tr>
 			<tr>
 				<th>파일</th>
-				<td><input type="file" name="product_file" required="required"></td>
+				<td><input type="file" name="product_file1" required="required"></td>
 			</tr>
 			<tr>
 				<th>사진</th>
 				<td>
 					<div>
 					<p>썸네일</p>
-						<input type="file" name="product_img" required="required">
+						<input type="file" name="product_file2" required="required">
 					</div>
 					<div style="margin-top: 10px;">
 						<p>상세 이미지</p>
 						<ul>
-							<li><input type="file" name="product_cntimg"></li>
-							<li><input type="file" name="product_cntimg"></li>
-							<li><input type="file" name="product_cntimg"></li>
-							<li><input type="file" name="product_cntimg"></li>
+							<li><input type="file" name="product_file3"></li>
+							<li><input type="file" name="product_file4"></li>
+							<li><input type="file" name="product_file5"></li>
 						</ul>
 					</div>
 				</td>

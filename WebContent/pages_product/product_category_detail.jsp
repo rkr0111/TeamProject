@@ -120,7 +120,14 @@ int product_price = isDetailSuccess.get(0).getProduct_price();
 			</div>
 			<!-- 상품 상세 -->
 			<div class="detailImg">
-				<img src="images/product_img/<%out.print(isDetailSuccess.get(0).getProduct_category());%>/<%out.print(isDetailSuccess.get(0).getProduct_img());%>">
+				<img src="images/product_img/<%=isDetailSuccess.get(0).getProduct_category()%>/<%=isDetailSuccess.get(0).getProduct_img()%>">
+				<%
+				String[] imgidx = isDetailSuccess.get(0).getProduct_detailimg().split(",");
+				for(int i=0; i<imgidx.length; i++) {
+				if(!imgidx[i].equals("null")) {
+				%>
+				<img src="images/product_img/<%=isDetailSuccess.get(0).getProduct_category()%>/<%=imgidx[i]%>">
+				<%}}%>
 			</div>
 			<!-- 배송/교환·환불 안내 -->
 			<div class="detailDelInfo">
