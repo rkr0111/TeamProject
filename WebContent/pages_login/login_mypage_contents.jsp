@@ -9,21 +9,21 @@
 <%@page import="com.TeamPro.dto.Cart_dto"%>
 <%@page import="com.TeamPro.dto.Interior_dto"%>
 <%@page import="java.util.*"%>
-
+<!-- 
 <!DOCTYPE html>
 <html lang="ko">
 <head>
 	<meta charset="utf-8">
-	<title>마이페이지</title>	
+	<title></title>	
 	<link rel="stylesheet" type="text/css" href="../css/reset.css">
 	<link rel="stylesheet" type="text/css" href="../css/common.css">
 	<link rel="stylesheet" type="text/css" href="../css/allStyle.css">
 	<link rel="stylesheet" type="text/css" href="../css/font.css">
 	<link rel="stylesheet" type="text/css" href="../css/login_mypage.css">
 
-	<!-- jQuery cdn -->
+	jQuery cdn
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
-<title></title>
+<title></title> -->
 
 <script type="text/javascript">
 	function cartBtnDetail(param) {

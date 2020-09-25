@@ -46,10 +46,10 @@
 			}
 			while(rs.next());
 			
-			RequestDispatcher dispatcher = request.getRequestDispatcher("login_mypage_member.jsp");
+			RequestDispatcher dispatcher = request.getRequestDispatcher("login_mypage.jsp");
 			dispatcher.forward(request, response);
 		}else {
-			RequestDispatcher dispatcher = request.getRequestDispatcher("login_mypage_member.jsp");
+			RequestDispatcher dispatcher = request.getRequestDispatcher("login_mypage.jsp");
 			dispatcher.forward(request, response);   
 		}
 	} finally {
