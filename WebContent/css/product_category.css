@@ -146,6 +146,7 @@
 	color: #565656;
 	font-size: 40px;
 	font-weight: bold;
+	z-index: 1;
 
 	transform: translateX(100%);
 	-webkit-transform: translateX(100%);

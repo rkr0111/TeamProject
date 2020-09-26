@@ -73,7 +73,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	</insert>
 	
 	<update id="xml_update" parameterType="xmlDto">
-		update light.product set product_name=#{product_name}, product_category=#{product_category}, product_price=#{product_price}, product_color=#{product_color}, product_img=#{product_img}, product_contents=#{product_contents} where product_name=#{check};  
+		update light.product set product_name=#{product_name}, product_category=#{product_category}, product_price=#{product_price}, product_color=#{product_color}, product_file=#{product_file}, product_img=#{product_img}, product_detailimg=#{product_detailimg}, product_contents=#{product_contents} where product_name=#{check};  
 	</update>
 	<update id="update_reviewlike" parameterType="reviewLike">
 		update light.reviewlike set like_check=#{like_check} where reviewboard_num=#{reviewboard_num} and like_id=#{like_id};

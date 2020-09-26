@@ -52,8 +52,10 @@
 		
 		dto.setProduct_name(request.getParameter("product_name"));
 		List<Product_dto> connresultsel= sqlsession.selectList("xml_select_name", dto);
+		sqlsession.close();
 		
 		String[] idx = connresultsel.get(0).getProduct_color().split(",");
+		String[] imgidx = connresultsel.get(0).getProduct_detailimg().split(",");
 	%>
 
 	<h1>상품 수정하기<br/>============</h1>
@@ -98,12 +100,27 @@
 				</td>
 			</tr>
 			<tr>
+				<th>파일</th>
+				<td>
+					<p>현재 파일</p>
+					<input type="text" name="udt_file" value="<%=connresultsel.get(0).getProduct_file()%>" readonly>
+					<p style="margin-top: 10px;">변경할 파일을 선택하세요.</p>
+					<input type="file" name="udt_change_file1">
+				</td>
+			</tr>
+			<tr>
 				<th>사진</th>
 				<td>
 					<p>현재 썸네일</p>
 					<input type="text" name="udt_img" value="<%=connresultsel.get(0).getProduct_img()%>" readonly>
-					<p style="margin-top: 10px;">변경할 사진을 선택하세요.</p>
-					<input type="file" name="udt_img_change">
+					<p>변경할 사진을 선택하세요.</p>
+					<input type="file" name="udt_change_file2">
+					<p style="margin-top: 10px;">상세 이미지</p>
+					<%for(int i=0; i<imgidx.length; i++) {%>
+					<input type="text" name="udt_detailimg<%=i+1%>" value="<%=imgidx[i]%>" readonly>
+					<p>변경할 사진을 선택하세요.</p>
+					<input type="file" name="udt_change_file<%=i+3%>"><br/>
+					<%}%>
 				</td>
 			</tr>
 			<tr>
