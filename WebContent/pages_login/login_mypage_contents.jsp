@@ -8,6 +8,7 @@
 <%@page import="com.TeamPro.dto.Product_dto"%>
 <%@page import="com.TeamPro.dto.Cart_dto"%>
 <%@page import="com.TeamPro.dto.Interior_dto"%>
+<%@page import="com.TeamPro.dto.CustomerInfo_dto"%>
 <%@page import="java.util.*"%>
 <!-- 
 <!DOCTYPE html>
@@ -34,7 +35,7 @@
 			$(".none").removeClass('none');
 		});
 	});
-
+	
 	// 1.모두 체크
 	function allChk(obj){
 		var chkObj = document.getElementsByName("RowCheck");
@@ -82,7 +83,21 @@
 	  		document.userForm.execute.value = "userDel";
 	     	document.userForm.submit();
 	    }
-	}﻿
+	}
+	
+	// 개인정보수정 -> 비밀번호 일치 시 개인정보 수정 페이지로 이동
+	function infoUpdateLink() {
+		if(memberList.get(0).getCustomer_pwd().equals("memberPwd")) {
+			location.href="login_infoUpdate.jsp";
+		}else {
+			alert("비밀번호가 맞지 않습니다.");
+		}
+	}	
+	$(function() {
+		$(".infoUpdateLink").click(function() {
+			$(".none").removeClass('none');
+		});
+	});﻿
 </script>
 
 </head>
@@ -93,6 +108,7 @@
 	ArrayList<Interior_dto> reviewList = (ArrayList<Interior_dto>) request.getAttribute("reviewList");
 	ArrayList<Cart_dto> cartList = (ArrayList<Cart_dto>) request.getAttribute("cartList");
 	ArrayList<Buyhistory_dto> applyASlist = (ArrayList<Buyhistory_dto>) request.getAttribute("applyASlist");
+	ArrayList<CustomerInfo_dto> memberList = (ArrayList<CustomerInfo_dto>) request.getAttribute("memberList");
 
 	String mypageCategory = request.getParameter("mypageCategory");
 %>
@@ -131,6 +147,11 @@
 				</li>
 				<li id="as">
 					<a href="DB_mypage_applyAS.jsp">A/S 문의내역
+						<p>&gt;</p>
+					</a>
+				</li>
+				<li id="memberInfo">
+					<a href="DB_mypage_member.jsp">개인정보수정
 						<p>&gt;</p>
 					</a>
 				</li>
@@ -202,6 +223,11 @@
 				</li>
 				<li id="as">
 					<a href="DB_mypage_applyAS.jsp">A/S 문의내역
+						<p>&gt;</p>
+					</a>
+				</li>
+				<li id="memberInfo">
+					<a href="DB_mypage_member.jsp">개인정보수정
 						<p>&gt;</p>
 					</a>
 				</li>
@@ -289,6 +315,11 @@
 						<p>&gt;</p>
 					</a>
 				</li>
+				<li id="memberInfo">
+					<a href="DB_mypage_member.jsp">개인정보수정
+						<p>&gt;</p>
+					</a>
+				</li>
 			</ul>
 		</aside>
 	</div>
@@ -371,6 +402,11 @@
 						<p>&gt;</p>
 					</a>
 				</li>
+				<li id="memberInfo">
+					<a href="DB_mypage_member.jsp">개인정보수정
+						<p>&gt;</p>
+					</a>
+				</li>
 			</ul>
 		</aside>
 	</div>
@@ -404,7 +440,60 @@
 		</div>
 		<%}} else {%>
 			<p>A/S 문의 내역이 없습니다.</p>
-		<%}} %>
+		<%} %>
+	</div>
+	
+<!-- 개인정보수정 -->
+	<%}else if(mypageCategory.equals("개인정보수정")) { %>
+	<div class="mypageAsideTitle">
+		<h3>마이페이지</h3>
+		<aside class="mypageAside">
+			<ul>
+				<li id="orderHistory">						
+					<a href="DB_mypage_buyhistory.jsp">구매내역
+						<p>&gt;</p>
+					</a>
+				</li>
+				<li id="review" class="bg">
+					<a href="DB_mypage_review.jsp">리뷰작성
+						<p>&gt;</p>
+					</a>
+				</li>
+				<li id="cart">
+					<a href="DB_mypage_cart.jsp">장바구니
+						<p>&gt;</p>
+					</a>
+				</li>
+				<li id="question">
+					<a href="">1:1 문의
+						<p>&gt;</p>
+					</a>
+				</li>
+				<li id="as">
+					<a href="DB_mypage_applyAS.jsp">A/S 문의내역
+						<p>&gt;</p>
+					</a>
+				</li>
+				<li id="memberInfo">
+					<a href="DB_mypage_member.jsp">개인정보수정
+						<p>&gt;</p>
+					</a>
+				</li>
+			</ul>
+		</aside>
+	</div>
+	<div class="contentsOrder">
+		<%if(memberList != null) { %>
+		<div class="contentMember">
+			<ul>
+				<li>정보 확인을 위해 비밀번호를 입력해주세요.</li>
+				<li><input type="password" name="checkPwd" /></li>
+			</ul>ㄴ
+			<input type="button" value="확인" class="memberInfoBtn" onclick="infoUpdateLink" />
+		</div>
+		<%} else {%>
+			잘못된 접근입니다. 로그인을 다시 해주세요.
+		<%}}%>			
 	</div>
 </body>
 </html>

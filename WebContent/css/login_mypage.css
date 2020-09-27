@@ -9,86 +9,9 @@
 .member{
 	margin-bottom: 70px;
     height: 250px;
-    background-color: #ceb598;
+    background-color: #e8e8e8;
     display: flex;
 }
-.member >div {
-	margin: 0 auto;
-    width: 1200px;
-    display: flex;
-    align-items: center;
-}
-.member >ul {
-	display: inline-flex;
-    justify-content: center;
-}
-.member >ul:nth-of-type(2n+1) {
-	clear: both;
-}
-/*memberId*/
-.memberId {
-    display: flex;
-    align-items: center;
-    vertical-align: top;
-    width: 35%;
-    height: 150px;
-    margin-right: 20px;
-    background-color: white;
-    padding: 30px;
-    box-sizing: border-box;
-    border-radius: 15px;
-}
-.memberId > div {
-    margin-right: 15px;
-}
-.memberId img {
-    width: 70px;
-    height: 70px;
-}
-.memberId > ul > li {
-    font-size: 1em;
-    font-weight: bold;
-}
-/*memberInfo*/
-.memberInfo {
-    position: relative;
-    display: flex;
-    align-items: center;
-    width: 61.5%;
-    height: 150px;
-    background-color: white;
-    padding: 20px;
-    box-sizing: border-box;
-    border-radius: 15px;
-}
-.memberInfo li:not(:last-of-type) {
-    margin-bottom: 20px;
-}
-.memberInfo li {
-    display: flex;
-}
-.memberInfo ul li p:nth-of-type(1) {
-    font-size: 0.9em;
-    font-weight: bold;
-}
-.memberInfo ul li p:nth-of-type(2) {
-    margin-left: 10px;
-    font-size: 0.9em;
-}
-/*info_update*/
-.info_update {
-    font-size: 0.8em;
-    position: absolute;
-    top: 20px;
-    right: 20px;
-    padding: 0 3px 3px;
-    border-bottom: 1px solid #7f7f7f;
-    color: #7f7f7f;
-}
-.info_update a {
-	color: black;
-}
-
 /* class = recentNav ------------------------------*/
 .recentNav {
     width: 7%;
@@ -710,4 +633,41 @@ mypage_contents->as
     width: 165PX;
     height: 60PX;
     cursor: pointer;
+}
+
+/*
+
+mypage_contents->개인정보수정
+
+*/
+/* contentMember */
+.contentMember {
+    float: right;
+    width: 910px;
+    padding-bottom: 20px;
+}
+.contentMember ul {
+    font-style: 0.9em;
+}
+.contentMember ul li:first-of-type {
+    text-align: center;
+    margin-top: 50px;
+}
+.contentMember ul li:last-of-type {
+    text-align: center;
+    margin-top: 20px;
+}
+.contentMember input[type=password] {
+    border: 2px solid ;
+    font-weight: bold;
+}
+/*memberInfoBtn*/
+.memberInfoBtn {
+    margin: 20px 0 0 415px;
+    background-color: #fff;
+    border: 2px solid #ceb598;
+    color: #ceb598;
+    font-weight: bold;
+    width: 80PX;
+    height: 40PX;
 }

@@ -44,7 +44,8 @@
 	<section id="wrap">
 		<div class="member">
 			<!-- mypage_member include -->
-			<jsp:include page="login_mypage_member.jsp" />
+			<%-- <jsp:include page="login_mypage_member.jsp" /> --%>
+			My Page
 		</div>
 		
 		<nav class="recentNav">

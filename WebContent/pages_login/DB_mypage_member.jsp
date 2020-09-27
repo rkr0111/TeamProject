@@ -1,15 +1,14 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
-<%request.setCharacterEncoding("utf-8");%>
-
-<%@page import="org.apache.ibatis.session.SqlSessionFactory"%>
-<%@page import="org.apache.ibatis.session.SqlSession"%>
-
+<%-- <%@page import="org.apache.ibatis.session.SqlSessionFactory"%>
+<%@page import="org.apache.ibatis.session.SqlSession"%> --%>
 <%@page import="com.TeamPro.dto.CustomerInfo_dto"%>
 <%@page import="java.sql.*"%>
 <%@page import="java.util.*"%>
 
 <% 
+	request.setCharacterEncoding("utf-8");
 	String id = (String)session.getAttribute("id");
+	String mypageCategory = "개인정보수정";
 	
 	if (id== null) {
 		throw new Exception("로그인을 해주세요.");
@@ -26,7 +25,7 @@
 		ResultSet rs = stmt.executeQuery("select * from light.customerinfo where customer_id='"+id+"';");
 		
 		if(rs.next()) {
-			ArrayList<Object> memeberList = new ArrayList<Object>();
+			ArrayList<CustomerInfo_dto> memberList = new ArrayList<CustomerInfo_dto>();
 			
 			do {
 				CustomerInfo_dto dto = new CustomerInfo_dto();
@@ -40,16 +39,16 @@
 				dto.setCustomer_addr(rs.getString(6));
 				dto.setCustomer_phone(rs.getString(7));
 				
-				memeberList.add(dto);
+				memberList.add(dto);
 				
-				request.setAttribute("memeberList", memeberList);
+				request.setAttribute("memberList", memberList);
 			}
 			while(rs.next());
 			
-			RequestDispatcher dispatcher = request.getRequestDispatcher("login_mypage.jsp");
+			RequestDispatcher dispatcher = request.getRequestDispatcher("login_mypage.jsp?mypageCategory="+mypageCategory);
 			dispatcher.forward(request, response);
 		}else {
-			RequestDispatcher dispatcher = request.getRequestDispatcher("login_mypage.jsp");
+			RequestDispatcher dispatcher = request.getRequestDispatcher("login_mypage.jsp?mypageCategory="+mypageCategory);
 			dispatcher.forward(request, response);   
 		}
 	} finally {
