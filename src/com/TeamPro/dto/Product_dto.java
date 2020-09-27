@@ -17,8 +17,6 @@ public class Product_dto {
 	
 	String check;
 	int startrow;
-	String selected_opt;
-	String orderby_text;
 	
 	public int getStartrow() {
 		return startrow;
@@ -92,17 +90,5 @@ public class Product_dto {
 	}
 	public void setCheck(String check) {
 		this.check = check;
-	}
-	public String getSelected_opt() {
-		return selected_opt;
-	}
-	public void setSelected_opt(String selected_opt) {
-		this.selected_opt = selected_opt;
-	}
-	public String getOrderby_text() {
-		return orderby_text;
-	}
-	public void setOrderby_text(String orderby_text) {
-		this.orderby_text = orderby_text;
 	}
 }
