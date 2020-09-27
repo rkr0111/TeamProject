@@ -22,13 +22,22 @@ public class Product_ListAction implements Light_action {
 		Product_ListService productListService = new Product_ListService();
 		
 		String product_category = request.getParameter("product_category");
-		
+		String selected_opt = request.getParameter("selected_opt");
 		if(request.getParameter("page")!=null){
 			page=Integer.parseInt(request.getParameter("page"));
 		}
 		
+		if(selected_opt == null){
+			productList = productListService.getProductList(page, limit, product_category);
+		}else if(selected_opt.equals("sort-new")){
+			productList = productListService.getProductListSortNew(page, limit, product_category);
+		}else if(selected_opt.equals("sort-asc")){
+			productList = productListService.getProductListSortASC(page, limit, product_category);
+		}else if(selected_opt.equals("sort-desc")){
+			productList = productListService.getProductListSortDESC(page, limit, product_category);
+		}
+		
 		int listCount = productListService.getListCount(product_category);
-		productList = productListService.getProductList(page, limit, product_category);
 		
 		//총 페이지 수.
    		int maxPage=(int)((double)listCount / limit + 0.95); //0.95를 더해서 올림 처리.

@@ -49,6 +49,39 @@ public class TeamPro_dao {
 		sqlsession.close();
 		return connresultsel;
 	}
+	// select product list sort new  - 0927 dhdbswl 수정
+	public List<Product_dto> Conn_select_proListSortNew(int page, int limit, String product_category) {
+		int startrow = (page-1)*5;
+		Product_dto prodto = new Product_dto();
+		prodto.setProduct_category(product_category);
+		prodto.setStartrow(startrow);
+		SqlSession sqlsession = sqlfactory.openSession();
+		List<Product_dto> connresultsel= sqlsession.selectList("xml_select_list", prodto);
+		sqlsession.close();
+		return connresultsel;
+	}
+	// select product list sort price asc  - 0927 dhdbswl 수정
+	public List<Product_dto> Conn_select_proListSortASC(int page, int limit, String product_category) {
+		int startrow = (page-1)*5;
+		Product_dto prodto = new Product_dto();
+		prodto.setProduct_category(product_category);
+		prodto.setStartrow(startrow);
+		SqlSession sqlsession = sqlfactory.openSession();
+		List<Product_dto> connresultsel= sqlsession.selectList("xml_select_ListSortASC", prodto);
+		sqlsession.close();
+		return connresultsel;
+	}
+	// select product list sort price DESC  - 0927 dhdbswl 수정
+	public List<Product_dto> Conn_select_proListSortDESC(int page, int limit, String product_category) {
+		int startrow = (page-1)*5;
+		Product_dto prodto = new Product_dto();
+		prodto.setProduct_category(product_category);
+		prodto.setStartrow(startrow);
+		SqlSession sqlsession = sqlfactory.openSession();
+		List<Product_dto> connresultsel= sqlsession.selectList("xml_select_ListSortDESC", prodto);
+		sqlsession.close();
+		return connresultsel;
+	}
 	// select_ListCount - 0730 dhdbswl 수정
 	public int select_ListCount(String product_category) {
 		int listCount = 0;

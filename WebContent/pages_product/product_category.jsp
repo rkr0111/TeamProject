@@ -66,10 +66,11 @@
 			<ul>
 				<li class="product-count">총 <span class="ml_6"><%=pageInfo.getListCount()%></span>개의 상품</li>
 				<li>
-					<select name="viewsort" size="1" onchange="listSorted()">
-						<option name="date-new" value="신상품순">신상품순</option>
-						<option name="price-asc" value="낮은가격순">낮은가격순</option>
-						<option name="price-desc" value="높은가격순">높은가격순</option>
+					<select name="viewsort" size="1" onchange="listSorted('<%=productList.get(0).getProduct_category()%>')">
+						<option name="selected-sort">정렬선택</option>
+						<option name="sort-new" value="sort-new">신상품순</option>
+						<option name="sort-asc" value="sort-asc">낮은가격순</option>
+						<option name="sort-desc" value="sort-desc">높은가격순</option>
 					</select>
 				</li>
 			</ul>

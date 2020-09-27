@@ -1,5 +1,7 @@
 package com.TeamPro.dto;
 
+import java.sql.Date;
+
 public class Product_dto {
 	
 	String product_name;
@@ -11,9 +13,12 @@ public class Product_dto {
 	String product_detailimg;
 	String product_contents;
 	String product_weather;
+	Date product_date;
 	
 	String check;
 	int startrow;
+	String selected_opt;
+	String orderby_text;
 	
 	public int getStartrow() {
 		return startrow;
@@ -74,6 +79,12 @@ public class Product_dto {
 	}
 	public void setProduct_weather(String product_weather) {
 		this.product_weather = product_weather;
+	}	
+	public Date getProduct_date() {
+		return product_date;
+	}
+	public void setProduct_date(Date product_date) {
+		this.product_date = product_date;
 	}
 	
 	public String getCheck() {
@@ -81,5 +92,17 @@ public class Product_dto {
 	}
 	public void setCheck(String check) {
 		this.check = check;
+	}
+	public String getSelected_opt() {
+		return selected_opt;
+	}
+	public void setSelected_opt(String selected_opt) {
+		this.selected_opt = selected_opt;
+	}
+	public String getOrderby_text() {
+		return orderby_text;
+	}
+	public void setOrderby_text(String orderby_text) {
+		this.orderby_text = orderby_text;
 	}
 }
