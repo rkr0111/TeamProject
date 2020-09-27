@@ -55,10 +55,6 @@ public class Product_InsertAction implements Light_action {
 			for(int i=0; i<5; i++) {
 				list.add((String)files.nextElement());
 			}
-			System.out.println("action list.size() : " + list.size());
-			for(int i=list.size()-1; i>0; i--) {
-				System.out.println("action list : " + list.get(i));
-			}
 			
 			String file1 = list.get(4);
 			String file2 = list.get(3);
@@ -90,22 +86,12 @@ public class Product_InsertAction implements Light_action {
 				String filename5 = multi.getFilesystemName(file5);
 				origfilename5 = multi.getOriginalFileName(file5);
 			}
-
-			System.out.println("--------------------------------------");
-			System.out.println("action file : " + origfilename1);
-			System.out.println("action thumbnail : " + origfilename2);
-			System.out.println("action detailimg1 : " + origfilename3);
-			System.out.println("action detailimg2 : " + origfilename4);
-			System.out.println("action detailimg3 : " + origfilename5);
 		}
 
 		// 상세이미지 ,로 구분
 		String detailimgs = origfilename3 + "," 
 					+ origfilename4 + "," 
-					+ origfilename5;
-
-		System.out.println("--------------------------------------");
-		System.out.println("action detailimgs : " + detailimgs);		
+					+ origfilename5;	
 		
 		// set dto
 		prodto = new Product_dto();
@@ -119,17 +105,9 @@ public class Product_InsertAction implements Light_action {
 		prodto.setProduct_contents(multi.getParameter("product_contents"));
 		prodto.setProduct_weather(multi.getParameter("product_weather"));
 		
-		System.out.println("--------------------------------------");
-		System.out.println("action prodto : " + prodto.getProduct_file());
-		System.out.println("action prodto : " + prodto.getProduct_img());
-		System.out.println("action prodto : " + prodto.getProduct_detailimg());
-		
 		// service 호출
 		Product_InsertService productInsertService = new Product_InsertService();
 		boolean isInsert = productInsertService.isInsert(prodto);
-		
-		System.out.println("--------------------------------------");
-		System.out.println("action isInsert : " + isInsert);
 		
 		if(!isInsert){
 			response.setContentType("text/html;charset=UTF-8");
@@ -141,9 +119,6 @@ public class Product_InsertAction implements Light_action {
 		else{
 			request.setAttribute("product_name", multi.getParameter("product_name"));
 			String product_name = (String) request.getAttribute("product_name");
-			
-			System.out.println("--------------------------------------");
-			System.out.println("action product_name : " + product_name);
 			
 			forward = new ActionForward();
 			forward.setRedirect(true);

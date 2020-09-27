@@ -66,11 +66,10 @@
 			<ul>
 				<li class="product-count">총 <span class="ml_6"><%=pageInfo.getListCount()%></span>개의 상품</li>
 				<li>
-					<select name="viewsort" size="1">
+					<select name="viewsort" size="1" onchange="listSorted()">
 						<option name="date-new" value="신상품순">신상품순</option>
-						<option name="puplar" value="인기상품순">인기상품순</option>
-						<option name="price-desc" value="낮은가격순">낮은가격순</option>
-						<option name="price-asc" value="높은가격순">높은가격순</option>
+						<option name="price-asc" value="낮은가격순">낮은가격순</option>
+						<option name="price-desc" value="높은가격순">높은가격순</option>
 					</select>
 				</li>
 			</ul>
@@ -145,7 +144,8 @@
 	<jsp:include page="../footer.jsp" /> <!-- footer end -->
 
 	<!-- script -->
-	<script type="text/javascript" src="js/scroll.js"></script>	
+	<script type="text/javascript" src="js/scroll.js"></script>
+	<script type="text/javascript" src="js/product_category.js"></script>
 	
 </body>
 </html>

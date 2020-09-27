@@ -60,13 +60,6 @@ public class Product_UpdateAction implements Light_action {
 			String file3 = list.get(0);
 			String file4 = list.get(4);
 			String file5 = list.get(3);
-
-			System.out.println("--------------------------------------");
-			System.out.println("action file1 : " + file1);
-			System.out.println("action file2 : " + file2);
-			System.out.println("action file3 : " + file3);
-			System.out.println("action file4 : " + file4);
-			System.out.println("action file5 : " + file5);
 			
 			if(file1 != null) {
 	 			// 파일 가져오기
@@ -82,8 +75,6 @@ public class Product_UpdateAction implements Light_action {
 			}else {
 				origfilename2 = multi.getParameter("udt_img");
 			}
-			System.out.println("--------------------------------------");
-			System.out.println("action 썸네일 : " + origfilename2);
 			
 			// 상세 이미지들 가져오기
 			if(file3 != null) {
@@ -104,13 +95,6 @@ public class Product_UpdateAction implements Light_action {
 			}else {
 				origfilename5 = multi.getParameter("udt_detailimg3");
 			}
-
-			System.out.println("--------------------------------------");
-			System.out.println("action file : " + origfilename1);
-			System.out.println("action thumbnail : " + origfilename2);
-			System.out.println("action detailimg1 : " + origfilename3);
-			System.out.println("action detailimg2 : " + origfilename4);
-			System.out.println("action detailimg3 : " + origfilename5);
 		}
 
 		// 상세이미지 ,로 구분

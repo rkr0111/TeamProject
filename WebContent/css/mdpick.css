@@ -156,6 +156,17 @@ pickContainer
 .pickContainer .pickContents .contentsItems.today .detailBtn {
 	text-align: center;
 }
+.pickContainer .pickContents.today .imgBox {
+	overflow: hidden;
+    height: 700px;
+    position: relative;
+}
+.pickContainer .pickContents.today .imgBox img {
+	position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
 
 /*
 ===================================================================
@@ -230,6 +241,13 @@ pickContainer
 	width: 30%;
 	height: 200px;
     overflow: hidden;
+    position: relative;
+}
+.pickContainer .pickContents.weather .weatherPickCon > li .imgBox img {
+	position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);	
 }
 .pickContainer .pickContents.weather .weatherPickCon > li .contentsItems {
 	width: 70%;
