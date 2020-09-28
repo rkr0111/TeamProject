@@ -411,13 +411,14 @@
 	</div>
 	<div class="contentsOrder">
 		<%if(memberList != null) { %>
-		<div class="contentMember">
+		<!-- <div class="contentMember">
 			<ul>
 				<li>정보 확인을 위해 비밀번호를 입력해주세요.</li>
 				<li><input type="password" name="checkPwd" id="checkPwd" /></li>
 			</ul>
 			<input type="button" value="확인" class="memberInfoBtn" onclick="check()" />
-		</div>
+		</div> -->
+		<jsp:include page="selectMemberList.jsp" />
 		<%} else {%>
 			잘못된 접근입니다. 로그인을 다시 해주세요.
 		<%}}%>			

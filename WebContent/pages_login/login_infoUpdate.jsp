@@ -23,7 +23,7 @@
 
 <%
 	String id = (String)session.getAttribute("id");	
-	//List<CustomerInfo_dto> customerinfoList = (ArrayList<CustomerInfo_dto>)request.getAttribute("customerinfoList");
+	ArrayList<CustomerInfo_dto> memberList = (ArrayList<CustomerInfo_dto>) request.getAttribute("memberList");
 	CustomerInfo_dto customerinfo_dto = new CustomerInfo_dto();
 %>
 	<!-- header -->
@@ -42,7 +42,7 @@
 								<ul>
 									<li>
 										<label for="join-id">아이디</label>
-										<input class="inputText" type="text" name="join-id"  maxlength="10" onKeyup="this.value=this.value.replace(/[ㄱ-ㅎㅏ-ㅡ가-핳]/g,'');">
+										<% out.print(memberList.get(0).getCustomer_id()); %>
 									</li>
 								</ul>
 								<div class="checkVisible id fs_11"></div>
