@@ -23,7 +23,7 @@
 
 <%
 	String id = (String)session.getAttribute("id");	
-	List<CustomerInfo_dto> customerinfoList = (ArrayList<CustomerInfo_dto>)request.getAttribute("customerinfoList");
+	//List<CustomerInfo_dto> customerinfoList = (ArrayList<CustomerInfo_dto>)request.getAttribute("customerinfoList");
 	CustomerInfo_dto customerinfo_dto = new CustomerInfo_dto();
 %>
 	<!-- header -->
@@ -42,7 +42,7 @@
 								<ul>
 									<li>
 										<label for="join-id">아이디</label>
-										<input class="inputText" type="text" name="join-id" value="<%out.println(customerinfoList.get(0).getCustomer_id()); %>" maxlength="10" onKeyup="this.value=this.value.replace(/[ㄱ-ㅎㅏ-ㅡ가-핳]/g,'');">
+										<input class="inputText" type="text" name="join-id"  maxlength="10" onKeyup="this.value=this.value.replace(/[ㄱ-ㅎㅏ-ㅡ가-핳]/g,'');">
 									</li>
 								</ul>
 								<div class="checkVisible id fs_11"></div>
@@ -74,7 +74,7 @@
 								<ul>
 									<li>
 										<label for="join-email-id">이메일</label>
-										<input class="inputText" type="text" name="join-email-id" value="<%out.println(customerinfoList.get(0).getCustomer_id()); %>" onKeyup="this.value=this.value.replace(/[ㄱ-ㅎㅏ-ㅡ가-핳]/g,'')">
+										<input class="inputText" type="text" name="join-email-id"  onKeyup="this.value=this.value.replace(/[ㄱ-ㅎㅏ-ㅡ가-핳]/g,'')">
 									</li>
 									<li>@</li>
 									<li>
@@ -92,7 +92,7 @@
 							<th>이름<span class="textColor orange ml_5">*</span></th>
 							<td>
 								<label for="join-name">이름</label>
-								<%out.println(customerinfoList.get(0).getCustomer_name()); %>
+								
 							</td>
 						</tr>
 						<tr>
@@ -100,7 +100,7 @@
 							<td>
 								<ul>
 									<li>
-										<%out.println(customerinfoList.get(0).getCustomer_birth()); %>
+										
 									</li>
 								</ul>
 							</td>
@@ -117,15 +117,15 @@
 								<ul>
 									<li class="mb_5">
 										<label for="first-address"></label>
-										<input id="sample6_address" class="inputText" type="text" name="first-address" value="<%out.println(customerinfoList.get(0).getCustomer_id()); %>">
+										<input id="sample6_address" class="inputText" type="text" name="first-address" >
 									</li> 
 									<li>
 										<label for="last-address">상세주소</label>
-										<input id="sample6_detailAddress" class="inputText" type="text" name="last-address" value="<%out.println(customerinfoList.get(0).getCustomer_id()); %>">
+										<input id="sample6_detailAddress" class="inputText" type="text" name="last-address" >
 									</li>
 									<li>
 										<label for="extra-address">참고항목</label>
-										<input id="sample6_extraAddress" class="inputText" type="text" name="extra-address" value="<%out.println(customerinfoList.get(0).getCustomer_id()); %>">
+										<input id="sample6_extraAddress" class="inputText" type="text" name="extra-address" >
 									</li>
 								</ul>
 							</td>
@@ -145,12 +145,12 @@
 									<li>-</li>
 									<li>
 										<label for="middle-phonenum"></label>
-										<input class="inputText" type="text" name="middle-phonenum" value="<%out.println(customerinfoList.get(0).getCustomer_id()); %>" maxlength="4" onKeyup="this.value=this.value.replace(/[^0-9]/g,'');">
+										<input class="inputText" type="text" name="middle-phonenum"  maxlength="4" onKeyup="this.value=this.value.replace(/[^0-9]/g,'');">
 									</li>
 									<li>-</li>
 									<li>
 										<label for="last-phonenum"></label>
-										<input class="inputText" type="text" name="last-phonenum" value="<%out.println(customerinfoList.get(0).getCustomer_id()); %>" maxlength="4" onKeyup="this.value=this.value.replace(/[^0-9]/g,'');">
+										<input class="inputText" type="text" name="last-phonenum"  maxlength="4" onKeyup="this.value=this.value.replace(/[^0-9]/g,'');">
 									</li>
 								</ul>
 							</td>

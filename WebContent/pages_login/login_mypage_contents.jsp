@@ -24,83 +24,10 @@
 
 	jQuery cdn
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
-<title></title> -->
+<title></title>
 
-<script type="text/javascript">
-	function cartBtnDetail(param) {
-		location.href="../productDetailSelect.bo?product_name="+encodeURIComponent(param);
-	}
-	$(function() {
-		$(".asWrite_btn").click(function() {
-			$(".none").removeClass('none');
-		});
-	});
-	
-	// 1.모두 체크
-	function allChk(obj){
-		var chkObj = document.getElementsByName("RowCheck");
-	    var rowCnt = chkObj.length - 1;
-	    var check = obj.checked;
-	   	
-	    if (check) {﻿
-	       	for (var i=0; i<=rowCnt; i++){
-	         	if(chkObj[i].type == "checkbox")
-	            	chkObj[i].checked = true;
-	         }
-	     } else {
-	       for (var i=0; i<=rowCnt; i++) {
-	         if(chkObj[i].type == "checkbox"){
-	           chkObj[i].checked = false;
-	          }
-	        }
-	     }
-	} 
+</head> -->
 
-﻿ ﻿ 
-
-	//﻿2. 체크박스 선택된 것 삭제 처리 (N개) 
-	function fn_userDel(){
-		var userid = "";
-		var memberChk = document.getElementsByName("RowCheck");
-		var chked = false;
-		var indexid = false;
-		
-		for(i=0; i < memberChk.length; i++){
-			if(memberChk[i].checked){
-				if(indexid){
-					userid = userid + '-';
-				}
-			userid = userid + memberChk[i].value;
-			indexid = true;
-			}
-		}
-		if(!indexid){
-			alert("삭제할 사용자를 체크해 주세요");
-			return;
-		} 
-		var agree=confirm("삭제 하시겠습니까?");
-	    if (agree){
-	  		document.userForm.execute.value = "userDel";
-	     	document.userForm.submit();
-	    }
-	}
-	
-	// 개인정보수정 -> 비밀번호 일치 시 개인정보 수정 페이지로 이동
-	function infoUpdateLink() {
-		if(memberList.get(0).getCustomer_pwd().equals("memberPwd")) {
-			location.href="login_infoUpdate.jsp";
-		}else {
-			alert("비밀번호가 맞지 않습니다.");
-		}
-	}	
-	$(function() {
-		$(".infoUpdateLink").click(function() {
-			$(".none").removeClass('none');
-		});
-	});﻿
-</script>
-
-</head>
 <body>
 
 <%
@@ -487,13 +414,82 @@
 		<div class="contentMember">
 			<ul>
 				<li>정보 확인을 위해 비밀번호를 입력해주세요.</li>
-				<li><input type="password" name="checkPwd" /></li>
-			</ul>ㄴ
-			<input type="button" value="확인" class="memberInfoBtn" onclick="infoUpdateLink" />
+				<li><input type="password" name="checkPwd" id="checkPwd" /></li>
+			</ul>
+			<input type="button" value="확인" class="memberInfoBtn" onclick="check()" />
 		</div>
 		<%} else {%>
 			잘못된 접근입니다. 로그인을 다시 해주세요.
 		<%}}%>			
 	</div>
+	
+<script type="text/javascript">
+	//상세페이지 
+	function cartBtnDetail(param) {
+		location.href="../productDetailSelect.bo?product_name="+encodeURIComponent(param);
+	}
+	$(function() {
+		$(".asWrite_btn").click(function() {
+			$(".none").removeClass('none');
+		});
+	});
+	
+	// 1.모두 체크
+	function allChk(obj){
+		var chkObj = document.getElementsByName("RowCheck");
+	    var rowCnt = chkObj.length - 1;
+	    var check = obj.checked;
+	   	
+	    if (check) {﻿
+	       	for (var i=0; i<=rowCnt; i++){
+	         	if(chkObj[i].type == "checkbox")
+	            	chkObj[i].checked = true;
+	         }
+	     } else {
+	       for (var i=0; i<=rowCnt; i++) {
+	         if(chkObj[i].type == "checkbox"){
+	           chkObj[i].checked = false;
+	          }
+	        }
+	     }
+	} 
+	//﻿2. 체크박스 선택된 것 삭제 처리 (N개) 
+	function fn_userDel(){
+		var userid = "";
+		var memberChk = document.getElementsByName("RowCheck");
+		var chked = false;
+		var indexid = false;
+		
+		for(i=0; i < memberChk.length; i++){
+			if(memberChk[i].checked){
+				if(indexid){
+					userid = userid + '-';
+				}
+			userid = userid + memberChk[i].value;
+			indexid = true;
+			}
+		}
+		if(!indexid){
+			alert("삭제할 사용자를 체크해 주세요");
+			return;
+		} 
+		var agree=confirm("삭제 하시겠습니까?");
+	    if (agree){
+	  		document.userForm.execute.value = "userDel";
+	     	document.userForm.submit();
+	    }
+	}
+	//개인정보수정 -> 비밀번호확인 후 수정페이지로 이동
+	function check() {
+	var checkPwd = document.getElementById("checkPwd");
+		if(checkPwd.value=="<%=memberList.get(0).getCustomer_pwd()%>") {
+			console.log(checkPwd);
+			location.href="login_infoUpdate.jsp";
+		}else {
+			alert("비밀번호가 틀렸습니다.");
+		}
+	}
+</script>
+	
 </body>
 </html>

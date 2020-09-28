@@ -43,8 +43,6 @@
 <!-- 마이페이지의 인덱스페이지는 구매내역 (마이페이지 = 구매내역 페이지) -->
 	<section id="wrap">
 		<div class="member">
-			<!-- mypage_member include -->
-			<%-- <jsp:include page="login_mypage_member.jsp" /> --%>
 			My Page
 		</div>
 		
@@ -54,7 +52,6 @@
 				<li><a href=""><img src="../images/mypage_img/recent_img/bedroom01_01.jpg"></a></li>
 				<li><a href=""><img src="../images/mypage_img/recent_img/bedroom01_02.jpg"></a></li>
 			</ul>
-			
 		</nav>
 
 		<div class="contents">
