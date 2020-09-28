@@ -11,6 +11,7 @@ import com.TeamPro.action.Buy_nowListAction;
 import com.TeamPro.action.Buy_nowformAction;
 import com.TeamPro.action.Customer_DownloadAction;
 import com.TeamPro.action.Customer_DownloadFileAction;
+import com.TeamPro.action.Index_ListAction;
 import com.TeamPro.action.Light_action;
 import com.TeamPro.action.MD_randomListAction;
 import com.TeamPro.action.MD_weatherAction;
@@ -150,6 +151,13 @@ public class Light_controller extends javax.servlet.http.HttpServlet {
 			action = new Customer_DownloadFileAction();
 			try{
 				forward=action.execute(request, response);
+			}catch(Exception e){
+				System.out.println(e);
+			}
+		}else if(command.equals("/indexSelectObject.bo")) { // 0928 dhdbswl ¼öÁ¤
+			Index_ListAction indexaction = new Index_ListAction();
+			try{
+				indexaction.execute(request, response);
 			}catch(Exception e){
 				System.out.println(e);
 			}

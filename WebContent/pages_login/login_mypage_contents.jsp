@@ -480,7 +480,7 @@
 	    }
 	}
 	//개인정보수정 -> 비밀번호확인 후 수정페이지로 이동
-	function check() {
+	<%-- function check() {
 	var checkPwd = document.getElementById("checkPwd");
 		if(checkPwd.value=="<%=memberList.get(0).getCustomer_pwd()%>") {
 			console.log(checkPwd);
@@ -488,7 +488,7 @@
 		}else {
 			alert("비밀번호가 틀렸습니다.");
 		}
-	}
+	} --%>
 </script>
 	
 </body>

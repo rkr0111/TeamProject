@@ -206,6 +206,20 @@ public class TeamPro_dao {
 		sqlsession.close();
 		return connresultsel; 
 	}
+	// index페이지 review list select - 0928 dhdbswl 수정
+	public List<Review_dto> Conn_select_indexReviewList() {
+		SqlSession sqlsession = sqlfactory.openSession();
+		List<Review_dto> connresultsel= sqlsession.selectList("xml_select_reviewIndex");
+		sqlsession.close();
+		return connresultsel; 
+	}
+	// index페이지 review list select product - 0928 dhdbswl 수정
+	public List<Product_dto> Conn_select_indexProductList() {
+		SqlSession sqlsession = sqlfactory.openSession();
+		List<Product_dto> connresultsel= sqlsession.selectList("xml_select_proIndex");
+		sqlsession.close();
+		return connresultsel; 
+	}
 	
 	//insert - 0731 dhdbswl 수정
 	public int Conn_insert(Product_dto dto) {

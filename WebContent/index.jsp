@@ -1,6 +1,12 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%request.setCharacterEncoding("utf-8");%>
 
+<%@page import="org.apache.ibatis.session.SqlSessionFactory"%>
+<%@page import="org.apache.ibatis.session.SqlSession"%>
+
+<%@page import="com.TeamPro.dto.Review_dto"%>
+<%@page import="java.util.*"%>
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -17,6 +23,28 @@
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
 	<title>팀 프로젝트 index</title>
 </head>
+<script type="text/javascript">
+	$.ajax({
+		type: "post",
+		url: "indexSelectObject.bo",
+		dataType: "json",
+		success: function(data, status, xhr) {
+			console.log(data);
+			var obj = JSON.parse(JSON.stringify(data));
+			var review_num = obj.review_num;
+			var review_img = obj.review_img;
+			var review_contents = obj.review_contents;
+
+			console.log("review_num size : " + data.length);
+			console.log("review_num : " + review_num);
+			console.log("review_img : " + review_img);
+			console.log("review_contents : " + review_contents);
+		},
+		error: function(e) {
+			alert(e.responseText);
+		}
+	});
+</script>
 <body>
 	<!-- header -->
 	<%
@@ -106,7 +134,7 @@
 						<p class="interiorTextBox">인테리어 리뷰 텍스트 인테리어 리뷰 텍스트 인테리어 리뷰 텍스트 인테리어 리뷰 텍스트 인테리어 리뷰 텍스트 인테리어 리뷰 텍스트 인테리어 리뷰 텍스트 인테리어 리뷰 텍스트 인테리어 리뷰 텍스트 인테리어 리뷰 텍스트 인테리어 리뷰 텍스트 인테리어 리뷰 텍스트 인테리어 리뷰 텍스트 인테리어 리뷰 텍스트 인테리어 리뷰 텍스트 인테리어 리뷰 텍스트 인테리어 리뷰 텍스트 인테리어 리뷰 텍스트 인테리어 리뷰 텍스트 인테리어 리뷰 텍스트</p>
 					</li>
 				</ul>
-				<div class="viewMoreBtn"><a href="pages_interior/interior.jsp">view more</a></div>
+				<div class="viewMoreBtn"><a href="customerDownload.bo">view more</a></div>
 			</div>
 		</div>
 		<!-- newsContainer -->

@@ -25,9 +25,9 @@
 	String id = (String)session.getAttribute("id");
 	if(id == null) {
 	%>
-	<jsp:include page="../customer_header_beforelogin.jsp" />
+	<jsp:include page="../customer_offline_header_beforelogin.jsp" />
 	<%}else {%>
-	<jsp:include page="../customer_header_afterlogin.jsp" />
+	<jsp:include page="../customer_offline_header_afterlogin.jsp" />
 	<%}%> <!-- header end -->
 	
 	<!-- section -->
@@ -37,7 +37,7 @@
 		<div class="menuContainer">
 			<ul>
 				<li onclick="location.href='customer_notice.jsp';">공지사항</li>
-				<li onclick="location.href='customer_download.jsp';">제품 설명서</li>
+				<li onclick="location.href='../customerDownload.bo';">제품 설명서</li>
 				<li onclick="location.href='customer_offline.jsp';" class="bgWhite">오프라인 매장</li>
 			</ul>
 		</div>
@@ -60,6 +60,30 @@
 
 	<!-- script -->
 	<script type="text/javascript" src="../js/scroll.js"></script>
+	
+	<script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=fa3682f31007c1d0ad50235a88cc7e78"></script>
+	<script type="text/javascript">
+		// 위도, 경도 : 37.500972, 127.026860
+		
+		var mapContainer = document.getElementById('map'), // 지도를 표시할 div 
+	    mapOption = { 
+	        center: new kakao.maps.LatLng(37.500972, 127.026860), // 지도의 중심좌표
+	        level: 3 // 지도의 확대 레벨
+	    };
+	
+		var map = new kakao.maps.Map(mapContainer, mapOption); // 지도를 생성합니다
+		
+		// 마커가 표시될 위치입니다 
+		var markerPosition  = new kakao.maps.LatLng(37.500972, 127.026860); 
+		
+		// 마커를 생성합니다
+		var marker = new kakao.maps.Marker({
+		    position: markerPosition
+		});
+		
+		// 마커가 지도 위에 표시되도록 설정합니다
+		marker.setMap(map);
+	</script>
 	
 </body>
 </html>
