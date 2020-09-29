@@ -39,9 +39,6 @@ public class Review_AllListService {
 			reviewdto.setReview_contents(infolist.get(i).getReview_contents());
 			reviewdto.setReview_date(infolist.get(i).getReview_date());
 			reviewdto.setReview_id(infolist.get(i).getReview_id());
-			reviewdto.setReview_comment(infolist.get(i).getReview_comment());
-			reviewdto.setReview_reply(infolist.get(i).getReview_reply());
-			reviewdto.setReview_like(infolist.get(i).getReview_like());
 			reviewdto.setReview_num(infolist.get(i).getReview_num());
 			list.add(reviewdto);
 		}

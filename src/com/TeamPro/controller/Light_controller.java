@@ -15,7 +15,6 @@ import com.TeamPro.action.Index_ListAction;
 import com.TeamPro.action.Light_action;
 import com.TeamPro.action.MD_randomListAction;
 import com.TeamPro.action.MD_weatherAction;
-import com.TeamPro.action.MD_randomListAction;
 import com.TeamPro.action.Product_DeleteAction;
 import com.TeamPro.action.Product_DetailAction;
 import com.TeamPro.action.Product_InsertAction;
@@ -38,6 +37,7 @@ public class Light_controller extends javax.servlet.http.HttpServlet {
 		String command=RequestURI.substring(contextPath.length());
 		ActionForward forward=null;
 		Light_action action=null;
+		System.out.println("연결 controller : " + action);
 		
 		// check command
 		if(command.equals("/productList.bo")) {
@@ -154,10 +154,11 @@ public class Light_controller extends javax.servlet.http.HttpServlet {
 			}catch(Exception e){
 				System.out.println(e);
 			}
-		}else if(command.equals("/indexSelectObject.bo")) { // 0928 dhdbswl 수정
-			Index_ListAction indexaction = new Index_ListAction();
+		}else if(command.equals("/indexList.bo")) { // 0929 dhdbswl 수정
+			System.out.println("연결 controller");
+			action = new Index_ListAction();
 			try{
-				indexaction.execute(request, response);
+				forward=action.execute(request, response);
 			}catch(Exception e){
 				System.out.println(e);
 			}

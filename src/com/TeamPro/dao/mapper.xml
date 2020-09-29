@@ -41,7 +41,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		select product_category from light.review, light.product where product_name=review_name;
 	</select>
 	<select id="xml_select_reviewIndex" resultType="review">
-		select * from light.review, light.product where product_name=review_name;
+		select * from light.review;
 	</select>
 	<select id="xml_select_listImg" resultType="xmlDto">
 		select product_name, product_category from light.review, light.product where product_name=review_name;
@@ -69,7 +69,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	</select>
 	
 	<insert id="xml_insert_prolist" parameterType="xmlDto">
-		insert into light.product values(#{product_name}, #{product_category}, #{product_price}, #{product_color}, #{product_file}, #{product_img}, #{product_detailimg}, #{product_contents}, #{product_weather}, now()); 
+		insert into light.product values(#{product_name}, #{product_category}, #{product_price}, #{product_color}, #{product_file}, #{product_img}, #{product_detailimg}, #{product_contents}, #{product_weather}, curdate()); 
 	</insert>
 	<insert id="xml_insert_buyhistory" parameterType="buyhistory">
 		insert into light.buyhistory values(#{buy_id}, #{buy_name}, #{buy_price}, now(), #{buy_condition}, #{buy_category}, #{buy_img}, #{buy_colors}, #{buy_amount}, #{buy_totalprice}); 

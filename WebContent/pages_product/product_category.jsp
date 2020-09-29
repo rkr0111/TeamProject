@@ -61,7 +61,6 @@
 		<h1 class="titleText <%out.print(productList.get(0).getProduct_category());%> textColor white">
 		<%out.print(productList.get(0).getProduct_category());%>
 		</h1>
-		<%}%>
 		<div class="viewContain">
 			<ul>
 				<li class="product-count">총 <span class="ml_6"><%=pageInfo.getListCount()%></span>개의 상품</li>
@@ -75,6 +74,7 @@
 				</li>
 			</ul>
 		</div>
+		<%}%>
 		<div id="contents">
 			<%if(id == null) {%>
 			<div style="display: none;"></div>

@@ -23,28 +23,6 @@
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
 	<title>팀 프로젝트 index</title>
 </head>
-<script type="text/javascript">
-	$.ajax({
-		type: "post",
-		url: "indexSelectObject.bo",
-		dataType: "json",
-		success: function(data, status, xhr) {
-			console.log(data);
-			var obj = JSON.parse(JSON.stringify(data));
-			var review_num = obj.review_num;
-			var review_img = obj.review_img;
-			var review_contents = obj.review_contents;
-
-			console.log("review_num size : " + data.length);
-			console.log("review_num : " + review_num);
-			console.log("review_img : " + review_img);
-			console.log("review_contents : " + review_contents);
-		},
-		error: function(e) {
-			alert(e.responseText);
-		}
-	});
-</script>
 <body>
 	<!-- header -->
 	<%
@@ -113,28 +91,24 @@
 			<div class="interior-inner">
 				<h2>interior</h2>
 				<ul>
+					<%List<Review_dto> listinfo = (List<Review_dto>) request.getAttribute("listinfo");
+					if(listinfo != null) {
+						System.out.println("연결 not null");
+					for(int i=0; i<listinfo.size(); i++) {%>
 					<li>
-						<div class="interiorImgBox"></div>
-						<p class="interiorTextBox">인테리어 리뷰 텍스트 인테리어 리뷰 텍스트 인테리어 리뷰 텍스트 인테리어 리뷰 텍스트 인테리어 리뷰 텍스트 인테리어 리뷰 텍스트 인테리어 리뷰 텍스트 인테리어 리뷰 텍스트 인테리어 리뷰 텍스트 인테리어 리뷰 텍스트 인테리어 리뷰 텍스트 인테리어 리뷰 텍스트 인테리어 리뷰 텍스트 인테리어 리뷰 텍스트 인테리어 리뷰 텍스트 인테리어 리뷰 텍스트 인테리어 리뷰 텍스트 인테리어 리뷰 텍스트 인테리어 리뷰 텍스트 인테리어 리뷰 텍스트</p>
+						<div class="interiorImgBox">
+							<img src="product_file/<%=listinfo.get(i).getReview_img()%>">
+						</div>
+						<p class="interiorTextBox"><%=listinfo.get(i).getReview_contents()%></p>
 					</li>
-					<li>
-						<div class="interiorImgBox"></div>
-						<p class="interiorTextBox">인테리어 리뷰 텍스트 인테리어 리뷰 텍스트 인테리어 리뷰 텍스트 인테리어 리뷰 텍스트 인테리어 리뷰 텍스트 인테리어 리뷰 텍스트 인테리어 리뷰 텍스트 인테리어 리뷰 텍스트 인테리어 리뷰 텍스트 인테리어 리뷰 텍스트 인테리어 리뷰 텍스트 인테리어 리뷰 텍스트 인테리어 리뷰 텍스트 인테리어 리뷰 텍스트 인테리어 리뷰 텍스트 인테리어 리뷰 텍스트 인테리어 리뷰 텍스트 인테리어 리뷰 텍스트 인테리어 리뷰 텍스트 인테리어 리뷰 텍스트</p>
-					</li>
-					<li>
-						<div class="interiorImgBox"></div>
-						<p class="interiorTextBox">인테리어 리뷰 텍스트 인테리어 리뷰 텍스트 인테리어 리뷰 텍스트 인테리어 리뷰 텍스트 인테리어 리뷰 텍스트 인테리어 리뷰 텍스트 인테리어 리뷰 텍스트 인테리어 리뷰 텍스트 인테리어 리뷰 텍스트 인테리어 리뷰 텍스트 인테리어 리뷰 텍스트 인테리어 리뷰 텍스트 인테리어 리뷰 텍스트 인테리어 리뷰 텍스트 인테리어 리뷰 텍스트 인테리어 리뷰 텍스트 인테리어 리뷰 텍스트 인테리어 리뷰 텍스트 인테리어 리뷰 텍스트 인테리어 리뷰 텍스트</p>
-					</li>
-					<li>
-						<div class="interiorImgBox"></div>
-						<p class="interiorTextBox">인테리어 리뷰 텍스트 인테리어 리뷰 텍스트 인테리어 리뷰 텍스트 인테리어 리뷰 텍스트 인테리어 리뷰 텍스트 인테리어 리뷰 텍스트 인테리어 리뷰 텍스트 인테리어 리뷰 텍스트 인테리어 리뷰 텍스트 인테리어 리뷰 텍스트 인테리어 리뷰 텍스트 인테리어 리뷰 텍스트 인테리어 리뷰 텍스트 인테리어 리뷰 텍스트 인테리어 리뷰 텍스트 인테리어 리뷰 텍스트 인테리어 리뷰 텍스트 인테리어 리뷰 텍스트 인테리어 리뷰 텍스트 인테리어 리뷰 텍스트</p>
-					</li>
-					<li>
-						<div class="interiorImgBox"></div>
-						<p class="interiorTextBox">인테리어 리뷰 텍스트 인테리어 리뷰 텍스트 인테리어 리뷰 텍스트 인테리어 리뷰 텍스트 인테리어 리뷰 텍스트 인테리어 리뷰 텍스트 인테리어 리뷰 텍스트 인테리어 리뷰 텍스트 인테리어 리뷰 텍스트 인테리어 리뷰 텍스트 인테리어 리뷰 텍스트 인테리어 리뷰 텍스트 인테리어 리뷰 텍스트 인테리어 리뷰 텍스트 인테리어 리뷰 텍스트 인테리어 리뷰 텍스트 인테리어 리뷰 텍스트 인테리어 리뷰 텍스트 인테리어 리뷰 텍스트 인테리어 리뷰 텍스트</p>
-					</li>
+					<%}}else {
+						System.out.println("연결 else");
+						//out.println("<script>location.href='indexList.bo';</script>");
+						//out.print("<script type='text/javascript'>$(function(){ $(window).ready('indexList.bo'); });</script>");
+						out.println("<script type='text/javascript'>window.onload=function() {location.href='indexList.bo';}</script>");
+					}%>
 				</ul>
-				<div class="viewMoreBtn"><a href="customerDownload.bo">view more</a></div>
+				<div class="viewMoreBtn"><a href="reviewAllList.bo">view more</a></div>
 			</div>
 		</div>
 		<!-- newsContainer -->
@@ -154,6 +128,7 @@
 			</div>
 		</div>
 	</section>
+	
 
 	<!-- footer -->
 	<jsp:include page="footer.jsp" /> <!-- footer end -->
