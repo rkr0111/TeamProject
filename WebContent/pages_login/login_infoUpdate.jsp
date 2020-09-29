@@ -1,8 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%request.setCharacterEncoding("utf-8");%>
 
-<%@ page import="java.util.List"%>
-<%@ page import="java.util.ArrayList"%>
+<%@ page import="java.util.*"%>
 <%@ page import="com.TeamPro.dto.CustomerInfo_dto"%>
 
 <!DOCTYPE html>
@@ -22,9 +21,9 @@
 <body>
 
 <%
-	String id = (String)session.getAttribute("id");	
-	ArrayList<CustomerInfo_dto> memberList = (ArrayList<CustomerInfo_dto>) request.getAttribute("memberList");
+	String id = (String)session.getAttribute("id");
 	CustomerInfo_dto customerinfo_dto = new CustomerInfo_dto();
+	ArrayList<CustomerInfo_dto> memberList = (ArrayList<CustomerInfo_dto>) request.getAttribute("memberList");
 %>
 	<!-- header -->
 	<jsp:include page="../login_header_afterlogin.jsp" /> <!-- header end -->
