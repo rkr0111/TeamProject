@@ -14,8 +14,8 @@
 
 <%
 	request.setCharacterEncoding("utf-8");
-
-	String joinId = request.getParameter("join-id");
+	String id = (String)session.getAttribute("id");
+	
 	String joinPwd = request.getParameter("join-password");
 	
 	String emailId = request.getParameter("join-email-id");
@@ -23,8 +23,6 @@
 	
 	String postAddr = request.getParameter("post-address");
 	String firstAddr = request.getParameter("first-address");
-	String lastAddr = request.getParameter("last-address");
-	String extraAddr = request.getParameter("extra-address");
 	
 	String firstPhone = request.getParameter("phone-choice");
 	String middlePhone = request.getParameter("middle-phonenum");
@@ -33,20 +31,17 @@
 	Connection conn = null;
 	Statement stmt = null;
 	
-	System.out.println("DB_infoUpdateAfter : "+joinId);
 	try {
 		Class.forName("com.mysql.jdbc.Driver");
 		conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/light?characterEncoding=utf8&serverTimezone=UTC", "orro", "1995");
 		if(conn == null) throw new Exception("DB에 연결할 수 없습니다.");
 		stmt = conn.createStatement();
-		String sql = "update customerinfo set customer_pwd='"+joinPwd+"', customer_email='"+emailId+"@"+emailAddr+"', customer_addr='"+firstAddr+" "+lastAddr+" "+extraAddr+"', customer_phone='"+firstPhone+"-"+middlePhone+"-"+lastPhone+"' where customer_id='"+joinId+"'"; 
+		String sql = "update customerinfo set customer_pwd='"+joinPwd+"', customer_email='"+emailId+"@"+emailAddr+"', customer_addr='"+firstAddr+"', customer_phone='"+firstPhone+"-"+middlePhone+"-"+lastPhone+"' where customer_id='"+id+"'"; 
 		int result = stmt.executeUpdate(sql);
-		
-		//int result = stmt.executeUpdate("update customerinfo set customer_pwd='"+joinPwd+"', customer_email='"+emailId+"@"+emailAddr+"', customer_addr='"+firstAddr+" "+lastAddr+" "+extraAddr+"', customer_phone='"+firstPhone+"-"+middlePhone+"-"+lastPhone+"' where customer_id='"+joinId+"'");
 		
 		if(result > 0) {
 			out.println("<script>alert('개인정보 수정이 완료되었습니다.');</script>");
-			out.println("<script>location.href='DB_infoUpdateApply.jsp'</script>");
+			out.println("<script>location.href='DB_mypage_buyhistory.jsp'</script>");
 		}
 	}finally {
 		try {

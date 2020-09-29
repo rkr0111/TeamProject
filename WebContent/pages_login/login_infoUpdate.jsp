@@ -51,17 +51,17 @@
 							<th>비밀번호<span class="textColor orange ml_5">*</span></th>
 							<td class="tdPwd">
 								<ul>
-									<li class="fs_11 textColor gray_656565 mb_5">비밀번호 <span class="textColor orange">(영문,숫자,특수문자포함 8~15자리)</span></li>
+									<li class="fs_11 textColor gray_656565 mb_5">비밀번호<span class="textColor orange">(영문,숫자,특수문자포함 8~15자리)</span></li>
 									<li>
 										<label for="join-password">비밀번호</label>
-										<input class="inputText" type="password" name="join-password" placeholder="비밀번호" maxlength="15" oninput="pwdChecked()">
+										<input class="inputText" type="password" name="join-password" value="<% out.print(memberList.get(0).getCustomer_pwd()); %>" maxlength="15" oninput="pwdChecked()">
 									</li>
 								</ul>
 								<ul>
 									<li class="fs_11 textColor gray_656565 mb_5">비밀번호 확인</li>
 									<li>
 										<label for="join-passwordcheck">비밀번호 확인</label>
-										<input class="inputText" type="password" name="join-passwordcheck" placeholder="비밀번호 확인" maxlength="15" oninput="pwdChecked()">
+										<input class="inputText" type="password" name="join-passwordcheck" value="<% out.print(memberList.get(0).getCustomer_pwd()); %>" maxlength="15" oninput="pwdChecked()">
 									</li>
 								</ul>
 								<div class="checkVisible pwd fs_11"></div>
@@ -73,17 +73,21 @@
 								<ul>
 									<li>
 										<label for="join-email-id">이메일</label>
-										<input class="inputText" type="text" name="join-email-id" value="<%=memberList.get(0).getCustomer_email() %>" onKeyup="this.value=this.value.replace(/[ㄱ-ㅎㅏ-ㅡ가-핳]/g,'')">
+										<%
+										String[] emailidx = memberList.get(0).getCustomer_email().split("@");
+										for(int i=0; i<emailidx.length; i++) {
+										%>
+										<input class="inputText" type="text" name="join-email-id" value="<%out.print(emailidx[i]);%>" onKeyup="this.value=this.value.replace(/[ㄱ-ㅎㅏ-ㅡ가-핳]/g,'')">
 									</li>
 									<li>@</li>
 									<li>
 										<select name="join-email-choice" size="1">
-											<option name="email-view"><%=memberList.get(0).getCustomer_email() %></option>
+											<option name="email-view"><%out.print(emailidx[++i]);%></option>
 											<option name="select-naver" value="naver.com">naver.com</option>
 											<option name="select-daum" value="daum.net">daum.net</option>
 											<option name="select-google" value="google.com">google.com</option>
 										</select>
-									</li>
+									</li> <%}%>
 								</ul>
 							</td>
 						</tr>
@@ -109,23 +113,15 @@
 							<td>
 								<ul>
 									<li>
-										<input id="sample6_postcode" class="addressBox" type="text" name="post-address" > <!-- readonly 지워버림 -->
+										<input id="sample6_postcode" class="addressBox" type="text" name="post-address" value=""> <!-- readonly 지워버림 -->
 									</li>
 									<li><input class="button checkBtn adrBtn textColor gray_656565" type="button" name="check-address" value="우편번호" onclick="sample6_execDaumPostcode()"></li>
 								</ul>
 								<ul>
 									<li class="mb_5">
-										<label for="first-address"><%=memberList.get(0).getCustomer_addr() %></label>
-										<input id="sample6_address" class="inputText" type="text" name="first-address" >
+										<label for="first-address"></label>
+										<input id="sample6_address" class="addrinputText" type="text" name="first-address" value="<%=memberList.get(0).getCustomer_addr() %>" >
 									</li> 
-									<li>
-										<label for="last-address"><%=memberList.get(0).getCustomer_addr() %></label>
-										<input id="sample6_detailAddress" class="inputText" type="text" name="last-address" >
-									</li>
-									<li>
-										<label for="extra-address"><%=memberList.get(0).getCustomer_addr() %></label>
-										<input id="sample6_extraAddress" class="inputText" type="text" name="extra-address" >
-									</li>
 								</ul>
 							</td>
 						</tr>
@@ -134,8 +130,12 @@
 							<td>
 								<ul>
 									<li>
+									<%
+									String[] phoneidx = memberList.get(0).getCustomer_phone().split("-");
+									for(int i=0; i<phoneidx.length; i++) {
+									%>
 										<select name="phone-choice" size="1">
-											<option name="phone-view"><%=memberList.get(0).getCustomer_phone() %></option>
+											<option name="phone-view"><%out.print(phoneidx[i]);%></option>
 											<option name="phone-010" value="010">010</option>
 											<option name="phone-011" value="011">011</option>
 											<option name="phone-018" value="018">018</option>
@@ -144,13 +144,13 @@
 									<li>-</li>
 									<li>
 										<label for="middle-phonenum"></label>
-										<input class="inputText" type="text" name="middle-phonenum" value="<%=memberList.get(0).getCustomer_phone() %>" maxlength="4" onKeyup="this.value=this.value.replace(/[^0-9]/g,'');">
+										<input class="inputText" type="text" name="middle-phonenum" value="<%out.print(phoneidx[++i]);%>" maxlength="4" onKeyup="this.value=this.value.replace(/[^0-9]/g,'');">
 									</li>
 									<li>-</li>
 									<li>
 										<label for="last-phonenum"></label>
-										<input class="inputText" type="text" name="last-phonenum" value="<%=memberList.get(0).getCustomer_phone() %>" maxlength="4" onKeyup="this.value=this.value.replace(/[^0-9]/g,'');">
-									</li>
+										<input class="inputText" type="text" name="last-phonenum" value="<%out.print(phoneidx[++i]);%>" maxlength="4" onKeyup="this.value=this.value.replace(/[^0-9]/g,'');">
+									</li> <%} %>
 								</ul>
 							</td>
 						</tr>

@@ -107,6 +107,13 @@ select {
 	border: 1px solid #ccc;
 	border-radius: 3px;
 }
+.addrinputText {
+	width: 457px;
+	height: 31px;
+	vertical-align: middle;
+	border: 1px solid #ccc;
+	border-radius: 3px;
+}
 input.button {
     padding: 8px 12px;
 	background-color: #eee;
