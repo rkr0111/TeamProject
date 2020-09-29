@@ -73,12 +73,12 @@
 								<ul>
 									<li>
 										<label for="join-email-id">이메일</label>
-										<input class="inputText" type="text" name="join-email-id"  onKeyup="this.value=this.value.replace(/[ㄱ-ㅎㅏ-ㅡ가-핳]/g,'')">
+										<input class="inputText" type="text" name="join-email-id" value="<%=memberList.get(0).getCustomer_email() %>" onKeyup="this.value=this.value.replace(/[ㄱ-ㅎㅏ-ㅡ가-핳]/g,'')">
 									</li>
 									<li>@</li>
 									<li>
 										<select name="join-email-choice" size="1">
-											<option name="email-view">이메일주소</option>
+											<option name="email-view"><%=memberList.get(0).getCustomer_email() %></option>
 											<option name="select-naver" value="naver.com">naver.com</option>
 											<option name="select-daum" value="daum.net">daum.net</option>
 											<option name="select-google" value="google.com">google.com</option>
@@ -91,7 +91,7 @@
 							<th>이름<span class="textColor orange ml_5">*</span></th>
 							<td>
 								<label for="join-name">이름</label>
-								
+								<input class="inputText" type="text" name="join-name" value="<%=memberList.get(0).getCustomer_name() %>" maxlength="5">
 							</td>
 						</tr>
 						<tr>
@@ -99,7 +99,7 @@
 							<td>
 								<ul>
 									<li>
-										
+										<%=memberList.get(0).getCustomer_birth() %>
 									</li>
 								</ul>
 							</td>
@@ -109,21 +109,21 @@
 							<td>
 								<ul>
 									<li>
-										<input id="sample6_postcode" class="addressBox" type="text" name="post-address" readonly>
+										<input id="sample6_postcode" class="addressBox" type="text" name="post-address" > <!-- readonly 지워버림 -->
 									</li>
 									<li><input class="button checkBtn adrBtn textColor gray_656565" type="button" name="check-address" value="우편번호" onclick="sample6_execDaumPostcode()"></li>
 								</ul>
 								<ul>
 									<li class="mb_5">
-										<label for="first-address"></label>
+										<label for="first-address"><%=memberList.get(0).getCustomer_addr() %></label>
 										<input id="sample6_address" class="inputText" type="text" name="first-address" >
 									</li> 
 									<li>
-										<label for="last-address">상세주소</label>
+										<label for="last-address"><%=memberList.get(0).getCustomer_addr() %></label>
 										<input id="sample6_detailAddress" class="inputText" type="text" name="last-address" >
 									</li>
 									<li>
-										<label for="extra-address">참고항목</label>
+										<label for="extra-address"><%=memberList.get(0).getCustomer_addr() %></label>
 										<input id="sample6_extraAddress" class="inputText" type="text" name="extra-address" >
 									</li>
 								</ul>
@@ -135,7 +135,7 @@
 								<ul>
 									<li>
 										<select name="phone-choice" size="1">
-											<option name="phone-view">휴대폰 앞자리</option>
+											<option name="phone-view"><%=memberList.get(0).getCustomer_phone() %></option>
 											<option name="phone-010" value="010">010</option>
 											<option name="phone-011" value="011">011</option>
 											<option name="phone-018" value="018">018</option>
@@ -144,12 +144,12 @@
 									<li>-</li>
 									<li>
 										<label for="middle-phonenum"></label>
-										<input class="inputText" type="text" name="middle-phonenum"  maxlength="4" onKeyup="this.value=this.value.replace(/[^0-9]/g,'');">
+										<input class="inputText" type="text" name="middle-phonenum" value="<%=memberList.get(0).getCustomer_phone() %>" maxlength="4" onKeyup="this.value=this.value.replace(/[^0-9]/g,'');">
 									</li>
 									<li>-</li>
 									<li>
 										<label for="last-phonenum"></label>
-										<input class="inputText" type="text" name="last-phonenum"  maxlength="4" onKeyup="this.value=this.value.replace(/[^0-9]/g,'');">
+										<input class="inputText" type="text" name="last-phonenum" value="<%=memberList.get(0).getCustomer_phone() %>" maxlength="4" onKeyup="this.value=this.value.replace(/[^0-9]/g,'');">
 									</li>
 								</ul>
 							</td>

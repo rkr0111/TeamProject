@@ -7,6 +7,7 @@
 <% 
 	request.setCharacterEncoding("utf-8");
 	String id = (String)session.getAttribute("id");
+	String mypageCategory = "개인정보수정";
 	
 	if (id== null) {
 		throw new Exception("로그인을 해주세요.");
@@ -20,33 +21,27 @@
 			out.println("light 데이터베이스로 연결을 할 수 없습니다.");
 		}
 		stmt = conn.createStatement();
-		ResultSet rs = stmt.executeQuery("select * from light.customerinfo where customer_id='"+id+"';");
+		ResultSet rs = stmt.executeQuery("select customer_id, customer_pwd from light.customerinfo where customer_id='"+id+"';");
 		
 		if(rs.next()) {
-			ArrayList<CustomerInfo_dto> memberList = new ArrayList<CustomerInfo_dto>();
+			ArrayList<CustomerInfo_dto> idList = new ArrayList<CustomerInfo_dto>();
 			
 			do {
 				CustomerInfo_dto dto = new CustomerInfo_dto();
 				
 				dto.setCustomer_id(rs.getString(1));
 				dto.setCustomer_pwd(rs.getString(2));
-				dto.setCustomer_email(rs.getString(3));
-				dto.setCustomer_name(rs.getString(4));
-				dto.setCustomer_birth(rs.getDate(5));
-				//dto.setCustomer_post(rs.getString(6));
-				dto.setCustomer_addr(rs.getString(6));
-				dto.setCustomer_phone(rs.getString(7));
 				
-				memberList.add(dto);
+				idList.add(dto);
 				
-				request.setAttribute("memberList", memberList);
+				request.setAttribute("idList", idList);
 			}
 			while(rs.next());
 			
-			RequestDispatcher dispatcher = request.getRequestDispatcher("login_infoUpdate.jsp");
+			RequestDispatcher dispatcher = request.getRequestDispatcher("login_mypage.jsp?mypageCategory="+mypageCategory);
 			dispatcher.forward(request, response);
 		}else {
-			RequestDispatcher dispatcher = request.getRequestDispatcher("login_infoUpdate.jsp");
+			RequestDispatcher dispatcher = request.getRequestDispatcher("login_mypage.jsp?mypageCategory="+mypageCategory);
 			dispatcher.forward(request, response);   
 		}
 	} finally {

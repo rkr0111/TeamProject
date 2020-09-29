@@ -35,7 +35,7 @@
 	ArrayList<Interior_dto> reviewList = (ArrayList<Interior_dto>) request.getAttribute("reviewList");
 	ArrayList<Cart_dto> cartList = (ArrayList<Cart_dto>) request.getAttribute("cartList");
 	ArrayList<Buyhistory_dto> applyASlist = (ArrayList<Buyhistory_dto>) request.getAttribute("applyASlist");
-	ArrayList<CustomerInfo_dto> memberList = (ArrayList<CustomerInfo_dto>) request.getAttribute("memberList");
+	ArrayList<CustomerInfo_dto> idList = (ArrayList<CustomerInfo_dto>) request.getAttribute("idList");
 
 	String mypageCategory = request.getParameter("mypageCategory");
 %>
@@ -78,7 +78,7 @@
 					</a>
 				</li>
 				<li id="memberInfo">
-					<a href="DB_mypage_member.jsp">개인정보수정
+					<a href="DB_mypage_IdPwd.jsp">개인정보수정
 						<p>&gt;</p>
 					</a>
 				</li>
@@ -154,7 +154,7 @@
 					</a>
 				</li>
 				<li id="memberInfo">
-					<a href="DB_mypage_member.jsp">개인정보수정
+					<a href="DB_mypage_IdPwd.jsp">개인정보수정
 						<p>&gt;</p>
 					</a>
 				</li>
@@ -243,7 +243,7 @@
 					</a>
 				</li>
 				<li id="memberInfo">
-					<a href="DB_mypage_member.jsp">개인정보수정
+					<a href="DB_mypage_IdPwd.jsp">개인정보수정
 						<p>&gt;</p>
 					</a>
 				</li>
@@ -330,7 +330,7 @@
 					</a>
 				</li>
 				<li id="memberInfo">
-					<a href="DB_mypage_member.jsp">개인정보수정
+					<a href="DB_mypage_IdPwd.jsp">개인정보수정
 						<p>&gt;</p>
 					</a>
 				</li>
@@ -402,7 +402,7 @@
 					</a>
 				</li>
 				<li id="memberInfo">
-					<a href="DB_mypage_member.jsp">개인정보수정
+					<a href="DB_mypage_IdPwd.jsp">개인정보수정
 						<p>&gt;</p>
 					</a>
 				</li>
@@ -410,7 +410,7 @@
 		</aside>
 	</div>
 	<div class="contentsOrder">
-		<%if(memberList != null) { %>
+		<%if(idList != null) { %>
 		<!-- <div class="contentMember">
 			<ul>
 				<li>정보 확인을 위해 비밀번호를 입력해주세요.</li>
