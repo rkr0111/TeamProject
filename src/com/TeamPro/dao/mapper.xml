@@ -67,6 +67,12 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	<select id="xml_select_reviewLikeCnt" resultType="reviewLike" parameterType="reviewLike">
 		select * from light.reviewlike where reviewboard_num=#{reviewboard_num} and like_check=1;
 	</select>
+	<select id="xml_select_customernoticeList" resultType="customerCenter" parameterType="customerCenter">
+		select * from light.customercenter order by center_no desc limit #{startrow},5;
+	</select>
+	<select id="xml_select_customerNoticecount" resultType="Integer" parameterType="customerCenter" >
+		select count(*) from light.customercenter where center_category=#{center_category};
+	</select>
 	
 	<insert id="xml_insert_prolist" parameterType="xmlDto">
 		insert into light.product values(#{product_name}, #{product_category}, #{product_price}, #{product_color}, #{product_file}, #{product_img}, #{product_detailimg}, #{product_contents}, #{product_weather}, curdate()); 
@@ -75,13 +81,16 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		insert into light.buyhistory values(#{buy_id}, #{buy_name}, #{buy_price}, now(), #{buy_condition}, #{buy_category}, #{buy_img}, #{buy_colors}, #{buy_amount}, #{buy_totalprice}); 
 	</insert>
 	<insert id="insert_reviewComment" parameterType="reviewComment">
-		insert into light.reviewcomment values(default, #{reviewboard_num}, #{comment_id}, #{comment_text}, now()); 
+		insert into light.reviewcomment values(default, #{reviewboard_num}, #{comment_id}, #{comment_text}, curdate()); 
 	</insert>
 	<insert id="insert_reviewReply" parameterType="reviewReply">
-		insert into light.reviewreply values(default, #{reviewboard_num}, #{comment_num}, #{reply_id}, #{reply_text}, now()); 
+		insert into light.reviewreply values(default, #{reviewboard_num}, #{comment_num}, #{reply_id}, #{reply_text}, curdate()); 
 	</insert>
 	<insert id="insert_reviewLike" parameterType="reviewLike">
 		insert into light.reviewlike values(default, #{reviewboard_num}, #{like_id}, #{like_check}); 
+	</insert>
+	<insert id="insert_customerNotice" parameterType="customerCenter">
+		insert into light.customercenter values(#{center_category}, default, #{center_title}, curdate(), #{center_contents}, '', #{center_id}, '', ''); 
 	</insert>
 	
 	<update id="xml_update" parameterType="xmlDto">

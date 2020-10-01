@@ -9,7 +9,6 @@ import com.TeamPro.dto.Review_dto;
 public class Index_ListService {
 	// 0929 review list select - dhdbswl 수정
 	public List<Review_dto> getReviewList() throws Exception {
-		System.out.println("연결 service");
 		List<Review_dto> reviewlist = null;
 		TeamPro_dao prodao = TeamPro_dao.getinstance();
 		prodao.getConn();

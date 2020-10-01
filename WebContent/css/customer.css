@@ -120,7 +120,11 @@ customerContainer
 	display: flex;
 	align-content: center;
 	padding: 20px 0;
+}
+.customerContainer .customerContents.notice .noticeConn .notice_list > li {
 	border-bottom: 1px solid #ddd;
+}
+.customerContainer .customerContents.notice .noticeConn .noticeInner {
 }
 .customerContainer .customerContents.notice .noticeConn .noticeInner > div {
 	text-align: center;
@@ -141,6 +145,17 @@ customerContainer
 	text-align: left;
 	cursor: pointer;
 }
+
+/* notice_contents */
+.customerContainer .customerContents.notice .noticeConn .notice_contents {
+	padding: 20px 180px;
+    border-top: 1px solid #f7f7f7;
+	transition: all .3s ease;
+}
+.customerContainer .customerContents.notice .noticeConn .notice_contents.none {
+	display: none;
+}
+
 
 /*
 =====================================================

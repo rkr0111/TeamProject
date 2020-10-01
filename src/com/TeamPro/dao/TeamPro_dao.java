@@ -11,6 +11,7 @@ import org.apache.ibatis.session.SqlSessionFactory;
 import org.apache.ibatis.session.SqlSessionFactoryBuilder;
 
 import com.TeamPro.dto.Buyhistory_dto;
+import com.TeamPro.dto.CustomerCenter_dto;
 import com.TeamPro.dto.Product_dto;
 import com.TeamPro.dto.ReviewComment_dto;
 import com.TeamPro.dto.ReviewLike_dto;
@@ -220,6 +221,27 @@ public class TeamPro_dao {
 		sqlsession.close();
 		return connresultsel; 
 	}
+	// 고객센터 > 공지사항 list select - 1001 dhdbswl 수정
+	public List<CustomerCenter_dto> Conn_select_CenterNoticelist(int page) {
+		int startrow = (page-1)*5;
+		CustomerCenter_dto centerdto = new CustomerCenter_dto();
+		centerdto.setStartrow(startrow);
+		SqlSession sqlsession = sqlfactory.openSession();
+		List<CustomerCenter_dto> connresultsel= sqlsession.selectList("xml_select_customernoticeList", centerdto);
+		sqlsession.close();
+		return connresultsel; 
+	}
+	// 고객센터 > 공지사항 list count select - 1001 dhdbswl 수정
+	public int select_customerNoticeListCount(String center_category) {
+		int listCount = 0;
+		CustomerCenter_dto centerdto = new CustomerCenter_dto();
+		centerdto.setCenter_category(center_category);
+		SqlSession sqlsession = sqlfactory.openSession();
+		List<Integer> connresultsel = sqlsession.selectList("xml_select_customerNoticecount", centerdto);
+		sqlsession.close();
+		listCount = Integer.parseInt(connresultsel.get(0).toString());
+		return listCount;
+	}
 	
 	//insert - 0731 dhdbswl 수정
 	public int Conn_insert(Product_dto dto) {
@@ -266,6 +288,16 @@ public class TeamPro_dao {
 		int insertCount = 0;
 		SqlSession sqlsession = sqlfactory.openSession();
 		sqlsession.insert("insert_reviewLike", likedto);
+		sqlsession.commit();
+		insertCount = 1;
+		sqlsession.close();
+		return insertCount;
+	}
+	// 고객센터 > 공지사항 insert - 1001 dhdbswl 수정 
+	public int Conn_CustomerNoticeinsert(CustomerCenter_dto centerdto) {
+		int insertCount = 0;
+		SqlSession sqlsession = sqlfactory.openSession();
+		sqlsession.insert("insert_customerNotice", centerdto);
 		sqlsession.commit();
 		insertCount = 1;
 		sqlsession.close();

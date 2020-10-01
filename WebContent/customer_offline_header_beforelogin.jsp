@@ -21,9 +21,9 @@
 					<li><a href="../mdRandomList.bo" class="mdpick">MD PICK</a></li>
 					<li><a href="../reviewAllList.bo">INTERIOR</a></li>
 					<li>
-						<a href="../pages_customer/customer_notice.jsp">CUSTOMER CENTER</a>
+						<a href="customerNoticeList.bo?center_category=notice">CUSTOMER CENTER</a>
 						<ul class="submenu">
-							<li><a href="../pages_customer/customer_notice.jsp">공지사항</a></li>
+							<li><a href="customerNoticeList.bo?center_category=notice">공지사항</a></li>
 							<li><a href="customerDownload.bo">제품설명서</a></li>
 							<li><a href="../pages_customer/customer_offline.jsp">오프라인 매장</a></li>
 						</ul>

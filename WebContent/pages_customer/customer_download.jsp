@@ -48,7 +48,7 @@ List<Product_dto> filelist = (List<Product_dto>) request.getAttribute("filelist"
 		<!-- customerNav -->
 		<div class="menuContainer">
 			<ul>
-				<li onclick="location.href='../TeamPro/pages_customer/customer_notice.jsp';">공지사항</li>
+				<li onclick="location.href='customerNoticeList.bo?center_category=notice';">공지사항</li>
 				<li onclick="location.href='customerDownload.bo';" class="bgWhite">제품 설명서</li>
 				<li onclick="location.href='../TeamPro/pages_customer/customer_offline.jsp';">오프라인 매장</li>
 			</ul>

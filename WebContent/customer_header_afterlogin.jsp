@@ -21,9 +21,9 @@
 					<li><a href="../TeamPro/mdRandomList.bo" class="mdpick">MD PICK</a></li>
 					<li><a href="../TeamPro/reviewAllList.bo">INTERIOR</a></li>
 					<li>
-						<a href="../TeamPro/pages_customer/customer_notice.jsp">CUSTOMER CENTER</a>
+						<a href="customerNoticeList.bo?center_category=notice">CUSTOMER CENTER</a>
 						<ul class="submenu">
-							<li><a href="../ages_customer/customer_notice.jsp">공지사항</a></li>
+							<li><a href="customerNoticeList.bo?center_category=notice">공지사항</a></li>
 							<li><a href="customerDownload.bo">제품설명서</a></li>
 							<li><a href="../pages_customer/customer_offline.jsp">오프라인 매장</a></li>
 						</ul>
@@ -33,8 +33,8 @@
 			<ul class="minimenu">
 				<%String id= (String) session.getAttribute("id");%>
 				<li><%out.print(id);%>님 안녕하세요.</li>
-				<li><a href="../pages_login/DB_mypage_buyhistory.jsp">MY PAGE</a></li>
-				<li><a href="../pages_login/DB_logout.jsp">LOGOUT</a></li>
+				<li><a href="../TeamPro/pages_login/DB_mypage_buyhistory.jsp">MY PAGE</a></li>
+				<li><a href="../TeamPro/pages_login/DB_logout.jsp">LOGOUT</a></li>
 			</ul>
 		</div>
 	</header> <!-- header end -->

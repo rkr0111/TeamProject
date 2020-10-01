@@ -13,7 +13,6 @@ import com.TeamPro.service.Index_ListService;
 public class Index_ListAction implements Light_action {
 
 	public ActionForward execute(HttpServletRequest request,HttpServletResponse response) throws Exception {
-		System.out.println("¿¬°á action");
 		ActionForward forward = null;
 		List<Review_dto> listinfo = new ArrayList<Review_dto>();
 		Index_ListService indexListService = new Index_ListService();

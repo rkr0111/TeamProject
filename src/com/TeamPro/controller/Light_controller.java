@@ -11,6 +11,8 @@ import com.TeamPro.action.Buy_nowListAction;
 import com.TeamPro.action.Buy_nowformAction;
 import com.TeamPro.action.Customer_DownloadAction;
 import com.TeamPro.action.Customer_DownloadFileAction;
+import com.TeamPro.action.Customer_NoticeInsertAction;
+import com.TeamPro.action.Customer_NoticeListAction;
 import com.TeamPro.action.Index_ListAction;
 import com.TeamPro.action.Light_action;
 import com.TeamPro.action.MD_randomListAction;
@@ -37,7 +39,6 @@ public class Light_controller extends javax.servlet.http.HttpServlet {
 		String command=RequestURI.substring(contextPath.length());
 		ActionForward forward=null;
 		Light_action action=null;
-		System.out.println("연결 controller : " + action);
 		
 		// check command
 		if(command.equals("/productList.bo")) {
@@ -155,8 +156,21 @@ public class Light_controller extends javax.servlet.http.HttpServlet {
 				System.out.println(e);
 			}
 		}else if(command.equals("/indexList.bo")) { // 0929 dhdbswl 수정
-			System.out.println("연결 controller");
 			action = new Index_ListAction();
+			try{
+				forward=action.execute(request, response);
+			}catch(Exception e){
+				System.out.println(e);
+			}
+		}else if(command.equals("/customerNoticeList.bo")) { // 1001 dhdbswl 수정
+			action = new Customer_NoticeListAction();
+			try{
+				forward=action.execute(request, response);
+			}catch(Exception e){
+				System.out.println(e);
+			}
+		}else if(command.equals("/customerNoticeInsert.bo")) { // 1001 dhdbswl 수정
+			action = new Customer_NoticeInsertAction();
 			try{
 				forward=action.execute(request, response);
 			}catch(Exception e){

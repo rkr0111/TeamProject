@@ -17,6 +17,7 @@ PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
 		<typeAlias type="com.TeamPro.dto.ReviewComment_dto" alias="reviewComment"/>
 		<typeAlias type="com.TeamPro.dto.ReviewReply_dto" alias="reviewReply"/>
 		<typeAlias type="com.TeamPro.dto.ReviewLike_dto" alias="reviewLike"/>
+		<typeAlias type="com.TeamPro.dto.CustomerCenter_dto" alias="customerCenter"/>
 	</typeAliases>
 
 	<environments default="development">

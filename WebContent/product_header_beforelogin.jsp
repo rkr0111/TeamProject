@@ -22,9 +22,9 @@
 					<li><a href="../TeamPro/mdRandomList.bo" class="mdpick">MD PICK</a></li>
 					<li><a href="../TeamPro/reviewAllList.bo">INTERIOR</a></li>
 					<li>
-						<a href="../TeamPro/pages_customer/customer_notice.jsp">CUSTOMER CENTER</a>
+						<a href="../TeamPro/customerNoticeList.bo?center_category=notice">CUSTOMER CENTER</a>
 						<ul class="submenu">
-							<li><a href="../TeamPro/pages_customer/customer_notice.jsp">공지사항</a></li>
+							<li><a href="../TeamPro/customerNoticeList.bo?center_category=notice">공지사항</a></li>
 							<li><a href="../TeamPro/customerDownload.bo">제품설명서</a></li>
 							<li><a href="../TeamPro/pages_customer/customer_offline.jsp">오프라인 매장</a></li>
 						</ul>

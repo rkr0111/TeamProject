@@ -93,18 +93,15 @@
 				<ul>
 					<%List<Review_dto> listinfo = (List<Review_dto>) request.getAttribute("listinfo");
 					if(listinfo != null) {
-						System.out.println("연결 not null");
 					for(int i=0; i<listinfo.size(); i++) {%>
-					<li>
+					<li
+						onclick="location.href='reviewDetailSelect.bo?review_num=<%=listinfo.get(i).getReview_num()%>';">
 						<div class="interiorImgBox">
 							<img src="product_file/<%=listinfo.get(i).getReview_img()%>">
 						</div>
 						<p class="interiorTextBox"><%=listinfo.get(i).getReview_contents()%></p>
 					</li>
 					<%}}else {
-						System.out.println("연결 else");
-						//out.println("<script>location.href='indexList.bo';</script>");
-						//out.print("<script type='text/javascript'>$(function(){ $(window).ready('indexList.bo'); });</script>");
 						out.println("<script type='text/javascript'>window.onload=function() {location.href='indexList.bo';}</script>");
 					}%>
 				</ul>
@@ -124,7 +121,7 @@
 						<li><a href="">공지사항 제목입니다. 공지사항 공지사항</a></li>
 					</ul>
 				</div>
-				<div class="viewMoreBtn"><a href="pages_customer/customerCenter.jsp">view more</a></div>
+				<div class="viewMoreBtn"><a href="customerNoticeList.bo?center_category=notice">view more</a></div>
 			</div>
 		</div>
 	</section>
