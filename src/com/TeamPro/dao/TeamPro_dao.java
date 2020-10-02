@@ -214,6 +214,13 @@ public class TeamPro_dao {
 		sqlsession.close();
 		return connresultsel; 
 	}
+	// index페이지 customer center list select - 1002 dhdbswl 수정
+	public List<CustomerCenter_dto> Conn_select_indexCustomerCenterList() {
+		SqlSession sqlsession = sqlfactory.openSession();
+		List<CustomerCenter_dto> connresultsel= sqlsession.selectList("xml_select_customercenterIndex");
+		sqlsession.close();
+		return connresultsel; 
+	}
 	// index페이지 review list select product - 0928 dhdbswl 수정
 	public List<Product_dto> Conn_select_indexProductList() {
 		SqlSession sqlsession = sqlfactory.openSession();
@@ -324,14 +331,37 @@ public class TeamPro_dao {
 		updateCount = 1;
 		return updateCount;
 	}
+	// 고객센터 > 공지사항 update - 1002 dhdbswl 수정 
+	public int Conn_update_customerNotice(CustomerCenter_dto dto) {
+		int updateCount = 0;
+		SqlSession sqlsession = sqlfactory.openSession();
+		sqlsession.update("update_customerNotice", dto);
+		sqlsession.commit();
+		sqlsession.close();
+		updateCount = 1;
+		return updateCount;
+	}
 	
 	//delete 
+	// 상품 삭제
 	public void Conn_delete(Product_dto dto) {
 		SqlSession sqlsession = sqlfactory.openSession();
 		sqlsession.insert("xml_delete", dto);
 		sqlsession.commit();
 		sqlsession.close();
 	}
+	// 고객센터 > 공지사항 삭제 - 1002 dhdbswl 수정
+	public int Conn_CustomerNotioce(CustomerCenter_dto dto) {
+		int deleteFlag = 0;
+		SqlSession sqlsession = sqlfactory.openSession();
+		sqlsession.insert("xml_delete_customerNotice", dto);
+		sqlsession.commit();
+		sqlsession.close();
+		deleteFlag = 1;
+		return deleteFlag;
+	}
+	
+	
 	public SqlSessionFactory getConn() { //jsp에서 사용하기 위해 생성자 이름을 일반 메소드로 변경
 		//punlic static SqlSessionFactory getConn() 이라고 적어도 된다.
 		try { 

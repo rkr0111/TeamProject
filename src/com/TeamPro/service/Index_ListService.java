@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import com.TeamPro.dao.TeamPro_dao;
+import com.TeamPro.dto.CustomerCenter_dto;
 import com.TeamPro.dto.Review_dto;
 
 public class Index_ListService {
@@ -23,5 +24,26 @@ public class Index_ListService {
 			list.add(reivewdto);
 		}
 		return reviewlist;
+	}
+	
+	// 10/2 
+	public List<CustomerCenter_dto> getCustomerCenterList() throws Exception {
+		List<CustomerCenter_dto> centerlist = null;
+		TeamPro_dao prodao = TeamPro_dao.getinstance();
+		prodao.getConn();
+		centerlist = prodao.Conn_select_indexCustomerCenterList();
+		CustomerCenter_dto centerdto = new CustomerCenter_dto();
+		ArrayList<CustomerCenter_dto> list = new ArrayList<CustomerCenter_dto>();
+		
+		for(int i = 0; i < centerlist.size(); i++) {
+			centerdto.setCenter_category(centerlist.get(i).getCenter_category());
+			centerdto.setCenter_no(centerlist.get(i).getCenter_no());
+			centerdto.setCenter_title(centerlist.get(i).getCenter_title());
+			centerdto.setCenter_date(centerlist.get(i).getCenter_date());
+			centerdto.setCenter_contents(centerlist.get(i).getCenter_contents());
+			list.add(centerdto);
+		}
+		
+		return centerlist;
 	}
 }

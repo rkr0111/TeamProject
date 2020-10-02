@@ -11,8 +11,10 @@ import com.TeamPro.action.Buy_nowListAction;
 import com.TeamPro.action.Buy_nowformAction;
 import com.TeamPro.action.Customer_DownloadAction;
 import com.TeamPro.action.Customer_DownloadFileAction;
+import com.TeamPro.action.Customer_NoticeDeleteAction;
 import com.TeamPro.action.Customer_NoticeInsertAction;
 import com.TeamPro.action.Customer_NoticeListAction;
+import com.TeamPro.action.Customer_NoticeUpdateAction;
 import com.TeamPro.action.Index_ListAction;
 import com.TeamPro.action.Light_action;
 import com.TeamPro.action.MD_randomListAction;
@@ -171,6 +173,20 @@ public class Light_controller extends javax.servlet.http.HttpServlet {
 			}
 		}else if(command.equals("/customerNoticeInsert.bo")) { // 1001 dhdbswl 수정
 			action = new Customer_NoticeInsertAction();
+			try{
+				forward=action.execute(request, response);
+			}catch(Exception e){
+				System.out.println(e);
+			}
+		}else if(command.equals("/customerCenterDelete.bo")) { // 1002 dhdbswl 수정
+			action = new Customer_NoticeDeleteAction();
+			try{
+				forward=action.execute(request, response);
+			}catch(Exception e){
+				System.out.println(e);
+			}
+		}else if(command.equals("/customerNoticeUpdate.bo")) { // 1002 dhdbswl 수정
+			action = new Customer_NoticeUpdateAction();
 			try{
 				forward=action.execute(request, response);
 			}catch(Exception e){

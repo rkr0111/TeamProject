@@ -5,6 +5,7 @@
 <%@page import="org.apache.ibatis.session.SqlSession"%>
 
 <%@page import="com.TeamPro.dto.Review_dto"%>
+<%@page import="com.TeamPro.dto.CustomerCenter_dto"%>
 <%@page import="java.util.*"%>
 
 <!DOCTYPE html>
@@ -102,7 +103,7 @@
 						<p class="interiorTextBox"><%=listinfo.get(i).getReview_contents()%></p>
 					</li>
 					<%}}else {
-						out.println("<script type='text/javascript'>window.onload=function() {location.href='indexList.bo';}</script>");
+						out.println("<script type='text/javascript'>location.href='indexList.bo';</script>");
 					}%>
 				</ul>
 				<div class="viewMoreBtn"><a href="reviewAllList.bo">view more</a></div>
@@ -115,10 +116,11 @@
 				<p>공지사항을 확인하세요.</p>
 				<div class="newsContents">
 					<ul>
-						<li><a href="">공지사항 제목입니다. 공지사항 공지사항</a></li>
-						<li><a href="">공지사항 제목입니다. 공지사항 공지사항</a></li>
-						<li><a href="">공지사항 제목입니다. 공지사항 공지사항</a></li>
-						<li><a href="">공지사항 제목입니다. 공지사항 공지사항</a></li>
+						<%List<CustomerCenter_dto> centerlist = (List<CustomerCenter_dto>) request.getAttribute("centerlist");
+						if(centerlist != null) {
+						for(int i=0; i<centerlist.size(); i++) {%>
+						<li><a href="customerNoticeList.bo?center_category=notice"><%=centerlist.get(i).getCenter_title()%></a></li>
+						<%}}%>
 					</ul>
 				</div>
 				<div class="viewMoreBtn"><a href="customerNoticeList.bo?center_category=notice">view more</a></div>

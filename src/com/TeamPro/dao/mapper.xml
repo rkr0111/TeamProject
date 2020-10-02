@@ -40,9 +40,6 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	<select id="xml_select_proIndex" resultType="xmlDto">
 		select product_category from light.review, light.product where product_name=review_name;
 	</select>
-	<select id="xml_select_reviewIndex" resultType="review">
-		select * from light.review;
-	</select>
 	<select id="xml_select_listImg" resultType="xmlDto">
 		select product_name, product_category from light.review, light.product where product_name=review_name;
 	</select>
@@ -73,6 +70,15 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	<select id="xml_select_customerNoticecount" resultType="Integer" parameterType="customerCenter" >
 		select count(*) from light.customercenter where center_category=#{center_category};
 	</select>
+	<select id="xml_select_reviewIndex" resultType="review">
+		select * from light.review limit 5;
+	</select>
+	<select id="xml_select_customercenterIndex" resultType="customerCenter">
+		select * from light.customercenter limit 4;
+	</select>
+	<select id="xml_select_customerNoticeUpdate" resultType="customerCenter" parameterType="customerCenter">
+		select * from light.customercenter where center_no=#{center_no};
+	</select>
 	
 	<insert id="xml_insert_prolist" parameterType="xmlDto">
 		insert into light.product values(#{product_name}, #{product_category}, #{product_price}, #{product_color}, #{product_file}, #{product_img}, #{product_detailimg}, #{product_contents}, #{product_weather}, curdate()); 
@@ -99,9 +105,15 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	<update id="update_reviewlike" parameterType="reviewLike">
 		update light.reviewlike set like_check=#{like_check} where reviewboard_num=#{reviewboard_num} and like_id=#{like_id};
 	</update>
+	<update id="update_customerNotice" parameterType="customerCenter">
+		update light.customercenter set center_title=#{center_title}, center_contents=#{center_contents} where center_no=#{center_no};
+	</update>
 	
 	<delete id="xml_delete" parameterType="xmlDto">
 		delete from product where product_name=#{product_name};
+	</delete>
+	<delete id="xml_delete_customerNotice" parameterType="customerCenter">
+		delete from light.customercenter where center_no=#{center_no};
 	</delete>
 		
 </mapper>

@@ -32,6 +32,15 @@ int endPage=pageInfo.getEndPage();
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
 	<title>공지사항</title>
 </head>
+<script type="text/javascript">
+	function centerModify(no, flag) {
+		if(flag == 0) {
+			location.href="pages_customer/DB_notice_update.jsp?center_no="+no;
+		}else if(flag == 1) {
+			location.href="customerCenterDelete.bo?center_no="+no;
+		}
+	}
+</script>
 <body>
 	<!-- header -->
 	<%
@@ -81,6 +90,18 @@ int endPage=pageInfo.getEndPage();
 								<div class="notice_num"><%=centerlist.get(i).getCenter_no()%></div>
 								<div class="notice_title" onclick="showContents(<%=i%>)"><%=centerlist.get(i).getCenter_title()%></div>
 								<div class="notice_person"><%=centerlist.get(i).getCenter_date()%></div>
+								
+								<%if(id == null) {%>
+								<div style="display: none;"></div>
+								<%}else if(!id.equals("admin")) {%>
+								<div style="display: none;"></div>
+								<%}else if(id.equals("admin")) {%>
+								<div>
+									<input type="button" value="수정" onclick="centerModify(<%=centerlist.get(i).getCenter_no()%>, 0)" />
+									<input type="button" value="삭제" onclick="centerModify(<%=centerlist.get(i).getCenter_no()%>, 1)" />
+								</div>
+								<%}%>
+								
 							</div>
 							<div class="notice_contents none"><%=centerlist.get(i).getCenter_contents()%></div>
 						</li>
