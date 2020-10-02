@@ -95,7 +95,7 @@
 			</tr>
 			<tr>
 				<th>내용</th>
-				<td><input type="text" name="product_contents" required="required"></td>
+				<td><textarea name="product_contents" style="resize: none; width: 500px; height: 150px;" required></textarea></td>
 			</tr>
 			<tr>
 				<th>날씨</th>

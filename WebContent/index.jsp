@@ -103,7 +103,7 @@
 						<p class="interiorTextBox"><%=listinfo.get(i).getReview_contents()%></p>
 					</li>
 					<%}}else {
-						out.println("<script type='text/javascript'>location.href='indexList.bo';</script>");
+						out.println("<script type='text/javascript'>location.href='index.bo';</script>");
 					}%>
 				</ul>
 				<div class="viewMoreBtn"><a href="reviewAllList.bo">view more</a></div>
@@ -119,8 +119,10 @@
 						<%List<CustomerCenter_dto> centerlist = (List<CustomerCenter_dto>) request.getAttribute("centerlist");
 						if(centerlist != null) {
 						for(int i=0; i<centerlist.size(); i++) {%>
-						<li><a href="customerNoticeList.bo?center_category=notice"><%=centerlist.get(i).getCenter_title()%></a></li>
-						<%}}%>
+							<li><a href="customerNoticeList.bo?center_category=notice"><%=centerlist.get(i).getCenter_title()%></a></li>
+						<%}}else {
+							out.println("<script type='text/javascript'>location.href='index.bo';</script>");
+						}%>
 					</ul>
 				</div>
 				<div class="viewMoreBtn"><a href="customerNoticeList.bo?center_category=notice">view more</a></div>

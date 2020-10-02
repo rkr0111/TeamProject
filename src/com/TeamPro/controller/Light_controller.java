@@ -157,7 +157,7 @@ public class Light_controller extends javax.servlet.http.HttpServlet {
 			}catch(Exception e){
 				System.out.println(e);
 			}
-		}else if(command.equals("/indexList.bo")) { // 0929 dhdbswl 수정
+		}else if(command.equals("/index.bo")) { // 0929 dhdbswl 수정
 			action = new Index_ListAction();
 			try{
 				forward=action.execute(request, response);

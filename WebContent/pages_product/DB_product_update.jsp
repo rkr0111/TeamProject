@@ -125,7 +125,7 @@
 			</tr>
 			<tr>
 				<th>내용</th>
-				<td><input type="text" name="udt_contents" value="<%=connresultsel.get(0).getProduct_contents()%>"></td>
+				<td><textarea name="udt_contents" style="resize: none; width: 500px; height: 150px;" required><%=connresultsel.get(0).getProduct_contents()%></textarea></td>
 			</tr>
 		</table>
 		<input type="hidden" name="udt_check" value="<%=dto.getCheck()%>" />

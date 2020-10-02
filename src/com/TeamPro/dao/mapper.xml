@@ -74,7 +74,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		select * from light.review limit 5;
 	</select>
 	<select id="xml_select_customercenterIndex" resultType="customerCenter">
-		select * from light.customercenter limit 4;
+		select * from light.customercenter order by center_date desc limit 4;
 	</select>
 	<select id="xml_select_customerNoticeUpdate" resultType="customerCenter" parameterType="customerCenter">
 		select * from light.customercenter where center_no=#{center_no};
@@ -106,7 +106,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		update light.reviewlike set like_check=#{like_check} where reviewboard_num=#{reviewboard_num} and like_id=#{like_id};
 	</update>
 	<update id="update_customerNotice" parameterType="customerCenter">
-		update light.customercenter set center_title=#{center_title}, center_contents=#{center_contents} where center_no=#{center_no};
+		update light.customercenter set center_title=#{center_title}, center_contents=#{center_contents}, center_date=curdate() where center_no=#{center_no};
 	</update>
 	
 	<delete id="xml_delete" parameterType="xmlDto">

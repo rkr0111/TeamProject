@@ -9,8 +9,6 @@
 <%@page import="java.util.*"%>
 
 <%
-/* List<Buyhistory_dto> buyList = (List<Buyhistory_dto>)request.getAttribute("buyList");
-List<CustomerInfo_dto> customerList = (List<CustomerInfo_dto>)request.getAttribute("customerList"); */
 
 List<CustomerInfo_dto> customerinfoList = (List<CustomerInfo_dto>)request.getAttribute("customerinfoList");
 
@@ -119,9 +117,17 @@ int product_total = Integer.parseInt(request.getParameter("product_total"));
 								}%>
 								<%=total%>원
 							</td>
-							<td>2500원</td>
 							<td>
-								<%=total + 2500%>원
+								<%int shippingfee = 0;
+								if(total < 100000) {
+									shippingfee = 2500;
+								}else {
+									shippingfee = 0;
+								}%>
+								<%=shippingfee%>원
+							</td>
+							<td>
+								<%=total + shippingfee%>원
 							</td>
 						</tr>
 					</table>
