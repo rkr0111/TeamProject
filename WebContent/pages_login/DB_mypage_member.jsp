@@ -15,12 +15,12 @@
 	Statement stmt=null;
 	try {
 		Class.forName("com.mysql.jdbc.Driver");
-		conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/light?characterEncoding=utf8&serverTimezone=UTC", "orro", "1995");
+		conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/teamlight?characterEncoding=utf8&serverTimezone=UTC", "teamlight", "teamlight1995!");
 		if (conn == null) {
 			out.println("light 데이터베이스로 연결을 할 수 없습니다.");
 		}
 		stmt = conn.createStatement();
-		ResultSet rs = stmt.executeQuery("select * from light.customerinfo where customer_id='"+id+"';");
+		ResultSet rs = stmt.executeQuery("select * from customerinfo where customer_id='"+id+"';");
 		
 		if(rs.next()) {
 			ArrayList<CustomerInfo_dto> memberList = new ArrayList<CustomerInfo_dto>();

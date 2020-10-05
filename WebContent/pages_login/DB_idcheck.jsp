@@ -15,7 +15,7 @@ String joinid = (String)request.getParameter("joinid");
 
 try {
 	Class.forName("com.mysql.jdbc.Driver");
-	conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/light", "orro", "1995");
+	conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/teamlight", "teamlight", "teamlight1995!");
 	if(conn == null) throw new Exception("DB에 연결할 수 없습니다.");
 	stmt = conn.createStatement();
 	resultset = stmt.executeQuery("select customer_id from customerinfo where customer_id='"+joinid+"'");

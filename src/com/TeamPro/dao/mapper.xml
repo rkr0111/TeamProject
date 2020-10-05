@@ -8,112 +8,112 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 <mapper namespace="SqlData">
 	
 	<select id="xml_select" resultType="xmlDto">
-		select * from light.product;
+		select * from product;
 	</select>
 	<select id="xml_select_name" resultType="xmlDto" parameterType="xmlDto">
-		select * from light.product where product_name=#{product_name};
+		select * from product where product_name=#{product_name};
 	</select>
 	<select id="xml_select_countAll" resultType="Integer" >
-		select count(*) from light.product;
+		select count(*) from product;
 	</select>
 	<select id="xml_select_count" resultType="Integer" parameterType="xmlDto" >
-		select count(*) from light.product where product_category=#{product_category};
+		select count(*) from product where product_category=#{product_category};
 	</select>
 	<select id="xml_select_list" resultType="xmlDto" parameterType="xmlDto">
-		select * from light.product where product_category=#{product_category} order by product_date desc limit #{startrow},5;
+		select * from product where product_category=#{product_category} order by product_date desc limit #{startrow},5;
 	</select>
 	<select id="xml_select_ListSortASC" resultType="xmlDto" parameterType="xmlDto">
-		select * from light.product where product_category=#{product_category} order by product_price asc limit #{startrow},5;
+		select * from product where product_category=#{product_category} order by product_price asc limit #{startrow},5;
 	</select>
 	<select id="xml_select_ListSortDESC" resultType="xmlDto" parameterType="xmlDto">
-		select * from light.product where product_category=#{product_category} order by product_price desc limit #{startrow},5;
+		select * from product where product_category=#{product_category} order by product_price desc limit #{startrow},5;
 	</select>
 	<select id="xml_select_weatherProList" resultType="xmlDto" parameterType="xmlDto">
-		select * from light.product where product_weather=#{product_weather};
+		select * from product where product_weather=#{product_weather};
 	</select>
 	<select id="xml_select_buyList" resultType="buyhistory" parameterType="buyhistory">
-		select * from light.buyhistory where buy_id=#{buy_id};
+		select * from buyhistory where buy_id=#{buy_id};
 	</select>
 	<select id="xml_select_customerList" resultType="customerInfo" parameterType="customerInfo">
-		select * from light.customerinfo where customer_id=#{customer_id};
+		select * from customerinfo where customer_id=#{customer_id};
 	</select>
 	<select id="xml_select_proIndex" resultType="xmlDto">
-		select product_category from light.review, light.product where product_name=review_name;
+		select product_category from review, light.product where product_name=review_name;
 	</select>
 	<select id="xml_select_listImg" resultType="xmlDto">
-		select product_name, product_category from light.review, light.product where product_name=review_name;
+		select product_name, product_category from review, product where product_name=review_name;
 	</select>
 	<select id="xml_select_listInfo" resultType="review">
-		select review_name, review_img, review_contents, review_date, review_id, review_num from light.review, light.product where product_name=review_name;
+		select review_name, review_img, review_contents, review_date, review_id, review_num from review, product where product_name=review_name;
 	</select>
 	<select id="xml_select_reviewDetail" resultType="review" parameterType="review">
-		select * from light.review where review_num=#{review_num};
+		select * from review where review_num=#{review_num};
 	</select>
 	<select id="xml_select_reviewDetailImg" resultType="xmlDto" parameterType="review">
-		select product_category from light.review, light.product where product_name=review_name and review_num=#{review_num};
+		select product_category from review, product where product_name=review_name and review_num=#{review_num};
 	</select>
 	<select id="xml_select_reviewDetailCmt" resultType="reviewComment" parameterType="review">
-		select * from light.reviewcomment where reviewboard_num=#{review_num};
+		select * from reviewcomment where reviewboard_num=#{review_num};
 	</select>
 	<select id="xml_select_reviewDetailReply" resultType="reviewReply" parameterType="reviewReply">
-		select * from light.reviewreply where reviewboard_num=#{reviewboard_num};
+		select * from reviewreply where reviewboard_num=#{reviewboard_num};
 	</select>
 	<select id="xml_select_reviewLike" resultType="reviewLike" parameterType="reviewLike">
-		select * from light.reviewlike where reviewboard_num=#{reviewboard_num};
+		select * from reviewlike where reviewboard_num=#{reviewboard_num};
 	</select>
 	<select id="xml_select_reviewLikeCnt" resultType="reviewLike" parameterType="reviewLike">
-		select * from light.reviewlike where reviewboard_num=#{reviewboard_num} and like_check=1;
+		select * from reviewlike where reviewboard_num=#{reviewboard_num} and like_check=1;
 	</select>
 	<select id="xml_select_customernoticeList" resultType="customerCenter" parameterType="customerCenter">
-		select * from light.customercenter order by center_no desc limit #{startrow},5;
+		select * from customercenter order by center_no desc limit #{startrow},5;
 	</select>
 	<select id="xml_select_customerNoticecount" resultType="Integer" parameterType="customerCenter" >
-		select count(*) from light.customercenter where center_category=#{center_category};
+		select count(*) from customercenter where center_category=#{center_category};
 	</select>
 	<select id="xml_select_reviewIndex" resultType="review">
-		select * from light.review limit 5;
+		select * from review limit 5;
 	</select>
 	<select id="xml_select_customercenterIndex" resultType="customerCenter">
-		select * from light.customercenter order by center_date desc limit 4;
+		select * from customercenter order by center_date desc limit 4;
 	</select>
 	<select id="xml_select_customerNoticeUpdate" resultType="customerCenter" parameterType="customerCenter">
-		select * from light.customercenter where center_no=#{center_no};
+		select * from customercenter where center_no=#{center_no};
 	</select>
 	
 	<insert id="xml_insert_prolist" parameterType="xmlDto">
-		insert into light.product values(#{product_name}, #{product_category}, #{product_price}, #{product_color}, #{product_file}, #{product_img}, #{product_detailimg}, #{product_contents}, #{product_weather}, curdate()); 
+		insert into product values(#{product_name}, #{product_category}, #{product_price}, #{product_color}, #{product_file}, #{product_img}, #{product_detailimg}, #{product_contents}, #{product_weather}, curdate()); 
 	</insert>
 	<insert id="xml_insert_buyhistory" parameterType="buyhistory">
-		insert into light.buyhistory values(#{buy_id}, #{buy_name}, #{buy_price}, now(), #{buy_condition}, #{buy_category}, #{buy_img}, #{buy_colors}, #{buy_amount}, #{buy_totalprice}); 
+		insert into buyhistory values(#{buy_id}, #{buy_name}, #{buy_price}, now(), #{buy_condition}, #{buy_category}, #{buy_img}, #{buy_colors}, #{buy_amount}, #{buy_totalprice}); 
 	</insert>
 	<insert id="insert_reviewComment" parameterType="reviewComment">
-		insert into light.reviewcomment values(default, #{reviewboard_num}, #{comment_id}, #{comment_text}, curdate()); 
+		insert into reviewcomment values(default, #{reviewboard_num}, #{comment_id}, #{comment_text}, curdate()); 
 	</insert>
 	<insert id="insert_reviewReply" parameterType="reviewReply">
-		insert into light.reviewreply values(default, #{reviewboard_num}, #{comment_num}, #{reply_id}, #{reply_text}, curdate()); 
+		insert into reviewreply values(default, #{reviewboard_num}, #{comment_num}, #{reply_id}, #{reply_text}, curdate()); 
 	</insert>
 	<insert id="insert_reviewLike" parameterType="reviewLike">
-		insert into light.reviewlike values(default, #{reviewboard_num}, #{like_id}, #{like_check}); 
+		insert into reviewlike values(default, #{reviewboard_num}, #{like_id}, #{like_check}); 
 	</insert>
 	<insert id="insert_customerNotice" parameterType="customerCenter">
-		insert into light.customercenter values(#{center_category}, default, #{center_title}, curdate(), #{center_contents}, '', #{center_id}, '', ''); 
+		insert into customercenter values(#{center_category}, default, #{center_title}, curdate(), #{center_contents}, '', #{center_id}, '', ''); 
 	</insert>
 	
 	<update id="xml_update" parameterType="xmlDto">
-		update light.product set product_name=#{product_name}, product_category=#{product_category}, product_price=#{product_price}, product_color=#{product_color}, product_file=#{product_file}, product_img=#{product_img}, product_detailimg=#{product_detailimg}, product_contents=#{product_contents} where product_name=#{check};  
+		update product set product_name=#{product_name}, product_category=#{product_category}, product_price=#{product_price}, product_color=#{product_color}, product_file=#{product_file}, product_img=#{product_img}, product_detailimg=#{product_detailimg}, product_contents=#{product_contents} where product_name=#{check};  
 	</update>
 	<update id="update_reviewlike" parameterType="reviewLike">
-		update light.reviewlike set like_check=#{like_check} where reviewboard_num=#{reviewboard_num} and like_id=#{like_id};
+		update reviewlike set like_check=#{like_check} where reviewboard_num=#{reviewboard_num} and like_id=#{like_id};
 	</update>
 	<update id="update_customerNotice" parameterType="customerCenter">
-		update light.customercenter set center_title=#{center_title}, center_contents=#{center_contents}, center_date=curdate() where center_no=#{center_no};
+		update customercenter set center_title=#{center_title}, center_contents=#{center_contents}, center_date=curdate() where center_no=#{center_no};
 	</update>
 	
 	<delete id="xml_delete" parameterType="xmlDto">
 		delete from product where product_name=#{product_name};
 	</delete>
 	<delete id="xml_delete_customerNotice" parameterType="customerCenter">
-		delete from light.customercenter where center_no=#{center_no};
+		delete from customercenter where center_no=#{center_no};
 	</delete>
 		
 </mapper>
