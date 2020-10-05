@@ -30,7 +30,7 @@
 			out.println("light 데이터베이스로 연결을 할 수 없습니다.");
 		}
 		stmt = conn.createStatement();
-		ResultSet rs = stmt.executeQuery("select distinct review_id, review_name, review_contents, review_img, review_date, buy_condition, product_category from light.buyhistory, light.review, light.product where buy_id=review_id and review_name=product_name and review_id='a' and buy_condition='배송완료' order by review_date desc");
+		ResultSet rs = stmt.executeQuery("select distinct review_id, review_name, review_contents, review_img, review_date, buy_condition, product_category from light.buyhistory, light.review, light.product where buy_id=review_id and review_name=product_name and review_id='a' and buy_condition='배송 완료' order by review_date desc");
 		
 		if(rs.next()) {
 			ArrayList<Object> reviewList = new ArrayList<Object>();

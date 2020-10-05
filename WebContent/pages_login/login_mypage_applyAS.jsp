@@ -22,9 +22,10 @@
 <body>
 
 <%
-	ArrayList<Buyhistory_dto> buyhistoryList = (ArrayList<Buyhistory_dto>) request.getAttribute("buyhistoryList");
+	/* ArrayList<Buyhistory_dto> buyhistoryList = (ArrayList<Buyhistory_dto>) request.getAttribute("buyhistoryList");
 	ArrayList<Interior_dto> reviewList = (ArrayList<Interior_dto>) request.getAttribute("reviewList");
-	ArrayList<Cart_dto> cartList = (ArrayList<Cart_dto>) request.getAttribute("cartList");
+	ArrayList<Cart_dto> cartList = (ArrayList<Cart_dto>) request.getAttribute("cartList"); */
+	
 	ArrayList<Buyhistory_dto> asList = (ArrayList<Buyhistory_dto>) request.getAttribute("asList");
 
 	String mypageCategory = request.getParameter("mypageCategory");

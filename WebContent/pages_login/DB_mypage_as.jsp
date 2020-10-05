@@ -12,7 +12,7 @@
 <%
 	request.setCharacterEncoding("UTF-8");
 	String id = (String)session.getAttribute("id");
-	/* String mypageCategory = "A/S 문의"; */
+	String mypageCategory = "A/S 문의";
 
 	if (id== null) {
 		throw new Exception("로그인을 해주세요.");
@@ -26,7 +26,7 @@
 			out.println("light 데이터베이스로 연결을 할 수 없습니다.");
 		}
 		stmt = conn.createStatement();
-		ResultSet rs = stmt.executeQuery("select buy_id, buy_name, buy_condition, buy_date, adddate(buy_date, +1095) from buyhistory where buy_id='"+id+"' and buy_condition='배송완료' order by buy_date desc;");
+		ResultSet rs = stmt.executeQuery("select buy_id, buy_name, buy_condition, buy_date, adddate(buy_date, +1095) from buyhistory where buy_id='"+id+"' and buy_condition='배송 완료' order by buy_date desc;");
 		if(rs.next()) {
 			ArrayList<Object> asList = new ArrayList<Object>();
 			
@@ -43,11 +43,11 @@
 			}
 			while(rs.next());
 						
-			RequestDispatcher dispatcher = request.getRequestDispatcher("login_mypage.jsp");
+			RequestDispatcher dispatcher = request.getRequestDispatcher("login_mypage.jsp?mypageCategory="+mypageCategory);
 			dispatcher.forward(request, response);
 		}else {		
-			RequestDispatcher dispatcher = request.getRequestDispatcher("login_mypage.jsp");
-			dispatcher.forward(request, response);  
+			RequestDispatcher dispatcher = request.getRequestDispatcher("login_mypage.jsp?mypageCategory="+mypageCategory);
+			dispatcher.forward(request, response);
 		}
 	} finally {
 	try {

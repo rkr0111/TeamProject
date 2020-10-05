@@ -36,6 +36,7 @@
 	ArrayList<Interior_dto> reviewList = (ArrayList<Interior_dto>) request.getAttribute("reviewList");
 	ArrayList<Cart_dto> cartList = (ArrayList<Cart_dto>) request.getAttribute("cartList");
 	ArrayList<Buyhistory_dto> applyASlist = (ArrayList<Buyhistory_dto>) request.getAttribute("applyASlist");
+	ArrayList<Buyhistory_dto> asList = (ArrayList<Buyhistory_dto>) request.getAttribute("asList");
 	ArrayList<CustomerInfo_dto> idList = (ArrayList<CustomerInfo_dto>) request.getAttribute("idList");
 
 	String mypageCategory = request.getParameter("mypageCategory");
@@ -74,7 +75,7 @@
 					</a>
 				</li>
 				<li id="as">
-					<a href="DB_mypage_applyAS.jsp">A/S 문의내역
+					<a href="DB_mypage_as.jsp">A/S 문의내역
 						<p>&gt;</p>
 					</a>
 				</li>
@@ -150,7 +151,7 @@
 					</a>
 				</li>
 				<li id="as">
-					<a href="DB_mypage_applyAS.jsp">A/S 문의내역
+					<a href="DB_mypage_as.jsp">A/S 문의내역
 						<p>&gt;</p>
 					</a>
 				</li>
@@ -239,7 +240,7 @@
 					</a>
 				</li>
 				<li id="as">
-					<a href="DB_mypage_applyAS.jsp">A/S 문의내역
+					<a href="DB_mypage_as.jsp">A/S 문의내역
 						<p>&gt;</p>
 					</a>
 				</li>
@@ -327,7 +328,7 @@
 					</a>
 				</li>
 				<li id="as" class="bg">
-					<a href="DB_mypage_applyAS.jsp">A/S 문의내역
+					<a href="DB_mypage_as.jsp">A/S 문의내역
 						<p>&gt;</p>
 					</a>
 				</li>
@@ -340,8 +341,8 @@
 		</aside>
 	</div>
 	<div class="contentsOrder">
-	<% if(applyASlist != null) { 
-		for(int i=0; i<applyASlist.size(); i++) { %>	
+	<% if(asList != null) { 
+		for(int i=0; i<asList.size(); i++) { %>	
 		<!-- as신청 목록 -->
 		<div class="contentsAS">
 			<table>
@@ -353,10 +354,10 @@
 				</tr>
 <!-- td 항목 전부 변경해야 함 -->
 				<tr>
-					<td><%out.println(applyASlist.get(i).getBuy_date());%></td>
-					<td><%out.println(applyASlist.get(i).getBuy_date()); %></td>
-					<td><%out.println(applyASlist.get(i).getBuy_date()); %></td>
-					<td><%out.println(applyASlist.get(i).getBuy_date()); %></td>
+					<td><%out.println(asList.get(i).getBuy_date());%></td>
+					<td><%out.println(asList.get(i).getBuy_date()); %></td>
+					<td><%out.println(asList.get(i).getBuy_date()); %></td>
+					<td><%out.println(asList.get(i).getBuy_date()); } %></td>
 				</tr>
 			</table>
 
@@ -367,7 +368,7 @@
 		<div class="none">
 			<jsp:include page="login_mypage_applyAS.jsp" />
 		</div>
-		<%}} else {%>
+		<%} else {%>
 			<p>A/S 문의 내역이 없습니다.</p>
 		<%} %>
 	</div>
@@ -399,7 +400,7 @@
 					</a>
 				</li>
 				<li id="as">
-					<a href="DB_mypage_applyAS.jsp">A/S 문의내역
+					<a href="DB_mypage_as.jsp">A/S 문의내역
 						<p>&gt;</p>
 					</a>
 				</li>
@@ -431,17 +432,18 @@
 	function cartBtnDetail(param) {
 		location.href="../productDetailSelect.bo?product_name="+encodeURIComponent(param);
 	}
-	/* $(function() {
+	$(function() {
 		$(".asWrite_btn").click(function() {
 			$(".none").removeClass('none');
 		});
-	}); */
-	var asWrite_btn = document.querySelector(".asWrite_btn");
+	});
+	
+	/* var asWrite_btn = document.querySelector(".asWrite_btn");
 	if(asWrite_btn != null) {
 		asWrite_btn.addEventListener("click", function() {
 			document.querySelector(".none").classList.remove("none");
 		});
-	}
+	} */
 
 	var cartcheck = document.querySelectorAll("input[name='cartcheck']");
 	var cartName = document.querySelectorAll(".cartName");
