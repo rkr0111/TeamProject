@@ -11,7 +11,12 @@
 <body>
 
 <%
-	Enumeration<String> e = request.getParameterNames();
+	String cart_name = request.getParameter("cart_name");
+	String cart_id = request.getParameter("cart_id");
+	
+	out.println(cart_name);
+	out.println(cart_id);
+	/* Enumeration<String> e = request.getParameterNames();
 	while (e.hasMoreElements()) {
 		String name = e.nextElement();
 		String [] data = request.getParameterValues(name);
@@ -21,7 +26,7 @@
 			}
 			out.println("<p>");
 		}
-	}
+	} */
 	out.println("end");
 %>
 

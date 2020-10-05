@@ -31,6 +31,7 @@
 <body>
 
 <%
+	String id = (String)session.getAttribute("id");
 	ArrayList<Buyhistory_dto> buyhistoryList = (ArrayList<Buyhistory_dto>) request.getAttribute("buyhistoryList");
 	ArrayList<Interior_dto> reviewList = (ArrayList<Interior_dto>) request.getAttribute("reviewList");
 	ArrayList<Cart_dto> cartList = (ArrayList<Cart_dto>) request.getAttribute("cartList");
@@ -253,7 +254,7 @@
 	<div class="contentsOrder">
 		<div class="allCheckbox">
 			<ul>
-				<li><input type="checkbox" name="cartCheck">&nbsp;전체선택</li>
+				<li><input type="checkbox" name="cartCheck" onclick="checkAll()">&nbsp;전체선택</li>
 			</ul>
 		</div>
 		<% if(cartList != null) { 
@@ -263,7 +264,8 @@
 			<ul class="cart">
 				<li> 
 					<div>
-						<input type="checkbox" name="cartcheck" value="<%out.print(cartList.get(i).getCart_name());%>">&nbsp;<%out.print(cartList.get(i).getCart_name());%>
+						<input type="checkbox" name="cartcheck" value="<%out.print(cartList.get(i).getCart_name());%>" onclick="checkSingle(<%=i%>)"><br/>
+						<span class="cartName"><%out.print(cartList.get(i).getCart_name());%></span>
 					</div>
 				</li>
 				<li>
@@ -429,41 +431,34 @@
 	function cartBtnDetail(param) {
 		location.href="../productDetailSelect.bo?product_name="+encodeURIComponent(param);
 	}
-	$(function() {
-		$(".asWrite_btn").click(function() {
-			$(".none").removeClass('none');
-		});
-	});
-	
-	// 1.모두 체크
-	/*function allChk(obj){
-		var chkObj = document.getElementsByName("RowCheck");
-	    var rowCnt = chkObj.length - 1;
-	    var check = obj.checked;
-	   	
-	    if (check) {﻿
-	       	for (var i=0; i<=rowCnt; i++){
-	         	if(chkObj[i].type == "checkbox")
-	            	chkObj[i].checked = true;
-	         }
-	     } else {
-	       for (var i=0; i<=rowCnt; i++) {
-	         if(chkObj[i].type == "checkbox"){
-	           chkObj[i].checked = false;
-	          }
-	        }
-	     }
-	} */
-	
-	//
-	function cartDelete_btn() {
-		location.href="login_mypage_cartCheckbox.jsp";
-	}
 	/* $(function() {
 		$(".asWrite_btn").click(function() {
 			$(".none").removeClass('none');
 		});
 	}); */
+	var asWrite_btn = document.querySelector(".asWrite_btn");
+	if(asWrite_btn != null) {
+		asWrite_btn.addEventListener("click", function() {
+			document.querySelector(".none").classList.remove("none");
+		});
+	}
+
+	var cartcheck = document.querySelectorAll("input[name='cartcheck']");
+	var cartName = document.querySelectorAll(".cartName");
+	function checkSingle(obj) {
+		if(cartcheck[obj].checked) {
+			cartName[obj].classList.add("checked");
+		}
+	}
+	function cartDelete_btn() {
+		var i=0;
+		while(i<cartName.length) {
+			if(cartName[i].className == "checked") {
+				location.href="login_mypage_cartCheckbox.jsp?cart_name="+encodeURIComponent(cartName[i].innerText)+"&cart_id=<%=id%>";
+				break;
+			}
+		}
+	}
 </script>
 	
 </body>
