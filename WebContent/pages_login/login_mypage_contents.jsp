@@ -263,7 +263,7 @@
 			<ul class="cart">
 				<li> 
 					<div>
-						<input type="checkbox" name="cartcheck">&nbsp;<%out.print(cartList.get(i).getCart_name());%>
+						<input type="checkbox" name="cartcheck" value="<%out.print(cartList.get(i).getCart_name());%>">&nbsp;<%out.print(cartList.get(i).getCart_name());%>
 					</div>
 				</li>
 				<li>
@@ -289,8 +289,8 @@
 		<%}%>
 		<div class="cartBtnContents">
 			<ul class="cartBtn">
-				<li><input class="cartDelete_btn" type="button" name="cartDelete_btn" value="선택제품 삭제하기"></li>
-				<li><input class="cartOrder_btn" type="button" name="cartOrder_btn" value="선택제품 구매하기"></li>
+				<li><input class="cartDelete_btn" type="button" name="cartDelete_btn" value="선택제품 삭제하기" onclick="cartDelete_btn()" /></li>
+				<li><input class="cartOrder_btn" type="button" name="cartOrder_btn" value="선택제품 구매하기" onclick="cartOrder_btn()" /></li>
 			</ul>
 		</div>
 		<%}else {%>
@@ -436,7 +436,7 @@
 	});
 	
 	// 1.모두 체크
-	function allChk(obj){
+	/*function allChk(obj){
 		var chkObj = document.getElementsByName("RowCheck");
 	    var rowCnt = chkObj.length - 1;
 	    var check = obj.checked;
@@ -453,43 +453,17 @@
 	          }
 	        }
 	     }
-	} 
-	//﻿2. 체크박스 선택된 것 삭제 처리 (N개) 
-	function fn_userDel(){
-		var userid = "";
-		var memberChk = document.getElementsByName("RowCheck");
-		var chked = false;
-		var indexid = false;
-		
-		for(i=0; i < memberChk.length; i++){
-			if(memberChk[i].checked){
-				if(indexid){
-					userid = userid + '-';
-				}
-			userid = userid + memberChk[i].value;
-			indexid = true;
-			}
-		}
-		if(!indexid){
-			alert("삭제할 사용자를 체크해 주세요");
-			return;
-		} 
-		var agree=confirm("삭제 하시겠습니까?");
-	    if (agree){
-	  		document.userForm.execute.value = "userDel";
-	     	document.userForm.submit();
-	    }
+	} */
+	
+	//
+	function cartDelete_btn() {
+		location.href="login_mypage_cartCheckbox.jsp";
 	}
-	//개인정보수정 -> 비밀번호확인 후 수정페이지로 이동
-	<%-- function check() {
-	var checkPwd = document.getElementById("checkPwd");
-		if(checkPwd.value=="<%=memberList.get(0).getCustomer_pwd()%>") {
-			console.log(checkPwd);
-			location.href="login_infoUpdate.jsp";
-		}else {
-			alert("비밀번호가 틀렸습니다.");
-		}
-	} --%>
+	/* $(function() {
+		$(".asWrite_btn").click(function() {
+			$(".none").removeClass('none');
+		});
+	}); */
 </script>
 	
 </body>
