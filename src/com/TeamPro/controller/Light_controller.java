@@ -7,6 +7,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import com.TeamPro.action.Buy_ProInsertAction;
 import com.TeamPro.action.Buy_nowListAction;
 import com.TeamPro.action.Buy_nowformAction;
 import com.TeamPro.action.Customer_DownloadAction;
@@ -187,6 +188,13 @@ public class Light_controller extends javax.servlet.http.HttpServlet {
 			}
 		}else if(command.equals("/customerNoticeUpdate.bo")) { // 1002 dhdbswl 수정
 			action = new Customer_NoticeUpdateAction();
+			try{
+				forward=action.execute(request, response);
+			}catch(Exception e){
+				System.out.println(e);
+			}
+		}else if(command.equals("/buyHistoryInsert.bo")) { // 1005 dhdbswl 수정
+			action = new Buy_ProInsertAction();
 			try{
 				forward=action.execute(request, response);
 			}catch(Exception e){

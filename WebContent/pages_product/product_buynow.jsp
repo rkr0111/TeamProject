@@ -43,7 +43,7 @@ int product_total = Integer.parseInt(request.getParameter("product_total"));
 
 	<!-- section -->
 	<section>
-		<form method="post" action="">
+		<form method="post" action="buyHistoryInsert.bo">
 			<!-- 주문내역 -->
 			<div class="orderProductContainer">
 				<h2>주문 내역</h2>
@@ -53,11 +53,11 @@ int product_total = Integer.parseInt(request.getParameter("product_total"));
 					<div class="orderProList">
 						<div class="product_img"><img src="images/product_img/<%=product_category%>/<%=product_img%>" /></div>
 						<ul>
-							<li class="product_name"><%=product_name%></li>
+							<li class="product_name"><input type="text" name="product_name" class="borderNone" style="width:150px;" value="<%=product_name%>" readonly /></li>
 							<li>
-								<span class="product_color mr_10"><%=product_colors[i]%></span>
-								<span class="product_count mr_10"><%=showamount[i]%>개</span>
-								<span class="product_price"><%=product_price%>원</span>
+								<span class="product_color mr_10"><input type="text" name="product_color" class="borderNone t_align_left" style="width:45px;" value="<%=product_colors[i]%>" readonly /></span>
+								<span class="product_count mr_10"><input type="text" name="product_count" class="borderNone t_align_center" style="width:30px;" value="<%=showamount[i]%>" readonly />개</span>
+								<span class="product_price"><input type="text" name="product_price" class="borderNone t_align_right" style="width:50px;" value="<%=product_price * Integer.parseInt(showamount[i])%>" readonly />원</span>
 							</li>
 						</ul>
 					</div>
@@ -72,7 +72,7 @@ int product_total = Integer.parseInt(request.getParameter("product_total"));
 					<table>
 						<tr>
 							<th>주문자명</th>
-							<td><input type="text" name="order_name" value="<%=customerinfoList.get(0).getCustomer_id()%>" readonly /></td>
+							<td><input type="text" name="order_name" value="<%=customerinfoList.get(0).getCustomer_name()%>" readonly /></td>
 						</tr>
 						<tr>
 							<th>핸드폰번호</th>

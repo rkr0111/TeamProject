@@ -200,15 +200,11 @@ int product_price = isDetailSuccess.get(0).getProduct_price();
 		
 		// select option click event
 		function optionSelected() {
-			var cnt = 0;
 			for(var i=0; i<colorOpt.length; i++) {
 				if(colorOpt[i].selected && !colorOptFirst.selected) {
-					if(i == cnt) {
-						totalChoice[i].style.display = "flex";
-						product_colors[i].value = colorOpt[i].value;
-					}
+					totalChoice[i].style.display = "flex";
+					product_colors[i].value = colorOpt[i].value;
 				}
-				cnt++;
 			}
 		}
 	</script>
