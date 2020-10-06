@@ -12,7 +12,7 @@
 	<header id="index">
 		<div class="header-inner">
 			<div class="menuIcon"><div class="icon"></div></div>
-			<div id="logo"><a href="index.jsp"></a></div>
+			<div id="logo"><a href="index.bo"></a></div>
 			<ul class="minimenu">
 				<li><a href="pages_login/login_login.jsp">LOGIN</a></li>
 				<li><a href="pages_login/login_join.jsp">JOIN</a></li>

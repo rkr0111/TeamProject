@@ -60,7 +60,7 @@ int endPage=pageInfo.getEndPage();
 			<ul>
 				<li onclick="location.href='customerNoticeList.bo?center_category=notice';" class="bgWhite">공지사항</li>
 				<li onclick="location.href='customerDownload.bo';">제품 설명서</li>
-				<li onclick="location.href='../TeamPro/pages_customer/customer_offline.jsp';">오프라인 매장</li>
+				<li onclick="location.href='../pages_customer/customer_offline.jsp';">오프라인 매장</li>
 			</ul>
 		</div>
 		<div class="customerContainer">

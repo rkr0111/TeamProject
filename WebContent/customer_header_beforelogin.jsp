@@ -14,12 +14,12 @@
 			<div id="logo"><a href="index.jsp"></a></div>
 			<nav>
 				<ul class="mainmenu">
-					<li><a href="../TeamPro/productList.bo?product_category=desk">DESK</a></li>
-					<li><a href="../TeamPro/productList.bo?product_category=bedroom">BEDROOM</a></li>
-					<li><a href="../TeamPro/productList.bo?product_category=stand">STAND</a></li>
-					<li><a href="../TeamPro/productList.bo?product_category=point">POINT</a></li>
-					<li><a href="../TeamPro/mdRandomList.bo" class="mdpick">MD PICK</a></li>
-					<li><a href="../TeamPro/reviewAllList.bo">INTERIOR</a></li>
+					<li><a href="../productList.bo?product_category=desk">DESK</a></li>
+					<li><a href="../productList.bo?product_category=bedroom">BEDROOM</a></li>
+					<li><a href="../productList.bo?product_category=stand">STAND</a></li>
+					<li><a href="../productList.bo?product_category=point">POINT</a></li>
+					<li><a href="../mdRandomList.bo" class="mdpick">MD PICK</a></li>
+					<li><a href="../reviewAllList.bo">INTERIOR</a></li>
 					<li>
 						<a href="customerNoticeList.bo?center_category=notice">CUSTOMER CENTER</a>
 						<ul class="submenu">

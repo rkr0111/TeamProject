@@ -12,7 +12,7 @@
 	<header id="index">
 		<div class="header-inner">
 			<div class="menuIcon"><div class="icon"></div></div>
-			<div id="logo"><a href="index.jsp"></a></div>
+			<div id="logo"><a href="index.bo"></a></div>
 			<ul class="minimenu">
 				<%String id= (String) session.getAttribute("id");%>
 				<li><%out.print(id);%>님 안녕하세요.</li>

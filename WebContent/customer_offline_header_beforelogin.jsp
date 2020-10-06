@@ -11,7 +11,7 @@
 	<!-- header -->
 	<header id="page">
 		<div class="header-inner">
-			<div id="logo"><a href="../index.jsp"></a></div>
+			<div id="logo"><a href="../index.bo"></a></div>
 			<nav>
 				<ul class="mainmenu">
 					<li><a href="../productList.bo?product_category=desk">DESK</a></li>
