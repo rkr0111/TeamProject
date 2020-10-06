@@ -38,7 +38,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		select * from customerinfo where customer_id=#{customer_id};
 	</select>
 	<select id="xml_select_proIndex" resultType="xmlDto">
-		select product_category from review, light.product where product_name=review_name;
+		select product_category from review, product where product_name=review_name;
 	</select>
 	<select id="xml_select_listImg" resultType="xmlDto">
 		select product_name, product_category from review, product where product_name=review_name;
@@ -84,7 +84,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		insert into product values(#{product_name}, #{product_category}, #{product_price}, #{product_color}, #{product_file}, #{product_img}, #{product_detailimg}, #{product_contents}, #{product_weather}, curdate()); 
 	</insert>
 	<insert id="xml_insert_buyhistory" parameterType="buyhistory">
-		insert into buyhistory values(#{buy_id}, #{buy_name}, #{buy_price}, now(), #{buy_condition}, #{buy_category}, #{buy_img}, #{buy_colors}, #{buy_amount}, #{buy_totalprice}); 
+		insert into buyhistory values(#{buy_id}, #{buy_name}, #{buy_price}, curdate(), #{buy_condition}, #{buy_category}, #{buy_img}, #{buy_colors}, #{buy_amount}, #{buy_totalprice}); 
 	</insert>
 	<insert id="insert_reviewComment" parameterType="reviewComment">
 		insert into reviewcomment values(default, #{reviewboard_num}, #{comment_id}, #{comment_text}, curdate()); 
