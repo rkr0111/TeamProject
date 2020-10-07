@@ -25,6 +25,9 @@
 <%
 List<Product_dto> isDetailSuccess = (List<Product_dto>) request.getAttribute("isDetailSuccess");
 int product_price = isDetailSuccess.get(0).getProduct_price();
+String product_name = isDetailSuccess.get(0).getProduct_name();
+String product_category = isDetailSuccess.get(0).getProduct_category();
+String product_img = isDetailSuccess.get(0).getProduct_img();
 %>
 
 <body>
@@ -44,16 +47,16 @@ int product_price = isDetailSuccess.get(0).getProduct_price();
 		<div class="headerProductContainer">
 			<form method="post" action="buyCustomerinfo.bo" name="form">
 				<div class="productContainer">
-					<img src="images/product_img/<%=isDetailSuccess.get(0).getProduct_category()%>/<%=isDetailSuccess.get(0).getProduct_img()%>">
+					<img src="images/product_img/<%=product_category%>/<%=product_img%>">
 				</div>
 				<div class="productInfoContainer">
 					<ul>
-						<li class="fs_20 fw_bold"><%out.print(isDetailSuccess.get(0).getProduct_name());%></li>
+						<li class="fs_20 fw_bold"><%=product_name%></li>
 						<li class="fs_14 mt_10 mb_25 textColor gray_9c9c9c"><%out.print(isDetailSuccess.get(0).getProduct_contents());%></li>
 					</ul>
 					<div class="productPrice">
 						<span class="labelText">가격</span>
-						<span class="fs_18"><%out.print(isDetailSuccess.get(0).getProduct_price());%>원</span>
+						<span class="fs_18"><%=product_price%>원</span>
 					</div>
 					<div class="colorSelectContents mt_20 pt_20">
 						<span class="labelText">컬러</span>
@@ -63,7 +66,7 @@ int product_price = isDetailSuccess.get(0).getProduct_price();
 							String[] idx = isDetailSuccess.get(0).getProduct_color().split(",");
 							for(int i=0; i<idx.length; i++) {
 							%>
-								<option name="color-<%out.print(i);%>"><%out.print(idx[i]);%></option>
+								<option name="color-<%=i%>"><%=idx[i]%></option>
 							<%}%>
 						</select>
 					</div>
@@ -71,7 +74,7 @@ int product_price = isDetailSuccess.get(0).getProduct_price();
 					<div class="totalChoiceContainer">
 						<%for(int i=0; i<idx.length; i++) {%>
 						<ul class="totalChoice" style="display: none;">
-							<li><%out.print(isDetailSuccess.get(0).getProduct_name());%></li>
+							<li><%=product_name%></li>
 							<li class="product_color"><input type="text" name="product_colors" value="" readonly /></li>
 							<li class="product_cnt">
 								<ul class="amount">
@@ -95,13 +98,13 @@ int product_price = isDetailSuccess.get(0).getProduct_price();
 						<li class="mr_10"><input type="button" name="cart_btn" value="장바구니" onclick="location.href='pages_login/login_login.jsp';"></li>
 						<li><input type="button" name="buy_btn" value="바로구매" onclick="location.href='pages_login/login_login.jsp';"></li>
 						<%} else {%>
-						<li class="mr_10"><input type="button" name="cart_btn" value="장바구니"></li>
+						<li class="mr_10"><input type="button" name="cart_btn" value="장바구니" /></li>
 						<li>
 							<!-- type="hidden" start -->
-							<input type="hidden" name="product_name" value="<%out.print(isDetailSuccess.get(0).getProduct_name());%>" />
-							<input type="hidden" name="product_price" value="<%out.print(isDetailSuccess.get(0).getProduct_price());%>" />
-							<input type="hidden" name="product_category" value="<%out.print(isDetailSuccess.get(0).getProduct_category());%>" />
-							<input type="hidden" name="product_img" value="<%out.print(isDetailSuccess.get(0).getProduct_img());%>" />
+							<input type="hidden" name="product_name" value="<%=product_name%>" />
+							<input type="hidden" name="product_price" value="<%=product_price%>" />
+							<input type="hidden" name="product_category" value="<%=product_category%>" />
+							<input type="hidden" name="product_img" value="<%=product_img%>" />
 							<!-- type="hidden" end -->
 							<input type="submit" name="buy_btn" value="바로구매" class="submit">
 						</li>
@@ -120,7 +123,7 @@ int product_price = isDetailSuccess.get(0).getProduct_price();
 			</div>
 			<!-- 상품 상세 -->
 			<div class="detailImg">
-				<img src="images/product_img/<%=isDetailSuccess.get(0).getProduct_category()%>/<%=isDetailSuccess.get(0).getProduct_img()%>">
+				<img src="images/product_img/<%=product_category%>/<%=product_img%>">
 				<%
 				String[] imgidx = isDetailSuccess.get(0).getProduct_detailimg().split(",");
 				for(int i=0; i<imgidx.length; i++) {
@@ -177,6 +180,8 @@ int product_price = isDetailSuccess.get(0).getProduct_price();
 		var product_colors = document.querySelectorAll("input[name='product_colors']");
 		var product_total = document.querySelector("input[name='product_total']");
 		
+		var cart_btn = document.querySelector("input[name='cart_btn']");
+		
 		// addComma
 		function addComma(num) {
 		  var regexp = /\B(?=(\d{3})+(?!\d))/g;
@@ -207,6 +212,24 @@ int product_price = isDetailSuccess.get(0).getProduct_price();
 				}
 			}
 		}
+
+		<!-- 아이디, 상품이름, 카테고리, 이미지, 총금액, 각 가격, 컬러옵션, 개수 / 주문번호, 주문상태는 insert action에서 -->
+		// 장바구니
+		cart_btn.addEventListener("click", function() {
+			for(var i=0; i<colorOpt.length; i++) {
+				if(colorOpt[i].selected && !colorOptFirst.selected) {
+					var param = "?buy_id=" + "<%=id%>"
+								+ "&buy_name=" + "<%=product_name%>"
+								+ "&buy_category=" + "<%=product_category%>"
+								+ "&buy_img=" + "<%=product_img%>"
+								+ "&buy_totalprice=" + product_total.value
+								+ "&buy_price=" + <%=product_price%>
+								+ "&buy_colors=" + colorOpt[i].selected
+								+ "&buy_amount=" + showamount[i].value;
+					location.herf="cartInsert.bo"+param;
+				}
+			}
+		});
 	</script>
 	
 </body>

@@ -1,6 +1,7 @@
 package com.TeamPro.action;
 
 import java.io.PrintWriter;
+import java.util.Calendar;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -19,6 +20,20 @@ public class Buy_ProInsertAction implements Light_action {
 		Buy_ProInsertService buyProInsertService = new Buy_ProInsertService();
 		boolean isInsert = false;
 		
+		// 현재 날짜 구하기
+		Calendar cal = Calendar.getInstance();
+		int year = cal.get(Calendar.YEAR);
+		int month = cal.get(Calendar.MONTH)+1;
+		int day = cal.get(Calendar.DAY_OF_MONTH);
+		String nowdate = year+""+month+""+day;
+		
+		// 난수 생성
+		int randomInt = (int)(Math.random()*10000000)+1;
+		
+		// 주문번호 생성
+		String order_num = nowdate+"-"+randomInt;
+		
+		// request.getParameter
 		String buy_id = (String) session.getAttribute("id");
 		String buy_name = request.getParameter("product_name");
 		int buy_totalprice = Integer.parseInt(request.getParameter("product_total"));
@@ -27,7 +42,7 @@ public class Buy_ProInsertAction implements Light_action {
 		String[] buy_price = request.getParameterValues("product_price");
 		String[] buy_colors = request.getParameterValues("product_color");
 		
-		String[] buy_amount = request.getParameterValues("product_count"); // 개수		
+		String[] buy_amount = request.getParameterValues("product_count"); // 개수
 		
 		// set dto
 		buydto.setBuy_id(buy_id);
@@ -36,6 +51,7 @@ public class Buy_ProInsertAction implements Light_action {
 		buydto.setBuy_img(buy_img);
 		buydto.setBuy_totalprice(buy_totalprice);
 		buydto.setBuy_condition("주문 완료");
+		buydto.setBuy_num(order_num);
 		
 		int i = 0;
 		while(i < buy_colors.length) {

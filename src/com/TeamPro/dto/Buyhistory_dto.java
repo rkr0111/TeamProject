@@ -17,6 +17,8 @@ public class Buyhistory_dto {
 	String buy_colors;
 	int buy_amount;
 	int buy_totalprice;
+	
+	String buy_num;
 
 	public String getBuy_id() {
 		return buy_id;
@@ -104,6 +106,14 @@ public class Buyhistory_dto {
 
 	public void setBuy_totalprice(int buy_totalprice) {
 		this.buy_totalprice = buy_totalprice;
+	}
+
+	public String getBuy_num() {
+		return buy_num;
+	}
+
+	public void setBuy_num(String buy_num) {
+		this.buy_num = buy_num;
 	}
 	
 }
