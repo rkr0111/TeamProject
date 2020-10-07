@@ -30,21 +30,25 @@
 			out.println("light 데이터베이스로 연결을 할 수 없습니다.");
 		}
 		stmt = conn.createStatement();
-		ResultSet rs = stmt.executeQuery("select distinct review_id, review_name, review_contents, review_img, review_date, buy_condition, product_category from buyhistory, review, product where buy_id=review_id and review_name=product_name and review_id='a' and buy_condition='배송 완료' order by review_date desc");
+		ResultSet rs = stmt.executeQuery("select * from buyhistory where buy_name NOT IN (select review_name from review where review_name is not null);");
 		
 		if(rs.next()) {
 			ArrayList<Object> reviewList = new ArrayList<Object>();
 			
 			do {
-				Interior_dto dto = new Interior_dto();
+				Buyhistory_dto dto = new Buyhistory_dto();
 				
-				dto.setInterior_id(rs.getString(1));
-				dto.setInterior_name(rs.getString(2));
-				dto.setInterior_contents(rs.getString(3));
-				dto.setInterior_img(rs.getString(4));
-				dto.setInterior_date(rs.getDate(5));
-				dto.setInterior_condition(rs.getString(6));
-				dto.setInterior_category(rs.getString(7));
+				dto.setBuy_id(rs.getString(1));
+				dto.setBuy_name(rs.getString(2));
+				dto.setBuy_price(rs.getInt(3));
+				dto.setBuy_date(rs.getDate(4));
+				dto.setBuy_condition(rs.getString(5));
+				dto.setBuy_category(rs.getString(6));
+				dto.setBuy_img(rs.getString(7));
+				dto.setBuy_colors(rs.getString(8));
+				dto.setBuy_amount(rs.getInt(9));
+				dto.setBuy_totalprice(rs.getInt(10));
+				dto.setBuy_num(rs.getString(11));
 				
 				reviewList.add(dto);
 				request.setAttribute("reviewList", reviewList);
