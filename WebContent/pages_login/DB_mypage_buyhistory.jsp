@@ -33,6 +33,11 @@
 				dto.setBuy_price(rs.getInt(3));
 				dto.setBuy_date(rs.getDate(4));
 				dto.setBuy_condition(rs.getString(5));
+				dto.setBuy_category(rs.getString(6));
+				dto.setBuy_img(rs.getString(7));
+				dto.setBuy_colors(rs.getString(8));
+				dto.setBuy_amount(rs.getInt(9));
+				dto.setBuy_totalprice(rs.getInt(10));
 				
 				buyhistoryList.add(dto);
 				request.setAttribute("buyhistoryList", buyhistoryList);

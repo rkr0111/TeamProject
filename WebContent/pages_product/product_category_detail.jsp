@@ -25,8 +25,6 @@
 <%
 List<Product_dto> isDetailSuccess = (List<Product_dto>) request.getAttribute("isDetailSuccess");
 int product_price = isDetailSuccess.get(0).getProduct_price();
-String product_category = isDetailSuccess.get(0).getProduct_category();
-String product_img = isDetailSuccess.get(0).getProduct_img();
 %>
 
 <body>
@@ -44,9 +42,9 @@ String product_img = isDetailSuccess.get(0).getProduct_img();
 	<section>
 		<!-- headerProductContainer -->
 		<div class="headerProductContainer">
-			<form method="post" action="buyCustomerinfo.bo?buy_category=<%=product_category%>&buy_img=<%=product_img%>" name="form">
+			<form method="post" action="buyCustomerinfo.bo" name="form">
 				<div class="productContainer">
-					<img src="images/product_img/<%=product_category%>/<%=product_img%>">
+					<img src="images/product_img/<%=isDetailSuccess.get(0).getProduct_category()%>/<%=isDetailSuccess.get(0).getProduct_img()%>">
 				</div>
 				<div class="productInfoContainer">
 					<ul>

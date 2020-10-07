@@ -178,10 +178,16 @@ mypage_contents -> buyhistory
 .orderImgBox {
     display: inline-block;
     width: 120px;
+    height: 100px;
     overflow: hidden;
+    position: relative;
 }
 .orderImgBox img {
-    width: 100%;
+    width: 130%;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
 }
 /* orderInfo */
 .orderInfo > li p {

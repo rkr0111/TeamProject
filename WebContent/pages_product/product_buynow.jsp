@@ -43,7 +43,7 @@ int product_total = Integer.parseInt(request.getParameter("product_total"));
 
 	<!-- section -->
 	<section>
-		<form method="post" action="buyHistoryInsert.bo">
+		<form method="post" action="buyHistoryInsert.bo?buy_category=<%=product_category%>&buy_img=<%=product_img%>">
 			<!-- 주문내역 -->
 			<div class="orderProductContainer">
 				<h2>주문 내역</h2>
@@ -128,6 +128,7 @@ int product_total = Integer.parseInt(request.getParameter("product_total"));
 							</td>
 							<td>
 								<%=total + shippingfee%>원
+								<input type="hidden" name="product_total" value="<%=total + shippingfee%>" />
 							</td>
 						</tr>
 					</table>

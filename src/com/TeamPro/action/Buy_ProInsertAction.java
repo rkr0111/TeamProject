@@ -21,10 +21,11 @@ public class Buy_ProInsertAction implements Light_action {
 		
 		String buy_id = (String) session.getAttribute("id");
 		String buy_name = request.getParameter("product_name");
-		String[] buy_price = request.getParameterValues("product_price");
-		String[] buy_colors = request.getParameterValues("product_color");
+		int buy_totalprice = Integer.parseInt(request.getParameter("product_total"));
 		String buy_category = request.getParameter("buy_category");
 		String buy_img = request.getParameter("buy_img");
+		String[] buy_price = request.getParameterValues("product_price");
+		String[] buy_colors = request.getParameterValues("product_color");
 		
 		String[] buy_amount = request.getParameterValues("product_count"); // 개수		
 		
@@ -33,6 +34,8 @@ public class Buy_ProInsertAction implements Light_action {
 		buydto.setBuy_name(buy_name);
 		buydto.setBuy_category(buy_category);
 		buydto.setBuy_img(buy_img);
+		buydto.setBuy_totalprice(buy_totalprice);
+		buydto.setBuy_condition("주문 완료");
 		
 		int i = 0;
 		while(i < buy_colors.length) {
@@ -45,8 +48,6 @@ public class Buy_ProInsertAction implements Light_action {
 			
 			i++;
 		}
-		
-		System.out.println();
 		
 		if(!isInsert){
 			response.setContentType("text/html;charset=UTF-8");

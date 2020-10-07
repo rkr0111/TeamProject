@@ -89,19 +89,19 @@
 	</div>
 	<div class="contentsOrder">
 		<%if(buyhistoryList != null) { 
-			for(int i=0; i<buyhistoryList.size(); i++) {%>			
+		for(int i=0; i<buyhistoryList.size(); i++) {%>			
 		<div class="orderList">
-			<p><%out.print(buyhistoryList.get(i).getBuy_date());%></p>
+			<p><%=buyhistoryList.get(i).getBuy_date()%></p>
 			<ul class="order">
-				<li> 
-					<div><%out.print(buyhistoryList.get(i).getBuy_name());%></div>
+				<li>
+					<div><%=buyhistoryList.get(i).getBuy_name()%></div>
 					<ul class="addEtc">
 						<a href="DB_mypage_review.jsp"><li>리뷰작성</li></a>
 						<a href=""><li>문의하기</li></a>
 					</ul>
 				</li>
 				<li>
-					<div class="orderImgBox"><img src="../images/mypage_img/order_img/point01_03.jpg"></div>
+					<div class="orderImgBox"><img src="../images/product_img/<%=buyhistoryList.get(i).getBuy_category()%>/<%=buyhistoryList.get(i).getBuy_img()%>"></div>
 					<ul class="orderInfo">
 						<li>
 							<p>주문 번호</p>
@@ -109,19 +109,19 @@
 						</li>
 						<li>
 							<p>결제 금액</p> 
-							<p><%out.print(buyhistoryList.get(i).getBuy_price());%></p>
+							<p><%=buyhistoryList.get(i).getBuy_price()%></p>
 						</li>
 						<li>
 							<p>주문 상태</p> 
-							<p><%out.print(buyhistoryList.get(i).getBuy_condition());%></p>
+							<p><%=buyhistoryList.get(i).getBuy_condition()%></p>
 						</li>
 					</ul>
 				</li>
 			</ul>
 		</div>
 		<%}}else {%>
-			<p>구매하신 내역이 없습니다.</p><%
-		}%>			
+			<p>구매하신 내역이 없습니다.</p>
+		<%}%>			
 	</div>
 	
 <!-- review -->
