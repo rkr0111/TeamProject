@@ -40,7 +40,7 @@
 	Statement stmt = null;
 	try {
 		Class.forName("com.mysql.jdbc.Driver");
-		conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/teamlight?characterEncoding=utf8&serverTimezone=UTC", "teamlight", "teamlight1995!");
+		conn = DriverManager.getConnection("jdbc:mysql://teamlight.cafe24.com/teamlight?characterEncoding=utf8&serverTimezone=UTC", "teamlight", "teamlight1995!");
 		if(conn == null) throw new Exception("DB에 연결할 수 없습니다.");
 		stmt = conn.createStatement();
 		int result = stmt.executeUpdate("insert into customerinfo values('"+joinId+"', '"+joinPwd+"', '"+emailId+"@"+emailAddr+"', '"+joinName+"', '"+yearNum+"-"+monthNum+"-"+dateNum+"', '"+postAddr+"', '"+firstAddr+" "+lastAddr+" "+extraAddr+"', '"+firstPhone+"-"+middlePhone+"-"+lastPhone+"');");

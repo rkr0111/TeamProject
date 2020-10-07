@@ -33,7 +33,7 @@
 	
 	try {
 		Class.forName("com.mysql.jdbc.Driver");
-		conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/teamlight?characterEncoding=utf8&serverTimezone=UTC", "teamlight", "teamlight1995!");
+		conn = DriverManager.getConnection("jdbc:mysql://teamlight.cafe24.com/teamlight?characterEncoding=utf8&serverTimezone=UTC", "teamlight", "teamlight1995!");
 		if(conn == null) throw new Exception("DB에 연결할 수 없습니다.");
 		stmt = conn.createStatement();
 		String sql = "update customerinfo set customer_pwd='"+joinPwd+"', customer_email='"+emailId+"@"+emailAddr+"', customer_addr='"+firstAddr+"', customer_phone='"+firstPhone+"-"+middlePhone+"-"+lastPhone+"' where customer_id='"+id+"'"; 
