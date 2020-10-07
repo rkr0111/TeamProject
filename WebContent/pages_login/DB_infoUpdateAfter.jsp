@@ -4,14 +4,6 @@
 <%@ page import="java.util.ArrayList"%>
 <%@ page import="com.TeamPro.dto.CustomerInfo_dto"%>
 
-<!DOCTYPE html>
-<html lang="ko">
-<head>
-<meta charset="UTF-8">
-<title></title>
-</head>
-<body>
-
 <%
 	request.setCharacterEncoding("utf-8");
 	String id = (String)session.getAttribute("id");
@@ -52,5 +44,3 @@
 		} catch(Exception ignored) {}
 	}
 %>
-</body>
-</html>

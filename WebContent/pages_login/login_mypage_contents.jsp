@@ -7,7 +7,7 @@
 <%@page import="com.TeamPro.dto.Buyhistory_dto"%>
 <%@page import="com.TeamPro.dto.Product_dto"%>
 <%@page import="com.TeamPro.dto.Cart_dto"%>
-<%@page import="com.TeamPro.dto.Interior_dto"%>
+<%@page import="com.TeamPro.dto.Ashistory_dto"%>
 <%@page import="com.TeamPro.dto.CustomerInfo_dto"%>
 <%@page import="java.util.*"%>
 <!-- 
@@ -27,16 +27,15 @@
 <title></title>
 
 </head> -->
-
 <body>
 
 <%
 	String id = (String)session.getAttribute("id");
 	ArrayList<Buyhistory_dto> buyhistoryList = (ArrayList<Buyhistory_dto>) request.getAttribute("buyhistoryList");
-	ArrayList<Interior_dto> reviewList = (ArrayList<Interior_dto>) request.getAttribute("reviewList");
+	ArrayList<Buyhistory_dto> reviewList = (ArrayList<Buyhistory_dto>) request.getAttribute("reviewList");
 	ArrayList<Cart_dto> cartList = (ArrayList<Cart_dto>) request.getAttribute("cartList");
-	ArrayList<Buyhistory_dto> applyASlist = (ArrayList<Buyhistory_dto>) request.getAttribute("applyASlist");
-	ArrayList<Buyhistory_dto> asList = (ArrayList<Buyhistory_dto>) request.getAttribute("asList");
+	//ArrayList<Buyhistory_dto> applyASlist = (ArrayList<Buyhistory_dto>) request.getAttribute("applyASlist");
+	ArrayList<Ashistory_dto> asHistoryList = (ArrayList<Ashistory_dto>) request.getAttribute("asHistoryList");
 	ArrayList<CustomerInfo_dto> idList = (ArrayList<CustomerInfo_dto>) request.getAttribute("idList");
 
 	String mypageCategory = request.getParameter("mypageCategory");
@@ -75,7 +74,7 @@
 					</a>
 				</li>
 				<li id="as">
-					<a href="DB_mypage_as.jsp">A/S 문의내역
+					<a href="DB_mypage_asHistory.jsp">A/S 문의내역
 						<p>&gt;</p>
 					</a>
 				</li>
@@ -151,7 +150,7 @@
 					</a>
 				</li>
 				<li id="as">
-					<a href="DB_mypage_as.jsp">A/S 문의내역
+					<a href="DB_mypage_asHistory.jsp">A/S 문의내역
 						<p>&gt;</p>
 					</a>
 				</li>
@@ -185,7 +184,7 @@
 							<select name="applyReview_findName">
 								<option name="applyReview_product">제품을 선택해주세요.</option>
 								<%for(int i=0; i<reviewList.size(); i++) {%>
-								<option name="applyReview_product" value="<%out.print(reviewList.get(i).getInterior_name());%>"><%out.print(reviewList.get(i).getInterior_name());%></option>
+								<option name="applyReview_product" value="<%out.print(reviewList.get(i).getBuy_name());%>"><%out.print(reviewList.get(i).getBuy_name()); }%></option>
 							</select>
 						</td>
 					</tr>
@@ -208,7 +207,7 @@
 				<input class="applyReview_btn" type="submit" name="applyReview_btn" value="올리기">
 			</form>
 		</div>
-		<%}} else {%>
+		<%} else {%>
 			<p>구매내역이 없어서 리뷰를 작성하실 수 없습니다.</p><%
 		}%>			
 	</div>
@@ -240,7 +239,7 @@
 					</a>
 				</li>
 				<li id="as">
-					<a href="DB_mypage_as.jsp">A/S 문의내역
+					<a href="DB_mypage_asHistory.jsp">A/S 문의내역
 						<p>&gt;</p>
 					</a>
 				</li>
@@ -328,7 +327,7 @@
 					</a>
 				</li>
 				<li id="as" class="bg">
-					<a href="DB_mypage_as.jsp">A/S 문의내역
+					<a href="DB_mypage_asHistory.jsp">A/S 문의내역
 						<p>&gt;</p>
 					</a>
 				</li>
@@ -341,8 +340,7 @@
 		</aside>
 	</div>
 	<div class="contentsOrder">
-	<% if(asList != null) { 
-		for(int i=0; i<asList.size(); i++) { %>	
+	<% if(asHistoryList != null) { %>	
 		<!-- as신청 목록 -->
 		<div class="contentsAS">
 			<table>
@@ -353,23 +351,32 @@
 					<th>처리결과</th>
 				</tr>
 <!-- td 항목 전부 변경해야 함 -->
+				<% for(int i=0; i<asHistoryList.size(); i++) { %>	
 				<tr>
-					<td><%out.println(asList.get(i).getBuy_date());%></td>
-					<td><%out.println(asList.get(i).getBuy_date()); %></td>
-					<td><%out.println(asList.get(i).getBuy_date()); %></td>
-					<td><%out.println(asList.get(i).getBuy_date()); } %></td>
-				</tr>
-			</table>
-
+					<td><%out.println(asHistoryList.get(i).getAs_id());%></td>
+					<td><%out.println(asHistoryList.get(i).getAs_subject()); %></td>
+					<td><%out.println(asHistoryList.get(i).getAs_date()); %></td>
+					<td><%out.println(asHistoryList.get(i).getAs_condition()); %></td>
+				</tr> 
+				<%} %>
+			</table> 
 			<div class="asWrite">
-				<input class="asWrite_btn" type="button" name="asWrite_btn" value="글쓰기">
-			</div>	
+				<input class="asWrite_btn" type="button" name="asWrite_btn" value="글쓰기" >
+			</div>
 		</div>
+		
 		<div class="none">
 			<jsp:include page="login_mypage_applyAS.jsp" />
 		</div>
 		<%} else {%>
 			<p>A/S 문의 내역이 없습니다.</p>
+			
+			<%-- <div class="asWrite">
+				<input class="asWrite_btn" type="button" name="asWrite_btn" value="글쓰기" >
+			</div>
+			<div class="none">
+				<jsp:include page="login_mypage_applyAS.jsp" />
+			</div> --%>
 		<%} %>
 	</div>
 	
@@ -384,7 +391,7 @@
 						<p>&gt;</p>
 					</a>
 				</li>
-				<li id="review" class="bg">
+				<li id="review">
 					<a href="DB_mypage_review.jsp">리뷰작성
 						<p>&gt;</p>
 					</a>
@@ -400,11 +407,11 @@
 					</a>
 				</li>
 				<li id="as">
-					<a href="DB_mypage_as.jsp">A/S 문의내역
+					<a href="DB_mypage_asHistory.jsp">A/S 문의내역
 						<p>&gt;</p>
 					</a>
 				</li>
-				<li id="memberInfo">
+				<li id="memberInfo"  class="bg">
 					<a href="DB_mypage_IdPwd.jsp">개인정보수정
 						<p>&gt;</p>
 					</a>
@@ -414,14 +421,7 @@
 	</div>
 	<div class="contentsOrder">
 		<%if(idList != null) { %>
-		<!-- <div class="contentMember">
-			<ul>
-				<li>정보 확인을 위해 비밀번호를 입력해주세요.</li>
-				<li><input type="password" name="checkPwd" id="checkPwd" /></li>
-			</ul>
-			<input type="button" value="확인" class="memberInfoBtn" onclick="check()" />
-		</div> -->
-		<jsp:include page="selectMemberList.jsp" />
+			<jsp:include page="selectMemberList.jsp" />
 		<%} else {%>
 			잘못된 접근입니다. 로그인을 다시 해주세요.
 		<%}}%>			
@@ -432,18 +432,19 @@
 	function cartBtnDetail(param) {
 		location.href="../productDetailSelect.bo?product_name="+encodeURIComponent(param);
 	}
-	$(function() {
+	/* $(function() {
 		$(".asWrite_btn").click(function() {
 			$(".none").removeClass('none');
 		});
-	});
+	}); */
 	
-	/* var asWrite_btn = document.querySelector(".asWrite_btn");
+	
+	var asWrite_btn = document.querySelector(".asWrite_btn");
 	if(asWrite_btn != null) {
 		asWrite_btn.addEventListener("click", function() {
 			document.querySelector(".none").classList.remove("none");
 		});
-	} */
+	} 
 
 	var cartcheck = document.querySelectorAll("input[name='cartcheck']");
 	var cartName = document.querySelectorAll(".cartName");

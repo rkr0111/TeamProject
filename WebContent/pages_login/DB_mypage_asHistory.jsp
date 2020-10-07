@@ -1,12 +1,12 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 
-<%@page import="com.TeamPro.dto.Buyhistory_dto"%>
+<%@page import="com.TeamPro.dto.Ashistory_dto"%>
 <%@page import="java.util.*"%>
 <%@page import="java.sql.*"%>
 <%@page import="java.sql.Date"%>
 
 <%
-	/* request.setCharacterEncoding("UTF-8");
+	request.setCharacterEncoding("UTF-8");
 	String id = (String)session.getAttribute("id");
 	String mypageCategory = "A/S 문의";
 
@@ -22,27 +22,27 @@
 			out.println("light 데이터베이스로 연결을 할 수 없습니다.");
 		}
 		stmt = conn.createStatement();
-		ResultSet rs = stmt.executeQuery("select buy_id, buy_name, buy_category, buy_condition, buy_date, adddate(buy_date, +1095) from buyhistory where buy_id='"+id+"' and buy_condition='배송 완료' order by buy_date desc;");
+		ResultSet rs = stmt.executeQuery("select * from ashistory where as_id='"+id+"';");
 		if(rs.next()) {
-			ArrayList<Object> applyASlist = new ArrayList<Object>();
+			ArrayList<Object> asHistoryList = new ArrayList<Object>();
 			
 			do {
-				Buyhistory_dto dto = new Buyhistory_dto();
-				dto.setBuy_id(rs.getString(1));
-				dto.setBuy_name(rs.getString(2));
-				dto.setBuy_category(rs.getString(3));
-				dto.setBuy_condition(rs.getString(4));	
-				dto.setBuy_date(rs.getDate(5));
-				dto.setBefore_buyDate(rs.getDate(6));
+				Ashistory_dto dto = new Ashistory_dto();
+				dto.setAs_id(rs.getString(1));
+				dto.setAs_name(rs.getString(2));
+				dto.setAs_subject(rs.getString(3));
+				dto.setAs_date(rs.getDate(4));
+				dto.setAs_contents(rs.getString(5));
+				dto.setAs_condition(rs.getString(6));
 								
-				applyASlist.add(dto);
-				request.setAttribute("applyASlist", applyASlist);
+				asHistoryList.add(dto);
+				request.setAttribute("asHistoryList", asHistoryList);
 			}
 			while(rs.next());
-						
+			
 			RequestDispatcher dispatcher = request.getRequestDispatcher("login_mypage.jsp?mypageCategory="+mypageCategory);
 			dispatcher.forward(request, response);
-		}else {		
+		}else {
 			RequestDispatcher dispatcher = request.getRequestDispatcher("login_mypage.jsp?mypageCategory="+mypageCategory);
 			dispatcher.forward(request, response);  
 		}
@@ -55,5 +55,5 @@
 		conn.close();
 	} catch (Exception ignored) {
 	}
-	} */
+	}
 %>

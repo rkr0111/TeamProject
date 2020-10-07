@@ -16,18 +16,12 @@
 <meta charset="utf-8">
 <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
 <link rel="icon" href="/favicon.ico" type="image/x-icon">
-<title>as 신청 페이지</title>
-
+<title>A/S 신청 페이지</title>
 </head>
 <body>
 
-<%
-	/* ArrayList<Buyhistory_dto> buyhistoryList = (ArrayList<Buyhistory_dto>) request.getAttribute("buyhistoryList");
-	ArrayList<Interior_dto> reviewList = (ArrayList<Interior_dto>) request.getAttribute("reviewList");
-	ArrayList<Cart_dto> cartList = (ArrayList<Cart_dto>) request.getAttribute("cartList"); */
-	
-	ArrayList<Buyhistory_dto> asList = (ArrayList<Buyhistory_dto>) request.getAttribute("asList");
-
+<%	
+	ArrayList<Buyhistory_dto> asBeforeList = (ArrayList<Buyhistory_dto>) request.getAttribute("asBeforeList");
 	String mypageCategory = request.getParameter("mypageCategory");
 %>
 	<div class="checkAS">
@@ -44,15 +38,15 @@
 
 	<div class="applyAS">
 		<h1><span class="round"></span>A/S 신청 상품정보 입력</h1>
-		<form action="DB_mypage_applyAS.jsp" method="post">
+		<form action="DB_mypage_applyAsAfter.jsp" method="post">
 			<table>
 				<tr>
 					<th>제품 이름</th>
 					<td>
 						<select name="applyAS_findName">
 							<option name="applyAS_product">제품을 선택해주세요.</option>
-							<%for(int i=0; i<asList.size(); i++) {%>
-							<option name="applyAS_product" value="<%out.print(asList.get(i).getBuy_name());%>"><%out.print(asList.get(i).getBuy_name());%></option>
+							<%for(int i=0; i<asBeforeList.size(); i++) {%>
+							<option name="applyAS_product" value="<%out.print(asBeforeList.get(i).getBuy_name());%>"><%out.print(asBeforeList.get(i).getBuy_name());%></option>
 							
 						</select>
 					</td>
@@ -71,16 +65,16 @@
 				</tr>
 				<tr>
 					<th>상세 내용</th>
-					<td><textarea name="applyAS_condition" rows="5" cols="50"></textarea></td>
+					<td><textarea name="applyAS_contents" rows="5" cols="50"></textarea></td>
 				</tr>
 				<tr>
 					<th>상품 구매일</th>
-					<td><%out.println(asList.get(i).getBuy_date()); }%></td>
+					<td><%out.println(asBeforeList.get(i).getBuy_date()); }%></td>
 				</tr>
-				<tr>
+				<!-- <tr>
 					<th>연락받을 연락처</th>
 					<td><input type="text" name="applyAS_phone"></td>
-				</tr>
+				</tr> -->
 			</table>
 
 			<input class="applyAS_btn" type="submit" name="applyAS_btn" value="A/S 신청하기">
