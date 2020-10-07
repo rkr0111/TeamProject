@@ -45,6 +45,7 @@ for(var i=0; i<removeBtn.length; i++) {
 	function removeBtn(obj) {
 		showamount[obj].value = 0;
 		totalChoice[obj].style.display = "none";
+		totalChoice[obj].classList.remove("flex");
 		
 		var results = 0;
 		for(var i=0; i<totalChoice.length; i++) {

@@ -11,6 +11,7 @@ import org.apache.ibatis.session.SqlSessionFactory;
 import org.apache.ibatis.session.SqlSessionFactoryBuilder;
 
 import com.TeamPro.dto.Buyhistory_dto;
+import com.TeamPro.dto.Cart_dto;
 import com.TeamPro.dto.CustomerCenter_dto;
 import com.TeamPro.dto.Product_dto;
 import com.TeamPro.dto.ReviewComment_dto;
@@ -305,6 +306,16 @@ public class TeamPro_dao {
 		int insertCount = 0;
 		SqlSession sqlsession = sqlfactory.openSession();
 		sqlsession.insert("insert_customerNotice", centerdto);
+		sqlsession.commit();
+		insertCount = 1;
+		sqlsession.close();
+		return insertCount;
+	}
+	// 장바구니 insert - 1007 dhdbswl 수정 
+	public int Conn_insert_cart(Cart_dto cartdto) {
+		int insertCount = 0;
+		SqlSession sqlsession = sqlfactory.openSession();
+		sqlsession.insert("insert_cart", cartdto);
 		sqlsession.commit();
 		insertCount = 1;
 		sqlsession.close();

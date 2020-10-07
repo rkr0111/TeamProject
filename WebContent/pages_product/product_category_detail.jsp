@@ -208,27 +208,32 @@ String product_img = isDetailSuccess.get(0).getProduct_img();
 			for(var i=0; i<colorOpt.length; i++) {
 				if(colorOpt[i].selected && !colorOptFirst.selected) {
 					totalChoice[i].style.display = "flex";
+					totalChoice[i].classList.add("flex");
 					product_colors[i].value = colorOpt[i].value;
 				}
 			}
 		}
 
-		<!-- 아이디, 상품이름, 카테고리, 이미지, 총금액, 각 가격, 컬러옵션, 개수 / 주문번호, 주문상태는 insert action에서 -->
 		// 장바구니
 		cart_btn.addEventListener("click", function() {
-			for(var i=0; i<colorOpt.length; i++) {
-				if(colorOpt[i].selected && !colorOptFirst.selected) {
-					var param = "?buy_id=" + "<%=id%>"
-								+ "&buy_name=" + "<%=product_name%>"
-								+ "&buy_category=" + "<%=product_category%>"
-								+ "&buy_img=" + "<%=product_img%>"
-								+ "&buy_totalprice=" + product_total.value
-								+ "&buy_price=" + <%=product_price%>
-								+ "&buy_colors=" + colorOpt[i].selected
-								+ "&buy_amount=" + showamount[i].value;
-					location.herf="cartInsert.bo"+param;
-				}
+			var param = "";
+			var buy_colors = "";
+			var buy_amounts = "";
+			var i=0;
+			var selected = document.querySelectorAll(".totalChoice.flex");
+			for(i=0;i<selected.length;i++) {
+				buy_colors += product_colors[i].value + ",";
+				buy_amounts += showamount[i].value + ",";
 			}
+			param = "?buy_id=" + "<%=id%>"
+					+ "&buy_name=" + "<%=product_name%>"
+					+ "&buy_category=" + "<%=product_category%>"
+					+ "&buy_img=" + "<%=product_img%>"
+					+ "&buy_totalprice=" + product_total.value
+					+ "&buy_price=" + <%=product_price%>
+					+ "&buy_colors=" + buy_colors
+					+ "&buy_amount=" + buy_amounts;
+			location.href="cartInsert.bo"+param;
 		});
 	</script>
 	

@@ -98,6 +98,9 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	<insert id="insert_customerNotice" parameterType="customerCenter">
 		insert into customercenter values(#{center_category}, default, #{center_title}, curdate(), #{center_contents}, '', #{center_id}, '', ''); 
 	</insert>
+	<insert id="insert_cart" parameterType="cart">
+		insert into cart values(#{cart_id}, #{cart_name}, #{cart_price}, #{cart_count}, #{cart_category}, #{cart_img}, #{cart_colors}); 
+	</insert>
 	
 	<update id="xml_update" parameterType="xmlDto">
 		update product set product_name=#{product_name}, product_category=#{product_category}, product_price=#{product_price}, product_color=#{product_color}, product_file=#{product_file}, product_img=#{product_img}, product_detailimg=#{product_detailimg}, product_contents=#{product_contents} where product_name=#{check};  
