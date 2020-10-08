@@ -118,5 +118,11 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	<delete id="xml_delete_customerNotice" parameterType="customerCenter">
 		delete from customercenter where center_no=#{center_no};
 	</delete>
+	<delete id="xml_delete_mypageCart" parameterType="cart">
+		delete from cart where cart_id=#{cart_id} and cart_name=#{cart_name} and cart_price=#{cart_price} and cart_count=#{cart_count};
+	</delete>
+	<delete id="xml_delete_cartOrder" parameterType="cart">
+		delete from cart where cart_id=#{cart_id} and cart_name=#{cart_name} and cart_price=#{cart_price} and cart_count=#{cart_count} and cart_category=#{cart_category} and cart_img=#{cart_img} and cart_colors=#{cart_colors};
+	</delete>
 		
 </mapper>

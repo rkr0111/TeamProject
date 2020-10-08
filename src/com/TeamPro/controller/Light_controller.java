@@ -10,6 +10,8 @@ import javax.servlet.http.HttpServletResponse;
 import com.TeamPro.action.Buy_ProInsertAction;
 import com.TeamPro.action.Buy_nowListAction;
 import com.TeamPro.action.Buy_nowformAction;
+import com.TeamPro.action.Cart_MypageDeleteAction;
+import com.TeamPro.action.Cart_OrderInsertAction;
 import com.TeamPro.action.Cart_ProInsertAction;
 import com.TeamPro.action.Customer_DownloadAction;
 import com.TeamPro.action.Customer_DownloadFileAction;
@@ -203,6 +205,20 @@ public class Light_controller extends javax.servlet.http.HttpServlet {
 			}
 		}else if(command.equals("/cartInsert.bo")) { // 1007 dhdbswl 수정
 			action = new Cart_ProInsertAction();
+			try{
+				forward=action.execute(request, response);
+			}catch(Exception e){
+				System.out.println(e);
+			}
+		}else if(command.equals("/cartDelete.bo")) { // 1008 dhdbswl 수정
+			action = new Cart_MypageDeleteAction();
+			try{
+				forward=action.execute(request, response);
+			}catch(Exception e){
+				System.out.println(e);
+			}
+		}else if(command.equals("/cartOrderInsert.bo")) { // 1008 dhdbswl 수정
+			action = new Cart_OrderInsertAction();
 			try{
 				forward=action.execute(request, response);
 			}catch(Exception e){

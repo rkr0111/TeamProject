@@ -45,10 +45,10 @@
 			}
 			while(rs.next());
 						
-			RequestDispatcher dispatcher = request.getRequestDispatcher("login_mypage_applyAS.jsp?mypageCategory="+mypageCategory);
+			RequestDispatcher dispatcher = request.getRequestDispatcher("login_mypage.jsp?mypageCategory="+mypageCategory);
 			dispatcher.forward(request, response);
 		}else {		
-			RequestDispatcher dispatcher = request.getRequestDispatcher("login_mypage_applyAS.jsp?mypageCategory="+mypageCategory);
+			RequestDispatcher dispatcher = request.getRequestDispatcher("login_mypage.jsp?mypageCategory="+mypageCategory);
 			dispatcher.forward(request, response);  
 		}
 	} finally {

@@ -10,7 +10,23 @@
 <%@page import="com.TeamPro.dto.Ashistory_dto"%>
 <%@page import="com.TeamPro.dto.CustomerInfo_dto"%>
 <%@page import="java.util.*"%>
+<!-- 
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+	<meta charset="utf-8">
+	<title></title>	
+	<link rel="stylesheet" type="text/css" href="../css/reset.css">
+	<link rel="stylesheet" type="text/css" href="../css/common.css">
+	<link rel="stylesheet" type="text/css" href="../css/allStyle.css">
+	<link rel="stylesheet" type="text/css" href="../css/font.css">
+	<link rel="stylesheet" type="text/css" href="../css/login_mypage.css">
 
+	jQuery cdn
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
+<title></title>
+
+</head> -->
 <body>
 
 <%
@@ -23,6 +39,11 @@
 	ArrayList<CustomerInfo_dto> idList = (ArrayList<CustomerInfo_dto>) request.getAttribute("idList");
 
 	String mypageCategory = request.getParameter("mypageCategory");
+	
+	String cart_name = null;
+	String cart_category = null;
+	String cart_img = null;
+	String cart_color = null;
 %>
 
 	<div class="contentsTitle">
@@ -238,12 +259,16 @@
 	<div class="contentsOrder">
 		<div class="allCheckbox">
 			<ul>
-				<li><input type="checkbox" name="cartCheck" onclick="checkAll()">&nbsp;전체선택</li>
+				<li><input type="checkbox" name="allcartCheck" onclick="checkAll()">&nbsp;전체 선택</li>
+				<li><input type="checkbox" name="removeAllcartCheck" onclick="removecheckAll()">&nbsp;선택 해제</li>
 			</ul>
 		</div>
 		<% if(cartList != null) { 
 			for(int i=0; i<cartList.size(); i++) { 
-			String cart_name = cartList.get(i).getCart_name();%>
+			cart_name = cartList.get(i).getCart_name();
+			cart_category = cartList.get(i).getCart_category();
+			cart_img = cartList.get(i).getCart_img();
+			cart_color = cartList.get(i).getCart_colors();%>
 		<div class="cartList">
 			<ul class="cart">
 				<li> 
@@ -253,10 +278,18 @@
 					</div>
 				</li>
 				<li>
-					<div class="orderImgBox"><img src="../images/product_img/<%=cartList.get(i).getCart_category()%>/<%=cartList.get(i).getCart_img()%>"></div>
+					<div class="orderImgBox">
+						<img src="../images/product_img/<%=cart_category%>/<%=cart_img%>">
+						<input type="hidden" name="cart_category" value="<%=cart_category%>" />
+						<input type="hidden" name="cart_img" value="<%=cart_img%>" />
+						<input type="hidden" name="cart_color" value="<%=cart_color%>" />
+					</div>
 					<ul class="cartInfo">
 						<li>
-							<ul><%=cartList.get(i).getCart_price()%> 원</ul>
+							<ul>
+								<span class="cart_price"><%=cartList.get(i).getCart_price()%></span>원
+								<input type="hidden" name="cart_price" value="<%=cartList.get(i).getCart_price()%>" />
+							</ul>
 							<ul class="amount">
 								<li class="btn_minus" onclick="amountCountBtn(<%=i%>, 0)">-</li>
 								<li><input type="number" name="showamount" value="<%=cartList.get(i).getCart_count()%>" readonly ></li>
@@ -453,27 +486,91 @@
 	}
 	
 	// as문의 페이지 - 글쓰기 버튼 눌렀을 때
-	/*var asWrite_btn = document.querySelector(".asWrite_btn");
+	/* var asWrite_btn = document.querySelector(".asWrite_btn");
 	asWrite_btn.addEventListener("click", function() {
 
-	});*/
+	}); */
 
 	// 장바구니
 	var cartcheck = document.querySelectorAll("input[name='cartcheck']");
-	var cartName = document.querySelectorAll(".cartName");
-	function checkSingle(obj) {
-		if(cartcheck[obj].checked) {
-			cartName[obj].classList.add("checked");
+	var allcartCheck = document.querySelector("input[name='allcartCheck']");
+	var removeAllcartCheck = document.querySelector("input[name='removeAllcartCheck']");
+	var showamount = document.querySelectorAll("input[name='showamount']");
+	var input_cart_price = document.querySelectorAll("input[name='cart_price']");
+	var input_cart_category = document.querySelectorAll("input[name='cart_category']");
+	var input_cart_img = document.querySelectorAll("input[name='cart_img']");
+	var input_cart_color = document.querySelectorAll("input[name='cart_color']");
+	// 장바구니 - 전체 선택
+	function checkAll() {
+		removeAllcartCheck.checked = false;
+		for(var i=0; i<cartcheck.length; i++) {
+			cartcheck[i].checked = true;
+			cartcheck[i].classList.add("checked");
 		}
 	}
+	// 장바구니 - 선택 해제
+	function removecheckAll() {
+		allcartCheck.checked = false;
+		for(var i=0; i<cartcheck.length; i++) {
+			cartcheck[i].checked = false;
+			cartcheck[i].classList.remove("checked");
+		}
+	}
+	// 장바구니 - 개별 선택
+	function checkSingle(obj) {
+		cartcheck[obj].classList.toggle("checked");
+	}
+	// 장바구니 - 삭제하기
 	function cartDelete_btn() {
-		var i=0;
-		while(i<cartName.length) {
-			if(cartName[i].className == "checked") {
-				location.href="login_mypage_cartCheckbox.jsp?cart_name="+encodeURIComponent(cartName[i].innerText)+"&cart_id=<%=id%>";
-				break;
+		var param = "";
+		var cart_name = "";
+		var cart_count = "";
+		var cart_price = "";
+		for(var i=0; i<cartcheck.length; i++) {
+			if(cartcheck[i].className == "checked") {
+				cart_name += cartcheck[i].value + ",";
+				cart_count += showamount[i].value + ",";
+				cart_price += input_cart_price[i].value + ",";
 			}
 		}
+		param = "?cart_id=" + "<%=id%>"
+				+ "&cart_name=" + cart_name
+				+ "&cart_count=" + cart_count
+				+ "&cart_price=" + cart_price;
+		
+		location.href="../cartDelete.bo"+param;
+	}
+	// 장바구니 - 구매하기
+	function cartOrder_btn() {
+		var param = "";
+		var buy_totalprice = "";
+		var buy_category = "";
+		var buy_img = "";
+		var buy_name = "";
+		var buy_price = "";
+		var buy_colors = "";
+		var buy_amount = "";
+		for(var i=0; i<cartcheck.length; i++) {
+			if(cartcheck[i].className == "checked") {
+				buy_totalprice += (input_cart_price[i].value * showamount[i].value) + ",";
+				buy_category += input_cart_category[i].value + ",";
+				buy_img += input_cart_img[i].value + ",";
+				buy_name += cartcheck[i].value + ",";
+				buy_price += input_cart_price[i].value + ",";
+				buy_colors += input_cart_color[i].value + ",";
+				buy_amount += showamount[i].value + ",";
+			}
+		}
+		param = "?buy_id=" + "<%=id%>"
+				+ "&buy_name=" + buy_name
+				+ "&buy_totalprice=" + buy_totalprice
+				+ "&buy_category=" + buy_category
+				+ "&buy_img=" + buy_img
+				+ "&buy_price=" + buy_price
+				+ "&buy_colors=" + buy_colors
+				+ "&buy_amount=" + buy_amount;
+				
+		location.href="../cartOrderInsert.bo"+param;
 	}
 </script>
 	

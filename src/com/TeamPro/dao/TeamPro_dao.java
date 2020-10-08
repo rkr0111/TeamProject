@@ -371,6 +371,20 @@ public class TeamPro_dao {
 		deleteFlag = 1;
 		return deleteFlag;
 	}
+	// 마이페이지 장바구니 삭제 - 1008 dhdbswl 수정
+	public void Conn_delete_mypageCart(Cart_dto dto) {
+		SqlSession sqlsession = sqlfactory.openSession();
+		sqlsession.insert("xml_delete_mypageCart", dto);
+		sqlsession.commit();
+		sqlsession.close();
+	}
+	// 마이페이지 장바구니에서 구매하기 선택시 장바구니 내역 삭제 - 1008 dhdbswl 수정
+	public void Conn_delete_cartOrder(Cart_dto dto) {
+		SqlSession sqlsession = sqlfactory.openSession();
+		sqlsession.insert("xml_delete_cartOrder", dto);
+		sqlsession.commit();
+		sqlsession.close();
+	}
 	
 	
 	public SqlSessionFactory getConn() { //jsp에서 사용하기 위해 생성자 이름을 일반 메소드로 변경
