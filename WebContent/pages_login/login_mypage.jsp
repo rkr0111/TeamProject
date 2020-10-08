@@ -27,18 +27,14 @@
 	<!-- header -->
 	<jsp:include page="../login_header_afterlogin.jsp" /> <!-- header end -->
 <%
-	//memberInfo 클래스에 들어갈 정보
 	String id = (String)session.getAttribute("id");
-	/* String name = (String)session.getAttribute("name");
-	String addr = (String)session.getAttribute("addr");
-	String phone = (String)session.getAttribute("phone"); */
-	
+		
 	//orderList 클래스에 들어갈 정보
 	Buyhistory_dto buyhistoryDto = new Buyhistory_dto();	
 	ArrayList<Buyhistory_dto> buyhistoryList = (ArrayList<Buyhistory_dto>) request.getAttribute("buyhistoryList");
-	ArrayList<Product_dto> productList = (ArrayList<Product_dto>) request.getAttribute("productList");
+	/* ArrayList<Product_dto> productList = (ArrayList<Product_dto>) request.getAttribute("productList");
 	ArrayList<CustomerInfo_dto> customerinfoList = (ArrayList<CustomerInfo_dto>) request.getAttribute("customerinfoList");
-	ArrayList<CustomerInfo_dto> idList = (ArrayList<CustomerInfo_dto>) request.getAttribute("idList");
+	ArrayList<CustomerInfo_dto> idList = (ArrayList<CustomerInfo_dto>) request.getAttribute("idList"); */
 %>
 
 <!-- 마이페이지의 인덱스페이지는 구매내역 (마이페이지 = 구매내역 페이지) -->

@@ -8,7 +8,7 @@
 <%
 	request.setCharacterEncoding("UTF-8");
 	String id = (String)session.getAttribute("id");
-	String mypageCategory = "A/S 문의";
+	String mypageCategory = "A/S 문의내역";
 
 	if (id== null) {
 		throw new Exception("로그인을 해주세요.");

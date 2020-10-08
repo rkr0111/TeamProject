@@ -12,7 +12,7 @@
 	String as_subject = request.getParameter("applyAS_title");
 	String as_contents = request.getParameter("applyAS_contents");
 	
-	/* String mypageCategory = "A/S 문의"; */
+	/* String mypageCategory = "A/S 문의하기"; */
 
 	Connection conn=null;
 	Statement stmt=null;

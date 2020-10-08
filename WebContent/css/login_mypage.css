@@ -514,7 +514,7 @@ mypage_contents->as
     padding: 20px 30px;
     vertical-align: left;
 }
-.asWrite input[type=button]{
+/*.asWrite input[type=button]{
     float: right;
     margin-right: 50px;
     background-color: #fff;
@@ -524,10 +524,10 @@ mypage_contents->as
     width: 85PX;
     height: 40PX;
     cursor: pointer;
-}
-.none {
+}*/
+/*.none {
     display: none;
-}
+}*/
 /* applyAS.jsp */
 .checkAS h1 {
     margin: 30px 0 10px 0;

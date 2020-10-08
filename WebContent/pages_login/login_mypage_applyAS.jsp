@@ -1,24 +1,8 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%request.setCharacterEncoding("utf-8");%>
 
-<%@page import="org.apache.ibatis.session.SqlSessionFactory"%>
-<%@page import="org.apache.ibatis.session.SqlSession"%>
-
 <%@page import="com.TeamPro.dto.Buyhistory_dto"%>
-<%@page import="com.TeamPro.dto.Product_dto"%>
-<%@page import="com.TeamPro.dto.Cart_dto"%>
-<%@page import="com.TeamPro.dto.Interior_dto"%>
 <%@page import="java.util.*"%>
-
-<!DOCTYPE html>
-<html lang="ko">
-<head>
-<meta charset="utf-8">
-<link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
-<link rel="icon" href="/favicon.ico" type="image/x-icon">
-<title>A/S 신청 페이지</title>
-</head>
-<body>
 
 <%	
 	ArrayList<Buyhistory_dto> asBeforeList = (ArrayList<Buyhistory_dto>) request.getAttribute("asBeforeList");
@@ -35,7 +19,7 @@
 			<li class="innerNumber">- 부주의나 무리한 사용으로 인한 고장</li>
 		</ul>
 	</div>
-
+	
 	<div class="applyAS">
 		<h1><span class="round"></span>A/S 신청 상품정보 입력</h1>
 		<form action="DB_mypage_applyAsAfter.jsp" method="post">
@@ -46,10 +30,13 @@
 						<select name="applyAS_findName">
 							<option name="applyAS_product">제품을 선택해주세요.</option>
 							<%for(int i=0; i<asBeforeList.size(); i++) {%>
-							<option name="applyAS_product" value="<%out.print(asBeforeList.get(i).getBuy_name());%>"><%out.print(asBeforeList.get(i).getBuy_name());%></option>
-							
+							<option name="applyAS_product" value="<%out.print(asBeforeList.get(i).getBuy_name());%>"><%out.print(asBeforeList.get(i).getBuy_name()); %></option>
 						</select>
 					</td>
+				</tr>
+				<tr>
+					<th>상품 구매일</th>
+					<td><%out.println(asBeforeList.get(i).getBuy_date()); }%></td>
 				</tr>
 				<tr>
 					<th>제목</th>
@@ -67,18 +54,8 @@
 					<th>상세 내용</th>
 					<td><textarea name="applyAS_contents" rows="5" cols="50"></textarea></td>
 				</tr>
-				<tr>
-					<th>상품 구매일</th>
-					<td><%out.println(asBeforeList.get(i).getBuy_date()); }%></td>
-				</tr>
-				<!-- <tr>
-					<th>연락받을 연락처</th>
-					<td><input type="text" name="applyAS_phone"></td>
-				</tr> -->
 			</table>
-
+	
 			<input class="applyAS_btn" type="submit" name="applyAS_btn" value="A/S 신청하기">
 		</form>
 	</div>
-</body>
-</html>

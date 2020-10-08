@@ -10,23 +10,7 @@
 <%@page import="com.TeamPro.dto.Ashistory_dto"%>
 <%@page import="com.TeamPro.dto.CustomerInfo_dto"%>
 <%@page import="java.util.*"%>
-<!-- 
-<!DOCTYPE html>
-<html lang="ko">
-<head>
-	<meta charset="utf-8">
-	<title></title>	
-	<link rel="stylesheet" type="text/css" href="../css/reset.css">
-	<link rel="stylesheet" type="text/css" href="../css/common.css">
-	<link rel="stylesheet" type="text/css" href="../css/allStyle.css">
-	<link rel="stylesheet" type="text/css" href="../css/font.css">
-	<link rel="stylesheet" type="text/css" href="../css/login_mypage.css">
 
-	jQuery cdn
-	<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
-<title></title>
-
-</head> -->
 <body>
 
 <%
@@ -68,12 +52,12 @@
 						<p>&gt;</p>
 					</a>
 				</li>
-				<li id="question">
-					<a href="">1:1 문의
+				<li id="asApply">
+					<a href="DB_mypage_applyAsBefore.jsp">A/S 문의하기
 						<p>&gt;</p>
 					</a>
 				</li>
-				<li id="as">
+				<li id="asHistory">
 					<a href="DB_mypage_asHistory.jsp">A/S 문의내역
 						<p>&gt;</p>
 					</a>
@@ -144,12 +128,12 @@
 						<p>&gt;</p>
 					</a>
 				</li>
-				<li id="question">
-					<a href="">1:1 문의
+				<li id="asApply">
+					<a href="DB_mypage_applyAsBefore.jsp">A/S 문의하기
 						<p>&gt;</p>
 					</a>
 				</li>
-				<li id="as">
+				<li id="asHistory">
 					<a href="DB_mypage_asHistory.jsp">A/S 문의내역
 						<p>&gt;</p>
 					</a>
@@ -233,12 +217,12 @@
 						<p>&gt;</p>
 					</a>
 				</li>
-				<li id="question">
-					<a href="">1:1 문의
+				<li id="asApply">
+					<a href="DB_mypage_applyAsBefore.jsp">A/S 문의하기
 						<p>&gt;</p>
 					</a>
 				</li>
-				<li id="as">
+				<li id="asHistory">
 					<a href="DB_mypage_asHistory.jsp">A/S 문의내역
 						<p>&gt;</p>
 					</a>
@@ -300,8 +284,8 @@
 		<%}%>			
 	</div>
 	
-<!-- as -->
-	<%}else if(mypageCategory.equals("A/S 문의")) { %>
+<!-- A/S 문의하기 -->
+	<%}else if(mypageCategory.equals("A/S 문의하기")) { %>
 	<div class="mypageAsideTitle">
 		<h3>마이페이지</h3>
 		<aside class="mypageAside">
@@ -321,12 +305,59 @@
 						<p>&gt;</p>
 					</a>
 				</li>
-				<li id="question">
-					<a href="">1:1 문의
+				<li id="asApply" class="bg"> 
+					<a href="DB_mypage_applyAsBefore.jsp">A/S 문의하기
 						<p>&gt;</p>
 					</a>
 				</li>
-				<li id="as" class="bg">
+				<li id="asHistory">
+					<a href="DB_mypage_asHistory.jsp">A/S 문의내역
+						<p>&gt;</p>
+					</a>
+				</li>
+				<li id="memberInfo">
+					<a href="DB_mypage_IdPwd.jsp">개인정보수정
+						<p>&gt;</p>
+					</a>
+				</li>
+			</ul>
+		</aside>
+	</div>
+	<div class="contentsOrder">
+		<%if(asBeforeList != null) { %>
+			<jsp:include page="login_mypage_applyAS.jsp" />
+		<%} else {%>
+			구매내역이 없으시므로 A/S 신청을 하실 수 없습니다.
+		<%}%>			
+	</div>
+		
+<!-- A/S 문의내역 -->
+	<%}else if(mypageCategory.equals("A/S 문의내역")) { %>
+	<div class="mypageAsideTitle">
+		<h3>마이페이지</h3>
+		<aside class="mypageAside">
+			<ul>
+				<li id="orderHistory">						
+					<a href="DB_mypage_buyhistory.jsp">구매내역
+						<p>&gt;</p>
+					</a>
+				</li>
+				<li id="review">
+					<a href="DB_mypage_review.jsp">리뷰작성
+						<p>&gt;</p>
+					</a>
+				</li>
+				<li id="cart">
+					<a href="DB_mypage_cart.jsp">장바구니
+						<p>&gt;</p>
+					</a>
+				</li>
+				<li id="asApply">
+					<a href="DB_mypage_applyAsBefore.jsp">A/S 문의하기
+						<p>&gt;</p>
+					</a>
+				</li>
+				<li id="asHistory" class="bg">
 					<a href="DB_mypage_asHistory.jsp">A/S 문의내역
 						<p>&gt;</p>
 					</a>
@@ -341,7 +372,6 @@
 	</div>
 	<div class="contentsOrder">
 	<% if(asHistoryList != null) { %>	
-		<!-- as신청 목록 -->
 		<div class="contentsAS">
 			<table>
 				<tr>    
@@ -350,7 +380,6 @@
 					<th>신청일</th>
 					<th>처리결과</th>
 				</tr>
-<!-- td 항목 전부 변경해야 함 -->
 				<% for(int i=0; i<asHistoryList.size(); i++) { %>	
 				<tr>
 					<td><%out.println(asHistoryList.get(i).getAs_id());%></td>
@@ -360,19 +389,12 @@
 				</tr> 
 				<%} %>
 			</table> 
-			<div class="asWrite">
+		<!-- 	<div class="asWrite">
 				<input class="asWrite_btn" type="button" name="asWrite_btn" value="글쓰기" >
-			</div>
+			</div> -->
 		</div>
 		<%} else {%>
 			<p>A/S 문의 내역이 없습니다.</p>
-			
-			<%-- <div class="asWrite">
-				<input class="asWrite_btn" type="button" name="asWrite_btn" value="글쓰기" >
-			</div>
-			<div class="none">
-				<jsp:include page="login_mypage_applyAS.jsp" />
-			</div> --%>
 		<%} %>
 	</div>
 	
@@ -397,12 +419,12 @@
 						<p>&gt;</p>
 					</a>
 				</li>
-				<li id="question">
-					<a href="">1:1 문의
+				<li id="asApply">
+					<a href="DB_mypage_applyAsBefore.jsp">A/S 문의하기
 						<p>&gt;</p>
 					</a>
 				</li>
-				<li id="as">
+				<li id="asHistory">
 					<a href="DB_mypage_asHistory.jsp">A/S 문의내역
 						<p>&gt;</p>
 					</a>
@@ -430,10 +452,10 @@
 	}
 	
 	// as문의 페이지 - 글쓰기 버튼 눌렀을 때
-	var asWrite_btn = document.querySelector(".asWrite_btn");
+	/*var asWrite_btn = document.querySelector(".asWrite_btn");
 	asWrite_btn.addEventListener("click", function() {
 
-	});
+	});*/
 
 	// 장바구니
 	var cartcheck = document.querySelectorAll("input[name='cartcheck']");
