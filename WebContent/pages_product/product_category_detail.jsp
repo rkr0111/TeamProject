@@ -229,7 +229,6 @@ String product_img = isDetailSuccess.get(0).getProduct_img();
 					+ "&buy_name=" + "<%=product_name%>"
 					+ "&buy_category=" + "<%=product_category%>"
 					+ "&buy_img=" + "<%=product_img%>"
-					+ "&buy_totalprice=" + product_total.value
 					+ "&buy_price=" + <%=product_price%>
 					+ "&buy_colors=" + buy_colors
 					+ "&buy_amount=" + buy_amounts;

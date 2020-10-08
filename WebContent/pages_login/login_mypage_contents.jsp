@@ -34,7 +34,7 @@
 	ArrayList<Buyhistory_dto> buyhistoryList = (ArrayList<Buyhistory_dto>) request.getAttribute("buyhistoryList");
 	ArrayList<Buyhistory_dto> reviewList = (ArrayList<Buyhistory_dto>) request.getAttribute("reviewList");
 	ArrayList<Cart_dto> cartList = (ArrayList<Cart_dto>) request.getAttribute("cartList");
-	//ArrayList<Buyhistory_dto> applyASlist = (ArrayList<Buyhistory_dto>) request.getAttribute("applyASlist");
+	ArrayList<Buyhistory_dto> asBeforeList = (ArrayList<Buyhistory_dto>) request.getAttribute("asBeforeList");
 	ArrayList<Ashistory_dto> asHistoryList = (ArrayList<Ashistory_dto>) request.getAttribute("asHistoryList");
 	ArrayList<CustomerInfo_dto> idList = (ArrayList<CustomerInfo_dto>) request.getAttribute("idList");
 
@@ -365,8 +365,10 @@
 			</div>
 		</div>
 		
-		<div class="none">
+		<div class="aslist none">
+			<%if(asBeforeList != null) {%>
 			<jsp:include page="login_mypage_applyAS.jsp" />
+			<%}%>
 		</div>
 		<%} else {%>
 			<p>A/S 문의 내역이 없습니다.</p>
@@ -432,20 +434,16 @@
 	function cartBtnDetail(param) {
 		location.href="../productDetailSelect.bo?product_name="+encodeURIComponent(param);
 	}
-	/* $(function() {
-		$(".asWrite_btn").click(function() {
-			$(".none").removeClass('none');
-		});
-	}); */
 	
-	
+	// as문의 페이지 - 글쓰기 버튼 눌렀을 때
 	var asWrite_btn = document.querySelector(".asWrite_btn");
-	if(asWrite_btn != null) {
-		asWrite_btn.addEventListener("click", function() {
-			document.querySelector(".none").classList.remove("none");
-		});
-	} 
+	var aslist = document.querySelector(".aslist");
+	asWrite_btn.addEventListener("click", function() {
+		console.log("asdf");
+		aslist.classList.remove("none");
+	});
 
+	// 장바구니
 	var cartcheck = document.querySelectorAll("input[name='cartcheck']");
 	var cartName = document.querySelectorAll(".cartName");
 	function checkSingle(obj) {
