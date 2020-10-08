@@ -50,7 +50,7 @@
 				</tr>
 				<tr>
 					<th>상세 내용</th>
-					<td><textarea name="applyAS_contents" rows="5" cols="50"></textarea></td>
+					<td><textarea name="applyAS_contents" rows="5" cols="50" style="resize: none;" required></textarea></td>
 				</tr>
 			</table>
 	
