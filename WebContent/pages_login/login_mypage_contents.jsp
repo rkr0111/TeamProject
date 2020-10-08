@@ -442,7 +442,8 @@
 			<jsp:include page="selectMemberList.jsp" />
 		<%} else {%>
 			잘못된 접근입니다. 로그인을 다시 해주세요.
-		<%}}%>			
+			<!-- 안녕안녕 -->	
+		<%}}%>		
 	</div>
 	
 <script type="text/javascript">
