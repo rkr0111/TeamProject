@@ -32,6 +32,9 @@
 		dto.setCart_name(rs.getString(2));
 		dto.setCart_price(rs.getInt(3));
 		dto.setCart_count(rs.getInt(4));
+		dto.setCart_category(rs.getString(5));
+		dto.setCart_img(rs.getString(6));
+		dto.setCart_colors(rs.getString(7));
 						
 		cartList.add(dto);
 		request.setAttribute("cartList", cartList);	

@@ -50,7 +50,7 @@ public class Buy_ProInsertAction implements Light_action {
 		buydto.setBuy_category(buy_category);
 		buydto.setBuy_img(buy_img);
 		buydto.setBuy_totalprice(buy_totalprice);
-		buydto.setBuy_condition("주문 완료");
+		buydto.setBuy_condition("배송 완료");
 		buydto.setBuy_num(order_num);
 		
 		int i = 0;

@@ -104,7 +104,7 @@
 					<ul class="orderInfo">
 						<li>
 							<p>주문 번호</p>
-							<p>111111</p> 
+							<p><%=buyhistoryList.get(i).getBuy_num()%></p> 
 						</li>
 						<li>
 							<p>결제 금액</p> 
@@ -259,23 +259,23 @@
 		</div>
 		<% if(cartList != null) { 
 			for(int i=0; i<cartList.size(); i++) { 
-			String cart_name = cartList.get(i).getCart_name(); %>			
+			String cart_name = cartList.get(i).getCart_name();%>
 		<div class="cartList">
 			<ul class="cart">
 				<li> 
 					<div>
-						<input type="checkbox" name="cartcheck" value="<%out.print(cartList.get(i).getCart_name());%>" onclick="checkSingle(<%=i%>)"><br/>
-						<span class="cartName"><%out.print(cartList.get(i).getCart_name());%></span>
+						<input type="checkbox" name="cartcheck" value="<%=cart_name%>" onclick="checkSingle(<%=i%>)">
+						<span class="cartName"><%=cart_name%></span>
 					</div>
 				</li>
 				<li>
-					<div class="orderImgBox"><img src="../images/mypage_img/order_img/point01_03.jpg"></div>
+					<div class="orderImgBox"><img src="../images/product_img/<%=cartList.get(i).getCart_category()%>/<%=cartList.get(i).getCart_img()%>"></div>
 					<ul class="cartInfo">
 						<li>
-							<ul><%out.print(cartList.get(i).getCart_price());%> 원</ul>
+							<ul><%=cartList.get(i).getCart_price()%> 원</ul>
 							<ul class="amount">
 								<li class="btn_minus" onclick="amountCountBtn(<%=i%>, 0)">-</li>
-								<li><input type="number" name="showamount" value="0" readonly ></li>
+								<li><input type="number" name="showamount" value="<%=cartList.get(i).getCart_count()%>" readonly ></li>
 								<li class="btn_plus" onclick="amountCountBtn(<%=i%>, 1)">+</li>
 							</ul>
 						</li>
@@ -364,12 +364,6 @@
 				<input class="asWrite_btn" type="button" name="asWrite_btn" value="글쓰기" >
 			</div>
 		</div>
-		
-		<div class="aslist none">
-			<%if(asBeforeList != null) {%>
-			<jsp:include page="login_mypage_applyAS.jsp" />
-			<%}%>
-		</div>
 		<%} else {%>
 			<p>A/S 문의 내역이 없습니다.</p>
 			
@@ -437,10 +431,8 @@
 	
 	// as문의 페이지 - 글쓰기 버튼 눌렀을 때
 	var asWrite_btn = document.querySelector(".asWrite_btn");
-	var aslist = document.querySelector(".aslist");
 	asWrite_btn.addEventListener("click", function() {
-		console.log("asdf");
-		aslist.classList.remove("none");
+
 	});
 
 	// 장바구니
