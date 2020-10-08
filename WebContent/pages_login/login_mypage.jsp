@@ -46,13 +46,14 @@
 			</div>
 		</div>
 		
-		<nav class="recentNav">
+		<!-- <nav class="recentNav">
 			<ul>
 				<li>최근 본 제품</li> 
 				<li><a href=""><img src="../images/mypage_img/recent_img/bedroom01_01.jpg"></a></li>
 				<li><a href=""><img src="../images/mypage_img/recent_img/bedroom01_02.jpg"></a></li>
 			</ul>
-		</nav>
+		</nav> -->
+		<!-- 18:43 --> 
 
 		<div class="contents">
 			<!-- mypage_contents include -->
