@@ -7,6 +7,7 @@
 <%	
 	ArrayList<Buyhistory_dto> asBeforeList = (ArrayList<Buyhistory_dto>) request.getAttribute("asBeforeList");
 	String mypageCategory = request.getParameter("mypageCategory");
+	Date date = null;
 %>
 	<div class="checkAS">
 		<h1><span class="round"></span>온라인 A/S 신청 전 확인사항</h1>
@@ -29,14 +30,15 @@
 					<td>
 						<select name="applyAS_findName">
 							<option name="applyAS_product">제품을 선택해주세요.</option>
-							<%for(int i=0; i<asBeforeList.size(); i++) {%>
-							<option name="applyAS_product" value="<%out.print(asBeforeList.get(i).getBuy_name());%>"><%out.print(asBeforeList.get(i).getBuy_name()); %></option>
+							<%for(int i=0; i<asBeforeList.size(); i++) {
+								date = asBeforeList.get(i).getBuy_date(); %>
+							<option name="applyAS_product" value="<%out.print(asBeforeList.get(i).getBuy_name());%>"><%out.print(asBeforeList.get(i).getBuy_name()); }%></option>
 						</select>
 					</td>
 				</tr>
 				<tr>
 					<th>상품 구매일</th>
-					<td><%out.println(asBeforeList.get(i).getBuy_date()); }%></td>
+					<td><%=date%><%-- <%out.println(asBeforeList.get(i).getBuy_date()); %> --%></td>
 				</tr>
 				<tr>
 					<th>제목</th>
