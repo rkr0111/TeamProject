@@ -196,12 +196,12 @@
 					<tr>
 						<th>제목</th>
 						<td>
-							<input type="text" name="review_title">
+							<input type="review_title" name="reviewSubject">
 						</td>
 					</tr>
 					<tr>
 						<th>사진 업로드</th>
-						<td><input type="file" name="review_img"></td>
+						<td><input type="review_file" name="img"></td>
 					</tr>
 					<tr>
 						<th>내용</th>

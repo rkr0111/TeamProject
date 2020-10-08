@@ -53,7 +53,6 @@
 				<li><a href=""><img src="../images/mypage_img/recent_img/bedroom01_02.jpg"></a></li>
 			</ul>
 		</nav> -->
-		<!-- 18:43 --> 
 
 		<div class="contents">
 			<!-- mypage_contents include -->

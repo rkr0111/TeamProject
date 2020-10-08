@@ -37,10 +37,6 @@
 					</td>
 				</tr>
 				<tr>
-					<th>상품 구매일</th>
-					<td><%=date%><%-- <%out.println(asBeforeList.get(i).getBuy_date()); %> --%></td>
-				</tr>
-				<tr>
 					<th>제목</th>
 					<td>
 						<select name="applyAS_title">
