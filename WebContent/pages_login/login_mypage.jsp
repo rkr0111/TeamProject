@@ -40,7 +40,10 @@
 <!-- 마이페이지의 인덱스페이지는 구매내역 (마이페이지 = 구매내역 페이지) -->
 	<section id="wrap">
 		<div class="member">
-			My Page
+			<div class="member-inner">
+				<p class="memberId"><%=id%>님 반갑습니다.</p>
+				<p class="updateIdPwd" onclick="location.href='DB_mypage_IdPwd.jsp'">개인정보 수정 &gt;</p>
+			</div>
 		</div>
 		
 		<nav class="recentNav">

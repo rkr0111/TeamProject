@@ -6,11 +6,28 @@
 }
 
 /* class = member ------------------------------*/
-.member{
-	margin-bottom: 70px;
-    height: 250px;
-    background-color: #e8e8e8;
-    display: flex;
+.member {
+    margin-bottom: 70px;
+    background-color: #efdbc4;
+}
+.member > .member-inner{
+	width: 1200px;
+    margin: 0 auto;
+    padding: 30px 20px 30px 270px;
+    box-sizing: border-box;
+	overflow: hidden;
+}
+.member > .member-inner p {
+    letter-spacing: 0.3px;
+    font-size: 15px;
+}
+.member > .member-inner .memberId {
+    float: left;
+}
+.member > .member-inner .updateIdPwd {
+	cursor: pointer;
+    float: right;
+    color: #8e8e8e;
 }
 /* class = recentNav ------------------------------*/
 .recentNav {

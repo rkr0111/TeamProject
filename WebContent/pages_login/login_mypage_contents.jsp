@@ -181,7 +181,7 @@
 
 		<div class="applyReview">
 			<h1><span class="round"></span>리뷰 게시글 작성</h1>
-			<form action="reviewAllList.bo" method="post">
+			<form action="" method="post" enctype="multipart/form-data">
 				<table>
 					<tr>
 						<th>제품 이름</th>
@@ -196,16 +196,16 @@
 					<tr>
 						<th>제목</th>
 						<td>
-							<input type="text" name="reviewSubject">
+							<input type="review_title" name="reviewSubject">
 						</td>
 					</tr>
 					<tr>
 						<th>사진 업로드</th>
-						<td><input type="text" name="img"></td>
+						<td><input type="review_file" name="img"></td>
 					</tr>
 					<tr>
 						<th>내용</th>
-						<td><textarea name="applyReview_contents" rows="5" cols="50"></textarea></td>
+						<td><textarea name="review_contents" rows="5" cols="50" style="resize: none;" required></textarea></td>
 					</tr>
 				</table>
 
