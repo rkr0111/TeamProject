@@ -321,6 +321,16 @@ public class TeamPro_dao {
 		sqlsession.close();
 		return insertCount;
 	}
+	// 리뷰 작성 insert - 1008 dhdbswl 수정 
+	public int Conn_insert_reviewContents(Review_dto dto) {
+		int insertCount = 0;
+		SqlSession sqlsession = sqlfactory.openSession();
+		sqlsession.insert("insert_reviewContents", dto);
+		sqlsession.commit();
+		insertCount = 1;
+		sqlsession.close();
+		return insertCount;
+	}
 	
 	//update - 0730 rkr0111 수정
 	public int Conn_update(Product_dto dto) {

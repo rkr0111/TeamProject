@@ -181,7 +181,7 @@
 
 		<div class="applyReview">
 			<h1><span class="round"></span>리뷰 게시글 작성</h1>
-			<form action="" method="post" enctype="multipart/form-data">
+			<form action="../reviewContentsInsert.bo" method="post" enctype="multipart/form-data">
 				<table>
 					<tr>
 						<th>제품 이름</th>
@@ -189,19 +189,13 @@
 							<select name="applyReview_findName">
 								<option name="applyReview_product">제품을 선택해주세요.</option>
 								<%for(int i=0; i<reviewList.size(); i++) {%>
-								<option name="applyReview_product" value="<%out.print(reviewList.get(i).getBuy_name());%>"><%out.print(reviewList.get(i).getBuy_name()); }%></option>
+								<option name="review_name" value="<%out.print(reviewList.get(i).getBuy_name());%>"><%out.print(reviewList.get(i).getBuy_name()); }%></option>
 							</select>
 						</td>
 					</tr>
 					<tr>
-						<th>제목</th>
-						<td>
-							<input type="review_title" name="reviewSubject">
-						</td>
-					</tr>
-					<tr>
 						<th>사진 업로드</th>
-						<td><input type="review_file" name="img"></td>
+						<td><input type="file" name="review_img"></td>
 					</tr>
 					<tr>
 						<th>내용</th>
@@ -209,6 +203,9 @@
 					</tr>
 				</table>
 
+				<%for(int i=0; i<reviewList.size(); i++) {%>
+				<input type="hidden" name="review_img" value="<%=reviewList.get(i).getBuy_img()%>" />
+				<%} %>
 				<input class="applyReview_btn" type="submit" name="applyReview_btn" value="올리기">
 			</form>
 		</div>
@@ -475,7 +472,6 @@
 			<jsp:include page="selectMemberList.jsp" />
 		<%} else {%>
 			잘못된 접근입니다. 로그인을 다시 해주세요.
-			<!-- 안녕안녕 -->	
 		<%}}%>		
 	</div>
 	
@@ -484,12 +480,6 @@
 	function cartBtnDetail(param) {
 		location.href="../productDetailSelect.bo?product_name="+encodeURIComponent(param);
 	}
-	
-	// as문의 페이지 - 글쓰기 버튼 눌렀을 때
-	/* var asWrite_btn = document.querySelector(".asWrite_btn");
-	asWrite_btn.addEventListener("click", function() {
-
-	}); */
 
 	// 장바구니
 	var cartcheck = document.querySelectorAll("input[name='cartcheck']");

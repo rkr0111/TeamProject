@@ -30,6 +30,7 @@ import com.TeamPro.action.Product_ListAction;
 import com.TeamPro.action.Product_UpdateAction;
 import com.TeamPro.action.Review_AllListAction;
 import com.TeamPro.action.Review_CommentInsertAction;
+import com.TeamPro.action.Review_ContentsInsertAction;
 import com.TeamPro.action.Review_DetailAction;
 import com.TeamPro.action.Review_ReplyInsertAction;
 import com.TeamPro.action.Review_likeUpdateAction;
@@ -219,6 +220,13 @@ public class Light_controller extends javax.servlet.http.HttpServlet {
 			}
 		}else if(command.equals("/cartOrderInsert.bo")) { // 1008 dhdbswl 수정
 			action = new Cart_OrderInsertAction();
+			try{
+				forward=action.execute(request, response);
+			}catch(Exception e){
+				System.out.println(e);
+			}
+		}else if(command.equals("/reviewContentsInsert.bo")) { // 1008 dhdbswl 수정
+			action = new Review_ContentsInsertAction();
 			try{
 				forward=action.execute(request, response);
 			}catch(Exception e){
