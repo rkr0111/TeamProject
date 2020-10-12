@@ -16,16 +16,14 @@ public class Customer_DownloadFileAction implements Light_action {
 		ActionForward forward = null;
 		
 		String fileName = request.getParameter("product_file");
-		//System.out.println("action product_file : " + fileName);
 		
-		String savePath = "product_file";
+		String savePath = "/uplaod";
 		ServletContext context = request.getServletContext();
 		String sDownloadPath = context.getRealPath(savePath);
 		String sFilePath = sDownloadPath + "\\" + fileName;
 		byte b[] = new byte[4096];
 		FileInputStream in = new FileInputStream(sFilePath);
 		String sMimeType = request.getServletContext().getMimeType(sFilePath);
-		//System.out.println("sMimeType>>>" + sMimeType);
 
 		if (sMimeType == null)
 			sMimeType = "application/octet-stream";

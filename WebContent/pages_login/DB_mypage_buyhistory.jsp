@@ -17,7 +17,7 @@
 	Statement stmt=null;
 	try {
 		Class.forName("com.mysql.jdbc.Driver");
-		conn = DriverManager.getConnection("jdbc:mysql://teamlight.cafe24.com/teamlight", "teamlight", "teamlight1995!");
+		conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/teamlight", "teamlight", "teamlight1995!");
 		if (conn == null) {
 			out.println("light 데이터베이스로 연결을 할 수 없습니다.");
 		}
