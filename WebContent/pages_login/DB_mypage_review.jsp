@@ -30,7 +30,7 @@
 			out.println("light 데이터베이스로 연결을 할 수 없습니다.");
 		}
 		stmt = conn.createStatement();
-		ResultSet rs = stmt.executeQuery("select * from buyhistory where buy_id='"+id+"' and buy_name NOT IN (select review_name from review where review_name is not null);");
+		ResultSet rs = stmt.executeQuery("select * from buyhistory where buy_id='"+id+"' and buy_name NOT IN (select review_name from review where review_name is not null and review_id='"+id+"');");
 		
 		if(rs.next()) {
 			ArrayList<Object> reviewList = new ArrayList<Object>();
