@@ -23,13 +23,19 @@
 			<h1 class="titleText">아이디 찾기</h3>
 			<div class="findIdContainer">
 				<ul>
-					<li>가입 시 입력한 휴대폰 번호를 통해</li>
+					<li>가입 시 입력한 정보를 통해</li>
 					<li>아이디를 찾으실 수 있습니다.</li>
 				</ul>
 
 				<ul class="findIdInputInfo">
 					<li><input type="text" name="inputname" placeholder="이름을 입력해주세요."></li>
-					<li><input type="text" name="inputphone" placeholder="휴대폰 번호를 '-'를 제외하고 입력해주세요."></li>
+				</ul>
+				<ul class="findIdPhone">
+					<li><input type="text" name="phone-choice" placeholder=""></li>
+					<li>-</li>
+					<li><input type="text" name="middle-phonenum" onKeyup="this.value=this.value.replace(/[^0-9]/g,'');"></li>
+					<li>-</li>
+					<li><input type="text" name="last-phonenum" onKeyup="this.value=this.value.replace(/[^0-9]/g,'');"></li>
 				</ul>
 				<!-- 아이디 찾기 버튼 -->
 				<div class="btnContainer">

@@ -44,15 +44,27 @@ footer {
 	margin-bottom: 10px;
 }
 .findIdInputInfo li:last-of-type {
-	margin-bottom: 30px;
+	margin-bottom: 10px;
 }
-.findIdInputInfo input {
+.findIdInputInfo input{
 	width: 400px;
     height: 45px;
     border: 1px solid #c1bfbf;
     border-radius: 5px;
 }
 
+.findIdPhone input{
+	width: 122px;
+    height: 45px;
+    border: 1px solid #c1bfbf;
+    border-radius: 5px;
+}
+.findIdPhone {
+	margin-bottom: 20px;
+}
+.findIdPhone li {
+	display: inline-block;
+}
 
 
 /*btnContainer*/

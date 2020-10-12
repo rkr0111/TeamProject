@@ -469,7 +469,7 @@
 	</div>
 	<div class="contentsOrder">
 		<%if(idList != null) { %>
-			<jsp:include page="selectMemberList.jsp" />
+			<jsp:include page="login_mypage_infoUpdate.jsp" /> 
 		<%} else {%>
 			잘못된 접근입니다. 로그인을 다시 해주세요.
 		<%}}%>		

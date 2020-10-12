@@ -21,7 +21,7 @@
 	function checkBtn() {
 		var checkPwd = document.getElementById("checkPwd");
 		if(checkPwd.value=="<% out.print(idList.get(0).getCustomer_pwd()); %>") {
-			location.href="DB_mypage_member.jsp";
+			location.href="DB_mypage_infoUpdateBefore.jsp";
 		}else {
 			alert("비밀번호가 틀렸습니다.");
 		}

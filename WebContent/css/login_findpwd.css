@@ -44,7 +44,7 @@ footer {
 	margin-bottom: 10px;
 }
 .findPwdInputInfo li:last-of-type {
-	margin-bottom: 30px;
+	margin-bottom: 10px;
 }
 .findPwdInputInfo input {
 	width: 400px;
@@ -53,6 +53,18 @@ footer {
     border-radius: 5px;
 }
 
+.findPwdPhone input{
+	width: 122px;
+    height: 45px;
+    border: 1px solid #c1bfbf;
+    border-radius: 5px;
+}
+.findPwdPhone {
+	margin-bottom: 20px;
+}
+.findPwdPhone li {
+	display: inline-block;
+}
 
 
 /*btnContainer*/
