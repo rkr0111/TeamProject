@@ -23,7 +23,7 @@
 			out.println("light 데이터베이스로 연결을 할 수 없습니다.");
 		}
 		stmt = conn.createStatement();
-		String sql = "insert into ashistory values('"+id+"', '"+as_name+"', '"+as_subject+"', sysdate(), '"+as_contents+"', '');";
+		String sql = "insert into ashistory values(default, '"+id+"', '"+as_name+"', '"+as_subject+"', sysdate(), '"+as_contents+"', '');";
 		int result = stmt.executeUpdate(sql);
 		
 		if(result > 0) {

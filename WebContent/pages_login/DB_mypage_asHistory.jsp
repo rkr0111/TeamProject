@@ -28,12 +28,13 @@
 			
 			do {
 				Ashistory_dto dto = new Ashistory_dto();
-				dto.setAs_id(rs.getString(1));
-				dto.setAs_name(rs.getString(2));
-				dto.setAs_subject(rs.getString(3));
-				dto.setAs_date(rs.getDate(4));
-				dto.setAs_contents(rs.getString(5));
-				dto.setAs_condition(rs.getString(6));
+				dto.setAs_num(rs.getInt(1));
+				dto.setAs_id(rs.getString(2));
+				dto.setAs_name(rs.getString(3));
+				dto.setAs_subject(rs.getString(4));
+				dto.setAs_date(rs.getDate(5));
+				dto.setAs_contents(rs.getString(6));
+				dto.setAs_condition(rs.getString(7));
 								
 				asHistoryList.add(dto);
 				request.setAttribute("asHistoryList", asHistoryList);

@@ -10,23 +10,14 @@
 <%@page import="com.TeamPro.dto.Ashistory_dto"%>
 <%@page import="com.TeamPro.dto.CustomerInfo_dto"%>
 <%@page import="java.util.*"%>
-<!-- 
+
 <!DOCTYPE html>
 <html lang="ko">
 <head>
 	<meta charset="utf-8">
-	<title></title>	
-	<link rel="stylesheet" type="text/css" href="../css/reset.css">
-	<link rel="stylesheet" type="text/css" href="../css/common.css">
-	<link rel="stylesheet" type="text/css" href="../css/allStyle.css">
-	<link rel="stylesheet" type="text/css" href="../css/font.css">
-	<link rel="stylesheet" type="text/css" href="../css/login_mypage.css">
+	<title></title>
 
-	jQuery cdn
-	<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
-<title></title>
-
-</head> -->
+</head>
 <body>
 
 <%
@@ -101,7 +92,7 @@
 					<div><%=buyhistoryList.get(i).getBuy_name()%></div>
 					<ul class="addEtc">
 						<a href="DB_mypage_review.jsp"><li>리뷰작성</li></a>
-						<a href=""><li>문의하기</li></a>
+						<a href="DB_mypage_applyAsBefore.jsp"><li>A/S문의하기</li></a>
 					</ul>
 				</li>
 				<li>
@@ -412,16 +403,16 @@
 				</tr>
 				<% for(int i=0; i<asHistoryList.size(); i++) { %>	
 				<tr>
-					<td><%out.println(asHistoryList.get(i).getAs_id());%></td>
-					<td><%out.println(asHistoryList.get(i).getAs_subject()); %></td>
-					<td><%out.println(asHistoryList.get(i).getAs_date()); %></td>
-					<td><%out.println(asHistoryList.get(i).getAs_condition()); %></td>
-				</tr> 
+					<td><%=asHistoryList.get(i).getAs_num()%></td>
+					<td class="subject" onclick="clickAsSubject(<%=i%>)"><%=asHistoryList.get(i).getAs_subject()%></td>
+					<td><%=asHistoryList.get(i).getAs_date()%></td>
+					<td><%=asHistoryList.get(i).getAs_condition()%></td>
+				</tr>
+				<tr class="contentTR none">
+					<td colspan="4"><%=asHistoryList.get(i).getAs_contents()%></td>
+				</tr>
 				<%} %>
 			</table> 
-		<!-- 	<div class="asWrite">
-				<input class="asWrite_btn" type="button" name="asWrite_btn" value="글쓰기" >
-			</div> -->
 		</div>
 		<%} else {%>
 			<p>A/S 문의 내역이 없습니다.</p>
@@ -561,6 +552,12 @@
 				+ "&buy_amount=" + buy_amount;
 				
 		location.href="../cartOrderInsert.bo"+param;
+	}
+	
+	// as문의 내역 - 제목 클릭시 컨텐츠 display
+	function clickAsSubject(obj) {
+		var contentTR = document.querySelectorAll(".contentTR");
+		contentTR[obj].classList.toggle("none");
 	}
 </script>
 	

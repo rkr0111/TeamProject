@@ -3,6 +3,7 @@ package com.TeamPro.dto;
 import java.sql.Date;
 
 public class Ashistory_dto {
+	int as_num;
 	String as_id;
 	String as_name;
 	String as_subject;
@@ -10,6 +11,12 @@ public class Ashistory_dto {
 	String as_contents;
 	String as_condition;
 	
+	public int getAs_num() {
+		return as_num;
+	}
+	public void setAs_num(int as_num) {
+		this.as_num = as_num;
+	}
 	public String getAs_id() {
 		return as_id;
 	}

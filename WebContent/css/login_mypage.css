@@ -513,6 +513,7 @@ mypage_contents->as
     text-align: center;
     font-size: 0.9em;
     color: #656565;
+    border-bottom: 1px solid #ddd;
 }
 .contentsAS table tr:first-of-type {
     background-color: #e8e8e8;
@@ -529,8 +530,22 @@ mypage_contents->as
 .contentsAS table td {
     width: 650px;
     padding: 20px 30px;
-    vertical-align: left;
 }
+.contentsAS table td.subject {
+    cursor: pointer;
+}
+.contentsAS table .contentTR {
+    text-align: left;
+}
+.contentsAS table .contentTR td {
+    word-break: break-all;
+    line-height: 1.4;
+}
+.contentsAS table .contentTR.none {
+    display: none;
+}
+
+
 /*.asWrite input[type=button]{
     float: right;
     margin-right: 50px;
