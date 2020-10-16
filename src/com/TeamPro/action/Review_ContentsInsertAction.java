@@ -25,7 +25,7 @@ public class Review_ContentsInsertAction implements Light_action {
 		ActionForward forward = null;
 		Review_dto reviewdto = new Review_dto();
 		String realFolder="";
-		String saveFolder="/home/hosting_user/teamlight/uplaod/review_img/";
+		String saveFolder="/upload/review_img";
 		int fileSize=100*1024*1024;
 		ServletContext context = request.getServletContext();
 		realFolder=context.getRealPath(saveFolder);

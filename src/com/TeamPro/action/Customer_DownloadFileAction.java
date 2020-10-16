@@ -17,7 +17,7 @@ public class Customer_DownloadFileAction implements Light_action {
 		
 		String fileName = request.getParameter("product_file");
 		
-		String savePath = "/uplaod";
+		String savePath = "/upload/product_file";
 		ServletContext context = request.getServletContext();
 		String sDownloadPath = context.getRealPath(savePath);
 		String sFilePath = sDownloadPath + "\\" + fileName;
