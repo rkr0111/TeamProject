@@ -43,10 +43,10 @@
 			}
 			while(rs.next());
 			
-			RequestDispatcher dispatcher = request.getRequestDispatcher("login_infoUpdate.jsp");
+			RequestDispatcher dispatcher = request.getRequestDispatcher("login_mypage_infoUpdate.jsp");
 			dispatcher.forward(request, response);
 		}else {
-			RequestDispatcher dispatcher = request.getRequestDispatcher("login_infoUpdate.jsp");
+			RequestDispatcher dispatcher = request.getRequestDispatcher("login_mypage_infoUpdate.jsp");
 			dispatcher.forward(request, response);   
 		}
 	} finally {

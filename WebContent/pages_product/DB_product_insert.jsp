@@ -116,31 +116,5 @@
 		<input type="submit" value="상품 등록">
 	</form>
 
-<!-- script -->
-<script type="text/javascript">
-	var colorBoxTD = document.querySelector(".colorBoxTD");
-	var cnt = 1;
-	
-	function addColorBox() {
-		var addInput = document.createElement("input");
-		var addBr = document.createElement("br");
-		
-		addInput.type = "text";
-		addInput.name = "prodcut_color";
-		addInput.setAttribute("onKeyup", "this.value=this.value.replace(/[ㄱ-ㅎㅏ-ㅡ가-핳]/g,'');");
-		addInput.setAttribute("class", "colorInput" + (cnt++));
-
-		colorBoxTD.append(addInput);
-		colorBoxTD.append(addBr);
-	}
-	
-	function removeColorBox() {
-		var inputBox = document.querySelector("input[class^='colorInput']");
-		var br = document.querySelector("input[class^='colorInput'] + br");
-		inputBox.remove();
-		br.remove();
-	}
-</script>
-	
 </body>
 </html>

@@ -96,7 +96,9 @@
 					</ul>
 				</li>
 				<li>
-					<div class="orderImgBox"><img src="../images/product_img/<%=buyhistoryList.get(i).getBuy_category()%>/<%=buyhistoryList.get(i).getBuy_img()%>"></div>
+					<div class="orderImgBox">
+						<img src="../images/product_img/<%=buyhistoryList.get(i).getBuy_category()%>/<%=buyhistoryList.get(i).getBuy_img()%>">
+					</div>
 					<ul class="orderInfo">
 						<li>
 							<p>주문 번호</p>
@@ -460,7 +462,7 @@
 	</div>
 	<div class="contentsOrder">
 		<%if(idList != null) { %>
-			<jsp:include page="login_mypage_infoUpdate.jsp" /> 
+			<jsp:include page="login_mypage_infoUpdateCheck.jsp" /> 
 		<%} else {%>
 			잘못된 접근입니다. 로그인을 다시 해주세요.
 		<%}}%>		
