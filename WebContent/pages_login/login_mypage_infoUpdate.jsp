@@ -171,7 +171,7 @@
 	<!-- script -->
 	<script type="text/javascript" src="../js/index-nav.js"></script>
 	<script type="text/javascript" src="../js/scroll.js"></script>
-	<script type="text/javascript" src="../js/login_infoUpdate.js"></script>
 	<script type="text/javascript" src="../js/login_postcode.js"></script>
+	<script type="text/javascript" src="../js/login_join.js"></script>
 </body>
 </html>
