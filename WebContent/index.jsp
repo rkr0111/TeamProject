@@ -98,7 +98,7 @@
 					<li
 						onclick="location.href='reviewDetailSelect.bo?review_num=<%=listinfo.get(i).getReview_num()%>';">
 						<div class="interiorImgBox">
-							<img src="product_file/<%=listinfo.get(i).getReview_img()%>">
+							<img src="upload/review_img/<%=listinfo.get(i).getReview_img()%>">
 						</div>
 						<p class="interiorTextBox"><%=listinfo.get(i).getReview_contents()%></p>
 					</li>

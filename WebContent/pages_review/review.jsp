@@ -56,7 +56,7 @@
 			<%if(listinfo.size() != 0) {
 			for(int i=0; i<listinfo.size(); i++) {%>
 				<li onclick="reviewDetailPage('<%=listinfo.get(i).getReview_name()%>', <%=listinfo.get(i).getReview_num()%>, '<%=id%>')" >
-					<img src="images/product_img/<%=listimg.get(i).getProduct_category()%>/<%=listinfo.get(i).getReview_img()%>">
+					<img src="upload/review_img/<%=listinfo.get(i).getReview_img()%>">
 				</li>
 			<%}}%>
 			</ul>

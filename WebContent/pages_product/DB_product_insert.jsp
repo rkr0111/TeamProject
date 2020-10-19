@@ -35,7 +35,7 @@
 <body>
 
 	<h1>상품 등록하기<br>============</h1>
-	<form action="../productInsert.bo" method="post" enctype="multipart/form-data">
+	<form action="DB_product_insertAction.jsp" method="post" enctype="multipart/form-data">
 		<table class="inserttable">
 			<tr>
 				<th>상품 이름</th>
@@ -56,7 +56,7 @@
 				<th>가격</th>
 				<td>
 					<p>숫자만 입력해주세요.</p>
-					<input type="text" name="product_price" required="required"  onKeyup="this.value=this.value.replace(/[^0-9]/g,'');">
+					<input type="number" name="product_price" required="required"  onKeyup="this.value=this.value.replace(/[^0-9]/g,'');">
 				</td>
 			</tr>
 			<tr>

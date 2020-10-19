@@ -22,7 +22,7 @@ public class Product_InsertAction implements Light_action {
 		ActionForward forward = null;
 		Product_dto prodto = null;
 		String realFolder="";
-		String saveFolder="/home/hosting_users/teamlight/www/";
+		String saveFolder="/upload/product_file";
 		int fileSize=100*1024*1024;
 		ServletContext context = request.getServletContext();
 		realFolder=context.getRealPath(saveFolder);

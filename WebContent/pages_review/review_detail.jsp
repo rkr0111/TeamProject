@@ -55,7 +55,7 @@ Object like_check = (Object) request.getAttribute("like_check");
 		<div class="interiorContainer">
 			<ul class="reviewTimeline">
 				<li>
-					<div class="reviewImg mb_5"><img src="images/product_img/<%=listimg.get(0).getProduct_category()%>/<%=listinfo.get(0).getReview_img()%>" /></div>
+					<div class="reviewImg mb_5"><img src="upload/review_img/<%=listinfo.get(0).getReview_img()%>" /></div>
 					
 					<input type="hidden" value="<%=like_check%>" name="like_check"/>
 					<p class="reviewlike mb_15">좋아요 <span class="likecount"><%=listLike.size()%></span>개</p>

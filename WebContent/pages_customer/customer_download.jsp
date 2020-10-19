@@ -27,7 +27,7 @@ List<Product_dto> filelist = (List<Product_dto>) request.getAttribute("filelist"
 
 <script type="text/javascript">
 	function fileDownload(filetext) {
-		location.href="customerDownloadfile.bo?product_file="+encodeURIComponent(filetext);
+		location.href="pages_customer/DB_downloadAction.jsp?product_file="+encodeURIComponent(filetext);
 	}
 </script>
 
