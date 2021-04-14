@@ -49,7 +49,7 @@
 > 페이징<br>
 > 상품 이미지 클릭시 해당 상품 상세페이지 이동
 
-<img src='http://drive.google.com/uc?export=view&id=1r8Vph_evXBcKutsqWUmiNz5jDBWyVTiD' />
+<img src='http://drive.google.com/uc?export=view&id=1r8Vph_evXBcKutsqWUmiNz5jDBWyVTiD' width="100%" />
 
 - 날씨 Open API 사용
 
