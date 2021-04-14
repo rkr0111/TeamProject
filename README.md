@@ -49,7 +49,7 @@
 > 페이징<br>
 > 상품 이미지 클릭시 해당 상품 상세페이지 이동
 
-<img src="https://i.ibb.co/XYyMb6b/teamproject-customer.png" />
+<img src="https://i.ibb.co/XYyMb6b/teamproject-customer.png" width="100%" />
 
 - 날씨 Open API 사용
 
