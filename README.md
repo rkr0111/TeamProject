@@ -49,19 +49,23 @@
 > 페이징<br>
 > 상품 이미지 클릭시 해당 상품 상세페이지 이동
 
-<img src="https://i.ibb.co/J7jkW5Q/teamproject-category.png" width="100%" />
+<img src="https://i.ibb.co/J7jkW5Q/teamproject-category.png" />
 
 - 날씨 Open API 사용
-- 
-<img src="https://i.ibb.co/XJJ1DMB/teamproject-mdpick.png" width="100%" />
+
+<img src="https://i.ibb.co/XJJ1DMB/teamproject-mdpick.png" />
 
 - 리뷰
 
 > 상품 구매한 유저에 한해서 리뷰 작성 가능
 > 리뷰 상세페이지에서 Ajax를 사용하여 좋아요, 댓글 기능 가능
 
-<img src="https://i.ibb.co/N2dvj6Z/teamproject-review.png" width="100%" />
+<img src="https://i.ibb.co/N2dvj6Z/teamproject-review.png" />
 
 - 카카오 지도 Open API 사용
 
-<img src="https://i.ibb.co/XYyMb6b/teamproject-customer.png" width="100%" />
+<img src="https://i.ibb.co/XYyMb6b/teamproject-customer.png" />
+
+---
+
+자세한 사항은 결과보고서 링크를 통해 확인해주시면 감사하겠습니다.
