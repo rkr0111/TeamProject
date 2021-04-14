@@ -60,7 +60,7 @@
 > 상품 구매한 유저에 한해서 리뷰 작성 가능
 > 리뷰 상세페이지에서 Ajax를 사용하여 좋아요, 댓글 기능 가능
 
-<img src="/images/portfolio_team/teamproject_review.png" width="100%" />
+<img src="teamproject_review.webp" width="100%" />
 
 - 카카오 지도 Open API 사용
 
