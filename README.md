@@ -64,7 +64,7 @@
 
 - 카카오 지도 Open API 사용
 
-<img src="https://i.ibb.co/XYyMb6b/teamproject-customer.png" />
+<img src="https://i.ibb.co/mNbK8X3/teamproject-customer.png" />
 
 ---
 
