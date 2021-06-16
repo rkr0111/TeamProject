@@ -61,7 +61,7 @@
 	<!-- script -->
 	<script type="text/javascript" src="../js/scroll.js"></script>
 	
-	<script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=fa3682f31007c1d0ad50235a88cc7e78"></script>
+	<script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=a7a4d491a7e873111d117ab1fd28c3c7"></script>
 	<script type="text/javascript">
 		// 위도, 경도 : 37.500972, 127.026860
 		
